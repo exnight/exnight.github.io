@@ -1,0 +1,47 @@
+{
+  "name": "leowong",
+  "version": "1.4.0",
+  "description": "personal site",
+  "main": "webpack.config.js",
+  "repository": "git@github.com:exnight/leowong.git",
+  "author": "exnight <exnight@users.noreply.github.com>",
+  "license": "MIT",
+  "dependencies": {
+    "firebase": "*",
+    "react": "*",
+    "react-dom": "*",
+    "react-router-dom": "*",
+    "react-slick": "*",
+    "semantic-ui-react": "*",
+    "slick-carousel": "*"
+  },
+  "devDependencies": {
+    "babel-core": "*",
+    "babel-loader": "*",
+    "babel-preset-env": "*",
+    "babel-preset-react": "*",
+    "babel-preset-stage-0": "*",
+    "css-loader": "*",
+    "eslint": "*",
+    "eslint-config-airbnb": "*",
+    "eslint-plugin-import": "*",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-react": "^6.9.0",
+    "extract-text-webpack-plugin": "*",
+    "file-loader": "*",
+    "html-webpack-plugin": "*",
+    "image-webpack-loader": "*",
+    "rimraf": "*",
+    "style-loader": "*",
+    "url-loader": "*",
+    "webpack": "*",
+    "webpack-dev-server": "*",
+    "webpack-merge": "*"
+  },
+  "scripts": {
+    "start": "webpack-dev-server --hot --inline",
+    "build": "yarn run clean && webpack -p",
+    "clean": "rimraf ./build/*",
+    "stats": "webpack -p --profile --json > stats.json"
+  }
+}
