@@ -18,9 +18,11 @@
   "devDependencies": {
     "babel-core": "*",
     "babel-loader": "*",
+    "babel-plugin-transform-imports": "*",
     "babel-preset-env": "*",
     "babel-preset-react": "*",
     "babel-preset-stage-0": "*",
+    "compression-webpack-plugin": "*",
     "css-loader": "*",
     "eslint": "*",
     "eslint-config-airbnb": "*",
@@ -40,8 +42,7 @@
   },
   "scripts": {
     "start": "webpack-dev-server --hot --inline",
-    "build": "yarn run clean && webpack -p",
-    "clean": "rimraf ./build/*",
+    "build": "rimraf ./build/* && webpack -p --config webpack.config.prod.js",
     "stats": "webpack -p --profile --json > stats.json"
   }
 }

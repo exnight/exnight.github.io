@@ -1,13 +1,6 @@
-// const webpack = require('webpack');
 const merge = require('webpack-merge');
 
-const common = require('./webpack.common');
-const dev = require('./webpack.dev');
-const prod = require('./webpack.prod');
+const common = require('./webpack.config.common');
+const dev = require('./webpack.config.dev');
 
-module.exports = () => {
-  if (process.env.NODE_ENV !== 'production') {
-    return merge.smart(common, dev);
-  }
-  return merge.smart(common, prod);
-};
+module.exports = merge.smart(common, dev);

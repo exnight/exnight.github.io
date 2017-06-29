@@ -9,12 +9,12 @@ import '../css/style.css';
 
 const __webpack_public_path__ = window.myDynamicPublicPath;
 const config = {
-  apiKey: 'AIzaSyBOFDpcFg6-8dpWlmLc4kyiKgYifXcbDSI',
-  authDomain: 'personal-site-b3739.firebaseapp.com',
-  databaseURL: 'https://personal-site-b3739.firebaseio.com',
-  projectId: 'personal-site-b3739',
-  storageBucket: 'personal-site-b3739.appspot.com',
-  messagingSenderId: '430509954560',
+  apiKey: 'AIzaSyDGiUCLWRfehrexCLMnlj4CUzJNUnTf5mw',
+  authDomain: 'leowong-e4905.firebaseapp.com',
+  databaseURL: 'https://leowong-e4905.firebaseio.com',
+  projectId: 'leowong-e4905',
+  storageBucket: 'leowong-e4905.appspot.com',
+  messagingSenderId: '207137667139',
 };
 
 firebase.initializeApp(config);

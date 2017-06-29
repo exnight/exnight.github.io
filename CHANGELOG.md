@@ -5,21 +5,22 @@
 ### Structural Reform
 
 - Deploy on Github Pages
-- Use redux
+- Integrate redux
 - Change file structure (~~type~~ feature-based)
+- Apply custom Semantic UI theme
 
-## 1.5.0 [In Progress]
+## 1.5.0 [Current]
 
 ### Content Update
 
-- Apply custom Semantic UI theme
 - Add "hobbies"
 
 ### Development Improvement
 
 - Change firebase settings
+- Use ~~Hash~~ Browser Router
 
-## 1.4.0 [Current]
+## 1.4.0
 
 ### Development Improvement
 

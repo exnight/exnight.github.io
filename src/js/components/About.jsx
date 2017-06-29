@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Container, Divider, Grid, Header, List, Segment } from 'semantic-ui-react';
 
 const About = () => (
@@ -34,6 +34,17 @@ const About = () => (
             <List.Item icon="database" content="Python Data Analysis" />
             <List.Item icon="code" content="Python, Java Script" />
             <List.Item icon="html5" content="HTML5" />
+          </List>
+        </Segment>
+      </Grid.Row>
+      <Grid.Row>
+        <Header as="h3" attached="top">Hobbies</Header>
+        <Segment attached>
+          <List relaxed size="big">
+            <List.Item icon="lab" content="Try out new things" />
+            <List.Item icon="code" content="Coding, coding , coding" />
+            <List.Item icon="soccer" content="Doing sports (basketball, netball)" />
+            <List.Item icon="book" content="Reading self development books" />
           </List>
         </Segment>
       </Grid.Row>
