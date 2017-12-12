@@ -7,44 +7,45 @@ const About = () => (
     <Divider />
     <Grid relaxed container>
       <Grid.Row>
-        <Header as="h3" attached="top">Motto</Header>
-        <Segment attached>
-          <List relaxed size="big">
+        <Header as="h5" attached="top">Motto</Header>
+        <Segment attached="bottom">
+          <List relaxed size="medium">
             <List.Item content="Less is More" />
-            <List.Item content="Actions speak louder than words" />
+            <List.Item content="Simple is Beautiful" />
           </List>
         </Segment>
       </Grid.Row>
       <Grid.Row>
-        <Header as="h3" attached="top">Interesting Facts</Header>
-        <Segment attached>
-          <List relaxed size="big" bulleted>
-            <List.Item content="I almost do not drink anything other than water" />
-            <List.Item content="I am not good at design (You should have found out...)" />
-            <List.Item content="I usually sleep at 11pm and wake up at 630am" />
-            <List.Item content="I have been in a orchestra for 8 years" />
+        <Header as="h5" attached="top">Fun Facts</Header>
+        <Segment attached="bottom">
+          <List relaxed size="medium" bulleted>
+            <List.Item content="Water can be the only drink for me" />
+            <List.Item content="I am not good at design (You should have found out anyway...)" />
+            <List.Item content="Sleeping at 11pm and waking up by 7am is great" />
+            <List.Item content="I have 8 years of experience playing violin in an orchestra" />
           </List>
         </Segment>
       </Grid.Row>
       <Grid.Row>
-        <Header as="h3" attached="top">Skills</Header>
-        <Segment attached>
-          <List relaxed size="big">
+        <Header as="h5" attached="top">Skills</Header>
+        <Segment attached="bottom">
+          <List relaxed size="medium">
             <List.Item icon="users" content="Leadership" />
             <List.Item icon="database" content="Python Data Analysis" />
-            <List.Item icon="code" content="Python, Java Script" />
-            <List.Item icon="html5" content="HTML5" />
+            <List.Item icon="code" content="Python, C++, Excel VBA" />
+            <List.Item icon="html5" content="Web Development (React JS)" />
           </List>
         </Segment>
       </Grid.Row>
       <Grid.Row>
-        <Header as="h3" attached="top">Hobbies</Header>
-        <Segment attached>
-          <List relaxed size="big">
-            <List.Item icon="lab" content="Try out new things" />
-            <List.Item icon="code" content="Coding, coding , coding" />
-            <List.Item icon="soccer" content="Doing sports (basketball, netball)" />
-            <List.Item icon="book" content="Reading self development books" />
+        <Header as="h5" attached="top">Hobbies</Header>
+        <Segment attached="bottom">
+          <List relaxed size="medium">
+            <List.Item icon="code" content="Coding, Coding, Coding" />
+            <List.Item icon="soccer" content="Team Sports (Basketball, Netball)" />
+            <List.Item icon="game" content="Counter-Strike: Global Offensive" />
+            <List.Item icon="book" content="Self-help Books" />
+            <List.Item icon="lab" content="New Things" />
           </List>
         </Segment>
       </Grid.Row>

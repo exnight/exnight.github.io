@@ -2,7 +2,7 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import firebase from 'firebase';
+import * as firebase from 'firebase/app';
 
 import App from './App';
 import '../css/style.css';

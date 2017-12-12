@@ -7,9 +7,28 @@
 - Deploy on Github Pages
 - Integrate redux
 - Change file structure (~~type~~ feature-based)
+
+## 1.6.0-alpha [Current]
+
+### Content Update
+
+- Amend miscellaneous content
+- Change layout style / appearance
+
+### Client Optimization
+
+- Optimize file output to reduce file size and delivery time
+
+### Development Update
+
+- Update dependencies
+- Update development configurations
+
+### In Progress
+
 - Apply custom Semantic UI theme
 
-## 1.5.0 [Current]
+## 1.5.0
 
 ### Content Update
 

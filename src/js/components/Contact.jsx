@@ -21,7 +21,7 @@ class Contact extends Component {
             </Header>
           </Grid.Row>
           <Grid.Row>
-            <Button href="https://www.linkedin.com/in/jia-yeung-wong-05b838140/" color="linkedin">
+            <Button href="https://www.linkedin.com/in/jia-yeung-wong-05b838140/" color="blue">
               <Icon name="linkedin" size="large" /> LinkedIn
             </Button>
             <Button href="https://www.facebook.com/leownight" color="facebook">

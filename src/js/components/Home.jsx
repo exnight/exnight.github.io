@@ -21,9 +21,8 @@ class Home extends Component {
           <Grid.Column width={4} textAlign="center">
             <Header as="h1">Welcome</Header>
             <Card
-              centered image={elliot} header="Leo Wong" meta="HKUST Student"
-              description="I am a business student who codes.
-              I enjoy business analytics as well as creating my own applications."
+              centered image={elliot} header="Leo Wong" meta="QFIN & COSC, HKUST"
+              description="Integrate business & technology to make a better world"
             />
           </Grid.Column>
         </Grid>

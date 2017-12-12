@@ -8,7 +8,7 @@ const common = {
   context: path.resolve(__dirname, 'src'),
   entry: {
     app: './js/index.jsx',
-    vendor: ['react', 'react-dom', 'semantic-ui-react'],
+    vendor: ['react', 'react-dom', 'firebase/app', 'firebase/database'],
   },
   output: {
     path: path.join(__dirname, 'build'),
@@ -23,7 +23,6 @@ const common = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['react', 'env', 'stage-0'],
             plugins: [
               ['transform-imports', {
                 'react-router-dom': {
@@ -31,7 +30,11 @@ const common = {
                   preventFullImport: true,
                 },
               }],
+              ['lodash', {
+                id: ['semantic-ui-react'],
+              }],
             ],
+            presets: ['@babel/preset-react', '@babel/preset-env', '@babel/preset-stage-0'],
           },
         },
       },

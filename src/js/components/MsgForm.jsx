@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import firebase from 'firebase';
+import * as firebase from 'firebase/app';
+import 'firebase/database';
 import { Form, Message } from 'semantic-ui-react';
 
 class MsgForm extends Component {
@@ -75,7 +76,7 @@ class MsgForm extends Component {
           required label="Your thoughts" placeholder="Leave your thoughts here..."
           name="message" value={message} onChange={this.handleChange}
         />
-        <Form.Button color="blue" onClick={this.handleSubmit}>Submit</Form.Button>
+        <Form.Button color="blue" onClick={this.handleSubmit}>Send</Form.Button>
         <Message
           icon="send" success visible={this.state.sent} header="Message Sent"
           content="Thank you for your message, I will reply to it soon."

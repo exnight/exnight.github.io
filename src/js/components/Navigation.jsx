@@ -17,7 +17,7 @@ class Navigation extends Component {
     const { activeItem } = this.state;
 
     return (
-      <Menu color="black" inverted borderless stackable icon="labeled" size="large">
+      <Menu color="blue" inverted stackable icon="labeled" size="mini">
         <Container>
           <Menu.Item
             header as={Link} to="/" icon="desktop" content="Leo Wong"
