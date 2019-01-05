@@ -15,7 +15,7 @@ const Slideshow = () => {
     dots: true,
     speed: 1500,
     autoplay: true,
-    autoplaySpeed: 6000,
+    autoplaySpeed: 5000,
     fade: true,
   };
 

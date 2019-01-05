@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const merge = require('webpack-merge');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 const common = require('./webpack.config.common');
 
@@ -9,19 +10,6 @@ const prod = {
     filename: './js/[name].[chunkhash:6].js',
   },
   plugins: [
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false,
-        screw_ie8: true,
-        unsafe: true,
-        unsafe_comps: true,
-      },
-      comments: false,
-      unused: true,
-      dead_code: true,
-      exclude: [/\.min\.js$/gi],
-      sourceMap: false,
-    }),
     new webpack.optimize.AggressiveMergingPlugin(),
     new BundleAnalyzerPlugin({
       analyzerMode: 'server',
@@ -36,6 +24,14 @@ const prod = {
       logLevel: 'info',
     }),
   ],
+  optimization: {
+    minimizer: [
+      new UglifyJsPlugin({
+        parallel: true,
+      }),
+    ],
+  },
+  mode: 'production',
 };
 
 module.exports = merge.smart(common, prod);

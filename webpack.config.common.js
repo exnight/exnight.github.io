@@ -1,6 +1,6 @@
 const webpack = require('webpack');
 const path = require('path');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 
@@ -8,11 +8,12 @@ const common = {
   context: path.resolve(__dirname, 'src'),
   entry: {
     app: './js/index.jsx',
-    vendor: ['react', 'react-dom', 'firebase/app', 'firebase/database'],
+    // vendor: ['react', 'react-dom', 'firebase/app', 'firebase/database'],
   },
   output: {
     path: path.join(__dirname, 'build'),
-    chunkFilename: './js/bundle-[chunkhash].js',
+    filename: './js/[name]-[chunkhash].js',
+    chunkFilename: './js/[name]-[chunkhash].js',
   },
   module: {
     rules: [
@@ -33,17 +34,18 @@ const common = {
               ['lodash', {
                 id: ['semantic-ui-react'],
               }],
+              '@babel/plugin-proposal-function-bind',
             ],
-            presets: ['@babel/preset-react', '@babel/preset-env', '@babel/preset-stage-0'],
+            presets: ['@babel/preset-react', '@babel/preset-env'],
           },
         },
       },
       {
         test: /\.css$/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: 'css-loader',
-        }),
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+        ],
       },
       {
         test: /\.(jpe?g|gif|png|svg)$/i,
@@ -73,13 +75,18 @@ const common = {
       },
     ],
   },
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendor',
+          chunks: 'initial',
+        },
+      },
+    },
+  },
   plugins: [
-    new webpack.optimize.CommonsChunkPlugin({
-      name: ['vendor', 'manifest'],
-    }),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'manifest',
-    }),
     new HtmlWebpackPlugin({
       title: 'Leo Wong',
       template: './index.ejs',
@@ -87,15 +94,11 @@ const common = {
       hash: true,
       favicon: './favicon.ico',
     }),
-    new ExtractTextPlugin({
+    new webpack.HashedModuleIdsPlugin(),
+    new MiniCssExtractPlugin({
       filename: 'css/[name]-[contenthash:6].css',
-      publicPath: './',
-      disable: false,
-      allChunks: true,
     }),
     new CompressionPlugin({
-      asset: '[path].gz[query]',
-      algorithm: 'gzip',
       test: /\.(js|css|html)$/,
       threshold: 10240,
       minRatio: 0.6,

@@ -13,6 +13,7 @@ const dev = {
     open: true,
     port: 8080,
   },
+  mode: 'development',
 };
 
 module.exports = dev;

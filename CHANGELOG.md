@@ -28,6 +28,16 @@
 
 - Apply custom Semantic UI theme
 
+## 1.5.1
+
+### Content Update
+
+- Update footer
+
+### Development Improvement
+
+- Update dependencies
+
 ## 1.5.0
 
 ### Content Update
