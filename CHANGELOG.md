@@ -34,9 +34,11 @@
 
 - Update footer
 
-### Development Improvement
+### Development Update
 
+- Split vendor dependencies for better caching
 - Update dependencies
+- Update CSS dependencies
 
 ## 1.5.0
 

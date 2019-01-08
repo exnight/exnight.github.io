@@ -1,6 +1,6 @@
 {
   "name": "leowong",
-  "version": "1.6.0-alpha",
+  "version": "1.5.1",
   "description": "personal site",
   "main": "webpack.config.js",
   "repository": "git@github.com:exnight/leowong.git",

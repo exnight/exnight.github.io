@@ -8,12 +8,10 @@ const common = {
   context: path.resolve(__dirname, 'src'),
   entry: {
     app: './js/index.jsx',
-    // vendor: ['react', 'react-dom', 'firebase/app', 'firebase/database'],
   },
   output: {
     path: path.join(__dirname, 'build'),
-    filename: './js/[name]-[chunkhash].js',
-    chunkFilename: './js/[name]-[chunkhash].js',
+    filename: './js/[name]-[contenthash].js',
   },
   module: {
     rules: [
@@ -77,11 +75,34 @@ const common = {
   },
   optimization: {
     splitChunks: {
+      chunks: 'all',
+      minSize: 0,
+      maxInitialRequests: Infinity,
       cacheGroups: {
-        vendor: {
-          test: /[\\/]node_modules[\\/]/,
-          name: 'vendor',
-          chunks: 'initial',
+        default: false,
+        reactVendor: {
+          test: /[\\/]node_modules[\\/](react|react-dom)[\\/]/,
+          name: 'reactVendor',
+          enforce: true,
+          priority: 4,
+        },
+        firebaseVendor: {
+          test: /[\\/]node_modules[\\/](@firebase)[\\/]/,
+          name: 'firebaseVendor',
+          enforce: true,
+          priority: 4,
+        },
+        semanticUIVendor: {
+          test: /[\\/]node_modules[\\/](semantic-ui-react)[\\/]/,
+          name: 'semanticUIVendor',
+          enforce: true,
+          priority: 4,
+        },
+        vendors: {
+          test: /node_modules/,
+          name: 'vendors',
+          enforce: true,
+          priority: 2,
         },
       },
     },
