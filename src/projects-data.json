@@ -1,0 +1,53 @@
+{
+  "01" : {
+    "tags" : [ {
+      "color" : "blue",
+      "text" : "React JS"
+    }, {
+      "color" : "teal",
+      "text" : "Semantic UI"
+    }, {
+      "color" : "blue",
+      "text" : "Webpack 4"
+    }, {
+      "color" : "orange",
+      "text" : "Firebase"
+    } ],
+    "text" : "The website is built with up-to-date web development frameworks and tools",
+    "title" : "This Website"
+  },
+  "02" : {
+    "tags" : [ {
+      "color" : "yellow",
+      "text" : "Python 3"
+    }, {
+      "color" : "red",
+      "text" : "Quantopian"
+    }, {
+      "color" : "orange",
+      "text" : "Jupyter Notebook"
+    }, {
+      "color" : "blue",
+      "text" : "Matplotlib 3"
+    } ],
+    "text" : "A simulation system performing algorithmic trading based on mixed factors and market sentiment",
+    "title" : "Algorithmic Trading System"
+  },
+  "03" : {
+    "tags" : [ {
+      "color" : "blue",
+      "text" : "React JS"
+    }, {
+      "color" : "olive",
+      "text" : "Express (Node JS)"
+    }, {
+      "color" : "teal",
+      "text" : "MongoDB"
+    }, {
+      "color" : "blue",
+      "text" : "Webpack 4"
+    } ],
+    "text" : "A blog built from scrach, both the front-end UI and the back-end system, currently under design",
+    "title" : "Personal Blog"
+  }
+}
