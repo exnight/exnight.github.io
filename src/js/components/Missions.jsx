@@ -26,11 +26,12 @@ class Missions extends Component {
   }
 
   render() {
+    const { missions } = this.state;
     return (
       <Container>
         <Header as="h1">Mission Impossible</Header>
         <Divider />
-        <MissionItem missions={this.state.missions} />
+        <MissionItem missions={missions} />
       </Container>
     );
   }

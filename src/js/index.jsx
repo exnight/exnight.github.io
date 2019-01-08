@@ -1,4 +1,5 @@
-/* global document window */
+// /* global document window */
+/* global document */
 
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -7,7 +8,7 @@ import * as firebase from 'firebase/app';
 import App from './App';
 import '../css/style.css';
 
-const __webpack_public_path__ = window.myDynamicPublicPath;
+// const __webpack_public_path__ = window.myDynamicPublicPath;
 const config = {
   apiKey: 'AIzaSyDGiUCLWRfehrexCLMnlj4CUzJNUnTf5mw',
   authDomain: 'leowong-e4905.firebaseapp.com',

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Button, Item, Label, Modal } from 'semantic-ui-react';
+import PropTypes from 'prop-types';
 
 class ProjectItem extends Component {
   constructor(props) {
@@ -13,7 +14,8 @@ class ProjectItem extends Component {
       <div className="description">
         <p>{text}</p>
         {tags.map(tag => <Label key={tag.text} tag content={tag.text} color={tag.color} />)}
-      </div>);
+      </div>
+    );
     const itemDetail = ({ title, text }) => (
       <Modal
         dimmer="inverted" trigger={knowMore} closeIcon="close" content={text} header={title}
@@ -27,18 +29,29 @@ class ProjectItem extends Component {
             onClick: this.close,
           },
         ]}
-      />);
+      />
+    );
 
+    const { projects } = this.props;
     return (
       <Item.Group relaxed>
-        {this.props.projects.map((item, i) => (
+        {projects.map((item, i) => (
           <Item
             key={String(i)} header={item.title} extra={itemDetail(item)}
             description={itemContent(item)}
-          />))}
+          />
+        ))}
       </Item.Group>
     );
   }
 }
+
+ProjectItem.propTypes = {
+  projects: PropTypes.instanceOf(Object),
+};
+
+ProjectItem.defaultProps = {
+  projects: {},
+};
 
 export default ProjectItem;

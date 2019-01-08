@@ -13,7 +13,8 @@ const NoMatch = () => (
     </Grid.Row>
     <Grid.Row>
       <Grid.Column width={4}>
-        <Button as={Link} to="/" positive basic fluid>Back</Button><br />
+        <Button as={Link} to="/" positive basic fluid>Back</Button>
+        <br />
       </Grid.Column>
     </Grid.Row>
     <Grid.Row>

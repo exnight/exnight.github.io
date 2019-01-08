@@ -22,7 +22,7 @@ class Home extends Component {
             <Header as="h1">Welcome</Header>
             <Card
               centered image={elliot} header="Leo Wong" meta="QFIN & COSC, HKUST"
-              description="Integrate business & technology to make a better world"
+              description="Integrate business & technology for a better world"
             />
           </Grid.Column>
         </Grid>

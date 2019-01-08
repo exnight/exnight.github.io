@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import * as firebase from 'firebase/app';
-import 'firebase/database';
+// import * as firebase from 'firebase/app';
+// import 'firebase/database';
+import firebase from 'firebase';
 import { Form, Message } from 'semantic-ui-react';
 
 class MsgForm extends Component {
@@ -54,7 +55,7 @@ class MsgForm extends Component {
   }
 
   render() {
-    const { firstName, lastName, email, message } = this.state;
+    const { firstName, lastName, email, message, sent } = this.state;
 
     return (
       <Form size="big">
@@ -78,7 +79,7 @@ class MsgForm extends Component {
         />
         <Form.Button color="blue" onClick={this.handleSubmit}>Send</Form.Button>
         <Message
-          icon="send" success visible={this.state.sent} header="Message Sent"
+          icon="send" success visible={sent} header="Message Sent"
           content="Thank you for your message, I will reply to it soon."
           onDismiss={this.handleDismiss}
         />

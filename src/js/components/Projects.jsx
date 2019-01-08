@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import * as firebase from 'firebase/app';
-import 'firebase/database';
+// import * as firebase from 'firebase/app';
+// import 'firebase/database';
+import firebase from 'firebase';
 import { Container, Divider, Header } from 'semantic-ui-react';
 
 import ProjectItem from './ProjectItem';
@@ -26,11 +27,12 @@ class Projects extends Component {
   }
 
   render() {
+    const { projects } = this.state;
     return (
       <Container>
         <Header as="h1">Projects</Header>
         <Divider />
-        <ProjectItem projects={this.state.projects} />
+        <ProjectItem projects={projects} />
       </Container>
     );
   }
