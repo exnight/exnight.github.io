@@ -16,24 +16,24 @@ const About = () => (
         </Segment>
       </Grid.Row>
       <Grid.Row>
-        <Header as="h5" attached="top">Fun Facts</Header>
+        <Header as="h5" attached="top">Skills</Header>
         <Segment attached="bottom">
-          <List relaxed size="medium" bulleted>
-            <List.Item content="Water can be the only drink for me" />
-            <List.Item content="I am not good at design (You should have found out anyway...)" />
-            <List.Item content="Sleeping at 11pm and waking up by 7am is great" />
-            <List.Item content="I have 8 years of experience playing violin in an orchestra" />
+          <List relaxed size="medium">
+            <List.Item icon="users" content="Leadership & Commitment" />
+            <List.Item icon="database" content="Big Data Mining & Management, Machine Learning" />
+            <List.Item icon="code" content="Python, C++, Excel VBA, LaTeX" />
+            <List.Item icon="html5" content="Web Development (JavaScript, React JS)" />
           </List>
         </Segment>
       </Grid.Row>
       <Grid.Row>
-        <Header as="h5" attached="top">Skills</Header>
+        <Header as="h5" attached="top">Fun Facts</Header>
         <Segment attached="bottom">
-          <List relaxed size="medium">
-            <List.Item icon="users" content="Leadership" />
-            <List.Item icon="database" content="Python Data Analysis" />
-            <List.Item icon="code" content="Python, C++, Excel VBA" />
-            <List.Item icon="html5" content="Web Development (React JS)" />
+          <List relaxed size="medium" bulleted>
+            <List.Item content="Water can be the only drink for me" />
+            <List.Item content="I'm not a great designer, but I'm learning to become one" />
+            <List.Item content="Sleeping at 11pm and waking up by 7am is great" />
+            <List.Item content="I have 8 years of experience playing violin in an orchestra" />
           </List>
         </Segment>
       </Grid.Row>
