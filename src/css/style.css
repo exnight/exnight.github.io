@@ -1,5 +1,5 @@
 body {
-  background: #f6f6f6;
+  background: #F9FAFB;
   box-sizing: border-box;
   margin: 0;
 }
@@ -9,7 +9,8 @@ body {
 }
 
 footer .container {
-  background: lightgrey;
+  background: #414652;
+  color: #F9FAFB;
   margin-top: 50px;
   padding-top: 40px;
   padding-bottom: 40px;

@@ -9,7 +9,7 @@ class ProjectItem extends Component {
   }
 
   render() {
-    const knowMore = <Button primary floated="right" content="Read More" />;
+    const knowMore = <Button primary basic floated="right" content="Read More" />;
     const itemContent = ({ tags }) => (
       <div className="description">
         {tags.map(tag => <Label key={tag.text} tag content={tag.text} color={tag.color} />)}
