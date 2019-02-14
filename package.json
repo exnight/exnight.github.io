@@ -50,6 +50,7 @@
   "scripts": {
     "start": "webpack-dev-server --hot --inline",
     "build": "rimraf ./build/* && webpack -p --config webpack.config.prod.js",
-    "stats": "webpack -p --profile --json > stats.json"
+    "stats": "webpack -p --profile --json > stats.json",
+    "test": "echo 'To be added'"
   }
 }
