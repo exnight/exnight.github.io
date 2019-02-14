@@ -5,12 +5,12 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 
 const common = {
-  context: path.resolve(__dirname, 'src'),
+  context: path.resolve(__dirname, '../src'),
   entry: {
     app: './js/index.jsx',
   },
   output: {
-    path: path.join(__dirname, 'build'),
+    path: path.join(__dirname, '../build'),
     filename: './js/[name]-[contenthash].js',
   },
   module: {
@@ -47,7 +47,7 @@ const common = {
       },
       {
         test: /\.(jpe?g|gif|png|svg)$/i,
-        include: path.join(__dirname, 'src', 'img'),
+        include: path.join(__dirname, '../src', 'img'),
         loader: ['file-loader?name=img/[name].[ext]', 'image-webpack-loader?bypassOnDebug'],
       },
       {
@@ -63,7 +63,7 @@ const common = {
       },
       {
         test: /\.(png|woff|svg|eot|ttf|woff2)$/,
-        include: path.join(__dirname, 'src', 'css'),
+        include: path.join(__dirname, '../src', 'css'),
         loader: 'url-loader',
         options: {
           limit: 1000,
