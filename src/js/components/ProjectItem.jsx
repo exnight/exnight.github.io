@@ -17,12 +17,11 @@ class ProjectItem extends Component {
     );
     const itemDetail = ({ title, text }) => (
       <Modal
-        dimmer="inverted" trigger={knowMore} closeIcon="close" content={text} header={title}
+        dimmer="inverted" trigger={knowMore} closeIcon="close" content={text} header={title} centered
         actions={[
           { key: 'yes',
             content: 'Got it',
             color: 'green',
-            triggerClose: true,
             inverted: true,
             icon: 'checkmark',
             onClick: this.close,

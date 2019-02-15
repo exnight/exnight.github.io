@@ -8,6 +8,12 @@ body {
   box-sizing: inherit;
 }
 
+.dimmed.dimmable > .ui.animating.dimmer, .dimmed.dimmable > .ui.visible.dimmer, .ui.active.dimmer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 footer .container {
   background: #414652;
   color: #F9FAFB;
