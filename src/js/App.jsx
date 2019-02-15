@@ -10,7 +10,7 @@ import Projects from './components/Projects';
 import Contact from './components/Contact';
 import NoMatch from './components/NoMatch';
 
-import '../css/semantic.min.css';
+import '../../semantic/dist/semantic.min.css';
 
 class App extends Component {
   constructor() {
