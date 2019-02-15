@@ -16,7 +16,7 @@
     "clean": "dist/"
   },
   "permission": false,
-  "autoInstall": false,
+  "autoInstall": true,
   "rtl": false,
   "components": ["reset", "site", "button", "container", "divider", "header", "icon", "image", "label", "list", "segment", "form", "grid", "menu", "message", "card", "item", "checkbox", "modal"],
   "version": "2.7.2"
