@@ -1,3 +1,14 @@
 /*******************************
      User Global Variables
 *******************************/
+
+@fontName          : 'Muli';
+
+@headerFont        : @fontName, 'Helvetica Neue', @fontName, @fontName, sans-serif;
+@pageFont          : @fontName, 'Helvetica Neue', @fontName, @fontName, sans-serif;
+
+@primaryColor        : #20232A;
+@secondaryColor      : #274690;
+
+@lightPrimaryColor   : @offWhite;
+@lightSecondaryColor : #0090C1;

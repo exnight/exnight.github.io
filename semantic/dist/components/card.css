@@ -33,10 +33,10 @@
   min-height: 0;
   background: #FFFFFF;
   padding: 0;
-  border: none;
+  border: 1px solid #EDEDEE;
   border-radius: 0.28571429rem;
-  -webkit-box-shadow: 0 1px 3px 0 #D4D4D5, 0 0 0 1px #D4D4D5;
-          box-shadow: 0 1px 3px 0 #D4D4D5, 0 0 0 1px #D4D4D5;
+  -webkit-box-shadow: none;
+          box-shadow: none;
   -webkit-transition: -webkit-box-shadow 0.1s ease, -webkit-transform 0.1s ease;
   transition: -webkit-box-shadow 0.1s ease, -webkit-transform 0.1s ease;
   transition: box-shadow 0.1s ease, transform 0.1s ease;
@@ -147,10 +147,10 @@
       -ms-flex-positive: 1;
           flex-grow: 1;
   border: none;
-  border-top: 1px solid rgba(34, 36, 38, 0.1);
+  border-top: 1px solid #EDEDEE;
   background: none;
   margin: 0;
-  padding: 1em 1em;
+  padding: 14px 20px;
   -webkit-box-shadow: none;
           box-shadow: none;
   font-size: 1em;
@@ -169,7 +169,7 @@
 .ui.card > .content > .header {
   display: block;
   margin: '';
-  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: 'Muli', 'Helvetica Neue', 'Muli', 'Muli', sans-serif;
   color: rgba(0, 0, 0, 0.85);
 }
 
@@ -267,7 +267,7 @@
 .ui.cards > .card .meta,
 .ui.card .meta {
   font-size: 1em;
-  color: rgba(0, 0, 0, 0.4);
+  color: #A5A7AA;
 }
 .ui.cards > .card .meta *,
 .ui.card .meta * {
@@ -531,11 +531,11 @@ a.ui.card:hover,
   cursor: pointer;
   z-index: 5;
   background: #FFFFFF;
-  border: none;
-  -webkit-box-shadow: 0 1px 3px 0 #BCBDBD, 0 0 0 1px #D4D4D5;
-          box-shadow: 0 1px 3px 0 #BCBDBD, 0 0 0 1px #D4D4D5;
-  -webkit-transform: translateY(-3px);
-          transform: translateY(-3px);
+  border: 1px solid #D0D0D8;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  -webkit-transform: translateY(0px);
+          transform: translateY(0px);
 }
 
 /*-------------------
@@ -545,182 +545,182 @@ a.ui.card:hover,
 .ui.primary.cards > .card,
 .ui.cards > .primary.card,
 .ui.primary.card {
-  -webkit-box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #2185D0, 0 1px 3px 0 #D4D4D5;
-          box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #2185D0, 0 1px 3px 0 #D4D4D5;
+  -webkit-box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #20232A, none;
+          box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #20232A, none;
 }
 .ui.primary.cards > .card:hover,
 .ui.cards > .primary.card:hover,
 .ui.primary.card:hover {
-  -webkit-box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #1678c2, 0 1px 3px 0 #BCBDBD;
-          box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #1678c2, 0 1px 3px 0 #BCBDBD;
+  -webkit-box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #15171c, 0 1px 0px 0 #BCBDBD;
+          box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #15171c, 0 1px 0px 0 #BCBDBD;
 }
 .ui.secondary.cards > .card,
 .ui.cards > .secondary.card,
 .ui.secondary.card {
-  -webkit-box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #1B1C1D, 0 1px 3px 0 #D4D4D5;
-          box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #1B1C1D, 0 1px 3px 0 #D4D4D5;
+  -webkit-box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #274690, none;
+          box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #274690, none;
 }
 .ui.secondary.cards > .card:hover,
 .ui.cards > .secondary.card:hover,
 .ui.secondary.card:hover {
-  -webkit-box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #27292a, 0 1px 3px 0 #BCBDBD;
-          box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #27292a, 0 1px 3px 0 #BCBDBD;
+  -webkit-box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #264daa, 0 1px 0px 0 #BCBDBD;
+          box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #264daa, 0 1px 0px 0 #BCBDBD;
 }
 .ui.red.cards > .card,
 .ui.cards > .red.card,
 .ui.red.card {
-  -webkit-box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #DB2828, 0 1px 3px 0 #D4D4D5;
-          box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #DB2828, 0 1px 3px 0 #D4D4D5;
+  -webkit-box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #DB2828, none;
+          box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #DB2828, none;
 }
 .ui.red.cards > .card:hover,
 .ui.cards > .red.card:hover,
 .ui.red.card:hover {
-  -webkit-box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #d01919, 0 1px 3px 0 #BCBDBD;
-          box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #d01919, 0 1px 3px 0 #BCBDBD;
+  -webkit-box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #d01919, 0 1px 0px 0 #BCBDBD;
+          box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #d01919, 0 1px 0px 0 #BCBDBD;
 }
 .ui.orange.cards > .card,
 .ui.cards > .orange.card,
 .ui.orange.card {
-  -webkit-box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #F2711C, 0 1px 3px 0 #D4D4D5;
-          box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #F2711C, 0 1px 3px 0 #D4D4D5;
+  -webkit-box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #F2711C, none;
+          box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #F2711C, none;
 }
 .ui.orange.cards > .card:hover,
 .ui.cards > .orange.card:hover,
 .ui.orange.card:hover {
-  -webkit-box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #f26202, 0 1px 3px 0 #BCBDBD;
-          box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #f26202, 0 1px 3px 0 #BCBDBD;
+  -webkit-box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #f26202, 0 1px 0px 0 #BCBDBD;
+          box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #f26202, 0 1px 0px 0 #BCBDBD;
 }
 .ui.yellow.cards > .card,
 .ui.cards > .yellow.card,
 .ui.yellow.card {
-  -webkit-box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #FBBD08, 0 1px 3px 0 #D4D4D5;
-          box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #FBBD08, 0 1px 3px 0 #D4D4D5;
+  -webkit-box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #FBBD08, none;
+          box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #FBBD08, none;
 }
 .ui.yellow.cards > .card:hover,
 .ui.cards > .yellow.card:hover,
 .ui.yellow.card:hover {
-  -webkit-box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #eaae00, 0 1px 3px 0 #BCBDBD;
-          box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #eaae00, 0 1px 3px 0 #BCBDBD;
+  -webkit-box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #eaae00, 0 1px 0px 0 #BCBDBD;
+          box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #eaae00, 0 1px 0px 0 #BCBDBD;
 }
 .ui.olive.cards > .card,
 .ui.cards > .olive.card,
 .ui.olive.card {
-  -webkit-box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #B5CC18, 0 1px 3px 0 #D4D4D5;
-          box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #B5CC18, 0 1px 3px 0 #D4D4D5;
+  -webkit-box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #B5CC18, none;
+          box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #B5CC18, none;
 }
 .ui.olive.cards > .card:hover,
 .ui.cards > .olive.card:hover,
 .ui.olive.card:hover {
-  -webkit-box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #a7bd0d, 0 1px 3px 0 #BCBDBD;
-          box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #a7bd0d, 0 1px 3px 0 #BCBDBD;
+  -webkit-box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #a7bd0d, 0 1px 0px 0 #BCBDBD;
+          box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #a7bd0d, 0 1px 0px 0 #BCBDBD;
 }
 .ui.green.cards > .card,
 .ui.cards > .green.card,
 .ui.green.card {
-  -webkit-box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #21BA45, 0 1px 3px 0 #D4D4D5;
-          box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #21BA45, 0 1px 3px 0 #D4D4D5;
+  -webkit-box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #21BA45, none;
+          box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #21BA45, none;
 }
 .ui.green.cards > .card:hover,
 .ui.cards > .green.card:hover,
 .ui.green.card:hover {
-  -webkit-box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #16ab39, 0 1px 3px 0 #BCBDBD;
-          box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #16ab39, 0 1px 3px 0 #BCBDBD;
+  -webkit-box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #16ab39, 0 1px 0px 0 #BCBDBD;
+          box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #16ab39, 0 1px 0px 0 #BCBDBD;
 }
 .ui.teal.cards > .card,
 .ui.cards > .teal.card,
 .ui.teal.card {
-  -webkit-box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #00B5AD, 0 1px 3px 0 #D4D4D5;
-          box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #00B5AD, 0 1px 3px 0 #D4D4D5;
+  -webkit-box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #00B5AD, none;
+          box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #00B5AD, none;
 }
 .ui.teal.cards > .card:hover,
 .ui.cards > .teal.card:hover,
 .ui.teal.card:hover {
-  -webkit-box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #009c95, 0 1px 3px 0 #BCBDBD;
-          box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #009c95, 0 1px 3px 0 #BCBDBD;
+  -webkit-box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #009c95, 0 1px 0px 0 #BCBDBD;
+          box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #009c95, 0 1px 0px 0 #BCBDBD;
 }
 .ui.blue.cards > .card,
 .ui.cards > .blue.card,
 .ui.blue.card {
-  -webkit-box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #2185D0, 0 1px 3px 0 #D4D4D5;
-          box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #2185D0, 0 1px 3px 0 #D4D4D5;
+  -webkit-box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #2185D0, none;
+          box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #2185D0, none;
 }
 .ui.blue.cards > .card:hover,
 .ui.cards > .blue.card:hover,
 .ui.blue.card:hover {
-  -webkit-box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #1678c2, 0 1px 3px 0 #BCBDBD;
-          box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #1678c2, 0 1px 3px 0 #BCBDBD;
+  -webkit-box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #1678c2, 0 1px 0px 0 #BCBDBD;
+          box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #1678c2, 0 1px 0px 0 #BCBDBD;
 }
 .ui.violet.cards > .card,
 .ui.cards > .violet.card,
 .ui.violet.card {
-  -webkit-box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #6435C9, 0 1px 3px 0 #D4D4D5;
-          box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #6435C9, 0 1px 3px 0 #D4D4D5;
+  -webkit-box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #6435C9, none;
+          box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #6435C9, none;
 }
 .ui.violet.cards > .card:hover,
 .ui.cards > .violet.card:hover,
 .ui.violet.card:hover {
-  -webkit-box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #5829bb, 0 1px 3px 0 #BCBDBD;
-          box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #5829bb, 0 1px 3px 0 #BCBDBD;
+  -webkit-box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #5829bb, 0 1px 0px 0 #BCBDBD;
+          box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #5829bb, 0 1px 0px 0 #BCBDBD;
 }
 .ui.purple.cards > .card,
 .ui.cards > .purple.card,
 .ui.purple.card {
-  -webkit-box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #A333C8, 0 1px 3px 0 #D4D4D5;
-          box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #A333C8, 0 1px 3px 0 #D4D4D5;
+  -webkit-box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #A333C8, none;
+          box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #A333C8, none;
 }
 .ui.purple.cards > .card:hover,
 .ui.cards > .purple.card:hover,
 .ui.purple.card:hover {
-  -webkit-box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #9627ba, 0 1px 3px 0 #BCBDBD;
-          box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #9627ba, 0 1px 3px 0 #BCBDBD;
+  -webkit-box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #9627ba, 0 1px 0px 0 #BCBDBD;
+          box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #9627ba, 0 1px 0px 0 #BCBDBD;
 }
 .ui.pink.cards > .card,
 .ui.cards > .pink.card,
 .ui.pink.card {
-  -webkit-box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #E03997, 0 1px 3px 0 #D4D4D5;
-          box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #E03997, 0 1px 3px 0 #D4D4D5;
+  -webkit-box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #E03997, none;
+          box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #E03997, none;
 }
 .ui.pink.cards > .card:hover,
 .ui.cards > .pink.card:hover,
 .ui.pink.card:hover {
-  -webkit-box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #e61a8d, 0 1px 3px 0 #BCBDBD;
-          box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #e61a8d, 0 1px 3px 0 #BCBDBD;
+  -webkit-box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #e61a8d, 0 1px 0px 0 #BCBDBD;
+          box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #e61a8d, 0 1px 0px 0 #BCBDBD;
 }
 .ui.brown.cards > .card,
 .ui.cards > .brown.card,
 .ui.brown.card {
-  -webkit-box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #A5673F, 0 1px 3px 0 #D4D4D5;
-          box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #A5673F, 0 1px 3px 0 #D4D4D5;
+  -webkit-box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #A5673F, none;
+          box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #A5673F, none;
 }
 .ui.brown.cards > .card:hover,
 .ui.cards > .brown.card:hover,
 .ui.brown.card:hover {
-  -webkit-box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #975b33, 0 1px 3px 0 #BCBDBD;
-          box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #975b33, 0 1px 3px 0 #BCBDBD;
+  -webkit-box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #975b33, 0 1px 0px 0 #BCBDBD;
+          box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #975b33, 0 1px 0px 0 #BCBDBD;
 }
 .ui.grey.cards > .card,
 .ui.cards > .grey.card,
 .ui.grey.card {
-  -webkit-box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #767676, 0 1px 3px 0 #D4D4D5;
-          box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #767676, 0 1px 3px 0 #D4D4D5;
+  -webkit-box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #767676, none;
+          box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #767676, none;
 }
 .ui.grey.cards > .card:hover,
 .ui.cards > .grey.card:hover,
 .ui.grey.card:hover {
-  -webkit-box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #838383, 0 1px 3px 0 #BCBDBD;
-          box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #838383, 0 1px 3px 0 #BCBDBD;
+  -webkit-box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #838383, 0 1px 0px 0 #BCBDBD;
+          box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #838383, 0 1px 0px 0 #BCBDBD;
 }
 .ui.black.cards > .card,
 .ui.cards > .black.card,
 .ui.black.card {
-  -webkit-box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #1B1C1D, 0 1px 3px 0 #D4D4D5;
-          box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #1B1C1D, 0 1px 3px 0 #D4D4D5;
+  -webkit-box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #1B1C1D, none;
+          box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #1B1C1D, none;
 }
 .ui.black.cards > .card:hover,
 .ui.cards > .black.card:hover,
 .ui.black.card:hover {
-  -webkit-box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #27292a, 0 1px 3px 0 #BCBDBD;
-          box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #27292a, 0 1px 3px 0 #BCBDBD;
+  -webkit-box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #27292a, 0 1px 0px 0 #BCBDBD;
+          box-shadow: 0 0 0 1px #D4D4D5, 0 2px 0 0 #27292a, 0 1px 0px 0 #BCBDBD;
 }
 
 /*--------------
@@ -1089,9 +1089,26 @@ a.inverted.ui.card:hover,
 
 
 /*******************************
-         Theme Overrides
+           Overrides
 *******************************/
 
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Montserrat Regular'), local('Montserrat-Regular'), url(https://fonts.gstatic.com/s/montserrat/v12/JTUSjIg1_i6t8kCHKm459Wlhzg.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Montserrat Bold'), local('Montserrat-Bold'), url(https://fonts.gstatic.com/s/montserrat/v12/JTURjIg1_i6t8kCHKm45_dJE3gnD-w.ttf) format('truetype');
+}
+.ui.cards > .card,
+.ui.card {
+  font-family: 'Montserrat';
+  font-size-adjust: 0.5;
+}
 
 
 /*******************************

@@ -605,77 +605,77 @@ a.ui.basic.label:hover {
 
 .ui.primary.labels .label,
 .ui.ui.ui.primary.label {
-  background-color: #2185D0;
-  border-color: #2185D0;
+  background-color: #20232A;
+  border-color: #20232A;
   color: rgba(255, 255, 255, 0.9);
 }
 
 /* Link */
 .ui.primary.labels a.label:hover,
 a.ui.ui.ui.primary.label:hover {
-  background-color: #1678c2;
-  border-color: #1678c2;
+  background-color: #15171c;
+  border-color: #15171c;
   color: #FFFFFF;
 }
 
 /* Ribbon */
 .ui.ui.ui.primary.ribbon.label {
-  border-color: #1a69a4;
+  border-color: #0a0b0d;
 }
 
 /* Basic */
 .ui.basic.labels .primary.label,
 .ui.ui.ui.basic.primary.label {
   background: none #FFFFFF;
-  border-color: #2185D0;
-  color: #2185D0;
+  border-color: #20232A;
+  color: #20232A;
 }
 .ui.basic.labels a.primary.label:hover,
 a.ui.ui.ui.basic.primary.label:hover {
   background: none #FFFFFF;
-  border-color: #1678c2;
-  color: #1678c2;
+  border-color: #15171c;
+  color: #15171c;
 }
 
 /* Inverted */
 .ui.inverted.labels .primary.label,
 .ui.ui.ui.inverted.primary.label {
-  background-color: #54C8FF;
-  border-color: #54C8FF;
+  background-color: #F9FAFB;
+  border-color: #F9FAFB;
   color: #1B1C1D;
 }
 
 /* Inverted Link */
 .ui.inverted.labels a.primary.label:hover,
 a.ui.ui.ui.inverted.primary.label:hover {
-  background-color: #21b8ff;
-  border-color: #21b8ff;
+  background-color: #dae1e7;
+  border-color: #dae1e7;
   color: #1B1C1D;
 }
 
 /* Inverted Ribbon */
 .ui.ui.ui.inverted.primary.ribbon.label {
-  border-color: #21b8ff;
+  border-color: #dae1e7;
 }
 
 /* Inverted Basic */
 .ui.inverted.basic.labels .primary.label,
 .ui.ui.ui.inverted.basic.primary.label {
   background-color: #1B1C1D;
-  border-color: #54C8FF;
-  color: #54C8FF;
+  border-color: #F9FAFB;
+  color: #F9FAFB;
 }
 .ui.inverted.basic.labels a.primary.label:hover,
 a.ui.ui.ui.inverted.basic.primary.label:hover {
-  border-color: #21b8ff;
+  border-color: #dae1e7;
   background-color: #1B1C1D;
-  color: #21b8ff;
+  color: #dae1e7;
 }
 
 /* Inverted Basic Tags */
 .ui.inverted.basic.tag.labels .primary.label,
 .ui.ui.ui.inverted.primary.basic.tag.label {
-  border: 1px solid #54C8FF;
+  border: 1px solid #F9FAFB;
 }
 .ui.inverted.basic.tag.labels .primary.label:before,
 .ui.ui.ui.inverted.primary.basic.tag.label:before {
@@ -687,77 +687,77 @@ a.ui.ui.ui.inverted.basic.primary.label:hover {
 }
 .ui.secondary.labels .label,
 .ui.ui.ui.secondary.label {
-  background-color: #1B1C1D;
-  border-color: #1B1C1D;
+  background-color: #274690;
+  border-color: #274690;
   color: rgba(255, 255, 255, 0.9);
 }
 
 /* Link */
 .ui.secondary.labels a.label:hover,
 a.ui.ui.ui.secondary.label:hover {
-  background-color: #27292a;
-  border-color: #27292a;
+  background-color: #264daa;
+  border-color: #264daa;
   color: #FFFFFF;
 }
 
 /* Ribbon */
 .ui.ui.ui.secondary.ribbon.label {
-  border-color: #020203;
+  border-color: #1c3268;
 }
 
 /* Basic */
 .ui.basic.labels .secondary.label,
 .ui.ui.ui.basic.secondary.label {
   background: none #FFFFFF;
-  border-color: #1B1C1D;
-  color: #1B1C1D;
+  border-color: #274690;
+  color: #274690;
 }
 .ui.basic.labels a.secondary.label:hover,
 a.ui.ui.ui.basic.secondary.label:hover {
   background: none #FFFFFF;
-  border-color: #27292a;
-  color: #27292a;
+  border-color: #264daa;
+  color: #264daa;
 }
 
 /* Inverted */
 .ui.inverted.labels .secondary.label,
 .ui.ui.ui.inverted.secondary.label {
-  background-color: #545454;
-  border-color: #545454;
+  background-color: #0090C1;
+  border-color: #0090C1;
   color: #1B1C1D;
 }
 
 /* Inverted Link */
 .ui.inverted.labels a.secondary.label:hover,
 a.ui.ui.ui.inverted.secondary.label:hover {
-  background-color: #6e6e6e;
-  border-color: #6e6e6e;
+  background-color: #00b6f4;
+  border-color: #00b6f4;
   color: #1B1C1D;
 }
 
 /* Inverted Ribbon */
 .ui.ui.ui.inverted.secondary.ribbon.label {
-  border-color: #3b3b3b;
+  border-color: #006a8e;
 }
 
 /* Inverted Basic */
 .ui.inverted.basic.labels .secondary.label,
 .ui.ui.ui.inverted.basic.secondary.label {
   background-color: #1B1C1D;
-  border-color: #545454;
-  color: #545454;
+  border-color: #0090C1;
+  color: #0090C1;
 }
 .ui.inverted.basic.labels a.secondary.label:hover,
 a.ui.ui.ui.inverted.basic.secondary.label:hover {
-  border-color: #6e6e6e;
+  border-color: #00b6f4;
   background-color: #1B1C1D;
-  color: #6e6e6e;
+  color: #00b6f4;
 }
 
 /* Inverted Basic Tags */
 .ui.inverted.basic.tag.labels .secondary.label,
 .ui.ui.ui.inverted.secondary.basic.tag.label {
-  border: 1px solid #545454;
+  border: 1px solid #0090C1;
 }
 .ui.inverted.basic.tag.labels .secondary.label:before,
 .ui.ui.ui.inverted.secondary.basic.tag.label:before {

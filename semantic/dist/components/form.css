@@ -28,7 +28,7 @@
 ---------------------*/
 
 .ui.form > p {
-  margin: 1em 0;
+  margin: 1em 0em;
 }
 
 /*--------------------
@@ -37,7 +37,7 @@
 
 .ui.form .field {
   clear: both;
-  margin: 0 0 1em;
+  margin: 0em 0em 1em;
 }
 .ui.form .field:last-child,
 .ui.form .fields:last-child .field {
@@ -55,10 +55,10 @@
 .ui.form .field > label {
   display: block;
   margin: 0 0 0.28571429rem 0;
-  color: rgba(0, 0, 0, 0.87);
-  font-size: 0.92857143em;
+  color: rgba(0, 0, 0, 0.8);
+  font-size: 0.78571429em;
   font-weight: bold;
-  text-transform: none;
+  text-transform: uppercase;
 }
 
 /*--------------------
@@ -99,20 +99,20 @@
 .ui.form input[type="text"],
 .ui.form input[type="file"],
 .ui.form input[type="url"] {
-  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: 'Muli', 'Helvetica Neue', 'Muli', 'Muli', sans-serif;
   margin: 0;
   outline: none;
   -webkit-appearance: none;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
   line-height: 1.21428571em;
-  padding: 0.67857143em 1em;
+  padding: 0.67857143em 0.5em;
   font-size: 1em;
-  background: #FFFFFF;
-  border: 1px solid rgba(34, 36, 38, 0.15);
-  color: rgba(0, 0, 0, 0.87);
-  border-radius: 0.28571429rem;
-  -webkit-box-shadow: 0 0 0 0 transparent inset;
-          box-shadow: 0 0 0 0 transparent inset;
+  background: transparent;
+  border: none;
+  color: rgba(0, 0, 0, 0.8);
+  border-radius: 0em;
+  -webkit-box-shadow: none;
+          box-shadow: none;
   -webkit-transition: color 0.1s ease, border-color 0.1s ease;
   transition: color 0.1s ease, border-color 0.1s ease;
 }
@@ -122,18 +122,18 @@
   margin: 0;
   -webkit-appearance: none;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
-  padding: 0.78571429em 1em;
-  background: #FFFFFF;
-  border: 1px solid rgba(34, 36, 38, 0.15);
+  padding: 1em;
+  background: transparent;
+  border: 1px solid #DDDDDD;
   outline: none;
-  color: rgba(0, 0, 0, 0.87);
-  border-radius: 0.28571429rem;
-  -webkit-box-shadow: 0 0 0 0 transparent inset;
-          box-shadow: 0 0 0 0 transparent inset;
+  color: rgba(0, 0, 0, 0.8);
+  border-radius: 0em;
+  -webkit-box-shadow: none;
+          box-shadow: none;
   -webkit-transition: color 0.1s ease, border-color 0.1s ease;
   transition: color 0.1s ease, border-color 0.1s ease;
   font-size: 1em;
-  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: 'Muli', 'Helvetica Neue', 'Muli', 'Muli', sans-serif;
   line-height: 1.2857;
   resize: vertical;
 }
@@ -154,7 +154,7 @@
 .ui.form .field .transparent.input input,
 .ui.form .field input.transparent,
 .ui.form .field textarea.transparent {
-  padding: 0.67857143em 1em !important;
+  padding: 0.67857143em 0.5em !important;
 }
 .ui.form .field textarea.transparent {
   border-color: transparent !important;
@@ -186,12 +186,12 @@
   height: auto;
   width: 100%;
   background: #FFFFFF;
-  border: 1px solid rgba(34, 36, 38, 0.15);
-  border-radius: 0.28571429rem;
-  -webkit-box-shadow: 0 0 0 0 transparent inset;
-          box-shadow: 0 0 0 0 transparent inset;
-  padding: 0.62em 1em;
-  color: rgba(0, 0, 0, 0.87);
+  border: none;
+  border-radius: 0em;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  padding: 0.62em 0.5em;
+  color: rgba(0, 0, 0, 0.8);
   -webkit-transition: color 0.1s ease, border-color 0.1s ease;
   transition: color 0.1s ease, border-color 0.1s ease;
 }
@@ -338,42 +338,42 @@
 
 /* browsers require these rules separate */
 .ui.form ::-webkit-input-placeholder {
-  color: rgba(191, 191, 191, 0.87);
+  color: rgba(140, 140, 140, 0.8);
 }
 .ui.form :-ms-input-placeholder {
-  color: rgba(191, 191, 191, 0.87) !important;
+  color: rgba(140, 140, 140, 0.8) !important;
 }
 .ui.form ::-moz-placeholder {
-  color: rgba(191, 191, 191, 0.87);
+  color: rgba(140, 140, 140, 0.8);
 }
 .ui.form :focus::-webkit-input-placeholder {
-  color: rgba(115, 115, 115, 0.87);
+  color: rgba(89, 89, 89, 0.8);
 }
 .ui.form :focus:-ms-input-placeholder {
-  color: rgba(115, 115, 115, 0.87) !important;
+  color: rgba(89, 89, 89, 0.8) !important;
 }
 .ui.form :focus::-moz-placeholder {
-  color: rgba(115, 115, 115, 0.87);
+  color: rgba(89, 89, 89, 0.8);
 }
 
 /* Error Placeholder */
 .ui.form .error ::-webkit-input-placeholder {
-  color: #e7bdbc;
+  color: #bf4d4b;
 }
 .ui.form .error :-ms-input-placeholder {
-  color: #e7bdbc !important;
+  color: #bf4d4b !important;
 }
 .ui.form .error ::-moz-placeholder {
-  color: #e7bdbc;
+  color: #bf4d4b;
 }
 .ui.form .error :focus::-webkit-input-placeholder {
-  color: #da9796;
+  color: #b2413f;
 }
 .ui.form .error :focus:-ms-input-placeholder {
-  color: #da9796 !important;
+  color: #b2413f !important;
 }
 .ui.form .error :focus::-moz-placeholder {
-  color: #da9796;
+  color: #b2413f;
 }
 
 /*--------------------
@@ -394,18 +394,18 @@
 .ui.form input[type="url"]:focus {
   color: rgba(0, 0, 0, 0.95);
   border-color: #85B7D9;
-  border-radius: 0.28571429rem;
-  background: #FFFFFF;
-  -webkit-box-shadow: 0 0 0 0 rgba(34, 36, 38, 0.35) inset;
-          box-shadow: 0 0 0 0 rgba(34, 36, 38, 0.35) inset;
+  border-radius: 0em;
+  background: transparent;
+  -webkit-box-shadow: 0px 0 0 0 rgba(34, 36, 38, 0.35) inset;
+          box-shadow: 0px 0 0 0 rgba(34, 36, 38, 0.35) inset;
 }
 .ui.form textarea:focus {
   color: rgba(0, 0, 0, 0.95);
   border-color: #85B7D9;
-  border-radius: 0.28571429rem;
-  background: #FFFFFF;
-  -webkit-box-shadow: 0 0 0 0 rgba(34, 36, 38, 0.35) inset;
-          box-shadow: 0 0 0 0 rgba(34, 36, 38, 0.35) inset;
+  border-radius: 0em;
+  background: #EEEEEE;
+  -webkit-box-shadow: 0px 0 0 0 rgba(34, 36, 38, 0.35) inset;
+          box-shadow: 0px 0 0 0 rgba(34, 36, 38, 0.35) inset;
   -webkit-appearance: none;
 }
 
@@ -526,10 +526,10 @@
 .ui.form .field.error input[type="url"]:focus {
   background: #FFF6F6;
   border-color: #E0B4B4;
-  color: #9F3A38;
+  color: #ff291c;
   -webkit-appearance: none;
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  -webkit-box-shadow: 0px 0em 0em 0em #ff291c inset;
+          box-shadow: 0px 0em 0em 0em #ff291c inset;
 }
 
 /* Preserve Native Select Stylings */
@@ -570,13 +570,13 @@
 /* Hover */
 .ui.form .fields.error .field .ui.dropdown .menu .item:hover,
 .ui.form .field.error .ui.dropdown .menu .item:hover {
-  background-color: #FBE7E7;
+  background-color: #FFF2F2;
 }
 
 /* Selected */
 .ui.form .fields.error .field .ui.dropdown .menu .selected.item,
 .ui.form .field.error .ui.dropdown .menu .selected.item {
-  background-color: #FBE7E7;
+  background-color: #FFF2F2;
 }
 
 /* Active */
@@ -656,7 +656,7 @@
   height: 3em;
   -webkit-animation: loader 0.6s infinite linear;
           animation: loader 0.6s infinite linear;
-  border: 0.2em solid #767676;
+  border: 0.2em solid #CCCCCC;
   border-radius: 500rem;
   -webkit-box-shadow: 0 0 0 1px transparent;
           box-shadow: 0 0 0 1px transparent;
@@ -682,7 +682,7 @@
 .ui.form label.required:after {
   margin: -0.2em 0 0 0.2em;
   content: '*';
-  color: #DB2828;
+  color: #FF4136;
 }
 .ui.form .required.fields:not(.grouped) > .field > label:after,
 .ui.form .required.fields.grouped > label:after,
@@ -741,9 +741,9 @@
 .ui.inverted.form input[type="text"],
 .ui.inverted.form input[type="file"],
 .ui.inverted.form input[type="url"] {
-  background: #FFFFFF;
+  background: transparent;
   border-color: rgba(255, 255, 255, 0.1);
-  color: rgba(0, 0, 0, 0.87);
+  color: rgba(255, 255, 255, 0.9);
   -webkit-box-shadow: none;
           box-shadow: none;
 }
@@ -756,15 +756,15 @@
 /* Grouped Vertically */
 .ui.form .grouped.fields {
   display: block;
-  margin: 0 0 1em;
+  margin: 0em 0em 1em;
 }
 .ui.form .grouped.fields:last-child {
   margin-bottom: 0;
 }
 .ui.form .grouped.fields > label {
   margin: 0 0 0.28571429rem 0;
-  color: rgba(0, 0, 0, 0.87);
-  font-size: 0.92857143em;
+  color: rgba(0, 0, 0, 0.8);
+  font-size: 0.78571429em;
   font-weight: bold;
   text-transform: none;
 }
@@ -789,14 +789,14 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  margin: 0 -0.5em 1em;
+  margin: 0 -0.75em 1em;
 }
 .ui.form .fields > .field {
   -webkit-box-flex: 0;
       -ms-flex: 0 1 auto;
           flex: 0 1 auto;
-  padding-left: 0.5em;
-  padding-right: 0.5em;
+  padding-left: 0.75em;
+  padding-right: 0.75em;
 }
 .ui.form .fields > .field:first-child {
   border-left: none;
@@ -876,8 +876,8 @@
 /* Sizing Combinations */
 .ui.form .fields .wide.field {
   width: 6.25%;
-  padding-left: 0.5em;
-  padding-right: 0.5em;
+  padding-left: 0.75em;
+  padding-right: 0.75em;
 }
 .ui.form .one.wide.field {
   width: 6.25% !important;
@@ -977,7 +977,7 @@
 ---------------------*/
 
 .ui.form .inline.fields {
-  margin: 0 0 1em;
+  margin: 0em 0em 1em;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -998,10 +998,10 @@
   margin-top: 0;
   margin-bottom: 0;
   vertical-align: baseline;
-  font-size: 0.92857143em;
+  font-size: 0.78571429em;
   font-weight: bold;
-  color: rgba(0, 0, 0, 0.87);
-  text-transform: none;
+  color: rgba(0, 0, 0, 0.8);
+  text-transform: uppercase;
 }
 
 /* Grouped Inline Label */
@@ -1129,9 +1129,32 @@
 
 
 /*******************************
-         Theme Overrides
+           Overrides
 *******************************/
 
+.ui.form input[type="text"],
+.ui.form input[type="email"],
+.ui.form input[type="date"],
+.ui.form input[type="password"],
+.ui.form input[type="number"],
+.ui.form input[type="url"],
+.ui.form input[type="tel"] {
+  border-bottom: 1px solid #DDDDDD;
+}
+.ui.form .selection.dropdown {
+  border: none;
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+  border-bottom: 1px solid #DDDDDD;
+  border-radius: 0em !important;
+}
+.ui.form .selection.dropdown > .menu {
+  border-top-width: 1px !important;
+  border-radius: 0.28571429rem !important;
+}
+.ui.form .ui.icon.input > .icon {
+  width: 1em;
+}
 
 
 /*******************************

@@ -20,11 +20,13 @@
   outline: none;
   border: none;
   vertical-align: baseline;
-  background: #E0E1E2 none;
-  color: rgba(0, 0, 0, 0.6);
-  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  background: #F5F8FA -webkit-gradient(linear, left top, left bottom, from(#FFFFFF), to(#F5F8FA));
+  background: #F5F8FA -webkit-linear-gradient(#FFFFFF, #F5F8FA);
+  background: #F5F8FA linear-gradient(#FFFFFF, #F5F8FA);
+  color: #333333;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
   margin: 0 0.25em 0 0;
-  padding: 0.78571429em 1.5em 0.78571429em;
+  padding: 0.8571em 1.284em 0.8571em;
   text-transform: none;
   text-shadow: none;
   font-weight: bold;
@@ -33,8 +35,8 @@
   text-align: center;
   text-decoration: none;
   border-radius: 0.28571429rem;
-  -webkit-box-shadow: 0 0 0 1px transparent inset, 0 0 0 0 rgba(34, 36, 38, 0.15) inset;
-          box-shadow: 0 0 0 1px transparent inset, 0 0 0 0 rgba(34, 36, 38, 0.15) inset;
+  -webkit-box-shadow: 0 0 0 1px #E1E8ED inset, 0 0 0 0 rgba(34, 36, 38, 0.15) inset;
+          box-shadow: 0 0 0 1px #E1E8ED inset, 0 0 0 0 rgba(34, 36, 38, 0.15) inset;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -58,11 +60,13 @@
 ---------------*/
 
 .ui.button:hover {
-  background-color: #CACBCD;
-  background-image: none;
-  -webkit-box-shadow: 0 0 0 1px transparent inset, 0 0 0 0 rgba(34, 36, 38, 0.15) inset;
-          box-shadow: 0 0 0 1px transparent inset, 0 0 0 0 rgba(34, 36, 38, 0.15) inset;
-  color: rgba(0, 0, 0, 0.8);
+  background-color: #E1E8ED;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#FFFFFF), to(#E1E8ED));
+  background-image: -webkit-linear-gradient(#FFFFFF, #E1E8ED);
+  background-image: linear-gradient(#FFFFFF, #E1E8ED);
+  -webkit-box-shadow: 0 0 0 1px #E1E8ED inset, 0 0 0 0 rgba(34, 36, 38, 0.15) inset;
+          box-shadow: 0 0 0 1px #E1E8ED inset, 0 0 0 0 rgba(34, 36, 38, 0.15) inset;
+  color: #292F33;
 }
 .ui.button:hover .icon {
   opacity: 0.85;
@@ -73,7 +77,7 @@
 ---------------*/
 
 .ui.button:focus {
-  background-color: #CACBCD;
+  background-color: #E1E8ED;
   color: rgba(0, 0, 0, 0.8);
   background-image: none;
   -webkit-box-shadow: '';
@@ -89,11 +93,11 @@
 
 .ui.button:active,
 .ui.active.button:active {
-  background-color: #BABBBC;
+  background-color: #E1E8ED;
   background-image: '';
-  color: rgba(0, 0, 0, 0.9);
-  -webkit-box-shadow: 0 0 0 1px transparent inset, none;
-          box-shadow: 0 0 0 1px transparent inset, none;
+  color: #292F33;
+  -webkit-box-shadow: 0 0 0 1px #E1E8ED inset, 0px 1px 4px rgba(0, 0, 0, 0.2) inset;
+          box-shadow: 0 0 0 1px #E1E8ED inset, 0px 1px 4px rgba(0, 0, 0, 0.2) inset;
 }
 
 /*--------------
@@ -101,19 +105,19 @@
 ---------------*/
 
 .ui.active.button {
-  background-color: #C0C1C2;
+  background-color: rgba(0, 0, 0, 0.1);
   background-image: none;
-  -webkit-box-shadow: 0 0 0 1px transparent inset;
-          box-shadow: 0 0 0 1px transparent inset;
+  -webkit-box-shadow: 0 0 0 1px #E1E8ED inset;
+          box-shadow: 0 0 0 1px #E1E8ED inset;
   color: rgba(0, 0, 0, 0.95);
 }
 .ui.active.button:hover {
-  background-color: #C0C1C2;
+  background-color: rgba(0, 0, 0, 0.1);
   background-image: none;
   color: rgba(0, 0, 0, 0.95);
 }
 .ui.active.button:active {
-  background-color: #C0C1C2;
+  background-color: rgba(0, 0, 0, 0.1);
   background-image: none;
 }
 
@@ -216,7 +220,7 @@
 }
 .ui.animated.button .visible.content {
   position: relative;
-  margin-right: 1.5em;
+  margin-right: 1.284em;
 }
 .ui.animated.button .hidden.content {
   position: absolute;
@@ -352,7 +356,7 @@
   background: #FFFFFF;
   -webkit-box-shadow: 0 0 0 2px #FFFFFF inset;
           box-shadow: 0 0 0 2px #FFFFFF inset;
-  color: rgba(0, 0, 0, 0.8);
+  color: #292F33;
 }
 
 /* Active / Focus */
@@ -442,7 +446,9 @@
   background-color: #3B5998;
   color: #FFFFFF;
   text-shadow: none;
-  background-image: none;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0, 0, 0, 0.05)));
+  background-image: -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+  background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.05));
   -webkit-box-shadow: 0 0 0 0 rgba(34, 36, 38, 0.15) inset;
           box-shadow: 0 0 0 0 rgba(34, 36, 38, 0.15) inset;
 }
@@ -462,7 +468,9 @@
   background-color: #1DA1F2;
   color: #FFFFFF;
   text-shadow: none;
-  background-image: none;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0, 0, 0, 0.05)));
+  background-image: -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+  background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.05));
   -webkit-box-shadow: 0 0 0 0 rgba(34, 36, 38, 0.15) inset;
           box-shadow: 0 0 0 0 rgba(34, 36, 38, 0.15) inset;
 }
@@ -482,7 +490,9 @@
   background-color: #DD4B39;
   color: #FFFFFF;
   text-shadow: none;
-  background-image: none;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0, 0, 0, 0.05)));
+  background-image: -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+  background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.05));
   -webkit-box-shadow: 0 0 0 0 rgba(34, 36, 38, 0.15) inset;
           box-shadow: 0 0 0 0 rgba(34, 36, 38, 0.15) inset;
 }
@@ -519,7 +529,9 @@
   background-color: #FF0000;
   color: #FFFFFF;
   text-shadow: none;
-  background-image: none;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0, 0, 0, 0.05)));
+  background-image: -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+  background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.05));
   -webkit-box-shadow: 0 0 0 0 rgba(34, 36, 38, 0.15) inset;
           box-shadow: 0 0 0 0 rgba(34, 36, 38, 0.15) inset;
 }
@@ -539,7 +551,9 @@
   background-color: #49769C;
   color: #FFFFFF;
   text-shadow: none;
-  background-image: none;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0, 0, 0, 0.05)));
+  background-image: -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+  background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.05));
   -webkit-box-shadow: 0 0 0 0 rgba(34, 36, 38, 0.15) inset;
           box-shadow: 0 0 0 0 rgba(34, 36, 38, 0.15) inset;
 }
@@ -559,7 +573,9 @@
   background-color: #BD081C;
   color: #FFFFFF;
   text-shadow: none;
-  background-image: none;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0, 0, 0, 0.05)));
+  background-image: -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+  background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.05));
   -webkit-box-shadow: 0 0 0 0 rgba(34, 36, 38, 0.15) inset;
           box-shadow: 0 0 0 0 rgba(34, 36, 38, 0.15) inset;
 }
@@ -578,7 +594,9 @@
 .ui.vk.button {
   background-color: #45668E;
   color: #FFFFFF;
-  background-image: none;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0, 0, 0, 0.05)));
+  background-image: -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+  background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.05));
   -webkit-box-shadow: 0 0 0 0 rgba(34, 36, 38, 0.15) inset;
           box-shadow: 0 0 0 0 rgba(34, 36, 38, 0.15) inset;
 }
@@ -595,7 +613,9 @@
 .ui.whatsapp.button {
   background-color: #25D366;
   color: #FFFFFF;
-  background-image: none;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0, 0, 0, 0.05)));
+  background-image: -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+  background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.05));
   -webkit-box-shadow: 0 0 0 0 rgba(34, 36, 38, 0.15) inset;
           box-shadow: 0 0 0 0 rgba(34, 36, 38, 0.15) inset;
 }
@@ -612,7 +632,9 @@
 .ui.telegram.button {
   background-color: #0088CC;
   color: #FFFFFF;
-  background-image: none;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0, 0, 0, 0.05)));
+  background-image: -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+  background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.05));
   -webkit-box-shadow: 0 0 0 0 rgba(34, 36, 38, 0.15) inset;
           box-shadow: 0 0 0 0 rgba(34, 36, 38, 0.15) inset;
 }
@@ -675,15 +697,15 @@
 
 .ui.compact.buttons .button,
 .ui.compact.button {
-  padding: 0.58928571em 1.125em 0.58928571em;
+  padding: 0.642825em 0.963em 0.642825em;
 }
 .ui.compact.icon.buttons .button,
 .ui.compact.icon.button {
-  padding: 0.58928571em 0.58928571em 0.58928571em;
+  padding: 0.642825em 0.642825em 0.642825em;
 }
 .ui.compact.labeled.icon.buttons .button,
 .ui.compact.labeled.icon.button {
-  padding: 0.58928571em 3.69642857em 0.58928571em;
+  padding: 0.642825em 3.6772em 0.642825em;
 }
 
 /*-------------------
@@ -781,7 +803,7 @@
 
 .ui.icon.buttons .button,
 .ui.icon.button {
-  padding: 0.78571429em 0.78571429em 0.78571429em;
+  padding: 0.8571em 0.8571em 0.8571em;
 }
 .ui.icon.buttons .button > .icon,
 .ui.icon.button > .icon {
@@ -797,7 +819,7 @@
 .ui.basic.buttons .button,
 .ui.basic.button {
   background: transparent none;
-  color: rgba(0, 0, 0, 0.6);
+  color: #333333;
   font-weight: normal;
   border-radius: 0.28571429rem;
   text-transform: none;
@@ -928,30 +950,30 @@
   -webkit-transition: color 0.1s ease !important;
   transition: color 0.1s ease !important;
   border-radius: 0;
-  margin: 0.28571429em 0.25em 0.28571429em 0 !important;
+  margin: 0.3571em 0.25em 0.3571em 0 !important;
   padding: 0.5em !important;
   -webkit-box-shadow: none;
           box-shadow: none;
-  color: rgba(0, 0, 0, 0.6);
+  color: #333333;
   background: none;
 }
 .ui.tertiary.button:hover {
-  -webkit-box-shadow: inset 0 -0.2em 0 #666666;
-          box-shadow: inset 0 -0.2em 0 #666666;
-  color: #333333;
+  -webkit-box-shadow: inset 0 -0.2em 0 #999999;
+          box-shadow: inset 0 -0.2em 0 #999999;
+  color: #666666;
   background: none;
 }
 .ui.tertiary.button:focus {
-  -webkit-box-shadow: inset 0 -0.2em 0 #666666;
-          box-shadow: inset 0 -0.2em 0 #666666;
-  color: #333333;
+  -webkit-box-shadow: inset 0 -0.2em 0 #999999;
+          box-shadow: inset 0 -0.2em 0 #999999;
+  color: #666666;
   background: none;
 }
 .ui.tertiary.button:active {
-  -webkit-box-shadow: inset 0 -0.2em 0 #999999;
-          box-shadow: inset 0 -0.2em 0 #999999;
+  -webkit-box-shadow: inset 0 -0.2em 0 #cccccc;
+          box-shadow: inset 0 -0.2em 0 #cccccc;
   border-radius: 0.28571429rem 0.28571429rem 0 0;
-  color: #666666;
+  color: #999999;
   background: none;
 }
 
@@ -962,8 +984,8 @@
 .ui.labeled.icon.buttons .button,
 .ui.labeled.icon.button {
   position: relative;
-  padding-left: 4.07142857em !important;
-  padding-right: 1.5em !important;
+  padding-left: 3.9982em !important;
+  padding-right: 1.284em !important;
 }
 
 /* Left Labeled */
@@ -980,19 +1002,19 @@
   text-align: center;
   -webkit-animation: none;
           animation: none;
-  padding: 0.78571429em 0 0.78571429em 0;
+  padding: 0.8571em 0 0.8571em 0;
   margin: 0;
-  width: 2.57142857em;
-  background-color: rgba(0, 0, 0, 0.05);
+  width: 2.7142em;
+  background-color: rgba(85, 172, 238, 0.05);
   color: '';
-  -webkit-box-shadow: -1px 0 0 0 transparent inset;
-          box-shadow: -1px 0 0 0 transparent inset;
+  -webkit-box-shadow: -1px 0 0 0 rgba(0, 0, 0, 0.1) inset;
+          box-shadow: -1px 0 0 0 rgba(0, 0, 0, 0.1) inset;
 }
 
 /* Right Labeled */
 .ui[class*="right labeled"].icon.button {
-  padding-right: 4.07142857em !important;
-  padding-left: 1.5em !important;
+  padding-right: 3.9982em !important;
+  padding-left: 1.284em !important;
 }
 .ui[class*="right labeled"].icon.button > .icon {
   left: auto;
@@ -1000,8 +1022,8 @@
   border-radius: 0;
   border-top-right-radius: inherit;
   border-bottom-right-radius: inherit;
-  -webkit-box-shadow: 1px 0 0 0 transparent inset;
-          box-shadow: 1px 0 0 0 transparent inset;
+  -webkit-box-shadow: 1px 0 0 0 rgba(0, 0, 0, 0.1) inset;
+          box-shadow: 1px 0 0 0 rgba(0, 0, 0, 0.1) inset;
 }
 .ui.labeled.icon.buttons > .button > .icon:before,
 .ui.labeled.icon.button > .icon:before,
@@ -1036,8 +1058,8 @@
 /* Fluid Labeled */
 .ui.fluid[class*="left labeled"].icon.button,
 .ui.fluid[class*="right labeled"].icon.button {
-  padding-left: 1.5em !important;
-  padding-right: 1.5em !important;
+  padding-left: 1.284em !important;
+  padding-right: 1.284em !important;
 }
 
 /* Loading Icon in Labeled Button */
@@ -1086,7 +1108,7 @@
 .ui.buttons .or {
   position: relative;
   width: 0.3em;
-  height: 2.57142857em;
+  height: 2.7142em;
   z-index: 3;
 }
 .ui.buttons .or:before {
@@ -1098,16 +1120,16 @@
   left: 50%;
   background-color: #FFFFFF;
   text-shadow: none;
-  margin-top: -0.89285714em;
-  margin-left: -0.89285714em;
-  width: 1.78571429em;
-  height: 1.78571429em;
-  line-height: 1.78571429em;
+  margin-top: -0.92855em;
+  margin-left: -0.92855em;
+  width: 1.8571em;
+  height: 1.8571em;
+  line-height: 1.8571em;
   color: rgba(0, 0, 0, 0.4);
   font-style: normal;
   font-weight: bold;
-  -webkit-box-shadow: 0 0 0 1px transparent inset;
-          box-shadow: 0 0 0 1px transparent inset;
+  -webkit-box-shadow: 0 0 0 1px #E1E8ED inset;
+          box-shadow: 0 0 0 1px #E1E8ED inset;
 }
 .ui.buttons .or[data-text]:before {
   content: attr(data-text);
@@ -1363,10 +1385,12 @@
 
 .ui.primary.buttons .button,
 .ui.primary.button {
-  background-color: #2185D0;
+  background-color: #55ACEE;
   color: #FFFFFF;
   text-shadow: none;
-  background-image: none;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0, 0, 0, 0.05)));
+  background-image: -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+  background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.05));
 }
 .ui.primary.button {
   -webkit-box-shadow: 0 0 0 0 rgba(34, 36, 38, 0.15) inset;
@@ -1374,19 +1398,19 @@
 }
 .ui.primary.buttons .button:hover,
 .ui.primary.button:hover {
-  background-color: #1678c2;
+  background-color: #35a2f4;
   color: #FFFFFF;
   text-shadow: none;
 }
 .ui.primary.buttons .button:focus,
 .ui.primary.button:focus {
-  background-color: #0d71bb;
+  background-color: #1d9cfd;
   color: #FFFFFF;
   text-shadow: none;
 }
 .ui.primary.buttons .button:active,
 .ui.primary.button:active {
-  background-color: #1a69a4;
+  background-color: #2795e9;
   color: #FFFFFF;
   text-shadow: none;
 }
@@ -1394,7 +1418,7 @@
 .ui.primary.buttons .active.button:active,
 .ui.primary.active.button,
 .ui.primary.button .active.button:active {
-  background-color: #1279c6;
+  background-color: #31a2f9;
   color: #FFFFFF;
   text-shadow: none;
 }
@@ -1403,36 +1427,36 @@
 .ui.basic.primary.buttons .button,
 .ui.basic.primary.button {
   background: transparent;
-  -webkit-box-shadow: 0 0 0 1px #2185D0 inset;
-          box-shadow: 0 0 0 1px #2185D0 inset;
-  color: #2185D0;
+  -webkit-box-shadow: 0 0 0 1px #55ACEE inset;
+          box-shadow: 0 0 0 1px #55ACEE inset;
+  color: #55ACEE;
 }
 .ui.basic.primary.buttons .button:hover,
 .ui.basic.primary.button:hover {
   background: transparent ;
-  -webkit-box-shadow: 0 0 0 1px #1678c2 inset;
-          box-shadow: 0 0 0 1px #1678c2 inset;
-  color: #1678c2;
+  -webkit-box-shadow: 0 0 0 1px #35a2f4 inset;
+          box-shadow: 0 0 0 1px #35a2f4 inset;
+  color: #35a2f4;
 }
 .ui.basic.primary.buttons .button:focus,
 .ui.basic.primary.button:focus {
   background: transparent ;
-  -webkit-box-shadow: 0 0 0 1px #0d71bb inset;
-          box-shadow: 0 0 0 1px #0d71bb inset;
-  color: #1678c2;
+  -webkit-box-shadow: 0 0 0 1px #1d9cfd inset;
+          box-shadow: 0 0 0 1px #1d9cfd inset;
+  color: #35a2f4;
 }
 .ui.basic.primary.buttons .active.button,
 .ui.basic.primary.active.button {
   background: transparent ;
-  -webkit-box-shadow: 0 0 0 1px #1279c6 inset;
-          box-shadow: 0 0 0 1px #1279c6 inset;
-  color: #1a69a4;
+  -webkit-box-shadow: 0 0 0 1px #31a2f9 inset;
+          box-shadow: 0 0 0 1px #31a2f9 inset;
+  color: #2795e9;
 }
 .ui.basic.primary.buttons .button:active,
 .ui.basic.primary.button:active {
-  -webkit-box-shadow: 0 0 0 1px #1a69a4 inset;
-          box-shadow: 0 0 0 1px #1a69a4 inset;
-  color: #1a69a4;
+  -webkit-box-shadow: 0 0 0 1px #2795e9 inset;
+          box-shadow: 0 0 0 1px #2795e9 inset;
+  color: #2795e9;
 }
 .ui.buttons:not(.vertical) > .basic.primary.button:not(:first-child) {
   margin-left: -1px;
@@ -1442,9 +1466,9 @@
 .ui.inverted.primary.buttons .button,
 .ui.inverted.primary.button {
   background-color: transparent;
-  -webkit-box-shadow: 0 0 0 2px #54C8FF inset;
-          box-shadow: 0 0 0 2px #54C8FF inset;
-  color: #54C8FF;
+  -webkit-box-shadow: 0 0 0 2px #F9FAFB inset;
+          box-shadow: 0 0 0 2px #F9FAFB inset;
+  color: #F9FAFB;
 }
 .ui.inverted.primary.buttons .button:hover,
 .ui.inverted.primary.button:hover,
@@ -1460,19 +1484,19 @@
 }
 .ui.inverted.primary.buttons .button:hover,
 .ui.inverted.primary.button:hover {
-  background-color: #21b8ff;
+  background-color: #dae1e7;
 }
 .ui.inverted.primary.buttons .button:focus,
 .ui.inverted.primary.button:focus {
-  background-color: #2bbbff;
+  background-color: #e0e6ec;
 }
 .ui.inverted.primary.buttons .active.button,
 .ui.inverted.primary.active.button {
-  background-color: #3ac0ff;
+  background-color: #e9edf1;
 }
 .ui.inverted.primary.buttons .button:active,
 .ui.inverted.primary.button:active {
-  background-color: #21b8ff;
+  background-color: #dae1e7;
 }
 
 /* Inverted Basic */
@@ -1487,30 +1511,30 @@
 .ui.inverted.primary.basic.buttons .button:hover,
 .ui.inverted.primary.buttons .basic.button:hover,
 .ui.inverted.primary.basic.button:hover {
-  -webkit-box-shadow: 0 0 0 2px #21b8ff inset;
-          box-shadow: 0 0 0 2px #21b8ff inset;
-  color: #54C8FF;
+  -webkit-box-shadow: 0 0 0 2px #dae1e7 inset;
+          box-shadow: 0 0 0 2px #dae1e7 inset;
+  color: #F9FAFB;
 }
 .ui.inverted.primary.basic.buttons .button:focus,
 .ui.inverted.primary.basic.buttons .button:focus,
 .ui.inverted.primary.basic.button:focus {
-  -webkit-box-shadow: 0 0 0 2px #2bbbff inset;
-          box-shadow: 0 0 0 2px #2bbbff inset;
-  color: #54C8FF;
+  -webkit-box-shadow: 0 0 0 2px #e0e6ec inset;
+          box-shadow: 0 0 0 2px #e0e6ec inset;
+  color: #F9FAFB;
 }
 .ui.inverted.primary.basic.buttons .active.button,
 .ui.inverted.primary.buttons .basic.active.button,
 .ui.inverted.primary.basic.active.button {
-  -webkit-box-shadow: 0 0 0 2px #3ac0ff inset;
-          box-shadow: 0 0 0 2px #3ac0ff inset;
-  color: #54C8FF;
+  -webkit-box-shadow: 0 0 0 2px #e9edf1 inset;
+          box-shadow: 0 0 0 2px #e9edf1 inset;
+  color: #F9FAFB;
 }
 .ui.inverted.primary.basic.buttons .button:active,
 .ui.inverted.primary.buttons .basic.button:active,
 .ui.inverted.primary.basic.button:active {
-  -webkit-box-shadow: 0 0 0 2px #21b8ff inset;
-          box-shadow: 0 0 0 2px #21b8ff inset;
-  color: #54C8FF;
+  -webkit-box-shadow: 0 0 0 2px #dae1e7 inset;
+          box-shadow: 0 0 0 2px #dae1e7 inset;
+  color: #F9FAFB;
 }
 
 /* Tertiary */
@@ -1520,21 +1544,21 @@
   background: transparent;
   -webkit-box-shadow: none;
           box-shadow: none;
-  color: #2185D0;
+  color: #55ACEE;
 }
 .ui.tertiary.primary.buttons .button:hover,
 .ui.tertiary.primary.buttons button:hover,
 .ui.tertiary.primary.button:hover {
-  -webkit-box-shadow: inset 0 -0.2em 0 #2b75ac;
-          box-shadow: inset 0 -0.2em 0 #2b75ac;
-  color: #2b75ac;
+  -webkit-box-shadow: inset 0 -0.2em 0 #4a9fdf;
+          box-shadow: inset 0 -0.2em 0 #4a9fdf;
+  color: #4a9fdf;
 }
 .ui.tertiary.primary.buttons .button:focus,
 .ui.tertiary.primary.buttons .tertiary.button:focus,
 .ui.tertiary.primary.button:focus {
-  -webkit-box-shadow: inset 0 -0.2em 0 #216ea7;
-          box-shadow: inset 0 -0.2em 0 #216ea7;
-  color: #216ea7;
+  -webkit-box-shadow: inset 0 -0.2em 0 #3499e6;
+          box-shadow: inset 0 -0.2em 0 #3499e6;
+  color: #3499e6;
 }
 .ui.tertiary.primary.buttons .active.button,
 .ui.tertiary.primary.buttons .tertiary.active.button,
@@ -1542,16 +1566,18 @@
 .ui.tertiary.primary.buttons .button:active,
 .ui.tertiary.primary.buttons .tertiary.button:active,
 .ui.tertiary.primary.button:active {
-  -webkit-box-shadow: inset 0 -0.2em 0 #007bd8;
-          box-shadow: inset 0 -0.2em 0 #007bd8;
-  color: #1279c6;
+  -webkit-box-shadow: inset 0 -0.2em 0 #2aa3ff;
+          box-shadow: inset 0 -0.2em 0 #2aa3ff;
+  color: #31a2f9;
 }
 .ui.secondary.buttons .button,
 .ui.secondary.button {
-  background-color: #1B1C1D;
+  background-color: #274690;
   color: #FFFFFF;
   text-shadow: none;
-  background-image: none;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0, 0, 0, 0.05)));
+  background-image: -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+  background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.05));
 }
 .ui.secondary.button {
   -webkit-box-shadow: 0 0 0 0 rgba(34, 36, 38, 0.15) inset;
@@ -1559,19 +1585,19 @@
 }
 .ui.secondary.buttons .button:hover,
 .ui.secondary.button:hover {
-  background-color: #27292a;
+  background-color: #264daa;
   color: #FFFFFF;
   text-shadow: none;
 }
 .ui.secondary.buttons .button:focus,
 .ui.secondary.button:focus {
-  background-color: #2e3032;
+  background-color: #2350bd;
   color: #FFFFFF;
   text-shadow: none;
 }
 .ui.secondary.buttons .button:active,
 .ui.secondary.button:active {
-  background-color: #343637;
+  background-color: #325ab8;
   color: #FFFFFF;
   text-shadow: none;
 }
@@ -1579,7 +1605,7 @@
 .ui.secondary.buttons .active.button:active,
 .ui.secondary.active.button,
 .ui.secondary.button .active.button:active {
-  background-color: #27292a;
+  background-color: #234cad;
   color: #FFFFFF;
   text-shadow: none;
 }
@@ -1588,36 +1614,36 @@
 .ui.basic.secondary.buttons .button,
 .ui.basic.secondary.button {
   background: transparent;
-  -webkit-box-shadow: 0 0 0 1px #1B1C1D inset;
-          box-shadow: 0 0 0 1px #1B1C1D inset;
-  color: #1B1C1D;
+  -webkit-box-shadow: 0 0 0 1px #274690 inset;
+          box-shadow: 0 0 0 1px #274690 inset;
+  color: #274690;
 }
 .ui.basic.secondary.buttons .button:hover,
 .ui.basic.secondary.button:hover {
   background: transparent ;
-  -webkit-box-shadow: 0 0 0 1px #27292a inset;
-          box-shadow: 0 0 0 1px #27292a inset;
-  color: #27292a;
+  -webkit-box-shadow: 0 0 0 1px #264daa inset;
+          box-shadow: 0 0 0 1px #264daa inset;
+  color: #264daa;
 }
 .ui.basic.secondary.buttons .button:focus,
 .ui.basic.secondary.button:focus {
   background: transparent ;
-  -webkit-box-shadow: 0 0 0 1px #2e3032 inset;
-          box-shadow: 0 0 0 1px #2e3032 inset;
-  color: #27292a;
+  -webkit-box-shadow: 0 0 0 1px #2350bd inset;
+          box-shadow: 0 0 0 1px #2350bd inset;
+  color: #264daa;
 }
 .ui.basic.secondary.buttons .active.button,
 .ui.basic.secondary.active.button {
   background: transparent ;
-  -webkit-box-shadow: 0 0 0 1px #27292a inset;
-          box-shadow: 0 0 0 1px #27292a inset;
-  color: #343637;
+  -webkit-box-shadow: 0 0 0 1px #234cad inset;
+          box-shadow: 0 0 0 1px #234cad inset;
+  color: #325ab8;
 }
 .ui.basic.secondary.buttons .button:active,
 .ui.basic.secondary.button:active {
-  -webkit-box-shadow: 0 0 0 1px #343637 inset;
-          box-shadow: 0 0 0 1px #343637 inset;
-  color: #343637;
+  -webkit-box-shadow: 0 0 0 1px #325ab8 inset;
+          box-shadow: 0 0 0 1px #325ab8 inset;
+  color: #325ab8;
 }
 .ui.buttons:not(.vertical) > .basic.secondary.button:not(:first-child) {
   margin-left: -1px;
@@ -1627,9 +1653,9 @@
 .ui.inverted.secondary.buttons .button,
 .ui.inverted.secondary.button {
   background-color: transparent;
-  -webkit-box-shadow: 0 0 0 2px #545454 inset;
-          box-shadow: 0 0 0 2px #545454 inset;
-  color: #545454;
+  -webkit-box-shadow: 0 0 0 2px #0090C1 inset;
+          box-shadow: 0 0 0 2px #0090C1 inset;
+  color: #0090C1;
 }
 .ui.inverted.secondary.buttons .button:hover,
 .ui.inverted.secondary.button:hover,
@@ -1645,19 +1671,19 @@
 }
 .ui.inverted.secondary.buttons .button:hover,
 .ui.inverted.secondary.button:hover {
-  background-color: #6e6e6e;
+  background-color: #00b6f4;
 }
 .ui.inverted.secondary.buttons .button:focus,
 .ui.inverted.secondary.button:focus {
-  background-color: #686868;
+  background-color: #00aeea;
 }
 .ui.inverted.secondary.buttons .active.button,
 .ui.inverted.secondary.active.button {
-  background-color: #616161;
+  background-color: #00a3db;
 }
 .ui.inverted.secondary.buttons .button:active,
 .ui.inverted.secondary.button:active {
-  background-color: #6e6e6e;
+  background-color: #00b6f4;
 }
 
 /* Inverted Basic */
@@ -1672,30 +1698,30 @@
 .ui.inverted.secondary.basic.buttons .button:hover,
 .ui.inverted.secondary.buttons .basic.button:hover,
 .ui.inverted.secondary.basic.button:hover {
-  -webkit-box-shadow: 0 0 0 2px #6e6e6e inset;
-          box-shadow: 0 0 0 2px #6e6e6e inset;
-  color: #545454;
+  -webkit-box-shadow: 0 0 0 2px #00b6f4 inset;
+          box-shadow: 0 0 0 2px #00b6f4 inset;
+  color: #0090C1;
 }
 .ui.inverted.secondary.basic.buttons .button:focus,
 .ui.inverted.secondary.basic.buttons .button:focus,
 .ui.inverted.secondary.basic.button:focus {
-  -webkit-box-shadow: 0 0 0 2px #686868 inset;
-          box-shadow: 0 0 0 2px #686868 inset;
-  color: #545454;
+  -webkit-box-shadow: 0 0 0 2px #00aeea inset;
+          box-shadow: 0 0 0 2px #00aeea inset;
+  color: #0090C1;
 }
 .ui.inverted.secondary.basic.buttons .active.button,
 .ui.inverted.secondary.buttons .basic.active.button,
 .ui.inverted.secondary.basic.active.button {
-  -webkit-box-shadow: 0 0 0 2px #616161 inset;
-          box-shadow: 0 0 0 2px #616161 inset;
-  color: #545454;
+  -webkit-box-shadow: 0 0 0 2px #00a3db inset;
+          box-shadow: 0 0 0 2px #00a3db inset;
+  color: #0090C1;
 }
 .ui.inverted.secondary.basic.buttons .button:active,
 .ui.inverted.secondary.buttons .basic.button:active,
 .ui.inverted.secondary.basic.button:active {
-  -webkit-box-shadow: 0 0 0 2px #6e6e6e inset;
-          box-shadow: 0 0 0 2px #6e6e6e inset;
-  color: #545454;
+  -webkit-box-shadow: 0 0 0 2px #00b6f4 inset;
+          box-shadow: 0 0 0 2px #00b6f4 inset;
+  color: #0090C1;
 }
 
 /* Tertiary */
@@ -1705,21 +1731,21 @@
   background: transparent;
   -webkit-box-shadow: none;
           box-shadow: none;
-  color: #1B1C1D;
+  color: #274690;
 }
 .ui.tertiary.secondary.buttons .button:hover,
 .ui.tertiary.secondary.buttons button:hover,
 .ui.tertiary.secondary.button:hover {
-  -webkit-box-shadow: inset 0 -0.2em 0 #292929;
-          box-shadow: inset 0 -0.2em 0 #292929;
-  color: #292929;
+  -webkit-box-shadow: inset 0 -0.2em 0 #3b5695;
+          box-shadow: inset 0 -0.2em 0 #3b5695;
+  color: #3b5695;
 }
 .ui.tertiary.secondary.buttons .button:focus,
 .ui.tertiary.secondary.buttons .tertiary.button:focus,
 .ui.tertiary.secondary.button:focus {
-  -webkit-box-shadow: inset 0 -0.2em 0 #303030;
-          box-shadow: inset 0 -0.2em 0 #303030;
-  color: #303030;
+  -webkit-box-shadow: inset 0 -0.2em 0 #395aa7;
+          box-shadow: inset 0 -0.2em 0 #395aa7;
+  color: #395aa7;
 }
 .ui.tertiary.secondary.buttons .active.button,
 .ui.tertiary.secondary.buttons .tertiary.active.button,
@@ -1727,16 +1753,18 @@
 .ui.tertiary.secondary.buttons .button:active,
 .ui.tertiary.secondary.buttons .tertiary.button:active,
 .ui.tertiary.secondary.button:active {
-  -webkit-box-shadow: inset 0 -0.2em 0 #1f2933;
-          box-shadow: inset 0 -0.2em 0 #1f2933;
-  color: #27292a;
+  -webkit-box-shadow: inset 0 -0.2em 0 #0f44c2;
+          box-shadow: inset 0 -0.2em 0 #0f44c2;
+  color: #234cad;
 }
 .ui.red.buttons .button,
 .ui.red.button {
   background-color: #DB2828;
   color: #FFFFFF;
   text-shadow: none;
-  background-image: none;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0, 0, 0, 0.05)));
+  background-image: -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+  background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.05));
 }
 .ui.red.button {
   -webkit-box-shadow: 0 0 0 0 rgba(34, 36, 38, 0.15) inset;
@@ -1921,7 +1949,9 @@
   background-color: #F2711C;
   color: #FFFFFF;
   text-shadow: none;
-  background-image: none;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0, 0, 0, 0.05)));
+  background-image: -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+  background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.05));
 }
 .ui.orange.button {
   -webkit-box-shadow: 0 0 0 0 rgba(34, 36, 38, 0.15) inset;
@@ -2106,7 +2136,9 @@
   background-color: #FBBD08;
   color: #FFFFFF;
   text-shadow: none;
-  background-image: none;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0, 0, 0, 0.05)));
+  background-image: -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+  background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.05));
 }
 .ui.yellow.button {
   -webkit-box-shadow: 0 0 0 0 rgba(34, 36, 38, 0.15) inset;
@@ -2196,7 +2228,7 @@
 .ui.inverted.yellow.button:active {
   -webkit-box-shadow: none ;
           box-shadow: none ;
-  color: rgba(0, 0, 0, 0.6);
+  color: #333333;
 }
 .ui.inverted.yellow.buttons .button:hover,
 .ui.inverted.yellow.button:hover {
@@ -2291,7 +2323,9 @@
   background-color: #B5CC18;
   color: #FFFFFF;
   text-shadow: none;
-  background-image: none;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0, 0, 0, 0.05)));
+  background-image: -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+  background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.05));
 }
 .ui.olive.button {
   -webkit-box-shadow: 0 0 0 0 rgba(34, 36, 38, 0.15) inset;
@@ -2381,7 +2415,7 @@
 .ui.inverted.olive.button:active {
   -webkit-box-shadow: none ;
           box-shadow: none ;
-  color: rgba(0, 0, 0, 0.6);
+  color: #333333;
 }
 .ui.inverted.olive.buttons .button:hover,
 .ui.inverted.olive.button:hover {
@@ -2476,7 +2510,9 @@
   background-color: #21BA45;
   color: #FFFFFF;
   text-shadow: none;
-  background-image: none;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0, 0, 0, 0.05)));
+  background-image: -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+  background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.05));
 }
 .ui.green.button {
   -webkit-box-shadow: 0 0 0 0 rgba(34, 36, 38, 0.15) inset;
@@ -2661,7 +2697,9 @@
   background-color: #00B5AD;
   color: #FFFFFF;
   text-shadow: none;
-  background-image: none;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0, 0, 0, 0.05)));
+  background-image: -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+  background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.05));
 }
 .ui.teal.button {
   -webkit-box-shadow: 0 0 0 0 rgba(34, 36, 38, 0.15) inset;
@@ -2751,7 +2789,7 @@
 .ui.inverted.teal.button:active {
   -webkit-box-shadow: none ;
           box-shadow: none ;
-  color: rgba(0, 0, 0, 0.6);
+  color: #333333;
 }
 .ui.inverted.teal.buttons .button:hover,
 .ui.inverted.teal.button:hover {
@@ -2843,10 +2881,12 @@
 }
 .ui.blue.buttons .button,
 .ui.blue.button {
-  background-color: #2185D0;
+  background-color: #55ACEE;
   color: #FFFFFF;
   text-shadow: none;
-  background-image: none;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0, 0, 0, 0.05)));
+  background-image: -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+  background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.05));
 }
 .ui.blue.button {
   -webkit-box-shadow: 0 0 0 0 rgba(34, 36, 38, 0.15) inset;
@@ -2854,19 +2894,19 @@
 }
 .ui.blue.buttons .button:hover,
 .ui.blue.button:hover {
-  background-color: #1678c2;
+  background-color: #35a2f4;
   color: #FFFFFF;
   text-shadow: none;
 }
 .ui.blue.buttons .button:focus,
 .ui.blue.button:focus {
-  background-color: #0d71bb;
+  background-color: #1d9cfd;
   color: #FFFFFF;
   text-shadow: none;
 }
 .ui.blue.buttons .button:active,
 .ui.blue.button:active {
-  background-color: #1a69a4;
+  background-color: #2795e9;
   color: #FFFFFF;
   text-shadow: none;
 }
@@ -2874,7 +2914,7 @@
 .ui.blue.buttons .active.button:active,
 .ui.blue.active.button,
 .ui.blue.button .active.button:active {
-  background-color: #1279c6;
+  background-color: #31a2f9;
   color: #FFFFFF;
   text-shadow: none;
 }
@@ -2883,36 +2923,36 @@
 .ui.basic.blue.buttons .button,
 .ui.basic.blue.button {
   background: transparent;
-  -webkit-box-shadow: 0 0 0 1px #2185D0 inset;
-          box-shadow: 0 0 0 1px #2185D0 inset;
-  color: #2185D0;
+  -webkit-box-shadow: 0 0 0 1px #55ACEE inset;
+          box-shadow: 0 0 0 1px #55ACEE inset;
+  color: #55ACEE;
 }
 .ui.basic.blue.buttons .button:hover,
 .ui.basic.blue.button:hover {
   background: transparent ;
-  -webkit-box-shadow: 0 0 0 1px #1678c2 inset;
-          box-shadow: 0 0 0 1px #1678c2 inset;
-  color: #1678c2;
+  -webkit-box-shadow: 0 0 0 1px #35a2f4 inset;
+          box-shadow: 0 0 0 1px #35a2f4 inset;
+  color: #35a2f4;
 }
 .ui.basic.blue.buttons .button:focus,
 .ui.basic.blue.button:focus {
   background: transparent ;
-  -webkit-box-shadow: 0 0 0 1px #0d71bb inset;
-          box-shadow: 0 0 0 1px #0d71bb inset;
-  color: #1678c2;
+  -webkit-box-shadow: 0 0 0 1px #1d9cfd inset;
+          box-shadow: 0 0 0 1px #1d9cfd inset;
+  color: #35a2f4;
 }
 .ui.basic.blue.buttons .active.button,
 .ui.basic.blue.active.button {
   background: transparent ;
-  -webkit-box-shadow: 0 0 0 1px #1279c6 inset;
-          box-shadow: 0 0 0 1px #1279c6 inset;
-  color: #1a69a4;
+  -webkit-box-shadow: 0 0 0 1px #31a2f9 inset;
+          box-shadow: 0 0 0 1px #31a2f9 inset;
+  color: #2795e9;
 }
 .ui.basic.blue.buttons .button:active,
 .ui.basic.blue.button:active {
-  -webkit-box-shadow: 0 0 0 1px #1a69a4 inset;
-          box-shadow: 0 0 0 1px #1a69a4 inset;
-  color: #1a69a4;
+  -webkit-box-shadow: 0 0 0 1px #2795e9 inset;
+          box-shadow: 0 0 0 1px #2795e9 inset;
+  color: #2795e9;
 }
 .ui.buttons:not(.vertical) > .basic.blue.button:not(:first-child) {
   margin-left: -1px;
@@ -3000,21 +3040,21 @@
   background: transparent;
   -webkit-box-shadow: none;
           box-shadow: none;
-  color: #2185D0;
+  color: #55ACEE;
 }
 .ui.tertiary.blue.buttons .button:hover,
 .ui.tertiary.blue.buttons button:hover,
 .ui.tertiary.blue.button:hover {
-  -webkit-box-shadow: inset 0 -0.2em 0 #2b75ac;
-          box-shadow: inset 0 -0.2em 0 #2b75ac;
-  color: #2b75ac;
+  -webkit-box-shadow: inset 0 -0.2em 0 #4a9fdf;
+          box-shadow: inset 0 -0.2em 0 #4a9fdf;
+  color: #4a9fdf;
 }
 .ui.tertiary.blue.buttons .button:focus,
 .ui.tertiary.blue.buttons .tertiary.button:focus,
 .ui.tertiary.blue.button:focus {
-  -webkit-box-shadow: inset 0 -0.2em 0 #216ea7;
-          box-shadow: inset 0 -0.2em 0 #216ea7;
-  color: #216ea7;
+  -webkit-box-shadow: inset 0 -0.2em 0 #3499e6;
+          box-shadow: inset 0 -0.2em 0 #3499e6;
+  color: #3499e6;
 }
 .ui.tertiary.blue.buttons .active.button,
 .ui.tertiary.blue.buttons .tertiary.active.button,
@@ -3022,16 +3062,18 @@
 .ui.tertiary.blue.buttons .button:active,
 .ui.tertiary.blue.buttons .tertiary.button:active,
 .ui.tertiary.blue.button:active {
-  -webkit-box-shadow: inset 0 -0.2em 0 #007bd8;
-          box-shadow: inset 0 -0.2em 0 #007bd8;
-  color: #1279c6;
+  -webkit-box-shadow: inset 0 -0.2em 0 #2aa3ff;
+          box-shadow: inset 0 -0.2em 0 #2aa3ff;
+  color: #31a2f9;
 }
 .ui.violet.buttons .button,
 .ui.violet.button {
   background-color: #6435C9;
   color: #FFFFFF;
   text-shadow: none;
-  background-image: none;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0, 0, 0, 0.05)));
+  background-image: -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+  background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.05));
 }
 .ui.violet.button {
   -webkit-box-shadow: 0 0 0 0 rgba(34, 36, 38, 0.15) inset;
@@ -3216,7 +3258,9 @@
   background-color: #A333C8;
   color: #FFFFFF;
   text-shadow: none;
-  background-image: none;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0, 0, 0, 0.05)));
+  background-image: -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+  background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.05));
 }
 .ui.purple.button {
   -webkit-box-shadow: 0 0 0 0 rgba(34, 36, 38, 0.15) inset;
@@ -3401,7 +3445,9 @@
   background-color: #E03997;
   color: #FFFFFF;
   text-shadow: none;
-  background-image: none;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0, 0, 0, 0.05)));
+  background-image: -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+  background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.05));
 }
 .ui.pink.button {
   -webkit-box-shadow: 0 0 0 0 rgba(34, 36, 38, 0.15) inset;
@@ -3586,7 +3632,9 @@
   background-color: #A5673F;
   color: #FFFFFF;
   text-shadow: none;
-  background-image: none;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0, 0, 0, 0.05)));
+  background-image: -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+  background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.05));
 }
 .ui.brown.button {
   -webkit-box-shadow: 0 0 0 0 rgba(34, 36, 38, 0.15) inset;
@@ -3771,7 +3819,9 @@
   background-color: #767676;
   color: #FFFFFF;
   text-shadow: none;
-  background-image: none;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0, 0, 0, 0.05)));
+  background-image: -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+  background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.05));
 }
 .ui.grey.button {
   -webkit-box-shadow: 0 0 0 0 rgba(34, 36, 38, 0.15) inset;
@@ -3861,7 +3911,7 @@
 .ui.inverted.grey.button:active {
   -webkit-box-shadow: none ;
           box-shadow: none ;
-  color: rgba(0, 0, 0, 0.6);
+  color: #333333;
 }
 .ui.inverted.grey.buttons .button:hover,
 .ui.inverted.grey.button:hover {
@@ -3956,7 +4006,9 @@
   background-color: #1B1C1D;
   color: #FFFFFF;
   text-shadow: none;
-  background-image: none;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0, 0, 0, 0.05)));
+  background-image: -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+  background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.05));
 }
 .ui.black.button {
   -webkit-box-shadow: 0 0 0 0 rgba(34, 36, 38, 0.15) inset;
@@ -4148,7 +4200,9 @@
   background-color: #21BA45;
   color: #FFFFFF;
   text-shadow: none;
-  background-image: none;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0, 0, 0, 0.05)));
+  background-image: -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+  background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.05));
 }
 .ui.positive.button {
   -webkit-box-shadow: 0 0 0 0 rgba(34, 36, 38, 0.15) inset;
@@ -4231,7 +4285,9 @@
   background-color: #DB2828;
   color: #FFFFFF;
   text-shadow: none;
-  background-image: none;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0, 0, 0, 0.05)));
+  background-image: -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+  background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.05));
 }
 .ui.negative.button {
   -webkit-box-shadow: 0 0 0 0 rgba(34, 36, 38, 0.15) inset;
@@ -4344,8 +4400,8 @@
 }
 .ui.buttons > .ui.button:not(.basic):not(.inverted),
 .ui.buttons:not(.basic):not(.inverted) > .button {
-  -webkit-box-shadow: 0 0 0 1px transparent inset, 0 0 0 0 rgba(34, 36, 38, 0.15) inset;
-          box-shadow: 0 0 0 1px transparent inset, 0 0 0 0 rgba(34, 36, 38, 0.15) inset;
+  -webkit-box-shadow: 0 0 0 1px #E1E8ED inset, 0 0 0 0 rgba(34, 36, 38, 0.15) inset;
+          box-shadow: 0 0 0 1px #E1E8ED inset, 0 0 0 0 rgba(34, 36, 38, 0.15) inset;
 }
 .ui.buttons .button:first-child {
   border-left: none;
@@ -4392,9 +4448,16 @@
 
 
 /*******************************
-         Theme Overrides
+           Overrides
 *******************************/
 
+.ui.primary.button {
+  -webkit-box-shadow: 0px 0px 0px 1px #3B88C3 inset, 0 2px 0 rgba(255, 255, 255, 0.15) inset;
+          box-shadow: 0px 0px 0px 1px #3B88C3 inset, 0 2px 0 rgba(255, 255, 255, 0.15) inset;
+}
+.ui.primary.button > .icon {
+  color: #FFFFFF;
+}
 
 
 /*******************************
