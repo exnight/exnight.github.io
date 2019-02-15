@@ -81,5 +81,7 @@ typings/
 
 # Custom
 build/
+semantic/dist/
+semantic/tasks/
 .DS_Store
 stats.json
