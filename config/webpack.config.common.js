@@ -52,23 +52,12 @@ const common = {
       },
       {
         test: /\.(gif|png|woff|svg|eot|ttf|woff2)$/,
-        exclude: /src/,
         loader: 'url-loader',
         options: {
           limit: 1000,
           name: '[name].[ext]',
-          publicPath: '../',
+          publicPath: '../css/fonts/',
           outputPath: 'css/fonts/',
-        },
-      },
-      {
-        test: /\.(png|woff|svg|eot|ttf|woff2)$/,
-        include: path.join(__dirname, '../src', 'css'),
-        loader: 'url-loader',
-        options: {
-          limit: 1000,
-          name: '[path][name].[ext]',
-          publicPath: '../',
         },
       },
     ],
