@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-// import * as firebase from 'firebase/app';
-// import 'firebase/database';
-import firebase from 'firebase';
+import firebase from 'firebase/app';
 import { Form, Message } from 'semantic-ui-react';
 
 class MsgForm extends Component {
@@ -17,11 +15,7 @@ class MsgForm extends Component {
       message: '',
       sent: false,
     };
-  }
-
-  componentWillMount() {
-    this.msgRef = firebase.database()
-      .ref('msg/');
+    this.msgRef = firebase.database().ref('msg/');
   }
 
   handleChange(e, { value }) {

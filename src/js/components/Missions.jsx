@@ -11,16 +11,12 @@ class Missions extends Component {
     this.state = {
       missions: [],
     };
-    this.planRef = firebase.database()
-      .ref('plan/');
-  }
-
-  componentWillMount() {
+    this.planRef = firebase.database().ref('plan/');
     this.planRef.once('value')
       .then((snapshot) => {
         this.setState({
           missions: Object.keys(snapshot.val())
-            .map(key => snapshot.val()[key]),
+            .map((key) => snapshot.val()[key]),
         });
       });
   }

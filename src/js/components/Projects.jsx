@@ -11,16 +11,12 @@ class Projects extends Component {
     this.state = {
       projects: [],
     };
-    this.projectRef = firebase.database()
-      .ref('project/');
-  }
-
-  componentWillMount() {
+    this.projectRef = firebase.database().ref('project/');
     this.projectRef.once('value')
       .then((snapshot) => {
         this.setState({
           projects: Object.keys(snapshot.val())
-            .map(key => snapshot.val()[key]),
+            .map((key) => snapshot.val()[key]),
         });
       });
   }
