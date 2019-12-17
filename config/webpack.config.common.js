@@ -48,7 +48,7 @@ const common = {
       {
         test: /\.(jpe?g|gif|png|svg)$/i,
         include: path.join(__dirname, '../src', 'img'),
-        loader: ['file-loader?name=img/[name].[ext]', 'image-webpack-loader?bypassOnDebug'],
+        loader: ['file-loader?name=img/[name].[ext]', 'image-webpack-loader?disable'],
       },
       {
         test: /\.(gif|png|woff|svg|eot|ttf|woff2)$/,
