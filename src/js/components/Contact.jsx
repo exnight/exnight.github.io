@@ -17,26 +17,26 @@ class Contact extends Component {
         <Grid relaxed container>
           <Grid.Row>
             <Header as="h4">
-              {'Contact me through these channels'}
+              Contact me through these channels
             </Header>
           </Grid.Row>
           <Grid.Row>
             <Button href="https://www.linkedin.com/in/jia-yeung-wong-05b838140/" color="blue">
               <Icon name="linkedin" size="large" />
-              {'LinkedIn'}
+              LinkedIn
             </Button>
             <Button href="https://www.facebook.com/leownight" color="facebook">
               <Icon name="facebook" size="large" />
-              {'Facebook'}
+              Facebook
             </Button>
             <Button href="https://github.com/exnight" color="grey">
               <Icon name="github" size="large" />
-              {'Github'}
+              Github
             </Button>
           </Grid.Row>
           <Grid.Row>
             <Header as="h4">
-              {'Or leave a message down here !'}
+              Or leave a message down here !
             </Header>
           </Grid.Row>
           <Grid.Row>

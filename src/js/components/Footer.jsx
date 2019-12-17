@@ -4,17 +4,17 @@ import { Container, Icon } from 'semantic-ui-react';
 const Footer = () => (
   <footer>
     <Container textAlign="center" fluid>
-      {'Copyright '}
+      Copyright
       <Icon name="copyright" />
-      {'Leo '}
-      <em>exnight</em>
-      {' Wong |'}
+      Leo
+      <em> exnight </em>
+      Wong |
       <Icon name="user" />
-      {'HKUST |'}
+      HKUST |
       <Icon name="calendar" />
-      {'2016 - 2019 |'}
+      2016 - 2019 |
       <Icon name="book" />
-      {'Not Powered By WordPressヽ(￣▽￣)ノ'}
+      Not Powered By WordPressヽ(￣▽￣)ノ
     </Container>
   </footer>
 );
