@@ -1,6 +1,6 @@
 /*!
- * # Semantic UI - Accordion
- * http://github.com/semantic-org/semantic-ui/
+ * # Fomantic-UI - Accordion
+ * http://github.com/fomantic/Fomantic-UI/
  *
  *
  * Released under the MIT license
@@ -33,12 +33,6 @@ $.fn.accordion = function(parameters) {
     query           = arguments[0],
     methodInvoked   = (typeof query == 'string'),
     queryArguments  = [].slice.call(arguments, 1),
-
-    requestAnimationFrame = window.requestAnimationFrame
-      || window.mozRequestAnimationFrame
-      || window.webkitRequestAnimationFrame
-      || window.msRequestAnimationFrame
-      || function(callback) { setTimeout(callback, 0); },
 
     returnedValue
   ;
@@ -195,7 +189,10 @@ $.fn.accordion = function(parameters) {
                     debug            : settings.debug,
                     verbose          : settings.verbose,
                     duration         : settings.duration,
-                    skipInlineHidden : true
+                    skipInlineHidden : true,
+                    onComplete: function() {
+                      $activeContent.children().removeClass(className.transition);
+                    }
                   })
               ;
             }
@@ -597,7 +594,8 @@ $.fn.accordion.settings = {
 
   className   : {
     active    : 'active',
-    animating : 'animating'
+    animating : 'animating',
+    transition: 'transition'
   },
 
   selector    : {

@@ -1,6 +1,6 @@
 /*!
- * # Semantic UI - Search
- * http://github.com/semantic-org/semantic-ui/
+ * # Fomantic-UI - Search
+ * http://github.com/fomantic/Fomantic-UI/
  *
  *
  * Released under the MIT license
@@ -220,14 +220,12 @@ $.fn.search = function(parameters) {
                   : $result.find('a[href]').eq(0),
                 href    = $link.attr('href')   || false,
                 target  = $link.attr('target') || false,
-                title   = $title.html(),
                 // title is used for result lookup
                 value   = ($title.length > 0)
                   ? $title.text()
                   : false,
                 results = module.get.results(),
-                result  = $result.data(metadata.result) || module.get.result(value, results),
-                returnedValue
+                result  = $result.data(metadata.result) || module.get.result(value, results)
               ;
               if(value) {
                 module.set.value(value);
@@ -357,8 +355,7 @@ $.fn.search = function(parameters) {
                 onAbort : function(response) {
                 },
                 onError           : module.error
-              },
-              searchHTML
+              }
             ;
             $.extend(true, apiSettings, settings.apiSettings);
             module.verbose('Setting up API request', apiSettings);
@@ -439,7 +436,6 @@ $.fn.search = function(parameters) {
           },
           result: function(value, results) {
             var
-              lookupFields = ['title', 'id'],
               result       = false
             ;
             value = (value !== undefined)
@@ -454,7 +450,7 @@ $.fn.search = function(parameters) {
               module.debug('Finding result that matches', value);
               $.each(results, function(index, category) {
                 if(Array.isArray(category.results)) {
-                  result = module.search.object(value, category.results, lookupFields)[0];
+                  result = module.search.object(value, category.results)[0];
                   // don't continue searching if a result is found
                   if(result) {
                     return false;
@@ -464,7 +460,7 @@ $.fn.search = function(parameters) {
             }
             else {
               module.debug('Finding result in results object', value);
-              result = module.search.object(value, results, lookupFields)[0];
+              result = module.search.object(value, results)[0];
             }
             return result || false;
           },
@@ -558,7 +554,7 @@ $.fn.search = function(parameters) {
         search: {
           local: function(searchTerm) {
             var
-              results = module.search.object(searchTerm, settings.content),
+              results = module.search.object(searchTerm, settings.source),
               searchHTML
             ;
             module.set.loading();
@@ -636,10 +632,15 @@ $.fn.search = function(parameters) {
             $.each(searchFields, function(index, field) {
               $.each(source, function(label, content) {
                 var
-                  fieldExists = (typeof content[field] == 'string')
+                  fieldExists = (typeof content[field] == 'string') || (typeof content[field] == 'number')
                 ;
                 if(fieldExists) {
-                  var text = module.remove.diacritics(content[field]);
+                  var text;
+                  if (typeof content[field] === 'string'){  
+                      text = module.remove.diacritics(content[field]);
+                  } else {
+                      text = content[field].toString(); 
+                  }
                   if( text.search(matchRegExp) !== -1) {
                     // content starts with value (first in results)
                     addResult(results, content);
@@ -805,8 +806,6 @@ $.fn.search = function(parameters) {
           id: function(resultIndex, categoryIndex) {
             var
               resultID      = (resultIndex + 1), // not zero indexed
-              categoryID    = (categoryIndex + 1),
-              firstCharCode,
               letterID,
               id
             ;
@@ -1252,6 +1251,7 @@ $.fn.search.settings = {
 
   // fields to search
   searchFields   : [
+    'id',
     'title',
     'description'
   ],

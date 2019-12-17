@@ -1,6 +1,6 @@
 /*!
- * # Semantic UI - Tab
- * http://github.com/semantic-org/semantic-ui/
+ * # Fomantic-UI - Tab
+ * http://github.com/fomantic/Fomantic-UI/
  *
  *
  * Released under the MIT license
@@ -58,6 +58,7 @@ $.fn.tab = function(parameters) {
         metadata        = settings.metadata,
         selector        = settings.selector,
         error           = settings.error,
+        regExp          = settings.regExp,
 
         eventNamespace  = '.' + settings.namespace,
         moduleNamespace = 'module-' + settings.namespace,
@@ -98,6 +99,11 @@ $.fn.tab = function(parameters) {
             module.initializeHistory();
             initializedHistory = true;
           }
+
+          if(instance === undefined && module.determine.activeTab() == null) {
+            module.debug('No active tab detected, setting first tab active', module.get.initialPath());
+            module.changeTab(module.get.initialPath());
+          };
 
           module.instantiate();
         },
@@ -275,6 +281,13 @@ $.fn.tab = function(parameters) {
           }
         },
 
+        escape: {
+          string: function(text) {
+            text =  String(text);
+            return text.replace(regExp.escape, '\\$&');
+          }
+        },
+
         set: {
           auto: function() {
             var
@@ -386,6 +399,7 @@ $.fn.tab = function(parameters) {
             }
             else if(tabPath.search('/') == -1 && tabPath !== '') {
               // look for in page anchor
+              tabPath = module.escape.string(tabPath);
               $anchor     = $('#' + tabPath + ', a[name="' + tabPath + '"]');
               currentPath = $anchor.closest('[data-tab]').data(metadata.tab);
               $tab        = module.get.tabElement(currentPath);
@@ -627,7 +641,7 @@ $.fn.tab = function(parameters) {
           },
           defaultPath: function(tabPath) {
             var
-              $defaultNav = $allModules.filter('[data-' + metadata.tab + '^="' + tabPath + '/"]').eq(0),
+              $defaultNav = $allModules.filter('[data-' + metadata.tab + '^="' + module.escape.string(tabPath) + '/"]').eq(0),
               defaultTab  = $defaultNav.data(metadata.tab) || false
             ;
             if( defaultTab ) {
@@ -646,7 +660,7 @@ $.fn.tab = function(parameters) {
           },
           navElement: function(tabPath) {
             tabPath = tabPath || activeTabPath;
-            return $allModules.filter('[data-' + metadata.tab + '="' + tabPath + '"]');
+            return $allModules.filter('[data-' + metadata.tab + '="' + module.escape.string(tabPath) + '"]');
           },
           tabElement: function(tabPath) {
             var
@@ -658,8 +672,8 @@ $.fn.tab = function(parameters) {
             tabPath        = tabPath || activeTabPath;
             tabPathArray   = module.utilities.pathToArray(tabPath);
             lastTab        = module.utilities.last(tabPathArray);
-            $fullPathTab   = $tabs.filter('[data-' + metadata.tab + '="' + tabPath + '"]');
-            $simplePathTab = $tabs.filter('[data-' + metadata.tab + '="' + lastTab + '"]');
+            $fullPathTab   = $tabs.filter('[data-' + metadata.tab + '="' + module.escape.string(tabPath) + '"]');
+            $simplePathTab = $tabs.filter('[data-' + metadata.tab + '="' + module.escape.string(lastTab) + '"]');
             return ($fullPathTab.length > 0)
               ? $fullPathTab
               : $simplePathTab
@@ -667,6 +681,29 @@ $.fn.tab = function(parameters) {
           },
           tab: function() {
             return activeTabPath;
+          }
+        },
+
+        determine: {
+          activeTab: function() {
+            var activeTab = null;
+
+            $tabs.each(function(_index, tab) {
+              var $tab = $(tab);
+
+              if( $tab.hasClass(className.active) ) {
+                var
+                  tabPath = $(this).data(metadata.tab),
+                  $anchor = $allModules.filter('[data-' + metadata.tab + '="' + module.escape.string(tabPath) + '"]')
+                ;
+
+                if( $anchor.hasClass(className.active) ) {
+                  activeTab = tabPath;
+                }
+              }
+            });
+
+            return activeTab;
           }
         },
 
@@ -936,6 +973,10 @@ $.fn.tab.settings = {
     legacyInit : 'onTabInit has been renamed to onFirstLoad in 2.0, please adjust your code.',
     legacyLoad : 'onTabLoad has been renamed to onLoad in 2.0. Please adjust your code',
     state      : 'History requires Asual\'s Address library <https://github.com/asual/jquery-address>'
+  },
+
+  regExp : {
+    escape   : /[-[\]{}()*+?.,\\^$|#\s:=@]/g
   },
 
   metadata : {
