@@ -14,7 +14,7 @@ class MissionItem extends Component {
       <List relaxed size="massive">
         {missions.map((item, i) => (
           <List.Item key={String(i)}>
-            <Checkbox readOnly label={item.task} defaultChecked={item.completed} toggle />
+            <Checkbox label={item.task} defaultChecked={item.completed} toggle />
           </List.Item>
         ))}
       </List>

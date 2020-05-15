@@ -12,7 +12,7 @@ const Footer = () => (
       <Icon name="user" />
       HKUST |
       <Icon name="calendar" />
-      2016 - 2019 |
+      2016 - 2020 |
       <Icon name="book" />
       Not Powered By WordPressヽ(￣▽￣)ノ
     </Container>
