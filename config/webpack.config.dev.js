@@ -5,23 +5,18 @@ const dev = {
     rules: [
       {
         test: /\.css$/,
-        use: [
-          'style-loader',
-          'css-loader',
-        ],
+        use: ['style-loader', 'css-loader'],
       },
-    ]
+    ],
   },
-  plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-  ],
+  plugins: [new webpack.HotModuleReplacementPlugin()],
   devtool: 'cheap-module-source-map',
   devServer: {
     contentBase: '/',
     compress: true,
     historyApiFallback: true,
     open: true,
-    port: 8080
+    port: 8080,
   },
   mode: 'development',
 };

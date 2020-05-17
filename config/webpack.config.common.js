@@ -20,7 +20,7 @@ const common = {
         loader: 'ts-loader',
         exclude: /node_modules/,
       },
-    ]
+    ],
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -28,13 +28,13 @@ const common = {
       template: './assets/index.ejs',
       inject: 'body',
       hash: true,
-      favicon: './assets/favicon.ico'
+      favicon: './assets/favicon.ico',
     }),
     new CompressionPlugin({
       test: /\.(js|css|html)$/,
       threshold: 10240,
       minRatio: 0.6,
-    })
+    }),
   ],
   resolve: {
     extensions: ['.ts', '.tsx', '.js'],
@@ -44,15 +44,15 @@ const common = {
     runtimeChunk: 'single',
     splitChunks: {
       chunks: 'all',
-      cacheGroups:{
+      cacheGroups: {
         defaultVendors: {
           test: /[\\/]node_modules[\\/]/,
           name: 'vendors',
-          enforce: true
+          enforce: true,
         },
       },
     },
-  }
+  },
 };
 
 module.exports = common;

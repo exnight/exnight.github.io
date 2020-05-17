@@ -11,12 +11,9 @@ const prod = {
     rules: [
       {
         test: /\.css$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          'css-loader',
-        ],
+        use: [MiniCssExtractPlugin.loader, 'css-loader'],
       },
-    ]
+    ],
   },
   plugins: [
     new MiniCssExtractPlugin({
@@ -25,7 +22,7 @@ const prod = {
   ],
   optimization: {
     splitChunks: {
-      cacheGroups:{
+      cacheGroups: {
         styles: {
           name: 'styles',
           test: /\.css$/,
