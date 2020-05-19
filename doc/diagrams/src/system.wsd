@@ -1,0 +1,56 @@
+@startuml sys
+skinparam Dpi 300
+
+skinparam component {
+  FontColor          white
+  AttributeFontColor black
+  FontSize           16
+  AttributeFontSize  14
+  BackgroundColor    #6A9EFF
+  BorderColor        black
+  ArrowColor         #222266
+}
+
+title System Architecture
+skinparam componentStyle uml2
+
+interface "API" as api
+interface "storage" as storage
+interface "website" as website
+
+package pages {
+  [md blog]
+  [home]
+  [about]
+  [portfolio]
+}
+
+database "Database" {
+  [SQL]
+}
+
+website -> [app]
+[app] -- pages
+
+[portfolio] .down. [DataVis project]
+[portfolio] .down. [random project]
+
+[DataVis project] -- api
+[python] - api
+
+[random project] -- storage
+storage - [SQL]
+
+note top of [home]
+  landing page
+end note
+
+note right of [about]
+  one-page resume
+end note
+
+note top of [portfolio]
+  projects
+end note
+
+@enduml
