@@ -1,12 +1,39 @@
 import React from 'react';
-import { Typography } from '@material-ui/core';
+
+import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import { Grid, Typography } from '@material-ui/core';
 import AccessibleForwardRoundedIcon from '@material-ui/icons/AccessibleForwardRounded';
 
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    homePage: {
+      minHeight: '50vh',
+    },
+  })
+);
+
 const About: React.FC = () => {
+  const classes = useStyles();
+
   return (
-    <Typography>
-      <AccessibleForwardRoundedIcon color="primary" /> About Page
-    </Typography>
+    <Grid
+      container
+      spacing={0}
+      direction="column"
+      alignItems="center"
+      justify="center"
+      className={classes.homePage}
+    >
+      <Grid item>
+        <Typography variant="h1">
+          <AccessibleForwardRoundedIcon
+            color="primary"
+            style={{ fontSize: 72 }}
+          />
+          About
+        </Typography>
+      </Grid>
+    </Grid>
   );
 };
 
