@@ -18,7 +18,7 @@ const RouterPage = (
 
 const App: React.FC = () => {
   return (
-    <React.Fragment>
+    <>
       <CssBaseline />
 
       <Navigation />
@@ -29,7 +29,7 @@ const App: React.FC = () => {
         </Router>
       </Container>
       <Footer />
-    </React.Fragment>
+    </>
   );
 };
 
