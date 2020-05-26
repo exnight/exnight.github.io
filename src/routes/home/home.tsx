@@ -2,11 +2,16 @@ import React from 'react';
 
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import { Grid, Typography } from '@material-ui/core';
+import Typed from 'react-typed';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     homePage: {
       minHeight: '50vh',
+      position: 'absolute',
+      top: '50%',
+      left: '50%',
+      transform: 'translate(-50%, -50%)',
     },
     image: {
       backgroundImage: 'url(https://source.unsplash.com/random)',
@@ -23,19 +28,43 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const Home: React.FC = () => {
   const classes = useStyles();
+  const subtitleContent = [
+    'Quantitative Finance',
+    'Computer Science',
+    'Quant Developer',
+  ];
+  const typingForwardSpeed = 40;
+  const typingBackwardSpeed = 40;
 
   return (
     <Grid
       container
-      spacing={0}
+      spacing={4}
       direction="column"
       alignItems="center"
       justify="center"
       className={classes.homePage}
     >
       <Grid item>
-        <Typography variant="h1" style={{ color: '#2196F3' }}>
-          Home
+        <Typography variant="h3" style={{ color: '#2196F3' }}>
+          <Typed
+            strings={[`Leo WONG`, `<em>exnight</em>`]}
+            typeSpeed={typingForwardSpeed}
+            backSpeed={typingBackwardSpeed}
+            backDelay={4000}
+            loop
+          />
+        </Typography>
+      </Grid>
+      <Grid item>
+        <Typography variant="h4">
+          <Typed
+            strings={subtitleContent}
+            typeSpeed={typingForwardSpeed}
+            backSpeed={typingBackwardSpeed}
+            backDelay={2000}
+            loop
+          />
         </Typography>
       </Grid>
     </Grid>
