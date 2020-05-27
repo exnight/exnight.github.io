@@ -1,4 +1,3 @@
-const webpack = require('webpack');
 const path = require('path');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -44,11 +43,26 @@ const common = {
     runtimeChunk: 'single',
     splitChunks: {
       chunks: 'all',
+      maxInitialRequests: Infinity,
+      minSize: 0,
       cacheGroups: {
         defaultVendors: {
           test: /[\\/]node_modules[\\/]/,
           name: 'vendors',
           enforce: true,
+          priority: -2,
+        },
+        reactVendor: {
+          test: /[\\/]node_modules[\\/](react|react-dom|@reach)[\\/]/,
+          name: 'reactVendor',
+          enforce: true,
+          priority: -1,
+        },
+        materialUIVendor: {
+          test: /[\\/]node_modules[\\/](@material-ui)[\\/]/,
+          name: 'materialUIVendor',
+          enforce: true,
+          priority: -1,
         },
       },
     },

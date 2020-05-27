@@ -1,8 +1,9 @@
-const webpack = require('webpack');
 const merge = require('webpack-merge');
 
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
+
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 const common = require('./webpack.config.common');
 
@@ -19,6 +20,7 @@ const prod = {
     new MiniCssExtractPlugin({
       filename: 'css/[name].[contenthash:6].css',
     }),
+    new BundleAnalyzerPlugin(),
   ],
   optimization: {
     splitChunks: {
