@@ -50,7 +50,7 @@ const common = {
           test: /[\\/]node_modules[\\/]/,
           name: 'vendors',
           enforce: true,
-          priority: -2,
+          priority: -10,
         },
         reactVendor: {
           test: /[\\/]node_modules[\\/](react|react-dom|@reach)[\\/]/,
@@ -61,6 +61,12 @@ const common = {
         materialUIVendor: {
           test: /[\\/]node_modules[\\/](@material-ui)[\\/]/,
           name: 'materialUIVendor',
+          enforce: true,
+          priority: -1,
+        },
+        utilVendor: {
+          test: /[\\/]node_modules[\\/](react-typed|jss-*.*)[\\/]/,
+          name: 'utilVendor',
           enforce: true,
           priority: -1,
         },
