@@ -26,16 +26,12 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-interface Location {
-  pathname: string;
-}
-
-const Navigation: React.FC<{ location: Location }> = (props) => {
+const Navigation: React.FC<{ location: string }> = (props) => {
   const classes = useStyles();
 
   const { location } = props;
   let currentRoute = '';
-  switch (location.pathname) {
+  switch (location) {
     case '/':
       currentRoute = 'Home';
       break;

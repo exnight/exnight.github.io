@@ -40,7 +40,7 @@ const App: React.FC = () => {
 
       <ThemeProvider theme={theme}>
         <Location>
-          {({ location }) => <Navigation location={location} />}
+          {({ location }) => <Navigation location={location.pathname} />}
         </Location>
 
         <Container>
