@@ -1,7 +1,9 @@
 import React from 'react';
 
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
-import { Box, Typography } from '@material-ui/core';
+
+import Box from '@material-ui/core/Box';
+import Typography from '@material-ui/core/Typography';
 
 import CopyrightIcon from '@material-ui/icons/Copyright';
 import PersonIcon from '@material-ui/icons/Person';

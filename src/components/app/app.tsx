@@ -1,11 +1,12 @@
 import React from 'react';
 import { Router, RouteComponentProps, Location } from '@reach/router';
 
-import CssBaseline from '@material-ui/core/CssBaseline';
-import { Container } from '@material-ui/core';
-import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
+import { createMuiTheme } from '@material-ui/core/styles';
 import { common, blueGrey, lightBlue } from '@material-ui/core/colors';
+
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Container from '@material-ui/core/Container';
 
 import Navigation from './navigation';
 import Footer from './footer';
