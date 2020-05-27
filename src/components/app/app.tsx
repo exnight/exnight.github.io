@@ -1,5 +1,5 @@
 import React from 'react';
-import { Router, RouteComponentProps } from '@reach/router';
+import { Router, RouteComponentProps, Location } from '@reach/router';
 
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { Container } from '@material-ui/core';
@@ -38,13 +38,18 @@ const App: React.FC = () => {
       <CssBaseline />
 
       <ThemeProvider theme={theme}>
-        <Navigation />
+        <Location>
+          {({ location }) => <Navigation location={location} />}
+        </Location>
+
         <Container>
           <Router>
             <RouterPage path="/" pageComponent={<Home />} />
             <RouterPage path="about" pageComponent={<About />} />
+            <RouterPage default pageComponent={<Home />} />
           </Router>
         </Container>
+
         <Footer />
       </ThemeProvider>
     </>

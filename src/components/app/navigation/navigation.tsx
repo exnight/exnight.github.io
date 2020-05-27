@@ -24,8 +24,27 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-const Navigation: React.FC = () => {
+interface Location {
+  pathname: string;
+}
+
+const Navigation: React.FC<{ location: Location }> = (props) => {
   const classes = useStyles();
+
+  const { location } = props;
+  let currentRoute = '';
+  switch (location.pathname) {
+    case '/':
+      currentRoute = 'Home';
+      break;
+
+    case '/about':
+      currentRoute = 'Resume';
+      break;
+
+    default:
+      break;
+  }
 
   return (
     <div className={classes.root}>
@@ -42,7 +61,7 @@ const Navigation: React.FC = () => {
             </Link>
           </IconButton>
           <Typography variant="h6" className={classes.title}>
-            Placeholder
+            {currentRoute}
           </Typography>
 
           <Link to="/">
