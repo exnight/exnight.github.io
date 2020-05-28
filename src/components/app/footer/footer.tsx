@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     footer: {
       padding: 10,
-      position: 'absolute',
+      position: 'relative',
       textAlign: 'center',
       left: 0,
       right: 0,
@@ -32,12 +32,12 @@ const Footer: React.FC = () => {
     <Box className={classes.footer}>
       <Typography>
         Copyright
-        <CopyrightIcon fontSize="large" />
+        <CopyrightIcon />
         Leo
         <em> exnight </em>
-        Wong | <PersonIcon fontSize="large" />
-        HKUST | <CalendarTodayIcon fontSize="large" />
-        2016 - 2020 | <MenuBookIcon fontSize="large" />
+        Wong | <PersonIcon />
+        HKUST | <CalendarTodayIcon />
+        2016 - 2020 | <MenuBookIcon />
         Not Powered By WordPressヽ(￣▽￣)ノ
       </Typography>
     </Box>

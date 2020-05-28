@@ -6,3 +6,8 @@ a {
 .MuiSvgIcon-root {
   vertical-align: bottom;
 }
+
+hr {
+  width: inherit;
+  margin-top: 0;
+}
