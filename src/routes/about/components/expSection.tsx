@@ -22,32 +22,32 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-interface ExpItemMainContent {
+interface EduItemMainContent {
   title: string;
   subtitle: string;
   duration: string;
   courses?: string[];
 }
-interface ExpData {
+interface EduData {
   fetched: boolean;
-  university: ExpItemMainContent;
-  highschool: ExpItemMainContent;
+  university: EduItemMainContent;
+  highSchool: EduItemMainContent;
 }
 
-const initExpData = {
+const initEduData = {
   fetched: false,
   university: { title: '', subtitle: '', duration: '' },
-  highschool: { title: '', subtitle: '', duration: '' },
+  highSchool: { title: '', subtitle: '', duration: '' },
 };
 
 const ResumeExpSection: React.FC = () => {
-  const [expData, setExpData] = useState<ExpData>(initExpData);
+  const [eduData, setEduData] = useState<EduData>(initEduData);
 
   useEffect(() => {
     fetch('data/experience.json')
       .then((res) => res.json())
       .then((data) => {
-        setExpData({ ...data, fetched: true });
+        setEduData({ ...data, fetched: true });
       });
   }, []);
 
@@ -59,12 +59,12 @@ const ResumeExpSection: React.FC = () => {
         <Typography variant="h5">Education</Typography>
         <Divider className={classes.dividerStyle} />
 
-        {expData.fetched ? (
+        {eduData.fetched ? (
           <Grid container spacing={2} direction="column">
-            <ExpItem mainContent={expData.university}>
+            <ExpItem mainContent={eduData.university}>
               <Typography variant="subtitle2">
                 Relevant Courses:
-                {expData.university.courses?.map((item, idx) => (
+                {eduData.university.courses?.map((item, idx) => (
                   <Chip
                     key={idx}
                     label={item}
@@ -75,7 +75,7 @@ const ResumeExpSection: React.FC = () => {
                 ))}
               </Typography>
             </ExpItem>
-            <ExpItem mainContent={expData.highschool} />
+            <ExpItem mainContent={eduData.highSchool} />
           </Grid>
         ) : null}
       </Grid>
