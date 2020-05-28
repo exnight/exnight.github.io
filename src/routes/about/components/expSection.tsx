@@ -2,12 +2,11 @@ import React, { useEffect, useState } from 'react';
 
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 
-import Chip from '@material-ui/core/Chip';
 import Divider from '@material-ui/core/Divider';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 
-import ExpItem from './expItem';
+import EduItem from './eduItem';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -16,13 +15,10 @@ const useStyles = makeStyles((theme: Theme) =>
       height: '0.2rem',
       marginBottom: '1rem',
     },
-    chip: {
-      margin: theme.spacing(0.5),
-    },
   })
 );
 
-interface EduItemMainContent {
+interface EduItemContent {
   title: string;
   subtitle: string;
   duration: string;
@@ -30,11 +26,11 @@ interface EduItemMainContent {
 }
 interface EduData {
   fetched: boolean;
-  university: EduItemMainContent;
-  highSchool: EduItemMainContent;
+  university: EduItemContent;
+  highSchool: EduItemContent;
 }
 
-const initEduData = {
+const initEduData: EduData = {
   fetched: false,
   university: { title: '', subtitle: '', duration: '' },
   highSchool: { title: '', subtitle: '', duration: '' },
@@ -42,16 +38,19 @@ const initEduData = {
 
 const ResumeExpSection: React.FC = () => {
   const [eduData, setEduData] = useState<EduData>(initEduData);
+  const classes = useStyles();
 
   useEffect(() => {
     fetch('data/experience.json')
       .then((res) => res.json())
       .then((data) => {
-        setEduData({ ...data, fetched: true });
+        setEduData({
+          university: data.university,
+          highSchool: data.highSchool,
+          fetched: true,
+        });
       });
   }, []);
-
-  const classes = useStyles();
 
   return (
     <Grid container spacing={4} direction="column">
@@ -61,21 +60,17 @@ const ResumeExpSection: React.FC = () => {
 
         {eduData.fetched ? (
           <Grid container spacing={2} direction="column">
-            <ExpItem mainContent={eduData.university}>
-              <Typography variant="subtitle2">
-                Relevant Courses:
-                {eduData.university.courses?.map((item, idx) => (
-                  <Chip
-                    key={idx}
-                    label={item}
-                    size="small"
-                    color="primary"
-                    className={classes.chip}
-                  />
-                ))}
-              </Typography>
-            </ExpItem>
-            <ExpItem mainContent={eduData.highSchool} />
+            <EduItem
+              title={eduData.university.title}
+              subtitle={eduData.university.subtitle}
+              duration={eduData.university.duration}
+              courses={eduData.university.courses}
+            />
+            <EduItem
+              title={eduData.highSchool.title}
+              subtitle={eduData.highSchool.subtitle}
+              duration={eduData.highSchool.duration}
+            />
           </Grid>
         ) : null}
       </Grid>
