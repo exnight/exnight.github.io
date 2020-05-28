@@ -11,7 +11,7 @@ import Navigation from './navigation';
 import Footer from './footer';
 
 import Home from '../../routes/home';
-import About from '../../routes/about';
+import Resume from '../../routes/about';
 
 import './app.css';
 
@@ -46,7 +46,7 @@ const App: React.FC = () => {
 
         <Router>
           <RouterPage path="/" pageComponent={<Home />} />
-          <RouterPage path="about" pageComponent={<About />} />
+          <RouterPage path="about" pageComponent={<Resume />} />
           <RouterPage default pageComponent={<Home />} />
         </Router>
 
