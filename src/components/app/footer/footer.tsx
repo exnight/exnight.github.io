@@ -13,7 +13,8 @@ import MenuBookIcon from '@material-ui/icons/MenuBook';
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     footer: {
-      padding: 10,
+      padding: '2rem',
+      marginTop: '2rem',
       position: 'relative',
       textAlign: 'center',
       left: 0,

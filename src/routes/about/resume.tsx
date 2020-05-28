@@ -35,11 +35,11 @@ const Resume: React.FC = () => {
         <Divider style={{ marginBottom: '2rem' }} />
 
         <Grid container spacing={8}>
-          <Grid item md={3}>
+          <Grid item md={3} sm={12}>
             <SkillSection />
           </Grid>
 
-          <Grid item md={9}>
+          <Grid item md={9} sm={12}>
             <ExpSection />
           </Grid>
         </Grid>

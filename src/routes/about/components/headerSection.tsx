@@ -25,7 +25,7 @@ const ResumeHeaderSection: React.FC = () => {
   return (
     <Grid item className={classes.resumeHeader}>
       <Grid container justify="space-between">
-        <Grid item md={6}>
+        <Grid item md={6} sm={12}>
           <Typography variant="h3" color="primary">
             WONG Jia Yeung Leo
           </Typography>
@@ -37,7 +37,7 @@ const ResumeHeaderSection: React.FC = () => {
           <Typography variant="subtitle2">HKUST 2020 June</Typography>
         </Grid>
 
-        <Grid item md={6}>
+        <Grid item md={6} sm={12}>
           <Typography variant="body1" align="right">
             <a href="mailto://leowongjiayeung@gmail.com">
               leowongjiayeung@gmail.com
