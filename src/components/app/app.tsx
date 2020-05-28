@@ -6,7 +6,6 @@ import { createMuiTheme } from '@material-ui/core/styles';
 import { common, blueGrey, lightBlue } from '@material-ui/core/colors';
 
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Container from '@material-ui/core/Container';
 
 import Navigation from './navigation';
 import Footer from './footer';
@@ -43,13 +42,11 @@ const App: React.FC = () => {
           {({ location }) => <Navigation location={location.pathname} />}
         </Location>
 
-        <Container>
-          <Router>
-            <RouterPage path="/" pageComponent={<Home />} />
-            <RouterPage path="about" pageComponent={<About />} />
-            <RouterPage default pageComponent={<Home />} />
-          </Router>
-        </Container>
+        <Router>
+          <RouterPage path="/" pageComponent={<Home />} />
+          <RouterPage path="about" pageComponent={<About />} />
+          <RouterPage default pageComponent={<Home />} />
+        </Router>
 
         <Footer />
       </ThemeProvider>
