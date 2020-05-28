@@ -1,7 +1,7 @@
 {
   "university": {
     "title": "The Hong Kong University of Science and Technology",
-    "subtitle": "Bachelor of Science in Quantitative Finance and Computer Science",
+    "subtitle": "BSc Quantitative Finance and Computer Science (QFIN & COSC)",
     "duration": "2016 - 2020",
     "courses": [
       "Big Data Mining",
@@ -29,8 +29,9 @@
     {
       "position": "Researcher/Developer",
       "workplace": "of Student Research Projects",
-      "duration": "2019",
+      "duration": "2019 - 2020",
       "actions": [
+        "Created automatic trading scripts in Python connecting to the Interactive Brokers TWS API",
         "Evaluated features generated with machine learning models (tree model, neural network, etc.)",
         "Built an event-driven, OO backtest system for algorithmic trading projects in Python",
         "Conducted classification and sentiment analysis with CNN and LSTM networks"
