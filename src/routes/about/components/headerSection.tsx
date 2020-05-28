@@ -29,11 +29,14 @@ const ResumeHeaderSection: React.FC = () => {
           <Typography variant="h3" color="primary">
             WONG Jia Yeung Leo
           </Typography>
+
           <Typography variant="subtitle1">
             Quantitative Finance and Computer Science
           </Typography>
+
           <Typography variant="subtitle2">HKUST 2020 June</Typography>
         </Grid>
+
         <Grid item md={6}>
           <Typography variant="body1" align="right">
             <a href="mailto://leowongjiayeung@gmail.com">
@@ -41,16 +44,19 @@ const ResumeHeaderSection: React.FC = () => {
             </a>{' '}
             <EmailIcon />
           </Typography>
+
           <Typography variant="body1" align="right">
             <a href="https://www.linkedin.com/in/jyleowong/">
               https://www.linkedin.com/in/jyleowong/
             </a>{' '}
             <LinkedInIcon />
           </Typography>
+
           <Typography variant="body1" align="right">
             <a href="https://github.com/exnight">https://github.com/exnight</a>{' '}
             <GitHubIcon />
           </Typography>
+
           <Typography variant="body1" align="right">
             +852 9645 4509 <SmartphoneIcon />
           </Typography>

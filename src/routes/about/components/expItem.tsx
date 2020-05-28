@@ -29,7 +29,7 @@ const ResumeExpItem: React.FC<ExpItemProps> = (props) => {
         </Grid>
 
         <Grid item>
-          <Typography variant="h6">{duration}</Typography>
+          <Typography variant="body1">{duration}</Typography>
         </Grid>
       </Grid>
     </Grid>

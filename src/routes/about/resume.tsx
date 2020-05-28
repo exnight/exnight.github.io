@@ -38,6 +38,7 @@ const Resume: React.FC = () => {
           <Grid item md={3}>
             <SkillSection />
           </Grid>
+
           <Grid item md={9}>
             <ExpSection />
           </Grid>

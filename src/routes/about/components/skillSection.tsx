@@ -24,10 +24,12 @@ const ResumeSkills: React.FC = () => {
         <Typography variant="h5">Skills</Typography>
         <Divider className={classes.dividerStyle} />
       </Grid>
+
       <Grid item>
         <Typography variant="h5">Languages</Typography>
         <Divider className={classes.dividerStyle} />
       </Grid>
+
       <Grid item>
         <Typography variant="h5">Sports</Typography>
         <Divider className={classes.dividerStyle} />
