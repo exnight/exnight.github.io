@@ -19,6 +19,13 @@ const common = {
         loader: 'ts-loader',
         exclude: /node_modules/,
       },
+      {
+        test: /\.(png|svg|jpe?g|gif)$/,
+        loader: 'file-loader',
+        options: {
+          name: 'img/[name].[ext]',
+        },
+      },
     ],
   },
   plugins: [

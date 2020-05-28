@@ -11,7 +11,10 @@
     "noImplicitThis": true,
     "noImplicitAny": true,
     "strictNullChecks": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "typeRoots": [
+      "./custom_typings"
+    ]
   },
   "exclude": [
     "node_modules",
