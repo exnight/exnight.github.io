@@ -56,10 +56,6 @@ const ResumeHeaderSection: React.FC = () => {
             <a href="https://github.com/exnight">https://github.com/exnight</a>{' '}
             <GitHubIcon />
           </Typography>
-
-          <Typography variant="body1" align="right">
-            +852 9645 4509 <SmartphoneIcon />
-          </Typography>
         </Grid>
       </Grid>
     </Grid>

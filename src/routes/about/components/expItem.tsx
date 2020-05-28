@@ -27,7 +27,7 @@ const ResumeExpItem: React.FC<ExpData> = (props: ExpData) => {
         <Grid container justify="space-between">
           <Grid item>
             <Typography variant="h6">
-              {position} {workplace}
+              <em>{position}</em> {workplace}
             </Typography>
             {actions.map((item) => (
               <Typography variant="body2" key={uuid()}>

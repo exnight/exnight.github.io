@@ -1,7 +1,9 @@
 import React from 'react';
 
 import { createStyles, makeStyles } from '@material-ui/core/styles';
+import { blueGrey } from '@material-ui/core/colors';
 
+import Box from '@material-ui/core/Box';
 import Container from '@material-ui/core/Container';
 import Divider from '@material-ui/core/Divider';
 import Grid from '@material-ui/core/Grid';
@@ -14,6 +16,8 @@ const useStyles = makeStyles(() =>
   createStyles({
     resumePage: {
       minHeight: '50vh',
+      paddingBottom: '4rem',
+      backgroundColor: blueGrey[50],
     },
   })
 );
@@ -22,29 +26,25 @@ const Resume: React.FC = () => {
   const classes = useStyles();
 
   return (
-    <Container>
-      <Grid
-        container
-        spacing={0}
-        direction="column"
-        alignItems="center"
-        className={classes.resumePage}
-      >
-        <HeaderSection />
+    <Box className={classes.resumePage}>
+      <Container>
+        <Grid container spacing={0} direction="column" alignItems="center">
+          <HeaderSection />
 
-        <Divider style={{ marginBottom: '2rem' }} />
+          <Divider style={{ marginBottom: '2rem' }} />
 
-        <Grid container spacing={8}>
-          <Grid item md={3} sm={12}>
-            <SkillSection />
-          </Grid>
+          <Grid container spacing={8}>
+            <Grid item md={3} sm={12}>
+              <SkillSection />
+            </Grid>
 
-          <Grid item md={9} sm={12}>
-            <ExpSection />
+            <Grid item md={9} sm={12}>
+              <ExpSection />
+            </Grid>
           </Grid>
         </Grid>
-      </Grid>
-    </Container>
+      </Container>
+    </Box>
   );
 };
 

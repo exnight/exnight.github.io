@@ -1,15 +1,16 @@
 import React from 'react';
 
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import { createStyles, makeStyles } from '@material-ui/core/styles';
+import { lightBlue } from '@material-ui/core/colors';
 
 import Divider from '@material-ui/core/Divider';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 
-const useStyles = makeStyles((theme: Theme) =>
+const useStyles = makeStyles(() =>
   createStyles({
     dividerStyle: {
-      backgroundColor: theme.palette.secondary.main,
+      backgroundColor: lightBlue[200],
       height: '0.2rem',
     },
   })
