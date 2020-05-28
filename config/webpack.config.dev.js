@@ -1,4 +1,5 @@
 const webpack = require('webpack');
+const path = require('path');
 
 const dev = {
   module: {
@@ -12,7 +13,7 @@ const dev = {
   plugins: [new webpack.HotModuleReplacementPlugin()],
   devtool: 'cheap-module-source-map',
   devServer: {
-    contentBase: '/',
+    contentBase: path.resolve(__dirname, '../public'),
     compress: true,
     historyApiFallback: true,
     open: true,

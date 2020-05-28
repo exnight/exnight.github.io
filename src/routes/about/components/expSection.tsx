@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 
@@ -22,51 +22,36 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
+interface ExpItemMainContent {
+  title: string;
+  subtitle: string;
+  duration: string;
+  courses?: string[];
+}
+interface ExpData {
+  fetched: boolean;
+  university: ExpItemMainContent;
+  highschool: ExpItemMainContent;
+}
+
+const initExpData = {
+  fetched: false,
+  university: { title: '', subtitle: '', duration: '' },
+  highschool: { title: '', subtitle: '', duration: '' },
+};
+
 const ResumeExpSection: React.FC = () => {
+  const [expData, setExpData] = useState<ExpData>(initExpData);
+
+  useEffect(() => {
+    fetch('data/experience.json')
+      .then((res) => res.json())
+      .then((data) => {
+        setExpData({ ...data, fetched: true });
+      });
+  }, []);
+
   const classes = useStyles();
-
-  const courses = (
-    <Typography variant="subtitle2">
-      Relevant Courses:{' '}
-      <Chip
-        label="Big Data Mining"
-        size="small"
-        color="primary"
-        className={classes.chip}
-      />
-      <Chip
-        label="Deep Learning"
-        size="small"
-        color="primary"
-        className={classes.chip}
-      />
-      <Chip
-        label="Derivative Securities"
-        size="small"
-        color="primary"
-        className={classes.chip}
-      />
-      <Chip
-        label="Cloud Computing"
-        size="small"
-        color="primary"
-        className={classes.chip}
-      />
-    </Typography>
-  );
-
-  const content1 = {
-    title: 'The Hong Kong University of Science and Technology',
-    subtitle:
-      'Bachelor of Science in Quantitative Finance and Computer Science',
-    duration: '2016 - 2020',
-  };
-
-  const content2 = {
-    title: "Queen's College, Hong Kong",
-    subtitle: '',
-    duration: '2010 - 2016',
-  };
 
   return (
     <Grid container spacing={4} direction="column">
@@ -74,10 +59,25 @@ const ResumeExpSection: React.FC = () => {
         <Typography variant="h5">Education</Typography>
         <Divider className={classes.dividerStyle} />
 
-        <Grid container spacing={2} direction="column">
-          <ExpItem mainContent={content1}>{courses}</ExpItem>
-          <ExpItem mainContent={content2} />
-        </Grid>
+        {expData.fetched ? (
+          <Grid container spacing={2} direction="column">
+            <ExpItem mainContent={expData.university}>
+              <Typography variant="subtitle2">
+                Relevant Courses:
+                {expData.university.courses?.map((item, idx) => (
+                  <Chip
+                    key={idx}
+                    label={item}
+                    size="small"
+                    color="primary"
+                    className={classes.chip}
+                  />
+                ))}
+              </Typography>
+            </ExpItem>
+            <ExpItem mainContent={expData.highschool} />
+          </Grid>
+        ) : null}
       </Grid>
 
       <Grid item>

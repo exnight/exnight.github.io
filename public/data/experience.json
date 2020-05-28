@@ -1,0 +1,18 @@
+{
+  "university": {
+    "title": "The Hong Kong University of Science and Technology",
+    "subtitle": "Bachelor of Science in Quantitative Finance and Computer Science",
+    "duration": "2016 - 2020",
+    "courses": [
+      "Big Data Mining",
+      "Deep Learning",
+      "Derivative Securities",
+      "Cloud Computing"
+    ]
+  },
+  "highschool": {
+    "title": "Queen's College, Hong Kong",
+    "subtitle": "",
+    "duration": "2010 - 2016"
+  }
+}
