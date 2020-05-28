@@ -2,7 +2,7 @@ import React from 'react';
 import { Router, RouteComponentProps, Location } from '@reach/router';
 
 import { ThemeProvider } from '@material-ui/styles';
-import { createMuiTheme } from '@material-ui/core/styles';
+import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
 import { common, blueGrey, lightBlue } from '@material-ui/core/colors';
 
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -15,7 +15,7 @@ import About from '../../routes/about';
 
 import './app.css';
 
-const theme = createMuiTheme({
+let theme = createMuiTheme({
   palette: {
     primary: {
       main: lightBlue[500],
@@ -27,6 +27,8 @@ const theme = createMuiTheme({
     },
   },
 });
+
+theme = responsiveFontSizes(theme);
 
 const RouterPage = (
   props: { pageComponent: JSX.Element } & RouteComponentProps
