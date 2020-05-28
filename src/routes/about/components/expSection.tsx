@@ -7,6 +7,7 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 
 import EduItem from './eduItem';
+import ExpItem from './expItem';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -24,10 +25,23 @@ interface EduItemContent {
   duration: string;
   courses?: string[];
 }
+
+interface ExpItemContent {
+  position: string;
+  workplace: string;
+  duration: string;
+  actions: string[];
+}
 interface EduData {
   fetched: boolean;
   university: EduItemContent;
   highSchool: EduItemContent;
+}
+
+interface ExpData {
+  fetched: boolean;
+  expWork: ExpItemContent[];
+  expLead: ExpItemContent[];
 }
 
 const initEduData: EduData = {
@@ -36,8 +50,15 @@ const initEduData: EduData = {
   highSchool: { title: '', subtitle: '', duration: '' },
 };
 
+const initExpData: ExpData = {
+  fetched: false,
+  expWork: [],
+  expLead: [],
+};
+
 const ResumeExpSection: React.FC = () => {
   const [eduData, setEduData] = useState<EduData>(initEduData);
+  const [expData, setExpData] = useState<ExpData>(initExpData);
   const classes = useStyles();
 
   useEffect(() => {
@@ -47,6 +68,11 @@ const ResumeExpSection: React.FC = () => {
         setEduData({
           university: data.university,
           highSchool: data.highSchool,
+          fetched: true,
+        });
+        setExpData({
+          expWork: data.expWork,
+          expLead: data.expLead,
           fetched: true,
         });
       });
@@ -78,11 +104,23 @@ const ResumeExpSection: React.FC = () => {
       <Grid item>
         <Typography variant="h5">Work Experience</Typography>
         <Divider className={classes.dividerStyle} />
+
+        {expData.fetched ? (
+          <Grid container spacing={2} direction="column">
+            <ExpItem data={expData.expWork} />
+          </Grid>
+        ) : null}
       </Grid>
 
       <Grid item>
         <Typography variant="h5">Leadership Experience</Typography>
         <Divider className={classes.dividerStyle} />
+
+        {expData.fetched ? (
+          <Grid container spacing={2} direction="column">
+            <ExpItem data={expData.expLead} />
+          </Grid>
+        ) : null}
       </Grid>
     </Grid>
   );
