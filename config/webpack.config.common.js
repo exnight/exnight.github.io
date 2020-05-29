@@ -30,7 +30,7 @@ const common = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Website',
+      title: 'Leo Wong',
       template: './assets/index.ejs',
       inject: 'body',
       hash: true,
