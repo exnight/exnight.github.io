@@ -1,0 +1,14 @@
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.MuiSvgIcon-root {
+  vertical-align: bottom;
+}
+
+hr {
+  width: inherit;
+  margin-top: 0;
+}
+

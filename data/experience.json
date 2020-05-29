@@ -1,0 +1,69 @@
+{
+  "university": {
+    "title": "The Hong Kong University of Science and Technology",
+    "subtitle": "BSc Quantitative Finance and Computer Science (QFIN & COSC)",
+    "duration": "2016 - 2020",
+    "courses": [
+      "Big Data Mining",
+      "Deep Learning",
+      "Derivative Securities",
+      "Cloud Computing"
+    ]
+  },
+  "highSchool": {
+    "title": "Queen's College, Hong Kong",
+    "subtitle": "",
+    "duration": "2010 - 2016"
+  },
+  "expWork": [
+    {
+      "position": "Quantitative Researcher",
+      "workplace": "at Hanrong Investment",
+      "duration": "Jul. 2019 – Aug. 2019",
+      "actions": [
+        "Prototyped a machine learning based intra-day alpha model using intra-day price-volume data",
+        "Performed technical analysis on commodity futures of the mainland China market",
+        "Automated market data collection processes in Python, reduced 3 man-hours of work per day"
+      ]
+    },
+    {
+      "position": "Researcher/Developer",
+      "workplace": "of Student Research Projects",
+      "duration": "2019 - 2020",
+      "actions": [
+        "Created automatic trading scripts in Python connecting to the Interactive Brokers TWS API",
+        "Evaluated features generated with machine learning models (tree model, neural network, etc.)",
+        "Built an event-driven, OO backtest system for algorithmic trading projects in Python",
+        "Conducted classification and sentiment analysis with CNN and LSTM networks"
+      ]
+    },
+    {
+      "position": "Business Analyst",
+      "workplace": "at Privé Technologies",
+      "duration": "Dec. 2017 – Apr. 2018",
+      "actions": [
+        "Coordinated and allocated work for all interns",
+        "Automated operation processes in Python and JavaScript, reduced 200 man-hours of manual work",
+        "Performed fund classification and clustering with machine learning methods"
+      ]
+    }
+  ],
+  "expLead": [
+    {
+      "position": "Member",
+      "workplace": "of Affiliation Team, HKUST QFIN",
+      "duration": "2017 – 2018",
+      "actions": [
+        "Organised the Annual Sports Day for the department"
+      ]
+    },
+    {
+      "position": "External Vice President",
+      "workplace": "of The Netball Club, HKUSTSU",
+      "duration": "2017 – 2018",
+      "actions": [
+        "Maintained connection with corresponding departments of HKUST"
+      ]
+    }
+  ]
+}
