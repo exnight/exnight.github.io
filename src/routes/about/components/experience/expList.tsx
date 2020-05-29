@@ -6,21 +6,19 @@ import Typography from '@material-ui/core/Typography';
 
 import ArrowForwardIosRoundedIcon from '@material-ui/icons/ArrowForwardIosRounded';
 
-interface ExpItem {
-  position: string;
-  workplace: string;
-  duration: string;
-  actions: string[];
-}
-
 interface ExpData {
-  data: ExpItem[];
+  data: {
+    position: string;
+    workplace: string;
+    duration: string;
+    actions: string[];
+  }[];
 }
 
-const ResumeExpItem: React.FC<ExpData> = (props: ExpData) => {
+const ExpList: React.FC<ExpData> = (props: ExpData) => {
   const { data } = props;
 
-  const expList = data.map((exp) => {
+  const allExp = data.map((exp) => {
     const { position, workplace, duration, actions } = exp;
     return (
       <Grid item key={uuid()}>
@@ -43,7 +41,7 @@ const ResumeExpItem: React.FC<ExpData> = (props: ExpData) => {
       </Grid>
     );
   });
-  return <>{expList}</>;
+  return <>{allExp}</>;
 };
 
-export default ResumeExpItem;
+export default ExpList;

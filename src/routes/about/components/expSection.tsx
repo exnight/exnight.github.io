@@ -7,8 +7,8 @@ import Divider from '@material-ui/core/Divider';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 
-import EduItem from './eduItem';
-import ExpItem from './expItem';
+import EduItem from './experience/eduItem';
+import ExpList from './experience/expList';
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -57,7 +57,7 @@ const initExpData: ExpData = {
   expLead: [],
 };
 
-const ResumeExpSection: React.FC = () => {
+const ExpSection: React.FC = () => {
   const [eduData, setEduData] = useState<EduData>(initEduData);
   const [expData, setExpData] = useState<ExpData>(initExpData);
   const classes = useStyles();
@@ -108,7 +108,7 @@ const ResumeExpSection: React.FC = () => {
 
         {expData.fetched ? (
           <Grid container spacing={2} direction="column">
-            <ExpItem data={expData.expWork} />
+            <ExpList data={expData.expWork} />
           </Grid>
         ) : null}
       </Grid>
@@ -119,7 +119,7 @@ const ResumeExpSection: React.FC = () => {
 
         {expData.fetched ? (
           <Grid container spacing={2} direction="column">
-            <ExpItem data={expData.expLead} />
+            <ExpList data={expData.expLead} />
           </Grid>
         ) : null}
       </Grid>
@@ -127,4 +127,4 @@ const ResumeExpSection: React.FC = () => {
   );
 };
 
-export default ResumeExpSection;
+export default ExpSection;

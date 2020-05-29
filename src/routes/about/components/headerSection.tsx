@@ -8,7 +8,6 @@ import Typography from '@material-ui/core/Typography';
 import EmailIcon from '@material-ui/icons/Email';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
-import SmartphoneIcon from '@material-ui/icons/Smartphone';
 
 const useStyles = makeStyles(() =>
   createStyles({

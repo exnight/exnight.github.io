@@ -9,7 +9,7 @@ import Divider from '@material-ui/core/Divider';
 import Grid from '@material-ui/core/Grid';
 
 import HeaderSection from './components/headerSection';
-import SkillSection from './components/skillSection';
+import SideSection from './components/sideSection';
 import ExpSection from './components/expSection';
 
 const useStyles = makeStyles(() =>
@@ -35,7 +35,7 @@ const Resume: React.FC = () => {
 
           <Grid container spacing={8}>
             <Grid item md={3} sm={12}>
-              <SkillSection />
+              <SideSection />
             </Grid>
 
             <Grid item md={9} sm={12}>

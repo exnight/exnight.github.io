@@ -7,6 +7,8 @@ import Divider from '@material-ui/core/Divider';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 
+import SkillList from './skill/skillList';
+
 const useStyles = makeStyles(() =>
   createStyles({
     dividerStyle: {
@@ -16,7 +18,7 @@ const useStyles = makeStyles(() =>
   })
 );
 
-const ResumeSkills: React.FC = () => {
+const SideSection: React.FC = () => {
   const classes = useStyles();
 
   return (
@@ -24,6 +26,8 @@ const ResumeSkills: React.FC = () => {
       <Grid item>
         <Typography variant="h5">Skills</Typography>
         <Divider className={classes.dividerStyle} />
+
+        <SkillList />
       </Grid>
 
       <Grid item>
@@ -39,4 +43,4 @@ const ResumeSkills: React.FC = () => {
   );
 };
 
-export default ResumeSkills;
+export default SideSection;

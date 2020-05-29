@@ -22,7 +22,7 @@ interface EduItem {
   courses?: string[];
 }
 
-const ResumeEduItem: React.FC<EduItem> = (props: EduItem) => {
+const EduItem: React.FC<EduItem> = (props: EduItem) => {
   const { title, subtitle, duration, courses } = props;
   const classes = useStyles();
 
@@ -59,4 +59,4 @@ const ResumeEduItem: React.FC<EduItem> = (props: EduItem) => {
   );
 };
 
-export default ResumeEduItem;
+export default EduItem;
