@@ -3,7 +3,8 @@
   "version": "2.0.0-alpha",
   "description": "personal website",
   "main": "",
-  "repository": "git@github.com:exnight/leowong.git",
+  "homepage": "https://exnight.github.io/",
+  "repository": "git@github.com:exnight/exnight.github.io.git",
   "author": "exnight <exnight@users.noreply.github.com>",
   "license": "MIT",
   "dependencies": {
@@ -29,6 +30,7 @@
     "eslint-config-airbnb-typescript-prettier": "^2.1.1",
     "eslint-plugin-react-hooks": "^4.0.2",
     "file-loader": "^6.0.0",
+    "gh-pages": "^2.2.0",
     "html-webpack-plugin": "^4.3.0",
     "mini-css-extract-plugin": "^0.9.0",
     "prettier": "^2.0.5",
@@ -46,6 +48,8 @@
   "scripts": {
     "start": "webpack-dev-server --hot --inline",
     "build": "rimraf ./build/* && webpack -p --config ./config/webpack.config.prod.js",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -b master -d build",
     "stats": "webpack -p --profile --json > stats.json"
   }
 }
