@@ -8,6 +8,7 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 
 import SkillList from './skill/skillList';
+import LangList from './other/langList';
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -33,11 +34,8 @@ const SideSection: React.FC = () => {
       <Grid item>
         <Typography variant="h5">Languages</Typography>
         <Divider className={classes.dividerStyle} />
-      </Grid>
 
-      <Grid item>
-        <Typography variant="h5">Sports</Typography>
-        <Divider className={classes.dividerStyle} />
+        <LangList />
       </Grid>
     </Grid>
   );
