@@ -28,7 +28,7 @@ const ExpList: React.FC<ExpData> = (props: ExpData) => {
               <em>{position}</em> {workplace}
             </Typography>
             {actions.map((item) => (
-              <Typography variant="body2" key={uuid()}>
+              <Typography variant="body1" key={uuid()}>
                 <ArrowForwardIosRoundedIcon fontSize="small" /> {item}
               </Typography>
             ))}

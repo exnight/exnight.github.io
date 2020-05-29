@@ -46,7 +46,7 @@ const Navigation: React.FC<{ location: string }> = (props) => {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar position="static" color="secondary">
         <Toolbar>
           <IconButton
             edge="start"

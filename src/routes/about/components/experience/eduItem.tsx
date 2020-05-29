@@ -29,7 +29,7 @@ const EduItem: React.FC<EduItem> = (props: EduItem) => {
   return (
     <Grid item>
       <Grid container justify="space-between">
-        <Grid item>
+        <Grid item sm={10} xs={8}>
           <Typography variant="h6">{title}</Typography>
           {subtitle !== '' ? (
             <Typography variant="subtitle1">{subtitle}</Typography>

@@ -86,7 +86,7 @@ const ExpSection: React.FC = () => {
         <Divider className={classes.dividerStyle} />
 
         {eduData.fetched ? (
-          <Grid container spacing={2} direction="column">
+          <Grid container direction="column">
             <EduItem
               title={eduData.university.title}
               subtitle={eduData.university.subtitle}

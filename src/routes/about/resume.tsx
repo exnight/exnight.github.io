@@ -34,7 +34,7 @@ const Resume: React.FC = () => {
           <Divider style={{ marginBottom: '2rem' }} />
 
           <Grid container spacing={8}>
-            <Grid item md={3} sm={12}>
+            <Grid item md={3} sm={9} xs={12}>
               <SideSection />
             </Grid>
 

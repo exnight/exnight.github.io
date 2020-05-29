@@ -45,7 +45,7 @@ const Home: React.FC = () => {
           style={{ minHeight: '95vh' }}
         >
           <Grid item>
-            <Typography variant="h3" style={{ color: '#fff' }}>
+            <Typography variant="h1" style={{ color: '#fff' }}>
               <Typed
                 strings={[`Leo WONG`, `<em>exnight</em>`]}
                 typeSpeed={typingForwardSpeed}
@@ -56,7 +56,7 @@ const Home: React.FC = () => {
             </Typography>
           </Grid>
           <Grid item>
-            <Typography variant="h4" style={{ color: '#fff' }}>
+            <Typography variant="h3" style={{ color: '#fff' }}>
               <Typed
                 strings={subtitleContent}
                 typeSpeed={typingForwardSpeed}

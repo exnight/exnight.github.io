@@ -28,7 +28,6 @@ const BorderLinearProgress = withStyles((theme: Theme) =>
     root: {
       height: 10,
       borderRadius: 5,
-      minWidth: '100%',
     },
     colorPrimary: {
       backgroundColor: theme.palette.grey[400],
@@ -54,7 +53,7 @@ const SkillItem: React.FC<SkillData> = (props: SkillData) => {
           <Grid item md={6}>
             <Typography variant="body1">{skill}</Typography>
           </Grid>
-          <Grid item md={6}>
+          <Grid item md={6} sm={8} xs={8}>
             <BorderLinearProgress variant="determinate" value={value} />
           </Grid>
         </Grid>

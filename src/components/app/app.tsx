@@ -22,8 +22,14 @@ let theme = createMuiTheme({
       contrastText: common.white,
     },
     secondary: {
-      main: blueGrey[600],
+      main: blueGrey[800],
       contrastText: common.white,
+    },
+  },
+  typography: {
+    fontFamily: 'Lato, Roboto, sans-serif',
+    h1: {
+      fontFamily: 'Dancing Script, Roboto, sans-serif',
     },
   },
 });

@@ -24,19 +24,22 @@ const ResumeHeaderSection: React.FC = () => {
   return (
     <Grid item className={classes.resumeHeader}>
       <Grid container justify="space-between">
-        <Grid item md={6} sm={12}>
+        <Grid item md={8} sm={12}>
           <Typography variant="h3" color="primary">
             WONG Jia Yeung Leo
           </Typography>
 
           <Typography variant="subtitle1">
-            Quantitative Finance and Computer Science
+            FinTech, Quantitative Research, Software Engineering, Big Data
+            Mining, Artificial Intelligence, Cloud Computing
           </Typography>
 
-          <Typography variant="subtitle2">HKUST 2020 June</Typography>
+          <Typography variant="subtitle2">
+            Currently chiling before graduation
+          </Typography>
         </Grid>
 
-        <Grid item md={6} sm={12}>
+        <Grid item md={4} sm={12}>
           <Typography variant="body1" align="right">
             <a href="mailto://leowongjiayeung@gmail.com">
               leowongjiayeung@gmail.com
