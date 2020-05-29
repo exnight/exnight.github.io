@@ -1,1 +1,33 @@
-<!doctype html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="minimum-scale=1,initial-scale=1,width=device-width"/><title>Website</title><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"/><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,500"/><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dancing+Script:300,400,500"/><link rel="icon" href="favicon.ico?7dfdea45ada25ee9f99d"><link href="css/styles.fac0ed.css?7dfdea45ada25ee9f99d" rel="stylesheet"></head><body><div id="root"></div><script src="./js/runtime.7305d9.js?7dfdea45ada25ee9f99d"></script><script src="./js/styles.78fac6.js?7dfdea45ada25ee9f99d"></script><script src="./js/materialUIVendor.a51d7c.js?7dfdea45ada25ee9f99d"></script><script src="./js/utilVendor.9ef621.js?7dfdea45ada25ee9f99d"></script><script src="./js/reactVendor.80f510.js?7dfdea45ada25ee9f99d"></script><script src="./js/vendors.e3d457.js?7dfdea45ada25ee9f99d"></script><script src="./js/app.594e75.js?7dfdea45ada25ee9f99d"></script></body></html>
+<!doctype html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="minimum-scale=1,initial-scale=1,width=device-width"/><title>Website</title><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"/><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,500"/><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dancing+Script:300,400,500"/><script>// Single Page Apps for GitHub Pages
+      // https://github.com/rafrex/spa-github-pages
+      // Copyright (c) 2016 Rafael Pedicini, licensed under the MIT License
+      // ----------------------------------------------------------------------
+      // This script checks to see if a redirect is present in the query string
+      // and converts it back into the correct url and adds it to the
+      // browser's history using window.history.replaceState(...),
+      // which won't cause the browser to attempt to load the new url.
+      // When the single page app is loaded further down in this file,
+      // the correct url will be waiting in the browser's history for
+      // the single page app to route accordingly.
+      (function (l) {
+        if (l.search) {
+          var q = {};
+          l.search
+            .slice(1)
+            .split('&')
+            .forEach(function (v) {
+              var a = v.split('=');
+              q[a[0]] = a.slice(1).join('=').replace(/~and~/g, '&');
+            });
+          if (q.p !== undefined) {
+            window.history.replaceState(
+              null,
+              null,
+              l.pathname.slice(0, -1) +
+                (q.p || '') +
+                (q.q ? '?' + q.q : '') +
+                l.hash
+            );
+          }
+        }
+      })(window.location);</script><link rel="icon" href="favicon.ico?7bae91f6e5bd79f1edcf"><link href="css/styles.fac0ed.css?7bae91f6e5bd79f1edcf" rel="stylesheet"></head><body><div id="root"></div><script src="./js/runtime.7305d9.js?7bae91f6e5bd79f1edcf"></script><script src="./js/styles.78fac6.js?7bae91f6e5bd79f1edcf"></script><script src="./js/materialUIVendor.a51d7c.js?7bae91f6e5bd79f1edcf"></script><script src="./js/utilVendor.9ef621.js?7bae91f6e5bd79f1edcf"></script><script src="./js/reactVendor.80f510.js?7bae91f6e5bd79f1edcf"></script><script src="./js/vendors.e3d457.js?7bae91f6e5bd79f1edcf"></script><script src="./js/app.594e75.js?7bae91f6e5bd79f1edcf"></script></body></html>
