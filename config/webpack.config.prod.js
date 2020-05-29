@@ -1,5 +1,7 @@
+const path = require('path');
 const merge = require('webpack-merge');
 
+const CopyPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 
@@ -19,6 +21,13 @@ const prod = {
   plugins: [
     new MiniCssExtractPlugin({
       filename: 'css/[name].[contenthash:6].css',
+    }),
+    new CopyPlugin({
+      patterns: [
+        {
+          from: path.resolve(__dirname, '../public'),
+        },
+      ],
     }),
     new BundleAnalyzerPlugin(),
   ],
