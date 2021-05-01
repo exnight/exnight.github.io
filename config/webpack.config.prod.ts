@@ -1,14 +1,11 @@
+import CopyPlugin from 'copy-webpack-plugin';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import * as path from 'path';
+import TerserPlugin from 'terser-webpack-plugin';
 import { Configuration } from 'webpack';
+// import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import { merge } from 'webpack-merge';
 import common from './webpack.config.common';
-
-const path = require('path');
-
-const CopyPlugin = require('copy-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const TerserPlugin = require('terser-webpack-plugin');
-
-// const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 const prod: Configuration = {
   module: {
