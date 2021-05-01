@@ -1,5 +1,8 @@
+import { Configuration } from 'webpack';
+import { merge } from 'webpack-merge';
+import common from './webpack.config.common';
+
 const path = require('path');
-const merge = require('webpack-merge');
 
 const CopyPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -7,9 +10,7 @@ const TerserPlugin = require('terser-webpack-plugin');
 
 // const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
-const common = require('./webpack.config.common');
-
-const prod = {
+const prod: Configuration = {
   module: {
     rules: [
       {
@@ -48,4 +49,6 @@ const prod = {
   mode: 'production',
 };
 
-module.exports = merge.smart(common, prod);
+const config = merge<Configuration>(common, prod);
+
+export default config;

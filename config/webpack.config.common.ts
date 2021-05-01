@@ -1,9 +1,10 @@
-const path = require('path');
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import * as path from 'path';
+import { Configuration } from 'webpack';
 
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 
-const common = {
+const common: Configuration = {
   context: path.resolve(__dirname, '../src'),
   entry: {
     app: './index.tsx',
@@ -76,4 +77,4 @@ const common = {
   },
 };
 
-module.exports = common;
+export default common;

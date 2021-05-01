@@ -6,6 +6,7 @@ module.exports = {
     'react-hooks/exhaustive-deps': 'warn',
     '@typescript-eslint/no-var-requires': 0,
     'react/no-unescaped-entities': 0,
+    'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
   },
   parser: '@typescript-eslint/parser',
   parserOptions: {
