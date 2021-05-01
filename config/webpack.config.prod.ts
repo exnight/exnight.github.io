@@ -3,11 +3,13 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import * as path from 'path';
 import TerserPlugin from 'terser-webpack-plugin';
 import { Configuration } from 'webpack';
-// import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import { merge } from 'webpack-merge';
+
 import common from './webpack.config.common';
 
 const prod: Configuration = {
+  mode: 'production',
   module: {
     rules: [
       {
@@ -27,7 +29,7 @@ const prod: Configuration = {
         },
       ],
     }),
-    // new BundleAnalyzerPlugin(),
+    new BundleAnalyzerPlugin(),
   ],
   optimization: {
     splitChunks: {
@@ -43,7 +45,6 @@ const prod: Configuration = {
     minimize: true,
     minimizer: [new TerserPlugin()],
   },
-  mode: 'production',
 };
 
 const config = merge<Configuration>(common, prod);

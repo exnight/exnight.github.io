@@ -48,9 +48,6 @@ typings/
 
 # Custom
 build/
-semantic/dist/
-semantic/tasks/
-semantic/gulpfile.js
 
 .DS_Store
 stats.json

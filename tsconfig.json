@@ -1,8 +1,7 @@
 {
   "compilerOptions": {
     "outDir": "build/dist",
-    "module": "commonjs",
-    "target": "es5",
+    "target": "es6",
     "sourceMap": true,
     "allowJs": true,
     "jsx": "react",
@@ -19,6 +18,11 @@
   "exclude": [
     "node_modules",
     "build"
+  ],
+  "include": [
+    "src/**/*",
+    "**/*.ts",
+    ".eslintrc.js",
   ],
   "compileOnSave": false
 }

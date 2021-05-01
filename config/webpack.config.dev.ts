@@ -7,6 +7,7 @@ interface Configuration extends Config {
 }
 
 const dev: Configuration = {
+  mode: 'development',
   module: {
     rules: [
       {
@@ -24,7 +25,6 @@ const dev: Configuration = {
     open: true,
     port: 8080,
   },
-  mode: 'development',
 };
 
 export default dev;
