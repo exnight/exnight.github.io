@@ -17,6 +17,7 @@
   },
   "devDependencies": {
     "@types/copy-webpack-plugin": "^8.0.0",
+    "@types/cssnano": "^4.0.0",
     "@types/mini-css-extract-plugin": "^1.4.2",
     "@types/node": "^15.0.1",
     "@types/postcss-import": "^12.0.0",
@@ -33,6 +34,7 @@
     "compression-webpack-plugin": "^7.1.2",
     "copy-webpack-plugin": "^8.1.1",
     "css-loader": "^5.2.4",
+    "cssnano": "^5.0.2",
     "eslint": "^7.25.0",
     "eslint-config-airbnb-typescript-prettier": "^4.2.0",
     "eslint-plugin-react-hooks": "^4.2.0",
