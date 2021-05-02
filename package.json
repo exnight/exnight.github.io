@@ -51,7 +51,7 @@
   },
   "scripts": {
     "start": "webpack serve --hot --inline",
-    "build": "rimraf ./build/* && webpack --config ./config/webpack.config.prod.ts",
+    "build": "rimraf ./build/* && webpack --node-env production",
     "predeploy": "npm run build",
     "deploy": "gh-pages -b master -d build",
     "stats": "webpack --mode production --profile --json > stats.json"

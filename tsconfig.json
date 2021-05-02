@@ -8,7 +8,6 @@
     "moduleResolution": "node",
     "noImplicitReturns": true,
     "noImplicitThis": true,
-    "noImplicitAny": true,
     "strictNullChecks": true,
     "esModuleInterop": true,
     "typeRoots": [
