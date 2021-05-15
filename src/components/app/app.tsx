@@ -1,31 +1,36 @@
 import React from 'react';
-import { Router, RouteComponentProps, Location } from '@reach/router';
+import { Route } from 'wouter';
 
 import Navigation from './navigation';
 import Footer from './footer';
 
 import Home from '../../routes/home';
+import WIP from '../../routes/wip';
 
 import './app.css';
 
-const RouterPage = (
-  props: { pageComponent: JSX.Element } & RouteComponentProps
-) => props.pageComponent;
-
 const App: React.FC = () => {
   return (
-    <>
-      <Location>
-        {({ location }) => <Navigation location={location.pathname} />}
-      </Location>
+    <div className="bg-gray-50 w-full h-screen flex flex-col">
+      <Navigation />
 
-      <Router>
-        <RouterPage path="/" pageComponent={<Home />} />
-        <RouterPage default pageComponent={<Home />} />
-      </Router>
+      <div className="flex-grow container">
+        <Route path="/">
+          <Home />
+        </Route>
+        <Route path="/about">
+          <WIP />
+        </Route>
+        <Route path="/posts">
+          <WIP />
+        </Route>
+        <Route path="/gallery">
+          <WIP />
+        </Route>
+      </div>
 
       <Footer />
-    </>
+    </div>
   );
 };
 
