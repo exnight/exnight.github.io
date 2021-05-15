@@ -63,6 +63,7 @@
     "build": "rimraf ./build/* && webpack --node-env production",
     "predeploy": "npm run build",
     "deploy": "gh-pages -b master -d build",
+    "test": "echo \"Warn: no tests available\"",
     "stats": "webpack --mode production --profile --json > stats.json"
   }
 }
