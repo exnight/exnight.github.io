@@ -9,8 +9,8 @@ const Navigation: React.FC = () => {
 
   return (
     <div className="bg-white py-2">
-      <div className="container sm:w-4/5 justify-items-center items-center my-4 grid grid-cols-5 md:grid-cols-12">
-        <div className="px-8">
+      <div className="justify-items-center items-center mx-auto my-4 sm:w-4/5 grid grid-cols-5 md:grid-cols-12">
+        <div>
           <button
             type="button"
             className="focus:outline-none focus:border-blue-300"

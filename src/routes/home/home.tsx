@@ -12,8 +12,8 @@ const Home: React.FC = () => {
   const typingBackwardSpeed = 40;
 
   return (
-    <div className="h-full w-4/5 flex flex-col space-y-16 container">
-      <div className="grid grid-cols-2 pt-16 px-8">
+    <div className="w-4/5 mx-auto flex flex-col justify-items-center items-center space-y-16 px-8">
+      <div className="grid grid-cols-2 pt-16">
         <div>
           <h1 className="text-4xl pb-8">Hi,</h1>
           <div className="grid grid-cols-4 gap-4 items-center pb-8">
@@ -45,12 +45,6 @@ const Home: React.FC = () => {
           />
           <div className="text-4xl anurati-font tracking-widest">EXPLORE</div>
         </div>
-      </div>
-      <div>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo ipsam a
-        quaerat saepe voluptatum aut reprehenderit modi illum deleniti tenetur?
-        Quas in perspiciatis quos deleniti quaerat id officiis. Explicabo,
-        atque?
       </div>
       <div>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo ipsam a

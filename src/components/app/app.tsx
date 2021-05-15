@@ -11,10 +11,10 @@ import './app.css';
 
 const App: React.FC = () => {
   return (
-    <div className="bg-gray-50 w-full h-screen flex flex-col">
+    <div className="bg-gray-50 h-full flex flex-col overflow-auto">
       <Navigation />
 
-      <div className="flex-grow container">
+      <div className="flex-grow">
         <Route path="/">
           <Home />
         </Route>

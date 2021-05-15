@@ -9,14 +9,13 @@
   src: local('Anurati'), url('../../assets/anurati.otf') format('opentype');
 }
 
+html,
 body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+  height: 100%;
 }
 
 #root {
-  min-height: 100vh;
+  height: 100%;
 }
 
 .anurati-font {
