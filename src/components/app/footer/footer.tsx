@@ -1,6 +1,7 @@
 import React from 'react';
 
 const Footer: React.FC = () => {
+  // ? add more content
   return (
     <footer className="h-24 bg-gray-800 text-lg text-white mt-12 py-8">
       <p className="text-center">

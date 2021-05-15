@@ -7,6 +7,7 @@ const routes = ['About', 'Posts', 'Gallery'];
 const Navigation: React.FC = () => {
   const [, setLocation] = useLocation();
 
+  // TODO: change "Home" to a logo
   return (
     <div className="bg-white py-2">
       <div className="justify-items-center items-center mx-auto my-4 sm:w-4/5 grid grid-cols-5 md:grid-cols-12">
@@ -16,7 +17,6 @@ const Navigation: React.FC = () => {
             className="focus:outline-none focus:border-blue-300"
             onClick={() => setLocation('/')}
           >
-            {/* change to a logo */}
             Home
           </button>
         </div>

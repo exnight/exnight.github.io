@@ -11,6 +11,7 @@ const Home: React.FC = () => {
   const typingForwardSpeed = 40;
   const typingBackwardSpeed = 40;
 
+  // TODO: use a special font for Typed content
   return (
     <div className="w-4/5 mx-auto flex flex-col justify-items-center items-center space-y-16 px-8">
       <div className="grid grid-cols-2 pt-16">
@@ -19,7 +20,6 @@ const Home: React.FC = () => {
           <div className="grid grid-cols-4 gap-4 items-center pb-8">
             <div className="text-lg">I'm Leo, a</div>
             <div className="col-span-3">
-              {/* use another font */}
               <Typed
                 strings={subtitleContent}
                 typeSpeed={typingForwardSpeed}
@@ -43,7 +43,9 @@ const Home: React.FC = () => {
             alt=""
             className="h-48 rounded-full"
           />
-          <div className="text-4xl anurati-font tracking-widest">EXPLORE</div>
+          <div className="text-4xl text-blue-700 anurati-font tracking-widest">
+            EXPLORE
+          </div>
         </div>
       </div>
       <div>
