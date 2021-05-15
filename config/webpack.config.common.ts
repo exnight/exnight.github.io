@@ -11,7 +11,8 @@ const common: Configuration = {
   },
   output: {
     path: path.join(__dirname, '../build'),
-    filename: './js/[name].[contenthash:6].js',
+    filename: './js/[name].[contenthash].js',
+    hashDigestLength: 6,
   },
   module: {
     rules: [
@@ -21,10 +22,23 @@ const common: Configuration = {
         exclude: /node_modules/,
       },
       {
-        test: /\.(png|svg|jpe?g|gif)$/,
-        loader: 'file-loader',
-        options: {
-          name: 'img/[name].[ext]',
+        test: /\.(eot|otf|ttf|woff(2)?)$/,
+        type: 'asset',
+        // parser: {
+        //   // decide inline or emit as separate assets
+        //   dataUrlCondition: {
+        //     maxSize: 8 * 1024, // 8kb
+        //   },
+        // },
+        generator: {
+          filename: 'fonts/[name].[contenthash][ext][query]',
+        },
+      },
+      {
+        test: /\.(?:ico|gif|png|jpg|jpe?g)$/i,
+        type: 'asset/resource', // emit as separate assets
+        generator: {
+          filename: 'img/[name].[contenthash][ext][query]',
         },
       },
     ],
@@ -61,7 +75,7 @@ const common: Configuration = {
           priority: -10,
         },
         reactVendor: {
-          test: /[\\/]node_modules[\\/](react|react-dom|@reach)[\\/]/,
+          test: /[\\/]node_modules[\\/](react|react-dom|wouter)[\\/]/,
           name: 'reactVendor',
           enforce: true,
           priority: -1,
