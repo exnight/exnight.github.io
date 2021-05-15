@@ -1,64 +1,36 @@
 import React from 'react';
-import { Router, RouteComponentProps, Location } from '@reach/router';
-
-import { ThemeProvider } from '@material-ui/styles';
-import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
-import { common, blueGrey, lightBlue } from '@material-ui/core/colors';
-
-import CssBaseline from '@material-ui/core/CssBaseline';
+import { Route } from 'wouter';
 
 import Navigation from './navigation';
 import Footer from './footer';
 
 import Home from '../../routes/home';
-import Resume from '../../routes/about';
+import WIP from '../../routes/wip';
 
 import './app.css';
 
-let theme = createMuiTheme({
-  palette: {
-    primary: {
-      main: lightBlue[500],
-      contrastText: common.white,
-    },
-    secondary: {
-      main: blueGrey[800],
-      contrastText: common.white,
-    },
-  },
-  typography: {
-    fontFamily: 'Lato, Roboto, sans-serif',
-    h1: {
-      fontFamily: 'Dancing Script, Roboto, sans-serif',
-    },
-  },
-});
-
-theme = responsiveFontSizes(theme);
-
-const RouterPage = (
-  props: { pageComponent: JSX.Element } & RouteComponentProps
-) => props.pageComponent;
-
 const App: React.FC = () => {
   return (
-    <>
-      <CssBaseline />
+    <div className="bg-gray-50 h-full flex flex-col overflow-auto">
+      <Navigation />
 
-      <ThemeProvider theme={theme}>
-        <Location>
-          {({ location }) => <Navigation location={location.pathname} />}
-        </Location>
+      <div className="flex-grow">
+        <Route path="/">
+          <Home />
+        </Route>
+        <Route path="/about">
+          <WIP />
+        </Route>
+        <Route path="/posts">
+          <WIP />
+        </Route>
+        <Route path="/gallery">
+          <WIP />
+        </Route>
+      </div>
 
-        <Router>
-          <RouterPage path="/" pageComponent={<Home />} />
-          <RouterPage path="about" pageComponent={<Resume />} />
-          <RouterPage default pageComponent={<Home />} />
-        </Router>
-
-        <Footer />
-      </ThemeProvider>
-    </>
+      <Footer />
+    </div>
   );
 };
 

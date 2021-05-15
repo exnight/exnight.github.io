@@ -1,15 +1,13 @@
 {
   "compilerOptions": {
     "outDir": "build/dist",
-    "module": "commonjs",
-    "target": "es5",
+    "target": "es6",
     "sourceMap": true,
     "allowJs": true,
     "jsx": "react",
     "moduleResolution": "node",
     "noImplicitReturns": true,
     "noImplicitThis": true,
-    "noImplicitAny": true,
     "strictNullChecks": true,
     "esModuleInterop": true,
     "typeRoots": [
@@ -19,6 +17,14 @@
   "exclude": [
     "node_modules",
     "build"
+  ],
+  "include": [
+    "src/**/*",
+    "**/*.ts",
+    "**/*.d.ts",
+    ".eslintrc.js",
+    "postcss.config.js",
+    "tailwind.config.js",
   ],
   "compileOnSave": false
 }

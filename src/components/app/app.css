@@ -1,13 +1,23 @@
-a {
-  color: inherit;
-  text-decoration: none;
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@font-face {
+  font-family: 'Anurati';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Anurati'), url('../../assets/anurati.otf') format('opentype');
 }
 
-.MuiSvgIcon-root {
-  vertical-align: bottom;
+html,
+body {
+  height: 100%;
 }
 
-hr {
-  width: inherit;
-  margin-top: 0;
+#root {
+  height: 100%;
+}
+
+.anurati-font {
+  font-family: 'Anurati', sans-serif;
 }

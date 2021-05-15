@@ -2,73 +2,59 @@ import React from 'react';
 
 import Typed from 'react-typed';
 
-import { createStyles, makeStyles } from '@material-ui/core/styles';
-
-import Box from '@material-ui/core/Box';
-import Container from '@material-ui/core/Container';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
-
-import macbook from '../../assets/images/macbook-dark.jpg';
-
-const useStyles = makeStyles(() =>
-  createStyles({
-    homePage: {
-      minHeight: '90vh',
-      backgroundImage: `url(${macbook})`,
-      backgroundRepeat: 'no-repeat',
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-    },
-  })
-);
-
 const Home: React.FC = () => {
-  const classes = useStyles();
   const subtitleContent = [
-    'Quantitative Finance',
-    'Computer Science',
-    'Quant Developer',
+    'Software Engineer',
+    'Basketball Lover',
+    'CSGO Tactician',
   ];
   const typingForwardSpeed = 40;
   const typingBackwardSpeed = 40;
 
+  // TODO: use a special font for Typed content
   return (
-    <Box className={classes.homePage}>
-      <Container>
-        <Grid
-          container
-          spacing={10}
-          direction="column"
-          alignItems="center"
-          justify="center"
-          style={{ minHeight: '95vh' }}
-        >
-          <Grid item>
-            <Typography variant="h1" style={{ color: '#fff' }}>
-              <Typed
-                strings={[`Leo WONG`, `<em>exnight</em>`]}
-                typeSpeed={typingForwardSpeed}
-                backSpeed={typingBackwardSpeed}
-                backDelay={4000}
-                loop
-              />
-            </Typography>
-          </Grid>
-          <Grid item>
-            <Typography variant="h3" style={{ color: '#fff' }}>
+    <div className="w-4/5 mx-auto flex flex-col justify-items-center items-center space-y-16 px-8">
+      <div className="grid grid-cols-2 pt-16">
+        <div>
+          <h1 className="text-4xl pb-8">Hi,</h1>
+          <div className="grid grid-cols-4 gap-4 items-center pb-8">
+            <div className="text-lg">I'm Leo, a</div>
+            <div className="col-span-3">
               <Typed
                 strings={subtitleContent}
                 typeSpeed={typingForwardSpeed}
                 backSpeed={typingBackwardSpeed}
-                backDelay={2000}
+                backDelay={3000}
                 loop
+                className="text-center text-4xl text-blue-600"
               />
-            </Typography>
-          </Grid>
-        </Grid>
-      </Container>
-    </Box>
+            </div>
+          </div>
+          <div>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero
+            delectus fugiat libero debitis aperiam unde ipsum non veniam culpa,
+            eveniet, mollitia illum, cupiditate at ad magnam necessitatibus
+            officiis magni fugit?
+          </div>
+        </div>
+        <div className="flex flex-col items-center justify-center space-y-8">
+          <img
+            src="https://picsum.photos/200/200"
+            alt=""
+            className="h-48 rounded-full"
+          />
+          <div className="text-4xl text-blue-700 anurati-font tracking-widest">
+            EXPLORE
+          </div>
+        </div>
+      </div>
+      <div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo ipsam a
+        quaerat saepe voluptatum aut reprehenderit modi illum deleniti tenetur?
+        Quas in perspiciatis quos deleniti quaerat id officiis. Explicabo,
+        atque?
+      </div>
+    </div>
   );
 };
 
