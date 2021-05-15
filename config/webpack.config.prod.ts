@@ -17,7 +17,7 @@ const prod: Configuration = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: 'css/[name].[contenthash:6].css',
+      filename: 'css/[name].[contenthash].css',
     }),
     new CopyPlugin({
       patterns: [
