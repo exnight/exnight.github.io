@@ -48,6 +48,7 @@ typings/
 
 # Custom
 build/
+.vscode/
 
 .DS_Store
 stats.json
