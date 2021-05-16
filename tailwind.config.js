@@ -3,8 +3,12 @@ module.exports = {
   purge: ['./src/**/*.tsx'],
   darkMode: false, // or 'media' or 'class'
   theme: {
-    extend: {},
-    container: {},
+    extend: {
+      height: {
+        coverMd: '36rem',
+        coverLg: '48rem',
+      },
+    },
   },
   variants: {},
   plugins: [],
