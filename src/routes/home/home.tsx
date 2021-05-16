@@ -1,58 +1,50 @@
 import React from 'react';
 
-import Typed from 'react-typed';
+import coverImage from '../../assets/sharp_island.png';
+import iconImage from '../../assets/Fushimi_railway.jpg';
 
 const Home: React.FC = () => {
-  const subtitleContent = [
-    'Software Engineer',
-    'Basketball Lover',
-    'CSGO Tactician',
-  ];
-  const typingForwardSpeed = 40;
-  const typingBackwardSpeed = 40;
-
-  // TODO: use a special font for Typed content
   return (
-    <div className="w-4/5 mx-auto flex flex-col justify-items-center items-center space-y-16 px-8">
-      <div className="grid grid-cols-2 pt-16">
-        <div>
-          <h1 className="text-4xl pb-8">Hi,</h1>
-          <div className="grid grid-cols-4 gap-4 items-center pb-8">
-            <div className="text-lg">I'm Leo, a</div>
-            <div className="col-span-3">
-              <Typed
-                strings={subtitleContent}
-                typeSpeed={typingForwardSpeed}
-                backSpeed={typingBackwardSpeed}
-                backDelay={3000}
-                loop
-                className="text-center text-4xl text-blue-600"
-              />
-            </div>
-          </div>
-          <div>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero
-            delectus fugiat libero debitis aperiam unde ipsum non veniam culpa,
-            eveniet, mollitia illum, cupiditate at ad magnam necessitatibus
-            officiis magni fugit?
-          </div>
-        </div>
-        <div className="flex flex-col items-center justify-center space-y-8">
-          <img
-            src="https://picsum.photos/200/200"
-            alt=""
-            className="h-48 rounded-full"
-          />
-          <div className="text-4xl text-blue-700 anurati-font tracking-widest">
-            EXPLORE
-          </div>
+    <div className="flex-grow">
+      <div
+        className="h-60 sm:h-96 md:h-coverMd lg:h-coverLg bg-center flex justify-center items-center"
+        style={{
+          backgroundImage: `url(${coverImage})`,
+          backgroundSize: 'cover',
+        }}
+      >
+        <div className="text-4xl sm:text-6xl md:text-8xl text-white anurati-font tracking-widest">
+          EXPLORE
         </div>
       </div>
-      <div>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo ipsam a
-        quaerat saepe voluptatum aut reprehenderit modi illum deleniti tenetur?
-        Quas in perspiciatis quos deleniti quaerat id officiis. Explicabo,
-        atque?
+      <div className="w-4/5 mx-auto mt-8">
+        <div className="flex flex-col items-center space-y-8 md:space-y-16 md:grid grid-cols-2 lg:w-5/6 mx-auto">
+          <div className="space-y-2 md:space-y-6">
+            <p className="text-4xl md:text-6xl">Hi, I'm Leo</p>
+            <p className="text-sm md:text-lg ml-1">
+              a Software Engineer, Basketball Enthusiast, CSGO Tactician
+            </p>
+          </div>
+          <div className="flex flex-col items-center justify-center space-y-8">
+            <img
+              src={iconImage}
+              alt=""
+              className="h-60 rounded-full shadow-lg"
+            />
+            <div className="text-lg md:text-xl lg:text-2xl">
+              Stepping out of comfort zone
+            </div>
+          </div>
+        </div>
+
+        <p className="mt-24">
+          You are now browsing the 2.0-alpha version, content will be added very
+          soon. Feel free to provide feedback by creating new{' '}
+          <a href="https://github.com/exnight/exnight.github.io/issues">
+            <u>issues</u>
+          </a>{' '}
+          on the GitHub repository.
+        </p>
       </div>
     </div>
   );
