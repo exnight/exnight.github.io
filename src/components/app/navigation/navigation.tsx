@@ -2,7 +2,7 @@ import React from 'react';
 
 import { useLocation } from 'wouter';
 
-const routes = ['About', 'Posts', 'Gallery'];
+const routes = ['About', 'Posts', 'Projects'];
 
 const Navigation: React.FC = () => {
   const [, setLocation] = useLocation();
@@ -10,7 +10,7 @@ const Navigation: React.FC = () => {
   // TODO: change "Home" to a logo
   return (
     <div className="bg-white py-2">
-      <div className="justify-items-center items-center mx-auto my-4 sm:w-4/5 grid grid-cols-5 md:grid-cols-12">
+      <div className="justify-items-center items-center mx-auto my-4 sm:w-4/5 grid grid-cols-5 lg:grid-cols-8">
         <div>
           <button
             type="button"
@@ -47,14 +47,14 @@ const Navigation: React.FC = () => {
             })}
           </ul>
         </div>
-        <ul className="w-full justify-between hidden md:col-span-5 md:col-start-8 md:flex md:px-8 lg:px-12">
+        <ul className="w-full justify-between hidden md:col-span-2 md:col-start-4 lg:col-span-3 lg:col-start-6 md:flex md:px-8 lg:px-12">
           {routes.map((route) => {
             return (
               <li key={route} className="text-center">
                 <button
                   type="button"
                   onClick={() => setLocation(`/${route.toLowerCase()}`)}
-                  className="focus:outline-none focus:border-blue-300"
+                  className="p-2 focus:outline-none focus:border-blue-300"
                 >
                   {route}
                 </button>
