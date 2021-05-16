@@ -37,7 +37,7 @@
     "eslint": "^7.26.0",
     "eslint-config-airbnb-typescript-prettier": "^4.2.0",
     "eslint-plugin-react-hooks": "^4.2.0",
-    "gh-pages": "^2.2.0",
+    "gh-pages": "^3.1.0",
     "html-webpack-plugin": "^5.3.1",
     "mini-css-extract-plugin": "^1.6.0",
     "postcss": "^8.2.15",
