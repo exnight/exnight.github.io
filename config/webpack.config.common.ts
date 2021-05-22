@@ -24,18 +24,18 @@ const common: Configuration = {
       {
         test: /\.(eot|otf|ttf|woff(2)?)$/,
         type: 'asset',
-        // parser: {
-        //   // decide inline or emit as separate assets
-        //   dataUrlCondition: {
-        //     maxSize: 8 * 1024, // 8kb
-        //   },
-        // },
+        parser: {
+          // decide inline or emit as separate assets
+          dataUrlCondition: {
+            maxSize: 8 * 1024, // 8kb
+          },
+        },
         generator: {
           filename: 'fonts/[name].[contenthash][ext][query]',
         },
       },
       {
-        test: /\.(?:ico|gif|png|jpg|jpe?g)$/i,
+        test: /\.(?:ico|gif|png|jpe*g)$/i,
         type: 'asset/resource', // emit as separate assets
         generator: {
           filename: 'img/[name].[contenthash][ext][query]',
@@ -77,12 +77,6 @@ const common: Configuration = {
         reactVendor: {
           test: /[\\/]node_modules[\\/](react|react-dom|wouter)[\\/]/,
           name: 'reactVendor',
-          enforce: true,
-          priority: -1,
-        },
-        utilVendor: {
-          test: /[\\/]node_modules[\\/](react-typed|jss-*.*)[\\/]/,
-          name: 'utilVendor',
           enforce: true,
           priority: -1,
         },

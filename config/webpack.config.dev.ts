@@ -24,6 +24,9 @@ const dev: Configuration = {
     historyApiFallback: true,
     open: true,
     port: 8080,
+    headers: {
+      'Cache-Control': 'max-age=31536000',
+    },
   },
 };
 

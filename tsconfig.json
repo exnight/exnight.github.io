@@ -5,6 +5,7 @@
     "sourceMap": true,
     "allowJs": true,
     "jsx": "react",
+    "module": "commonjs",
     "moduleResolution": "node",
     "noImplicitReturns": true,
     "noImplicitThis": true,
@@ -25,6 +26,7 @@
     ".eslintrc.js",
     "postcss.config.js",
     "tailwind.config.js",
+    "util/sharp.js",
   ],
   "compileOnSave": false
 }

@@ -7,11 +7,30 @@
   font-style: normal;
   font-weight: normal;
   src: local('Anurati'), url('../../assets/anurati.otf') format('opentype');
+  font-display: swap;
 }
 
 html,
 body {
   height: 100%;
+}
+
+img {
+  aspect-ratio: attr(width) / attr(height);
+}
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #000000;
+  color: white;
+  padding: 8px;
+  z-index: 100;
+}
+
+.skip-link:focus {
+  top: 0;
 }
 
 #root {
