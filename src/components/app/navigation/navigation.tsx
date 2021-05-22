@@ -10,7 +10,7 @@ const Navigation: React.FC = () => {
   // TODO: change "Home" to a logo
   return (
     <div className="bg-white py-2">
-      <div className="justify-items-center items-center mx-auto my-4 sm:w-4/5 grid grid-cols-5 lg:grid-cols-8">
+      <div className="justify-items-center items-center mx-auto my-2 sm:w-4/5 grid grid-cols-5 lg:grid-cols-8">
         <div>
           <button
             type="button"

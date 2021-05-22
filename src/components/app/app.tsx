@@ -1,5 +1,5 @@
-import React, { lazy } from 'react';
-import { Route } from 'wouter';
+import React, { lazy, Suspense } from 'react';
+import { Switch, Redirect, Route } from 'wouter';
 
 import Navigation from './navigation';
 import Footer from './footer';
@@ -15,18 +15,23 @@ const App: React.FC = () => {
     <div className="bg-gray-50 min-h-full flex flex-col">
       <Navigation />
 
-      <Route path="/">
-        <Home />
-      </Route>
-      <Route path="/about">
-        <WIP />
-      </Route>
-      <Route path="/posts">
-        <WIP />
-      </Route>
-      <Route path="/projects">
-        <WIP />
-      </Route>
+      <Suspense fallback={<div>loading</div>}>
+        <Switch>
+          <Route path="/">
+            <Home />
+          </Route>
+          <Route path="/about">
+            <WIP />
+          </Route>
+          <Route path="/posts">
+            <WIP />
+          </Route>
+          <Route path="/projects">
+            <WIP />
+          </Route>
+          <Redirect to="/" />
+        </Switch>
+      </Suspense>
 
       <Footer />
     </div>
