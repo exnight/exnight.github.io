@@ -24,12 +24,12 @@ const common: Configuration = {
       {
         test: /\.(eot|otf|ttf|woff(2)?)$/,
         type: 'asset',
-        // parser: {
-        //   // decide inline or emit as separate assets
-        //   dataUrlCondition: {
-        //     maxSize: 8 * 1024, // 8kb
-        //   },
-        // },
+        parser: {
+          // decide inline or emit as separate assets
+          dataUrlCondition: {
+            maxSize: 8 * 1024, // 8kb
+          },
+        },
         generator: {
           filename: 'fonts/[name].[contenthash][ext][query]',
         },
@@ -58,6 +58,11 @@ const common: Configuration = {
     }),
   ],
   resolve: {
+    alias: {
+      react: 'preact/compat',
+      'react-dom/test-utils': 'preact/test-utils',
+      'react-dom': 'preact/compat', // Must be below test-utils
+    },
     extensions: ['.ts', '.tsx', '.js'],
   },
   optimization: {
@@ -75,14 +80,8 @@ const common: Configuration = {
           priority: -10,
         },
         reactVendor: {
-          test: /[\\/]node_modules[\\/](react|react-dom|wouter)[\\/]/,
+          test: /[\\/]node_modules[\\/](preact|wouter)[\\/]/,
           name: 'reactVendor',
-          enforce: true,
-          priority: -1,
-        },
-        utilVendor: {
-          test: /[\\/]node_modules[\\/](react-typed|jss-*.*)[\\/]/,
-          name: 'utilVendor',
           enforce: true,
           priority: -1,
         },
