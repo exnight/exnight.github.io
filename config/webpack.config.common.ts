@@ -35,7 +35,7 @@ const common: Configuration = {
         },
       },
       {
-        test: /\.(?:ico|gif|png|jpg|jpe?g)$/i,
+        test: /\.(?:ico|gif|png|jpe*g)$/i,
         type: 'asset/resource', // emit as separate assets
         generator: {
           filename: 'img/[name].[contenthash][ext][query]',
@@ -58,11 +58,6 @@ const common: Configuration = {
     }),
   ],
   resolve: {
-    alias: {
-      react: 'preact/compat',
-      'react-dom/test-utils': 'preact/test-utils',
-      'react-dom': 'preact/compat', // Must be below test-utils
-    },
     extensions: ['.ts', '.tsx', '.js'],
   },
   optimization: {
@@ -80,7 +75,7 @@ const common: Configuration = {
           priority: -10,
         },
         reactVendor: {
-          test: /[\\/]node_modules[\\/](preact|wouter)[\\/]/,
+          test: /[\\/]node_modules[\\/](react|react-dom|wouter)[\\/]/,
           name: 'reactVendor',
           enforce: true,
           priority: -1,
