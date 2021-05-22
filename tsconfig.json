@@ -5,6 +5,7 @@
     "sourceMap": true,
     "allowJs": true,
     "jsx": "react",
+    "module": "commonjs",
     "moduleResolution": "node",
     "noImplicitReturns": true,
     "noImplicitThis": true,

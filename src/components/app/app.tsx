@@ -1,13 +1,14 @@
-import React from 'react';
+import React, { lazy } from 'react';
 import { Route } from 'wouter';
 
 import Navigation from './navigation';
 import Footer from './footer';
 
 import Home from '../../routes/home';
-import WIP from '../../routes/wip';
 
 import './app.css';
+
+const WIP = lazy(() => import('../../routes/wip'));
 
 const App: React.FC = () => {
   return (
