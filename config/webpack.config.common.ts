@@ -22,7 +22,7 @@ const common: Configuration = {
         exclude: /node_modules/,
       },
       {
-        test: /\.(eot|otf|ttf|woff(2)?)$/,
+        test: /\.(svg|eot|otf|ttf|woff(2)?)$/,
         type: 'asset',
         parser: {
           // decide inline or emit as separate assets
@@ -77,6 +77,12 @@ const common: Configuration = {
         reactVendor: {
           test: /[\\/]node_modules[\\/](react|react-dom|wouter)[\\/]/,
           name: 'reactVendor',
+          enforce: true,
+          priority: -1,
+        },
+        iconVendor: {
+          test: /[\\/]node_modules[\\/](@fortawesome|react-fontawesome)[\\/]/,
+          name: 'iconVendor',
           enforce: true,
           priority: -1,
         },
