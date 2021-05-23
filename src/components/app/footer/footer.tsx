@@ -13,7 +13,7 @@ const Footer: React.FC = () => {
         </p>
         <ul className="text-center flex space-x-8">
           <li>
-            <a href="https://github.com/exnight">
+            <a href="https://github.com/exnight" aria-label="GitHub Profile">
               <FontAwesomeIcon
                 icon={['fab', 'github']}
                 className="text-2xl align-middle"
@@ -21,7 +21,10 @@ const Footer: React.FC = () => {
             </a>
           </li>
           <li>
-            <a href="https://www.linkedin.com/in/jyleowong/">
+            <a
+              href="https://www.linkedin.com/in/jyleowong/"
+              aria-label="LinkedIn Profile"
+            >
               <FontAwesomeIcon
                 icon={['fab', 'linkedin']}
                 className="text-2xl align-middle"

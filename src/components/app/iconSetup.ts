@@ -1,6 +1,5 @@
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faGithub } from '@fortawesome/free-brands-svg-icons/faGithub';
-import { faLinkedin } from '@fortawesome/free-brands-svg-icons/faLinkedin';
+import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 
 const setup = (): void => library.add(faGithub, faLinkedin);
 
