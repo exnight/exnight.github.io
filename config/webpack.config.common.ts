@@ -22,7 +22,7 @@ const common: Configuration = {
         exclude: /node_modules/,
       },
       {
-        test: /\.(eot|otf|ttf|woff(2)?)$/,
+        test: /\.(svg|eot|otf|ttf|woff(2)?)$/,
         type: 'asset',
         parser: {
           // decide inline or emit as separate assets
@@ -52,13 +52,18 @@ const common: Configuration = {
       favicon: './assets/favicon.ico',
     }),
     new CompressionPlugin({
-      test: /\.(js|css|html)$/,
+      test: /\.(js|css|html|ttf)$/,
       threshold: 10240,
       minRatio: 0.6,
     }),
   ],
   resolve: {
     extensions: ['.ts', '.tsx', '.js'],
+    alias: {
+      react: 'preact/compat',
+      'react-dom/test-utils': 'preact/test-utils',
+      'react-dom': 'preact/compat', // Must be below test-utils
+    },
   },
   optimization: {
     moduleIds: 'deterministic',
@@ -75,8 +80,20 @@ const common: Configuration = {
           priority: -10,
         },
         reactVendor: {
-          test: /[\\/]node_modules[\\/](react|react-dom|wouter)[\\/]/,
+          test: /[\\/]node_modules[\\/](preact|react|react-dom|wouter)[\\/]/,
           name: 'reactVendor',
+          enforce: true,
+          priority: -1,
+        },
+        iconVendor: {
+          test: /[\\/]node_modules[\\/](@fortawesome|react-fontawesome)[\\/]/,
+          name: 'iconVendor',
+          enforce: true,
+          priority: -1,
+        },
+        app: {
+          test: /[\\/]src[\\/]/,
+          name: 'app',
           enforce: true,
           priority: -1,
         },

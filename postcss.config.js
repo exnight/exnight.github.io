@@ -1,6 +1,6 @@
 /* eslint-disable global-require */
 
-import cssnano from 'cssnano';
+const cssnano = require('cssnano');
 
 module.exports = {
   plugins: [

@@ -6,9 +6,13 @@ import Footer from './footer';
 
 import Home from '../../routes/home';
 
+import iconSetup from './iconSetup';
+
 import './app.css';
 
 const WIP = lazy(() => import('../../routes/wip'));
+
+iconSetup();
 
 const App: React.FC = () => {
   return (

@@ -8,7 +8,11 @@
   "author": "exnight <exnight@users.noreply.github.com>",
   "license": "MIT",
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.35",
+    "@fortawesome/free-brands-svg-icons": "^5.15.3",
+    "@fortawesome/react-fontawesome": "^0.1.14",
     "postcss-import": "^14.0.2",
+    "preact": "^10.5.13",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "uuid": "^8.3.2",
@@ -32,6 +36,7 @@
     "autoprefixer": "^10.2.5",
     "compression-webpack-plugin": "^7.1.2",
     "copy-webpack-plugin": "^8.1.1",
+    "cross-env": "^7.0.3",
     "css-loader": "^5.2.4",
     "cssnano": "^5.0.2",
     "eslint": "^7.26.0",
@@ -51,6 +56,7 @@
     "terser-webpack-plugin": "^5.1.2",
     "ts-loader": "^9.1.2",
     "ts-node": "^9.1.1",
+    "tsconfig-paths": "^3.9.0",
     "typescript": "^4.2.4",
     "webpack": "^5.37.0",
     "webpack-bundle-analyzer": "^4.4.1",
@@ -59,14 +65,14 @@
     "webpack-merge": "^5.7.3"
   },
   "scripts": {
-    "start": "webpack serve --hot --inline --node-env development",
+    "start": "cross-env TS_NODE_PROJECT=\"tsconfig.webpack.json\" webpack serve --hot --inline --node-env development",
     "prebuild": "rimraf ./build/*",
-    "build": "webpack --node-env production",
+    "build": "cross-env TS_NODE_PROJECT=\"tsconfig.webpack.json\" webpack --node-env production",
     "prebuildImage": "rimraf src/assets/img/*",
     "buildImage": "node util/sharp.js",
     "predeploy": "npm run build",
     "deploy": "gh-pages -b master -d build",
-    "test": "echo \"Warn: no tests available\"",
+    "test": "echo Warn: no tests available",
     "stats": "webpack --mode production --profile --json > stats.json"
   }
 }
