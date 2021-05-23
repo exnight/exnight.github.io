@@ -12,10 +12,12 @@ const Home: React.FC = () => {
           EXPLORE
         </div>
       </div>
-      <div className="w-4/5 mx-auto mt-8">
+      <div className="w-4/5 lg:w-5/6 mx-auto mt-8">
         <div className="flex flex-col items-center space-y-8 md:space-y-16 md:grid grid-cols-2 lg:w-5/6 mx-auto">
           <div className="space-y-2 md:space-y-6">
-            <p className="text-4xl md:text-6xl">Hi, I'm Leo</p>
+            <p className="text-6xl lg:text-7xl xl:text-8xl alegreya-font">
+              Hi, I'm Leo
+            </p>
             <p className="text-sm md:text-lg ml-1">
               a Software Engineer, Basketball Enthusiast, CSGO Tactician
             </p>
@@ -35,7 +37,7 @@ const Home: React.FC = () => {
           </div>
         </div>
 
-        <p className="mt-24">
+        <p className="mt-24 text-justify">
           You are now browsing the 2.0-alpha version, content will be added very
           soon. Feel free to provide feedback by creating new{' '}
           <a href="https://github.com/exnight/exnight.github.io/issues">

@@ -10,13 +10,28 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'Alegreya';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Alegreya'),
+    url('../../assets/Alegreya-Regular.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Mulish';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Mulish'),
+    url('../../assets/Mulish-Regular.ttf') format('truetype');
+  font-display: swap;
+}
+
 html,
 body {
   height: 100%;
-}
-
-img {
-  aspect-ratio: attr(width) / attr(height);
+  font-family: 'Mulish', sans-serif;
 }
 
 .skip-link {
@@ -39,4 +54,8 @@ img {
 
 .anurati-font {
   font-family: 'Anurati', sans-serif;
+}
+
+.alegreya-font {
+  font-family: 'Alegreya', sans-serif;
 }

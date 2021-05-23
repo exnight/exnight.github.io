@@ -52,7 +52,7 @@ const common: Configuration = {
       favicon: './assets/favicon.ico',
     }),
     new CompressionPlugin({
-      test: /\.(js|css|html)$/,
+      test: /\.(js|css|html|ttf)$/,
       threshold: 10240,
       minRatio: 0.6,
     }),
