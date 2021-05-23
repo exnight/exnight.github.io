@@ -86,6 +86,12 @@ const common: Configuration = {
           enforce: true,
           priority: -1,
         },
+        app: {
+          test: /[\\/]src[\\/]/,
+          name: 'app',
+          enforce: true,
+          priority: -1,
+        },
       },
     },
   },
