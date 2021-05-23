@@ -21,5 +21,5 @@ const resizeImage = (file, width) => {
 const imgIsland = 'sharp_island.png';
 const imgRailway = 'Fushimi_railway.jpg';
 
-[360, 720, 1080].map((size) => resizeImage(imgIsland, size));
-[240, 480, 720].map((size) => resizeImage(imgRailway, size));
+[360, 720, 1080].forEach((size) => resizeImage(imgIsland, size));
+[240, 480, 720].forEach((size) => resizeImage(imgRailway, size));
