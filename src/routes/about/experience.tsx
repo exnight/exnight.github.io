@@ -38,7 +38,7 @@ const expData = [
 const Experience: React.FC = () => {
   return (
     <div>
-      <div className="mt-4 lg:mt-8 text-blue-500 text-xl sm:text-2xl md:text-3xl lg:text-4xl">
+      <div className="mt-4 lg:mt-8 text-blue-800 text-xl sm:text-2xl md:text-3xl lg:text-4xl">
         Experience
       </div>
       {expData.map((exp) => (

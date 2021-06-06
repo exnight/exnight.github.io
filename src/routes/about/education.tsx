@@ -15,7 +15,7 @@ const eduData = [
 const Education: React.FC = () => {
   return (
     <div>
-      <div className="mt-4 lg:mt-8 text-blue-500 text-xl sm:text-2xl md:text-3xl lg:text-4xl">
+      <div className="mt-4 lg:mt-8 text-blue-800 text-xl sm:text-2xl md:text-3xl lg:text-4xl">
         Education
       </div>
       {eduData.map((edu) => (
@@ -27,7 +27,7 @@ const Education: React.FC = () => {
               </strong>
               <p className="text-right">{edu.duration}</p>
             </div>
-            <p>{edu.detail}</p>
+            <p className="text-blue-800">{edu.detail}</p>
           </div>
         </div>
       ))}
