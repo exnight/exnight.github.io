@@ -37,7 +37,7 @@ const Home: React.FC = () => {
           </div>
         </div>
 
-        <p className="mt-24 text-justify">
+        <p className="mt-24 text-justify lg:text-lg">
           You are now browsing the 2.0-alpha version, content will be added very
           soon. Feel free to provide feedback by creating new{' '}
           <a href="https://github.com/exnight/exnight.github.io/issues">

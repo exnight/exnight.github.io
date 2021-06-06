@@ -11,6 +11,7 @@ import iconSetup from './iconSetup';
 import './app.css';
 
 const WIP = lazy(() => import('../../routes/wip'));
+const About = lazy(() => import('../../routes/about'));
 
 iconSetup();
 
@@ -25,7 +26,7 @@ const App: React.FC = () => {
             <Home />
           </Route>
           <Route path="/about">
-            <WIP />
+            <About />
           </Route>
           <Route path="/posts">
             <WIP />
