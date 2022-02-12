@@ -7,11 +7,11 @@ import iconImageLarge from '../../assets/img/Fushimi_railway-720.jpg';
 const Home: React.FC = () => {
   return (
     <div className="flex-grow">
-      <div className="h-60 sm:h-96 md:h-coverMd lg:h-coverLg bg-center bg-cover flex justify-center items-center bg-home-cover-360 md:bg-home-cover-720 xl:bg-home-cover-1080">
+      {/* <div className="h-60 sm:h-96 md:h-coverMd lg:h-coverLg bg-center bg-cover flex justify-center items-center bg-home-cover-360 md:bg-home-cover-720 xl:bg-home-cover-1080">
         <div className="text-4xl sm:text-6xl md:text-8xl text-white anurati-font tracking-widest">
           EXPLORE
         </div>
-      </div>
+      </div> */}
       <div className="w-4/5 lg:w-5/6 mx-auto mt-8">
         <div className="flex flex-col items-center space-y-8 md:space-y-16 md:grid grid-cols-2 lg:w-5/6 mx-auto">
           <div className="space-y-2 md:space-y-6">

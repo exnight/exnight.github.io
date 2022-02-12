@@ -9,7 +9,7 @@ const Footer: React.FC = () => {
         <p className="text-center">
           &copy; Leo
           <em> exnight </em>
-          Wong | 2016 - 2021
+          Wong | 2016 - 2022
         </p>
         <ul className="text-center flex space-x-8">
           <li>

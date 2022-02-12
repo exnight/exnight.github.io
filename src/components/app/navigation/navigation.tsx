@@ -2,7 +2,7 @@ import React from 'react';
 
 import { useLocation } from 'wouter';
 
-const routes = ['About', 'Posts', 'Projects'];
+const routes = ['About', 'Posts'];
 
 const Navigation: React.FC = () => {
   const [, setLocation] = useLocation();
