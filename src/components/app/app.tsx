@@ -26,12 +26,9 @@ const App: React.FC = () => {
             <Home />
           </Route>
           <Route path="/about">
-            <About />
-          </Route>
-          <Route path="/posts">
             <WIP />
           </Route>
-          <Route path="/projects">
+          <Route path="/posts">
             <WIP />
           </Route>
           <Redirect to="/" />
