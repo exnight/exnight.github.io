@@ -11,9 +11,9 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.35",
     "@fortawesome/free-brands-svg-icons": "^5.15.3",
     "@fortawesome/react-fontawesome": "^0.1.14",
-    "preact": "^10.5.13",
+    "preact": "^10.6.5",
     "uuid": "^8.3.2",
-    "wouter": "^2.7.4"
+    "wouter": "^2.7.5"
   },
   "devDependencies": {
     "@types/copy-webpack-plugin": "^8.0.0",
@@ -39,7 +39,6 @@
     "eslint": "^7.28.0",
     "eslint-config-airbnb-typescript-prettier": "^4.2.0",
     "eslint-plugin-react-hooks": "^4.2.0",
-    "gh-pages": "^3.2.0",
     "html-webpack-plugin": "^5.3.1",
     "mini-css-extract-plugin": "^1.6.0",
     "postcss": "^8.3.0",
@@ -70,8 +69,6 @@
     "build": "cross-env TS_NODE_PROJECT=\"tsconfig.webpack.json\" webpack --node-env production",
     "prebuildImage": "rimraf src/assets/img/*",
     "buildImage": "node util/sharp.js",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -b master -d build",
     "test": "echo Warn: no tests available",
     "stats": "webpack --mode production --profile --json > stats.json"
   }
