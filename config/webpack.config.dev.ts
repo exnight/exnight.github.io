@@ -16,10 +16,11 @@ const dev: Configuration = {
       },
     ],
   },
-  plugins: [new HotModuleReplacementPlugin()],
   devtool: 'cheap-module-source-map',
   devServer: {
-    contentBase: path.resolve(__dirname, '../public'),
+    static: {
+      directory: path.resolve(__dirname, '../public'),
+    },
     compress: true,
     historyApiFallback: true,
     open: true,
