@@ -1,6 +1,5 @@
 import type { NextPage } from 'next';
-import Image from 'next/image';
-import iconImage from '../assets/img/Fushimi_railway.jpg';
+import Image from '../components/Image';
 import HtmlHead from '../components/HtmlHead';
 
 const MainFrame: NextPage = () => {
@@ -28,11 +27,10 @@ const Home = () => {
 
           <div className="flex flex-col items-center justify-center space-y-8">
             <Image
-              src={iconImage}
+              src="/img/Fushimi_railway.jpg"
               alt="Icon"
               width={240}
               height={240}
-              placeholder="blur"
               className="rounded-full"
             />
             <div className="text-lg md:text-xl lg:text-2xl">
