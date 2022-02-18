@@ -1,11 +1,9 @@
-/* eslint-disable no-console */
-
 const fs = require('fs');
 const path = require('path');
 const sharp = require('sharp');
 
-const inputDir = path.resolve(__dirname, '../src/assets/raw_image');
-const outputDir = path.resolve(__dirname, '../src/assets/img');
+const inputDir = path.resolve(__dirname, '../public/img');
+const outputDir = inputDir;
 const readFile = (file) => fs.readFileSync(`${inputDir}/${file}`);
 
 const resizeImage = (file, width) => {
@@ -18,8 +16,6 @@ const resizeImage = (file, width) => {
   console.log(`processed ${file} with size ${width}`);
 };
 
-const imgIsland = 'sharp_island.png';
 const imgRailway = 'Fushimi_railway.jpg';
 
-[360, 720, 1080].forEach((size) => resizeImage(imgIsland, size));
-[240, 480, 720].forEach((size) => resizeImage(imgRailway, size));
+[256, 640].forEach((size) => resizeImage(imgRailway, size));
