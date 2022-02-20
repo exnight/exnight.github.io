@@ -46,7 +46,7 @@ const Blog: React.FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
           </ul>
         </div>
         <div className="col-span-2 col-start-4">
-          <p className="text-xl">Under Construction</p>
+          <p className="text-2xl hidden">Under Construction</p>
         </div>
       </div>
     </>
