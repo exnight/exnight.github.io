@@ -1,4 +1,3 @@
-import moment from 'moment';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import Link from 'next/link';
 import HtmlHead from '../../components/HtmlHead';
@@ -54,9 +53,36 @@ const Blog: React.FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
   );
 };
 
+const daysOfWeek: Record<number, string> = {
+  0: 'Sun',
+  1: 'Mon',
+  2: 'Tue',
+  3: 'Wed',
+  4: 'Thu',
+  5: 'Fri',
+  6: 'Sat',
+};
+
+const months: Record<number, string> = {
+  0: 'Jan',
+  1: 'Feb',
+  2: 'Mar',
+  3: 'Apr',
+  4: 'May',
+  5: 'Jun',
+  6: 'Jul',
+  7: 'Aug',
+  8: 'Sep',
+  9: 'Oct',
+  10: 'Nov',
+  11: 'Dec',
+};
+
 const parseDate = (rawDate: string) => {
-  const date = moment(rawDate, 'YYYY/MM/DD');
-  return `${date.format('dddd, MMM DD YYYY')}`;
+  const date = new Date(rawDate);
+  return `${daysOfWeek[date.getDay()]}, ${
+    months[date.getMonth()]
+  } ${date.getDate()} ${date.getFullYear()}`;
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {

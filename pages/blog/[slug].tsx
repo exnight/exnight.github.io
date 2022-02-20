@@ -1,7 +1,7 @@
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next';
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
 import HtmlHead from '../../components/HtmlHead';
-import MDXComponents from '../../components/MDXComponents';
+import components from '../../components/MDXComponents';
 import { getPost, getValidPosts } from '../../util/mdx';
 
 interface PostProps {
@@ -26,8 +26,8 @@ const Post: React.FC<PostProps> = ({ mdxSource }) => {
         title={`${title}`}
         description="A dev blog alongside other random content"
       />
-      <h1 className="text-4xl mb-8 self-center">{title}</h1>
-      <MDXRemote {...mdxSource} components={MDXComponents} />
+      <h1 className="text-4xl mb-4 self-center">{title}</h1>
+      <MDXRemote {...mdxSource} components={components} />
     </div>
   );
 };
