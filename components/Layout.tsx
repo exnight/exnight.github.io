@@ -1,5 +1,7 @@
-import Footer from './Footer';
+import dynamic from 'next/dynamic';
 import Navigation from './Navigation';
+
+const Footer = dynamic(() => import('./Footer'));
 
 const Layout: React.FC = ({ children }) => {
   return (

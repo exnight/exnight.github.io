@@ -2,7 +2,7 @@ import { Html, Head, Main, NextScript } from 'next/document';
 
 const Doucument = () => {
   return (
-    <Html>
+    <Html lang="en">
       <Head>
         <link
           rel="stylesheet"

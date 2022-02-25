@@ -24,8 +24,7 @@ const Blog: React.FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
             Recent Posts
           </h1>
           <ul>
-            {posts.map((post: any) => {
-              const meta: frontmatter = post.frontmatter;
+            {posts.map((meta: frontmatter) => {
               const title = meta.title;
               return (
                 <li key={title} className="pb-4 my-8">
@@ -87,11 +86,11 @@ const parseDate = (rawDate: string) => {
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const { posts } = await getValidPosts();
-  const sortedPosts = posts.sort((a, b) =>
-    a.frontmatter!.publishedOn > b.frontmatter!.publishedOn ? -1 : 1
-  );
+  const sortedMetadata = posts
+    .map((post) => post.frontmatter!)
+    .sort((a, b) => (a.publishedOn > b.publishedOn ? -1 : 1));
 
-  return { props: { posts: sortedPosts } };
+  return { props: { posts: sortedMetadata } };
 };
 
 export default Blog;
