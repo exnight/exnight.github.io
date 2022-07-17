@@ -23,7 +23,7 @@
     "cross-env": "^7.0.3",
     "eslint": "^8.9.0",
     "eslint-config-next": "12.1.0",
-    "next-mdx-remote": "^4.0.3",
+    "next-mdx-remote": "4.0.0",
     "postcss-import": "^14.0.2",
     "postcss-preset-env": "^7.4.1",
     "rehype-katex": "^6.0.2",
