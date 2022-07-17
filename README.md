@@ -13,25 +13,25 @@ The project works with Node version 14 or above
 ### Installation
 
 ```bash
-$ npm ci
+npm ci
 ```
 
 ### Development
 
 ```bash
-$ npm run dev
+npm run dev
 ```
 
 ### Build
 
 ```bash
-$ npm run build
+npm run build
 ```
 
 ### Start a production server (locally)
 
 ```bash
-$ npm start
+npm start
 ```
 
 ### Deploy to GitHub pages
