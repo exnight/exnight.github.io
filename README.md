@@ -15,11 +15,11 @@ The project works with Node version 16 or above
 ```bash
 npm ci # Install dependencies
 
-npm run dev # Run the local DEV server
+npm run dev # Start a local DEV server
 
-npm run build # TBD
+npm run build # Generate production optimized code and export as static HTML
 
-npm start # TBD
+npm start # Start a local Next.js server
 ```
 
 ### Deploy to GitHub pages
