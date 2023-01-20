@@ -6,9 +6,10 @@ interface HtmlHeadProps {
 }
 
 const HtmlHead = (props: HtmlHeadProps) => {
+  const siteTitle = `${props.title} | Leo W.`;
   return (
     <Head>
-      <title>{props.title} | Leo W.</title>
+      <title>{siteTitle}</title>
       <meta name="description" content={props.description} />
     </Head>
   );
