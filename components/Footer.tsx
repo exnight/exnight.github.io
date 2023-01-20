@@ -9,7 +9,7 @@ const Footer: React.FC = () => {
         <p className="text-center">
           &copy; Leo
           <em> exnight </em>
-          Wong | 2016 - 2022
+          Wong | 2016 - 2023
         </p>
 
         <a

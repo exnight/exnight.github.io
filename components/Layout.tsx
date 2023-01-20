@@ -3,7 +3,11 @@ import Navigation from './Navigation';
 
 const Footer = dynamic(() => import('./Footer'));
 
-const Layout: React.FC = ({ children }) => {
+type LayoutProps = {
+  children: React.ReactNode;
+};
+
+const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <>
       <Navigation />
