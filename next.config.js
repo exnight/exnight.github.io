@@ -9,10 +9,10 @@ const nextConfig = {
   webpack: (config, options) => {
     if (!options.dev && !options.isServer) {
       Object.assign(config.resolve.alias, {
+        'react/jsx-runtime.js': 'preact/compat/jsx-runtime',
         react: 'preact/compat',
         'react-dom/test-utils': 'preact/test-utils',
         'react-dom': 'preact/compat', // Must be below test-utils
-        'react/jsx-runtime.js': require.resolve('react/jsx-runtime'),
       });
     }
     return config;

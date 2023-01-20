@@ -8,30 +8,18 @@ This is created for practicing my limited frontend (and poor visual design) skil
 
 ## Usage
 
-The project works with Node version 14 or above
+The project works with Node version 16 or above
 
-### Installation
-
-```bash
-npm ci
-```
-
-### Development
+### Local Developement
 
 ```bash
-npm run dev
-```
+npm ci # Install dependencies
 
-### Build
+npm run dev # Run the local DEV server
 
-```bash
-npm run build
-```
+npm run build # TBD
 
-### Start a production server (locally)
-
-```bash
-npm start
+npm start # TBD
 ```
 
 ### Deploy to GitHub pages
