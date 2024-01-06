@@ -8,7 +8,7 @@ This is created for practicing my limited frontend (and poor visual design) skil
 
 ## Usage
 
-The project works with Node version 16 or above
+The project works with Node version 20 or above
 
 ### Local Developement
 
