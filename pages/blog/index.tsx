@@ -31,13 +31,9 @@ const Blog: React.FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
                   <Link
                     href={`/blog/${title.toLowerCase().replaceAll(' ', '-')}`}
                   >
-                    <a>
-                      <h2 className="text-2xl font-bold mb-2">{title}</h2>
-                      <p className="italic mb-2">
-                        {parseDate(meta.publishedOn)}
-                      </p>
-                      <p className="">{meta.summary}</p>
-                    </a>
+                    <h2 className="text-2xl font-bold mb-2">{title}</h2>
+                    <p className="italic mb-2">{parseDate(meta.publishedOn)}</p>
+                    <p className="">{meta.summary}</p>
                   </Link>
                 </li>
               );
