@@ -21,4 +21,6 @@ npm run dev
 
 <div className="self-center">
   $$ y = mx+c $$
+
+  $$ E = mc^2 $$
 </div>

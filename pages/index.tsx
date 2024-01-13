@@ -21,7 +21,8 @@ const Home = () => {
               Hi, I&apos;m Leo
             </p>
             <p className="text-sm md:text-lg ml-1">
-              a Software Engineer, Basketball Enthusiast, CSGO Tactician
+              a Software Engineer, Basketball Enthusiast, Counter Strike
+              Tactician
             </p>
           </div>
 
