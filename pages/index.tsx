@@ -21,7 +21,8 @@ const Home = () => {
               Hi, I&apos;m Leo
             </p>
             <p className="text-sm md:text-lg ml-1">
-              a Software Engineer, Basketball Enthusiast, CSGO Tactician
+              a Software Engineer, Basketball Enthusiast, Counter Strike
+              Tactician
             </p>
           </div>
 
@@ -32,6 +33,7 @@ const Home = () => {
               width={240}
               height={240}
               className="rounded-full"
+              priority={true}
             />
             <div className="text-lg md:text-xl lg:text-2xl">
               <em>Stepping out of comfort zone</em>
