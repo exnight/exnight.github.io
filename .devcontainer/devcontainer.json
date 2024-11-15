@@ -1,0 +1,28 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/typescript-node
+{
+    "name": "Node.js & TypeScript",
+    "image": "mcr.microsoft.com/devcontainers/typescript-node:1-22-bookworm",
+    // Use 'postCreateCommand' to run commands after the container is created.
+    "postCreateCommand": "npx next telemetry disable",
+    // Configure tool-specific properties.
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "eamodio.gitlens",
+                "bradlc.vscode-tailwindcss",
+                "dbaeumer.vscode-eslint",
+                "esbenp.prettier-vscode",
+                "DavidAnson.vscode-markdownlint",
+                "EditorConfig.EditorConfig"
+            ]
+        }
+    },
+    // The following configuration is required for Podman as stated at: https://code.visualstudio.com/remote/advancedcontainers/docker-options#_podman
+    "runArgs": [
+        "--userns=keep-id"
+    ],
+    "containerEnv": {
+        "HOME": "/home/node"
+    }
+}
