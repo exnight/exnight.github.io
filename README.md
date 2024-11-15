@@ -2,15 +2,27 @@
 
 ## Introduction
 
-An informal profile built with Next.js, React.js, Typescript, Tailwind CSS
-
-This is created for practicing my limited frontend (and poor visual design) skills, as well as for documenting my progress in software engineering
+This is a personal website built with Next.js, React.js, TypeScript, and Tailwind CSS.
 
 ## Usage
 
-The project works with Node version 20 or above
+The project works with Node version 22 or above.
 
 ### Local Developement
+
+The project now utilizes DEV containers for consistent developement environments. The configuration assumes VS Code as the code editor.
+
+#### Set Up DEV Containers
+
+The `devcontainer.json` works with Podman. You may want to set up local SSH agent to share Git credentials following [this guide](https://code.visualstudio.com/remote/advancedcontainers/sharing-git-credentials#_using-ssh-keys).
+
+```sh
+ssh-add $HOME/.ssh/YOUR_SSH_PRIVATE_KEY
+```
+
+Note that SSH keys with a passphrase [may not work](https://code.visualstudio.com/docs/devcontainers/containers#_known-limitations).
+
+#### Coding
 
 ```bash
 npm ci # Install dependencies
@@ -24,9 +36,6 @@ npm start # Start a local Next.js server
 
 ### Deploy to GitHub pages
 
-The project makes use of the **master** branch as the deployment branch (instead of **gh-page**), please set another branch as the
+The project uses the **master** branch for deployment instead of the **gh-page** branch.
 
-- default repository branch, or
-- deployment branch
-
-The project triggers deployments via GitHub actions, please refer to the workflow files
+I build and deploy to GitHub pages with GitHub actions. You may refer to the workflow files for more details.
