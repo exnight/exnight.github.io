@@ -20,7 +20,7 @@ export default [
     },
     files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'],
     ignores: [
-      "eslint.config.mjs",
+      "**/*.config.mjs",
     ],
     rules: {
       ...pluginNext.configs.recommended.rules,
