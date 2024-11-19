@@ -6,7 +6,7 @@ This is a personal website built with Next.js, React.js, TypeScript, and Tailwin
 
 ## Usage
 
-The project works with Node version 22 or above.
+The project works with Node version 22 or above. It also includes additional tools, e.g. [Lazygit](https://github.com/jesseduffield/lazygit).
 
 ### Local Developement
 
@@ -32,6 +32,8 @@ npm run dev # Start a local DEV server
 npm run build # Generate production optimized code and export as static HTML
 
 npm start # Start a local Next.js server
+
+npx @eslint/config-inspector@latest # Inspect ESLint configuration
 ```
 
 ### Deploy to GitHub pages
