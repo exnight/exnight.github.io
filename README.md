@@ -32,6 +32,8 @@ npm run dev # Start a local DEV server
 npm run build # Generate production optimized code and export as static HTML
 
 npm start # Start a local Next.js server
+
+npx @eslint/config-inspector@latest # Inspect ESLint configuration
 ```
 
 ### Deploy to GitHub pages
