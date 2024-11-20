@@ -6,7 +6,7 @@ This is a personal website built with Next.js, React.js, TypeScript, and Tailwin
 
 ## Usage
 
-The project works with Node version 22 or above. It also includes additional tools, e.g. [Lazygit](https://github.com/jesseduffield/lazygit).
+The project works with Node version 22 or above.
 
 ### Local Developement
 
