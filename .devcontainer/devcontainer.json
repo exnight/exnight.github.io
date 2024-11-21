@@ -2,7 +2,10 @@
 // README at: https://github.com/devcontainers/templates/tree/main/src/typescript-node
 {
     "name": "Node.js & TypeScript",
-    "image": "mcr.microsoft.com/devcontainers/typescript-node:1-22-bookworm",
+    "build": {
+        // Path is relative to the devcontainer.json file.
+        "dockerfile": "Dockerfile"
+    },
     // Use 'postCreateCommand' to run commands after the container is created.
     "postCreateCommand": "./.devcontainer/setup.sh",
     // Configure tool-specific properties.
@@ -15,7 +18,8 @@
                 "dbaeumer.vscode-eslint",
                 "esbenp.prettier-vscode",
                 "DavidAnson.vscode-markdownlint",
-                "EditorConfig.EditorConfig"
+                "EditorConfig.EditorConfig",
+                "ChaitanyaShahare.lazygit"
             ]
         }
     },
