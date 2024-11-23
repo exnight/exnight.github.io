@@ -14,6 +14,7 @@
             "extensions": [
                 "eamodio.gitlens",
                 "bradlc.vscode-tailwindcss",
+                "Vue.volar",
                 "vitest.explorer",
                 "dbaeumer.vscode-eslint",
                 "esbenp.prettier-vscode",
