@@ -27,8 +27,8 @@ export default defineConfig({
     host: '127.0.0.1',
     watch: {
       usePolling: true,
-      interval: 5000,
-      binaryInterval: 5000,
+      interval: 3000,
+      binaryInterval: 3000,
     },
   },
 })
