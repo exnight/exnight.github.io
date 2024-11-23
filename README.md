@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This is a personal website built with Next.js, React.js, TypeScript, and Tailwind CSS.
+This is a personal website built with Vue.js, TypeScript, and Tailwind CSS.
 
 ## Usage
 
@@ -30,8 +30,6 @@ npm ci # Install dependencies
 npm run dev # Start a local DEV server
 
 npm run build # Generate production optimized code and export as static HTML
-
-npm start # Start a local Next.js server
 
 npx @eslint/config-inspector@latest # Inspect ESLint configuration
 ```
