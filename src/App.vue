@@ -1,6 +1,17 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
+import { useHead } from '@unhead/vue'
 import HelloWorld from './components/HelloWorld.vue'
+
+useHead({
+  title: 'Leo Wong',
+  meta: [
+    {
+      name: 'description',
+      content: 'A personal website, blog, and photo gallery',
+    },
+  ],
+})
 </script>
 
 <template>
