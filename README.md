@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This is a personal website built with Vue.js, TypeScript, and Tailwind CSS.
+This is a personal website built with Nuxt.js, Vue.js, TypeScript, and Tailwind CSS.
 
 ## Usage
 
