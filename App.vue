@@ -8,7 +8,6 @@ useHead({
 <template>
   <div>
     <!-- Markup shared across all pages, e.g., NavBar -->
-    <Header />
     <NuxtPage />
   </div>
 </template>
