@@ -6,8 +6,9 @@ useHead({
 </script>
 
 <template>
-  <div>
+  <div class="h-screen md:w-10/12 mx-4 md:mx-auto">
     <!-- Markup shared across all pages, e.g., NavBar -->
+    <HeaderBar />
     <NuxtPage />
   </div>
 </template>
