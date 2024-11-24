@@ -30,5 +30,8 @@
     ],
     "containerEnv": {
         "HOME": "/home/node"
-    }
+    },
+    "mounts": [
+        "type=volume,target=${containerWorkspaceFolder}/node_modules"
+    ]
 }
