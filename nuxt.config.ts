@@ -12,10 +12,11 @@ export default defineNuxtConfig({
   },
   vite: {
     server: {
+      // Required for HMR on WSL or other DEV containers
       watch: {
-        usePolling: true,
-        interval: 1000,
-        binaryInterval: 1000,
+        usePolling: process.env.IS_CONTAINER == 'true',
+        interval: 1000, // Optional
+        binaryInterval: 1000, // Optional
       },
     },
   },
