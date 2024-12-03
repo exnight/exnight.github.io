@@ -7,7 +7,7 @@
         "dev": "nuxt dev",
         "test": "vitest",
         "build": "nuxt generate",
-        "start": "npx serve --no-clipboard dist",
+        "start": "npx -y serve --no-clipboard dist",
         "lint": "eslint ./",
         "postinstall": "nuxt prepare"
     },
