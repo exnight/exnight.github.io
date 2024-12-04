@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This is a personal website built with Nuxt.js, Vue.js, TypeScript, and Tailwind CSS.
+This is a personal website built with Astro.js, Vue.js, TypeScript, and Tailwind CSS.
 
 ## Usage
 
@@ -17,7 +17,9 @@ The project now utilizes DEV containers for consistent developement environments
 The `devcontainer.json` works with Podman. You may want to set up local SSH agent to share Git credentials following [this guide](https://code.visualstudio.com/remote/advancedcontainers/sharing-git-credentials#_using-ssh-keys).
 
 ```sh
-ssh-add $HOME/.ssh/YOUR_SSH_PRIVATE_KEY
+ssh -T git@github.com # Test your SSH connection to GitHub, or other remote repos
+ssh-add -L # List available SSH key(s)
+ssh-add $HOME/.ssh/YOUR_SSH_PRIVATE_KEY # Add a new SSH key
 ```
 
 Note that SSH keys with a passphrase [may not work](https://code.visualstudio.com/docs/devcontainers/containers#_known-limitations).
