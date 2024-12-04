@@ -1,8 +1,8 @@
 <template>
   <div class="py-4 grid grid-cols-5">
-    <NuxtLink to="/"> Icon </NuxtLink>
+    <a href="/">Icon</a>
     <div class="flex justify-between col-span-2 md:col-span-1">
-      <NuxtLink to="/about"> About </NuxtLink>
+      <a href="/about">About</a>
       <div>Blog</div>
       <div>Gallery</div>
     </div>

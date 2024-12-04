@@ -1,5 +1,5 @@
-import { test } from 'vitest'
+import { expect, test } from 'vitest'
 
-test('dummy test', () => {
+test('dummy test', async () => {
   expect(1 + 2).toEqual(3)
 })

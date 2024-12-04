@@ -6,4 +6,4 @@ if [ -d ./.devcontainer/config ]; then
 fi
 
 sudo chown node node_modules
-npm install && npm run postinstall
+npm install

@@ -13,9 +13,10 @@
         "vscode": {
             "extensions": [
                 "eamodio.gitlens",
-                "bradlc.vscode-tailwindcss",
+                "astro-build.astro-vscode",
                 "Vue.volar",
                 "vitest.explorer",
+                "bradlc.vscode-tailwindcss",
                 "dbaeumer.vscode-eslint",
                 "esbenp.prettier-vscode",
                 "DavidAnson.vscode-markdownlint",
