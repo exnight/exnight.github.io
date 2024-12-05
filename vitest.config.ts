@@ -1,8 +1,12 @@
-import { defineVitestConfig } from '@nuxt/test-utils/config'
+/// <reference types="vitest" />
+import { getViteConfig } from 'astro/config'
+import { coverageConfigDefaults } from 'vitest/config'
 
-export default defineVitestConfig({
+export default getViteConfig({
   test: {
-    environment: 'nuxt',
-    globals: true, // Use describe, test/expect, etc. without importing
+    coverage: {
+      exclude: ['**/*.config.mjs', ...coverageConfigDefaults.exclude],
+    },
+    environment: 'happy-dom',
   },
 })
