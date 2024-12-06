@@ -1,5 +1,6 @@
 ---
 import HeaderBar from '../components/HeaderBar.vue'
+import '../styles/global.css'
 ---
 
 <!doctype html>
@@ -13,7 +14,7 @@ import HeaderBar from '../components/HeaderBar.vue'
     <title>Leo Wong</title>
   </head>
   <body>
-    <div class="h-screen md:w-10/12 mx-4 md:mx-auto">
+    <div class="mx-4 h-screen md:mx-auto md:w-10/12">
       <!-- Markup shared across all pages, e.g., NavBar -->
       <HeaderBar />
       <slot />

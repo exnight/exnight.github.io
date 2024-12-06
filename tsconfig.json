@@ -1,5 +1,8 @@
 {
-    "extends": "astro/tsconfigs/strict",
+    "extends": [
+        "astro/tsconfigs/strict",
+        "@vue/tsconfig/tsconfig.json"
+    ],
     "include": [
         ".astro/types.d.ts",
         "**/*"
