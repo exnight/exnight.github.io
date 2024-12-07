@@ -1,5 +1,5 @@
 ---
-import HeaderBar from '../components/HeaderBar.vue'
+import Header from '../components/Header.astro'
 import '../styles/global.css'
 ---
 
@@ -12,11 +12,20 @@ import '../styles/global.css'
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content="A personal website, blog, and gallery" />
     <title>Leo Wong</title>
+    <script is:inline>
+      const theme = localStorage.getItem('vueuse-color-scheme')
+      if (
+        theme === 'dark' ||
+        (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)
+      ) {
+        document.documentElement.classList.add('dark')
+      }
+    </script>
   </head>
-  <body>
+  <body class="bg-white dark:bg-slate-500">
     <div class="mx-4 h-screen md:mx-auto md:w-10/12">
       <!-- Markup shared across all pages, e.g., NavBar -->
-      <HeaderBar />
+      <Header />
       <slot />
     </div>
   </body>

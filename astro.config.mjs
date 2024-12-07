@@ -4,7 +4,13 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [vue()],
+  integrations: [vue({
+    template: {
+      compilerOptions: {
+        isCustomElement: (tag) => ['theme-toggle'].includes,
+      },
+    }
+  })],
   markdown: {
     shikiConfig: {
       themes: {
