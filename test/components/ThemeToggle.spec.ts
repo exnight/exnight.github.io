@@ -1,5 +1,6 @@
 import { expect, it } from 'vitest'
 import { mount } from '@vue/test-utils'
+
 import ThemeToggle from '../../src/components/ThemeToggle.vue'
 
 it('can mount ThemeToggle', async () => {
