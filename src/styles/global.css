@@ -1,2 +1,27 @@
 @import 'tailwindcss';
 @variant dark (&:where(.dark, .dark *));
+
+html.dark {
+  color-scheme: dark;
+}
+
+:root {
+  --background: oklch(95.36% 0.0225 253.37);
+  --primary: oklch(57.96% 0.1529 255.36);
+  --secondary: oklch(75.05% 0.0431 253.55);
+  --accent: oklch(86.93% 0.0326 190.42);
+}
+
+.dark {
+  --background: oklch(15.22% 0.0181 251.98);
+  --primary: oklch(57.96% 0.1529 255.36);
+  --secondary: oklch(20.94% 0.0197 253.72);
+  --accent: oklch(29.64% 0.0293 188.94);
+}
+
+@theme {
+  --color-background: var(--background);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+}

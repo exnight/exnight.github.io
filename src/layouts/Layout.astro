@@ -1,6 +1,7 @@
 ---
 import { ClientRouter } from 'astro:transitions'
 import Header from '../components/Header.astro'
+
 import '../styles/global.css'
 ---
 
@@ -25,7 +26,7 @@ import '../styles/global.css'
 
     <ClientRouter />
   </head>
-  <body class="bg-white dark:bg-slate-500">
+  <body class="bg-background text-slate-800 dark:text-stone-200">
     <div class="mx-4 h-screen md:mx-auto md:w-10/12">
       <!-- Markup shared across all pages, e.g., NavBar -->
       <Header />
