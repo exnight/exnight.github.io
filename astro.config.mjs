@@ -17,7 +17,7 @@ export default defineConfig({
     plugins: [tailwindcss()],
     server: {
       watch: {
-        ignored: ['**/coverage/**/*']
+        usePolling: process.env.IS_CONTAINER == 'true',
       }
     }
   },
