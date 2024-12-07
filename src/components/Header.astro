@@ -1,0 +1,14 @@
+---
+import ThemeToggle from './ThemeToggle.vue'
+---
+
+<div class="grid grid-cols-5 py-8">
+  <a href="/">Icon</a>
+  <div class="col-span-2 flex justify-evenly">
+    <a href="/about">About</a>
+    <a href="/blog">Blog</a>
+  </div>
+  <div class="col-start-5 text-right">
+    <ThemeToggle client:load />
+  </div>
+</div>

@@ -6,4 +6,4 @@ RUN LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygi
   sudo install lazygit -D -t /usr/local/bin/ &&\
   echo "alias lg='lazygit'" >> ~/.bash_aliases
 
-ENV ASTRO_TELEMETRY_DISABLED=1
+ENV ASTRO_TELEMETRY_DISABLED=1 IS_CONTAINER=true

@@ -1,11 +1,19 @@
-// @ts-check
 import { defineConfig } from 'astro/config';
 import vue from '@astrojs/vue';
-import tailwind from '@astrojs/tailwind';
+import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [vue(), tailwind()],
+  devToolbar: {
+    enabled: false
+  },
+  integrations: [vue({
+    template: {
+      compilerOptions: {
+        isCustomElement: (tag) => ['theme-toggle'].includes,
+      },
+    }
+  })],
   markdown: {
     shikiConfig: {
       themes: {
@@ -15,13 +23,14 @@ export default defineConfig({
     }
   },
   vite: {
+    plugins: [tailwindcss()],
     server: {
       watch: {
-        ignored: ['**/coverage/**/*']
+        usePolling: process.env.IS_CONTAINER == 'true',
       }
     }
   },
   server: {
-    port: 3000,
+    port: 3000, // Set dev server port
   }
 });
