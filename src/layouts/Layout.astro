@@ -15,9 +15,14 @@ import '../styles/global.css'
     <meta name="description" content="A personal website, blog, and gallery" />
     <title>Leo Wong</title>
     <script is:inline>
+      const theme = localStorage.getItem('vueuse-color-scheme')
+      const shouldUseDark =
+        theme === 'dark' ||
+        (theme != 'light' && window.matchMedia('(prefers-color-scheme: dark)').matches)
+
+      if (shouldUseDark) document.documentElement.classList.add('dark')
       document.addEventListener('astro:after-swap', () => {
-        if (localStorage.getItem('vueuse-color-scheme') === 'dark')
-          document.documentElement.classList.add('dark')
+        if (shouldUseDark) document.documentElement.classList.add('dark')
       })
     </script>
 
