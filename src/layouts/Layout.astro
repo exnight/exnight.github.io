@@ -15,23 +15,20 @@ import '../styles/global.css'
     <meta name="description" content="A personal website, blog, and gallery" />
     <title>Leo Wong</title>
     <script is:inline>
-      const theme = localStorage.getItem('vueuse-color-scheme')
-      if (
-        theme === 'dark' ||
-        (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)
-      ) {
-        document.documentElement.classList.add('dark')
-      }
+      document.addEventListener('astro:after-swap', () => {
+        if (localStorage.getItem('vueuse-color-scheme') === 'dark')
+          document.documentElement.classList.add('dark')
+      })
     </script>
 
     <ClientRouter />
   </head>
-  <body class="bg-background text-slate-800 dark:text-stone-200">
-    <div class="mx-4 h-screen md:mx-auto md:w-10/12">
+  <body class="bg-background text-slate-800 transition-colors duration-300 dark:text-stone-200">
+    <main class="mx-4 h-screen md:mx-auto md:w-10/12">
       <!-- Markup shared across all pages, e.g., NavBar -->
       <Header />
       <slot />
-    </div>
+    </main>
   </body>
 </html>
 
