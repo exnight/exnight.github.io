@@ -11,14 +11,14 @@ const toggleDark = useToggle(isDark)
       type="button"
       id="theme-toggle"
       @click="toggleDark()"
-      class="rounded-full p-2 hover:bg-slate-300 dark:hover:bg-stone-700"
+      class="rounded-full p-2 hover:bg-zinc-300 dark:hover:bg-zinc-700"
     >
       <span id="to-dark" class="inline dark:hidden">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="1.5em"
           height="1.5em"
-          class="fill-slate-800"
+          class="fill-zinc-800"
           viewBox="0 0 24 24"
         >
           <path
@@ -31,7 +31,7 @@ const toggleDark = useToggle(isDark)
           xmlns="http://www.w3.org/2000/svg"
           width="1.5em"
           height="1.5em"
-          class="fill-stone-200"
+          class="fill-zinc-200"
           viewBox="0 0 24 24"
         >
           <path
