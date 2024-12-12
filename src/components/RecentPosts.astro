@@ -1,0 +1,25 @@
+---
+import { getCollection } from 'astro:content'
+import PostSummary from './PostSummary.astro'
+
+const publishedPosts = (
+  await getCollection('blog', ({ data }) => {
+    return data.published == true
+  })
+).sort((a, b) => b.data.publishedOn.valueOf() - a.data.publishedOn.valueOf())
+---
+
+<h2 class="text-2xl">Recent Posts</h2>
+<ul>
+  {
+    publishedPosts.slice(0, 10).map((post) => (
+      <li>
+        <PostSummary
+          title={post.data.title}
+          publishedOn={post.data.publishedOn}
+          summary={post.data.summary}
+        />
+      </li>
+    ))
+  }
+</ul>
