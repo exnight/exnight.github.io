@@ -21,7 +21,8 @@
                 "esbenp.prettier-vscode",
                 "DavidAnson.vscode-markdownlint",
                 "EditorConfig.EditorConfig",
-                "ChaitanyaShahare.lazygit"
+                "ChaitanyaShahare.lazygit",
+                "unifiedjs.vscode-mdx"
             ]
         }
     },
