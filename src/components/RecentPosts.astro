@@ -14,11 +14,7 @@ const publishedPosts = (
   {
     publishedPosts.slice(0, 10).map((post) => (
       <li>
-        <PostSummary
-          title={post.data.title}
-          publishedOn={post.data.publishedOn}
-          summary={post.data.summary}
-        />
+        <PostSummary post={post} />
       </li>
     ))
   }

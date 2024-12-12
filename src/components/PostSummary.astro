@@ -1,20 +1,26 @@
 ---
+import type { CollectionEntry } from 'astro:content'
 interface Props {
-  title: string
-  publishedOn: Date
-  summary?: string
+  post: CollectionEntry<'blog'>
 }
 
-const { title, publishedOn, summary = "Somehow I didn't write the summary 🤷🏻‍♂️🤷🏻‍♂️" } = Astro.props
+const { id, data } = Astro.props.post
+const summary = data.summary ? data.summary : "Somehow I didn't write the summary 🤷🏻‍♂️🤷🏻‍♂️"
 ---
 
 <div class="my-2 py-2">
-  <h2 class="text-lg leading-loose font-bold">{title}</h2>
+  <h2 class="text-lg leading-loose font-bold">{data.title}</h2>
   <p class="font-light">
-    {publishedOn.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
+    {
+      data.publishedOn.toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric',
+      })
+    }
   </p>
   <p class="text-lg leading-tight font-light">{summary}</p>
   <button class="my-1 font-extralight underline underline-offset-2">
-    <a href="/">Read More</a>
+    <a href=`/blog/${id}`>Read More</a>
   </button>
 </div>
