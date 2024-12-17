@@ -11,7 +11,7 @@ const summary = data.summary ? data.summary : "Somehow I didn't write the summar
 ---
 
 <div class="my-2 py-2">
-  <h2 class="text-2xl leading-loose font-bold">{data.title}</h2>
+  <h2 class="text-2xl leading-loose font-bold" transition:name={`${id}-title`}>{data.title}</h2>
   <p class="mb-2 text-sm font-light">
     {data.publishedOn.toLocaleDateString('en-US', DATE_FORMAT_DISPLAY)}
   </p>

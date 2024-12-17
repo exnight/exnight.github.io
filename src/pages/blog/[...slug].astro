@@ -1,7 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content'
+import { fade } from 'astro:transitions'
 import Layout from '@/layouts/Layout.astro'
-import Prose from '@/components/Prose.astro'
 import { DATE_FORMAT_DISPLAY } from '@/utils'
 
 export async function getStaticPaths() {
@@ -14,27 +14,27 @@ export async function getStaticPaths() {
     props: { post },
   }))
 }
+
 const { post } = Astro.props
+const { title, publishedOn, updatedOn } = post.data
 const { Content } = await render(post)
 ---
 
 <Layout>
-  <Prose>
-    <h1>{post.data.title}</h1>
+  <article
+    class="prose prose-zinc dark:prose-invert max-w-none"
+    transition:name={post.id}
+    transition:animate={fade({ duration: '0.7s' })}
+  >
+    <h1 transition:name={`${post.id}-title`}>{title}</h1>
     <div class="inline-flex space-x-2">
-      <p>
-        Published:
-        {post.data.publishedOn.toLocaleDateString('en-US', DATE_FORMAT_DISPLAY)}
-      </p>
+      <p>Published: {publishedOn.toLocaleDateString('en-US', DATE_FORMAT_DISPLAY)}</p>
       {
-        post.data.updatedOn ? (
-          <p>
-            Last updated:
-            {post.data.updatedOn.toLocaleDateString('en-US', DATE_FORMAT_DISPLAY)}
-          </p>
+        updatedOn ? (
+          <p>Last updated: {updatedOn.toLocaleDateString('en-US', DATE_FORMAT_DISPLAY)}</p>
         ) : null
       }
     </div>
     <Content />
-  </Prose>
+  </article>
 </Layout>
