@@ -26,14 +26,15 @@ const { Content } = await render(post)
     transition:name={post.id}
     transition:animate={fade({ duration: '0.7s' })}
   >
-    <h1 transition:name={`${post.id}-title`}>{title}</h1>
+    <h1 class="mb-0" transition:name={`${post.id}-title`}>{title}</h1>
     <div class="inline-flex space-x-2">
-      <p>Published: {publishedOn.toLocaleDateString('en-US', DATE_FORMAT_DISPLAY)}</p>
-      {
-        updatedOn ? (
-          <p>Last updated: {updatedOn.toLocaleDateString('en-US', DATE_FORMAT_DISPLAY)}</p>
-        ) : null
-      }
+      <p>
+        Last updated: {
+          updatedOn
+            ? updatedOn.toLocaleDateString('en-US', DATE_FORMAT_DISPLAY)
+            : publishedOn.toLocaleDateString('en-US', DATE_FORMAT_DISPLAY)
+        }
+      </p>
     </div>
     <Content />
   </article>
