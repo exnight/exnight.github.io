@@ -1,7 +1,8 @@
 ---
 import { getCollection, render } from 'astro:content'
+import { fade } from 'astro:transitions'
 import Layout from '@/layouts/Layout.astro'
-import BlogPostLayout from '@/layouts/BlogPostLayout.astro'
+import { DATE_FORMAT_DISPLAY } from '@/utils'
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog', ({ data }) => {
@@ -13,12 +14,28 @@ export async function getStaticPaths() {
     props: { post },
   }))
 }
+
 const { post } = Astro.props
+const { title, publishedOn, updatedOn } = post.data
 const { Content } = await render(post)
 ---
 
 <Layout>
-  <BlogPostLayout frontmatter={post.data}>
+  <article
+    class="prose prose-zinc dark:prose-invert max-w-none"
+    transition:name={post.id}
+    transition:animate={fade({ duration: '0.7s' })}
+  >
+    <h1 class="mb-0" transition:name={`${post.id}-title`}>{title}</h1>
+    <div class="inline-flex space-x-2">
+      <p>
+        Last updated: {
+          updatedOn
+            ? updatedOn.toLocaleDateString('en-US', DATE_FORMAT_DISPLAY)
+            : publishedOn.toLocaleDateString('en-US', DATE_FORMAT_DISPLAY)
+        }
+      </p>
+    </div>
     <Content />
-  </BlogPostLayout>
+  </article>
 </Layout>
