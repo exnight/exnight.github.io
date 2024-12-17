@@ -4,6 +4,8 @@ interface Props {
   post: CollectionEntry<'blog'>
 }
 
+import { DATE_FORMAT_DISPLAY } from '@/utils'
+
 const { id, data } = Astro.props.post
 const summary = data.summary ? data.summary : "Somehow I didn't write the summary 🤷🏻‍♂️🤷🏻‍♂️"
 ---
@@ -11,13 +13,7 @@ const summary = data.summary ? data.summary : "Somehow I didn't write the summar
 <div class="my-2 py-2">
   <h2 class="text-2xl leading-loose font-bold">{data.title}</h2>
   <p class="mb-2 text-sm font-light">
-    {
-      data.publishedOn.toLocaleDateString('en-US', {
-        year: 'numeric',
-        month: 'short',
-        day: 'numeric',
-      })
-    }
+    {data.publishedOn.toLocaleDateString('en-US', DATE_FORMAT_DISPLAY)}
   </p>
   <p class="text-lg leading-tight font-light">{summary}</p>
   <div class="my-1 font-extralight underline underline-offset-2">

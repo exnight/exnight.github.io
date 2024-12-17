@@ -1,7 +1,8 @@
 ---
 import { getCollection, render } from 'astro:content'
 import Layout from '@/layouts/Layout.astro'
-import BlogPostLayout from '@/layouts/BlogPostLayout.astro'
+import Prose from '@/components/Prose.astro'
+import { DATE_FORMAT_DISPLAY } from '@/utils'
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog', ({ data }) => {
@@ -18,7 +19,22 @@ const { Content } = await render(post)
 ---
 
 <Layout>
-  <BlogPostLayout frontmatter={post.data}>
+  <Prose>
+    <h1>{post.data.title}</h1>
+    <div class="inline-flex space-x-2">
+      <p>
+        Published:
+        {post.data.publishedOn.toLocaleDateString('en-US', DATE_FORMAT_DISPLAY)}
+      </p>
+      {
+        post.data.updatedOn ? (
+          <p>
+            Last updated:
+            {post.data.updatedOn.toLocaleDateString('en-US', DATE_FORMAT_DISPLAY)}
+          </p>
+        ) : null
+      }
+    </div>
     <Content />
-  </BlogPostLayout>
+  </Prose>
 </Layout>
