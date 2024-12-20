@@ -2,8 +2,27 @@
 title: 'How I build the site with Astro, Tailwind CSS and Vue'
 publishedOn: 2024-12-24
 updatedOn: 2025-01-02
-summary: I revamp my website with Astro, Tailwind CSS, and a little bit of Vue.
+summary: I revamped my website with Astro, Tailwind CSS, and a little bit of Vue.
 published: true
 ---
 
-After two years, it's time for a revamp!
+import ThemeToggle from '@/components/ThemeToggle.vue'
+
+After two years, it's time for a revamp! The old website was built with [Next.js](https://nextjs.org/docs), [React](https://react.dev/), and [Tailwind CSS](https://tailwindcss.com/), evolved from an ancient version with plain React since 2016 😅. After all these years, especially the blossom of [Vite](https://vite.dev/guide/), it's very tempting for me to overhaul the whole setup.
+
+## Goals
+
+- I'm hosting a static blog on GitHub pages, so I need static site generation (SSG).
+- Next.js is getting to a point to be way too complex for my simple needs.
+- I want to try out new stuff such as, Vite, instead of Webpack.
+- I'm a bit bored with writing JSX/TSX (React).
+
+## The Ever-changing Plan
+
+Therefore, I opted for Vue and Vite, whiling keeping Tailwind CSS. I went over some [Nuxt.js](https://nuxt.com/docs/getting-started/introduction) materials and found it interesting. I updated my repository with Nuxt.js but later realised that it's not what I want.
+
+## The Cherry on Top
+
+As Astro enables integration with multiple UI frameworks, e.g., React, Svelte, Vue, that allows me to try out new things.
+
+It is easy to import and use Astro and UI framework components in MDX files. For example, a dark mode toggle written with Vue. Click <ThemeToggle client:load /> to switch themes.
