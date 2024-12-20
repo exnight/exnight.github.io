@@ -1,12 +1,10 @@
 ---
-import { getCollection } from 'astro:content'
 import PostSummary from './PostSummary.astro'
+import { blogPosts } from '@/utils'
 
-const publishedPosts = (
-  await getCollection('blog', ({ data }) => {
-    return data.published == true
-  })
-).sort((a, b) => b.data.publishedOn.valueOf() - a.data.publishedOn.valueOf())
+const publishedPosts = blogPosts.sort(
+  (a, b) => b.data.publishedOn.valueOf() - a.data.publishedOn.valueOf(),
+)
 ---
 
 <h2 class="text-4xl">Recent Posts</h2>
