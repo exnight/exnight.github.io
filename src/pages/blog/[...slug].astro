@@ -1,15 +1,11 @@
 ---
-import { getCollection, render } from 'astro:content'
+import { render } from 'astro:content'
 import { fade } from 'astro:transitions'
 import Layout from '@/layouts/Layout.astro'
-import { DATE_FORMAT_DISPLAY } from '@/utils'
+import { DATE_FORMAT_DISPLAY, blogPosts } from '@/utils'
 
 export async function getStaticPaths() {
-  const posts = await getCollection('blog', ({ data }) => {
-    return data.published == true
-  })
-
-  return posts.map((post) => ({
+  return blogPosts.map((post) => ({
     params: { slug: post.id },
     props: { post },
   }))
@@ -25,7 +21,7 @@ const { Content } = await render(post)
     <aside class="sticky top-[20dvh] mx-auto max-h-[calc(100vh-theme('spacing.24'))]"></aside>
 
     <article
-      class="prose prose-zinc dark:prose-invert md:prose-lg prose-h1:mb-0 prose-h2:scroll-mt-[20vh] mx-auto w-full max-w-none"
+      class="prose prose-zinc dark:prose-invert md:prose-lg prose-h1:mb-0 prose-h2:mb-2 prose-a:text-primary prose-h2:scroll-mt-[20vh] mx-auto w-full max-w-none"
       transition:name={post.id}
       transition:animate={fade({ duration: '0.7s' })}
     >
