@@ -7,19 +7,19 @@ html.dark {
 }
 
 :root {
-  --background: var(--color-zinc-100);
+  --background: var(--color-zinc-200);
   --foreground: var(--color-zinc-900);
-  --primary: var(--color-blue-400);
+  --primary: var(--color-blue-600);
   --secondary: var(--color-slate-400);
-  --accent: oklch(86.93% 0.0326 190.42);
+  --accent: oklch(29.64% 0.0293 188.94);
 }
 
 .dark {
-  --background: var(--color-zinc-900);
+  --background: var(--color-zinc-800);
   --foreground: var(--color-zinc-100);
-  --primary: var(--color-blue-600);
+  --primary: var(--color-blue-300);
   --secondary: var(--color-slate-600);
-  --accent: oklch(29.64% 0.0293 188.94);
+  --accent: oklch(86.93% 0.0326 190.42);
 
   .astro-code,
   .astro-code span {
