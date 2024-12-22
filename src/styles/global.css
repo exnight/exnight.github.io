@@ -1,3 +1,5 @@
+@import './fonts.css';
+
 @import 'tailwindcss';
 @variant dark (&:where(.dark, .dark *));
 @plugin '@tailwindcss/typography';
@@ -38,4 +40,6 @@ html.dark {
   --color-primary: var(--primary);
   --color-secondary: var(--secondary);
   --color-accent: var(--accent);
+
+  --font-text: 'Lato', system-ui, sans-serif;
 }
