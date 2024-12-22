@@ -11,7 +11,7 @@ const publishedPosts = blogPosts.sort(
 <ul>
   {
     publishedPosts.slice(0, 10).map((post) => (
-      <li>
+      <li class="border-primary my-6 duration-300 hover:translate-x-1 hover:border-l-4 hover:pl-4">
         <PostSummary post={post} />
       </li>
     ))
