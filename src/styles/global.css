@@ -1,8 +1,8 @@
-@import './fonts.css';
-
 @import 'tailwindcss';
 @variant dark (&:where(.dark, .dark *));
 @plugin '@tailwindcss/typography';
+
+@import './fonts.css';
 
 html.dark {
   color-scheme: dark;
