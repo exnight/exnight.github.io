@@ -15,15 +15,29 @@ import '@/styles/global.css'
     <meta name="description" content="A personal website, blog, and gallery" />
     <title>Leo Wong</title>
     <script is:inline>
-      const theme = localStorage.getItem('vueuse-color-scheme')
-      const shouldUseDark =
-        theme === 'dark' ||
-        (theme != 'light' && window.matchMedia('(prefers-color-scheme: dark)').matches)
+      const setDarkMode = () => {
+        const theme = (() => {
+          if (
+            typeof localStorage !== 'undefined' &&
+            localStorage.getItem('vueuse-color-scheme') !== 'auto'
+          ) {
+            return localStorage.getItem('vueuse-color-scheme')
+          }
+          if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            return 'dark'
+          }
+          return 'light'
+        })()
 
-      if (shouldUseDark) document.documentElement.classList.add('dark')
-      document.addEventListener('astro:after-swap', () => {
-        if (shouldUseDark) document.documentElement.classList.add('dark')
-      })
+        if (theme === 'dark') {
+          document.documentElement.classList.add('dark')
+        } else {
+          document.documentElement.classList.remove('dark')
+        }
+      }
+
+      setDarkMode()
+      document.addEventListener('astro:after-swap', setDarkMode)
     </script>
 
     <ClientRouter />
