@@ -2,6 +2,8 @@
 @variant dark (&:where(.dark, .dark *));
 @plugin '@tailwindcss/typography';
 
+@import './fonts.css';
+
 html.dark {
   color-scheme: dark;
 }
@@ -9,7 +11,7 @@ html.dark {
 :root {
   --background: var(--color-stone-200);
   --foreground: var(--color-gray-800);
-  --primary: var(--color-blue-600);
+  --primary: var(--color-blue-800);
   --secondary: var(--color-slate-400);
   --accent: oklch(29.64% 0.0293 188.94);
 }
@@ -38,4 +40,6 @@ html.dark {
   --color-primary: var(--primary);
   --color-secondary: var(--secondary);
   --color-accent: var(--accent);
+
+  --font-text: 'Lato', system-ui, sans-serif;
 }
