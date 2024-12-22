@@ -17,16 +17,16 @@ const { Content } = await render(post)
 ---
 
 <Layout>
-  <div class="grid grid-cols-[10%_1fr_10%] lg:grid-cols-[15%_1fr_15%]">
+  <div class="grid grid-cols-[5%_1fr_5%] lg:grid-cols-[15%_1fr_15%]">
     <aside class="sticky top-[20dvh] mx-auto max-h-[calc(100vh-theme('spacing.24'))]"></aside>
 
     <article
-      class="prose prose-zinc dark:prose-invert md:prose-lg prose-h1:mb-0 prose-h2:mb-2 prose-a:text-primary prose-h2:scroll-mt-[20vh] mx-auto w-full max-w-none"
+      class="prose dark:prose-invert md:prose-lg prose-h1:mb-0 prose-h2:mb-2 prose-a:text-primary prose-h2:scroll-mt-[20vh] mx-auto w-full max-w-none"
       transition:name={post.id}
       transition:animate={fade({ duration: '0.7s' })}
     >
       <h1 transition:name={`${post.id}-title`}>{title}</h1>
-      <p class="not-prose w-full text-right">
+      <p class="not-prose w-full text-right italic">
         Last updated: {
           updatedOn
             ? updatedOn.toLocaleDateString('en-US', DATE_FORMAT_DISPLAY)
