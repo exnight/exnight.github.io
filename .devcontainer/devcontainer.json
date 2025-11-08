@@ -26,13 +26,6 @@
             ]
         }
     },
-    // The following configuration is required for Podman as stated at: https://code.visualstudio.com/remote/advancedcontainers/docker-options#_podman
-    "runArgs": [
-        "--userns=keep-id"
-    ],
-    "containerEnv": {
-        "HOME": "/home/node"
-    },
     "mounts": [
         "type=volume,target=${containerWorkspaceFolder}/node_modules"
     ]
