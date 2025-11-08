@@ -15,8 +15,8 @@ const summary = data.summary ? data.summary : "Somehow I didn't write the summar
   <p class="mb-2 text-sm font-light italic">
     {data.publishedOn.toLocaleDateString('en-US', DATE_FORMAT_DISPLAY)}
   </p>
-  <p class="my-4 text-lg leading-tight font-light">{summary}</p>
-  <div class="text-primary my-2 underline-offset-2 hover:underline">
+  <p class="mt-4">{summary}</p>
+  <div class="text-primary my-2">
     <a href=`/blog/${id}` class="block">Read the post</a>
   </div>
 </div>

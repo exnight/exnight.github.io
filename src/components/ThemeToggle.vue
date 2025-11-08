@@ -12,7 +12,7 @@ const toggleDark = useToggle(isDark)
       id="theme-toggle"
       aria-label="Theme Toggle"
       @click="toggleDark()"
-      class="rounded-full p-2 hover:bg-stone-300 dark:hover:bg-stone-700"
+      class="dark:hover:bg-zince-700 rounded-full p-2 hover:bg-stone-300"
     >
       <span id="to-dark" class="inline dark:hidden">
         <svg
