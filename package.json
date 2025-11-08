@@ -8,7 +8,7 @@
         "test": "vitest run --coverage",
         "build": "astro build",
         "start": "npx -y serve --no-clipboard dist",
-        "lint": "eslint ./",
+        "lint": "eslint ./src",
         "astro": "astro"
     },
     "dependencies": {
@@ -19,19 +19,19 @@
         "vue": "^3.5.24"
     },
     "devDependencies": {
-        "@tailwindcss/typography": "^0.5.15",
+        "@tailwindcss/typography": "^0.5.19",
         "@tailwindcss/vite": "^4.1.17",
         "@types/eslint-config-prettier": "^6.11.3",
-        "@typescript-eslint/parser": "^8.17.0",
+        "@typescript-eslint/parser": "^8.46.3",
         "@vitest/coverage-v8": "^2.1.8",
         "@vue/test-utils": "^2.4.6",
         "@vue/tsconfig": "^0.8.1",
-        "eslint": "^9.16.0",
-        "eslint-config-prettier": "^9.1.0",
+        "eslint": "^9.39.1",
+        "eslint-config-prettier": "^10.1.8",
         "eslint-plugin-astro": "^1.5.0",
         "eslint-plugin-vue": "^9.32.0",
         "happy-dom": "^15.11.6",
-        "prettier": "^3.4.2",
+        "prettier": "^3.6.2",
         "prettier-plugin-astro": "^0.14.1",
         "prettier-plugin-tailwindcss": "^0.7.1",
         "tailwindcss": "^4.1.17",
