@@ -2,6 +2,7 @@
 import { render } from 'astro:content'
 import { fade } from 'astro:transitions'
 import Layout from '@/layouts/Layout.astro'
+import ExternalLink from '@/components/ExternalLink.astro'
 import { DATE_FORMAT_DISPLAY, blogPosts } from '@/utils'
 
 export async function getStaticPaths() {
@@ -17,11 +18,11 @@ const { Content } = await render(post)
 ---
 
 <Layout>
-  <div class="grid grid-cols-[5%_1fr_5%] lg:grid-cols-[15%_1fr_15%]">
+  <div class="mt-16 grid grid-cols-[5%_1fr_5%] lg:grid-cols-[15%_1fr_15%]">
     <aside class="sticky top-[20dvh] mx-auto max-h-[calc(100vh-theme('spacing.24'))]"></aside>
 
     <article
-      class="prose dark:prose-invert md:prose-lg prose-h1:mb-0 prose-h2:mb-2 prose-a:text-primary prose-h2:scroll-mt-[20vh] mx-auto w-full max-w-none"
+      class="prose dark:prose-invert prose-zinc md:prose-lg prose-p:font-text prose-h1:mb-0 prose-h2:mb-4 prose-h2:scroll-mt-[20vh] prose-a:text-primary prose-p:text-foreground prose-li:text-foreground mx-auto w-full max-w-none"
       transition:name={post.id}
       transition:animate={fade({ duration: '0.7s' })}
     >
@@ -33,7 +34,7 @@ const { Content } = await render(post)
             : publishedOn.toLocaleDateString('en-US', DATE_FORMAT_DISPLAY)
         }
       </p>
-      <Content />
+      <Content components={{ a: ExternalLink }} />
     </article>
   </div>
 </Layout>

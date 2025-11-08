@@ -10,15 +10,15 @@ html.dark {
 
 :root {
   --background: var(--color-stone-200);
-  --foreground: var(--color-gray-800);
+  --foreground: var(--color-gray-900);
   --primary: var(--color-blue-800);
   --secondary: var(--color-slate-400);
   --accent: oklch(29.64% 0.0293 188.94);
 }
 
 .dark {
-  --background: var(--color-stone-900);
-  --foreground: var(--color-gray-300);
+  --background: var(--color-neutral-900);
+  --foreground: var(--color-gray-200);
   --primary: var(--color-blue-300);
   --secondary: var(--color-slate-600);
   --accent: oklch(86.93% 0.0326 190.42);
@@ -41,5 +41,17 @@ html.dark {
   --color-secondary: var(--secondary);
   --color-accent: var(--accent);
 
-  --font-text: 'Lato', system-ui, sans-serif;
+  --font-text: 'Lato', sans-serif;
+}
+
+a {
+  text-decoration-line: underline;
+  text-decoration-thickness: 0.5px;
+  text-underline-offset: 4px;
+
+  &:hover {
+    @media (hover: hover) {
+      text-decoration-thickness: 1.5px;
+    }
+  }
 }
