@@ -1,11 +1,11 @@
-/// <reference types="vitest" />
+/// <reference types="vitest/config"  />
 import { getViteConfig } from 'astro/config'
-import { coverageConfigDefaults } from 'vitest/config'
 
 export default getViteConfig({
   test: {
     coverage: {
-      exclude: ['**/*.config.mjs', ...coverageConfigDefaults.exclude],
+      enabled: true,
+      include: ['src/**/*.{ts,tsx,astro}'],
     },
     environment: 'happy-dom',
   },
