@@ -5,7 +5,7 @@ export default getViteConfig({
   test: {
     coverage: {
       enabled: true,
-      include: ['src/**/*.{ts,tsx,astro}'],
+      include: ['src/**/*.{ts,astro,vue}'],
     },
     environment: 'happy-dom',
   },
