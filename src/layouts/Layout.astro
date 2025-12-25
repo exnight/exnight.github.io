@@ -13,7 +13,7 @@ import '@/styles/global.css'
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
     <meta name="generator" content={Astro.generator} />
-    <meta name="description" content="A personal website and blog" />
+    <meta name="description" content="Leo Wong - Software Engineer and Blog" />
     <title>Leo Wong</title>
 
     <script is:inline>
@@ -45,9 +45,8 @@ import '@/styles/global.css'
   </head>
 
   <body class="bg-background text-foreground font-text min-h-dvh transition-colors duration-700">
-    <!-- Markup shared across all pages, e.g., NavBar -->
     <Header />
-    <main>
+    <main class="pb-12 md:pb-20">
       <slot />
     </main>
   </body>

@@ -7,16 +7,36 @@ interface Props {
 import { DATE_FORMAT_DISPLAY } from '@/utils'
 
 const { id, data } = Astro.props.post
-const summary = data.summary ? data.summary : "Somehow I didn't write the summary 🤷🏻‍♂️🤷🏻‍♂️"
+const summary = data.summary ? data.summary : 'I forgot to write the summary 😅'
 ---
 
-<div class="my-2 py-2">
-  <h2 class="text-2xl leading-normal font-bold" transition:name={`${id}-title`}>{data.title}</h2>
-  <p class="mb-2 text-sm font-light italic">
-    {data.publishedOn.toLocaleDateString('en-US', DATE_FORMAT_DISPLAY)}
-  </p>
-  <p class="mt-4">{summary}</p>
-  <div class="text-primary my-2">
-    <a href=`/blog/${id}` class="block">Read the post</a>
+<a href={`/blog/${id}`} class="group block no-underline">
+  <div
+    class="border-border from-background to-background/50 hover:border-primary rounded-lg border bg-linear-to-br p-6 transition-all duration-300 group-hover:-translate-y-0.5 hover:shadow-lg dark:from-slate-900/30 dark:to-slate-900/10"
+  >
+    <h3 class="text-foreground group-hover:text-primary mb-2 text-2xl font-bold transition-colors">
+      {data.title}
+    </h3>
+    <p class="text-secondary mb-4 text-sm font-light">
+      {data.publishedOn.toLocaleDateString('en-US', DATE_FORMAT_DISPLAY)}
+    </p>
+    <p
+      class="text-foreground/80 group-hover:text-foreground line-clamp-2 leading-relaxed transition-colors"
+    >
+      {summary}
+    </p>
+    <div class="text-primary mt-4 inline-flex items-center gap-2 font-medium">
+      Read more
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="1em"
+        height="1em"
+        viewBox="0 0 24 24"
+        class="transition-transform group-hover:translate-x-1"
+      >
+        <path fill="currentColor" d="m12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+        ></path>
+      </svg>
+    </div>
   </div>
-</div>
+</a>

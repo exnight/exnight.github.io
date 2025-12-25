@@ -9,25 +9,26 @@ html.dark {
 }
 
 :root {
-  --background: var(--color-stone-200);
-  --foreground: var(--color-gray-900);
-  --primary: var(--color-blue-800);
-  --secondary: var(--color-slate-400);
-  --accent: oklch(29.64% 0.0293 188.94);
+  --background: #fafaf9;
+  --foreground: #1c1917;
+  --primary: #2563eb;
+  --secondary: #64748b;
+  --accent: #06b6d4;
+  --border: #e7e5e4;
 }
 
 .dark {
-  --background: var(--color-neutral-900);
-  --foreground: var(--color-gray-200);
-  --primary: var(--color-blue-300);
-  --secondary: var(--color-slate-600);
-  --accent: oklch(86.93% 0.0326 190.42);
+  --background: #0f172a;
+  --foreground: #f8fafc;
+  --primary: #60a5fa;
+  --secondary: #94a3b8;
+  --accent: #22d3ee;
+  --border: #1e293b;
 
   .astro-code,
   .astro-code span {
     color: var(--shiki-dark) !important;
     background-color: var(--shiki-dark-bg) !important;
-    /* Optional, if you also want font styles */
     font-style: var(--shiki-dark-font-style) !important;
     font-weight: var(--shiki-dark-font-weight) !important;
     text-decoration: var(--shiki-dark-text-decoration) !important;
@@ -40,18 +41,41 @@ html.dark {
   --color-primary: var(--primary);
   --color-secondary: var(--secondary);
   --color-accent: var(--accent);
+  --color-border: var(--border);
 
   --font-text: 'Lato', sans-serif;
 }
 
 a {
+  @apply text-primary transition-all duration-200;
   text-decoration-line: underline;
   text-decoration-thickness: 0.5px;
-  text-underline-offset: 4px;
+  text-underline-offset: 5px;
 
   &:hover {
     @media (hover: hover) {
-      text-decoration-thickness: 1.5px;
+      text-decoration-thickness: 2px;
+      opacity: 0.85;
     }
   }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply antialiased;
+  font-feature-settings: 'kern' 1;
+}
+
+/* Subtle gradient background for visual interest */
+html.dark body {
+  background: linear-gradient(135deg, #0f172a 0%, #1a1f35 100%);
+  background-attachment: fixed;
+}
+
+html:not(.dark) body {
+  background: linear-gradient(135deg, #fafaf9 0%, #f5f3f0 100%);
+  background-attachment: fixed;
 }

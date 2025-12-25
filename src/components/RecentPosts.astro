@@ -7,11 +7,10 @@ const publishedPosts = blogPosts.sort(
 )
 ---
 
-<h2 class="text-3xl">Recent Posts</h2>
-<ul>
+<ul class="space-y-8 md:space-y-10">
   {
     publishedPosts.slice(0, 10).map((post) => (
-      <li class="border-primary my-6 duration-300 hover:translate-x-1 hover:border-l-4 hover:pl-4">
+      <li class="group">
         <PostSummary post={post} />
       </li>
     ))

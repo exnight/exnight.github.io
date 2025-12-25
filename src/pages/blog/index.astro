@@ -1,7 +1,21 @@
 ---
 import Layout from '@/layouts/Layout.astro'
+import RecentPosts from '@/components/RecentPosts.astro'
 ---
 
 <Layout>
-  <div class="mx-auto w-11/12 text-4xl leading-loose lg:w-8/12">Blog</div>
+  <div class="mx-auto w-11/12 lg:w-7/10">
+    <!-- Blog Header -->
+    <section class="my-20 md:my-28">
+      <h1 class="text-foreground mb-4 text-5xl font-bold md:text-6xl">Blog</h1>
+      <p class="text-secondary text-xl font-light">
+        Thoughts on software development, engineering practices, and technical insights.
+      </p>
+    </section>
+
+    <!-- Blog Posts List -->
+    <section class="my-16">
+      <RecentPosts />
+    </section>
+  </div>
 </Layout>
