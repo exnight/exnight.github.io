@@ -1,14 +1,12 @@
 ---
-title: 'How I build the site with Astro, Tailwind CSS and Vue'
+title: 'How I build the site with Astro and Tailwind CSS'
 publishedOn: 2024-12-24
 updatedOn: 2025-01-02
-summary: I revamped my website with Astro, Tailwind CSS, and a little bit of Vue.
+summary: I revamped my website with Astro and Tailwind CSS.
 published: true
 ---
 
-import ThemeToggle from '@/components/ThemeToggle.vue'
-
-After two years, it's time for a revamp! The old website was built with [Next.js](https://nextjs.org/docs), [React](https://react.dev/), and [Tailwind CSS](https://tailwindcss.com/), evolved from an ancient version with plain React since 2016 😅. After all these years, especially the blossom of [Vite](https://vite.dev/guide/), it's very tempting for me to overhaul the whole setup.
+After two years, it's time to revamp my website! The old version was built with [Next.js](https://nextjs.org/docs), [React](https://react.dev/), and [Tailwind CSS](https://tailwindcss.com/), evolved from an ancient craft with plain React since 2016 😅. After all these years, especially the blossom of [Vite](https://vite.dev/guide/), it's very tempting to overhaul the whole setup.
 
 ## Goals
 
@@ -21,8 +19,12 @@ After two years, it's time for a revamp! The old website was built with [Next.js
 
 Therefore, I opted for Vue and Vite, whiling keeping Tailwind CSS. I went over some [Nuxt.js](https://nuxt.com/docs/getting-started/introduction) materials and found it interesting. I updated my repository with Nuxt.js but later realised that it's not what I want.
 
+The main usage of my website is
+
+I want to play with the idea of "shipping zero JavaScript".
+
 ## The Cherry on Top
 
 As Astro enables integration with multiple UI frameworks, e.g., React, Svelte, Vue, that allows me to try out new things.
 
-It is easy to import and use Astro and UI framework components in MDX files. For example, a dark mode toggle written with Vue. Click <ThemeToggle client:load /> to switch themes.
+I implemented a dark mode toggle feature using vanilla JavaScript instead of framework-specific code, which helps keep the site lightweight while maintaining full functionality.

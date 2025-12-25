@@ -1,6 +1,6 @@
 ---
 import NavIcon from './NavIcon.astro'
-import ThemeToggle from './ThemeToggle.vue'
+import ThemeToggle from './ThemeToggle.astro'
 ---
 
 <nav class="mx-auto flex w-9/10 items-center justify-between py-6 lg:w-7/10">
@@ -9,6 +9,6 @@ import ThemeToggle from './ThemeToggle.vue'
   </a>
   <div class="inline-flex items-center space-x-2">
     <!-- <a href="/blog" class="p-2 underline-offset-4 hover:scale-110 hover:underline">Blog</a> -->
-    <ThemeToggle client:load />
+    <ThemeToggle />
   </div>
 </nav>

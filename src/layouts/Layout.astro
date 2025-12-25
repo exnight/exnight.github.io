@@ -11,24 +11,25 @@ import '@/styles/global.css'
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <meta name="description" content="A personal website, blog, and gallery" />
-    <title>Leo Wong</title>
-    <script is:inline>
-      const setDarkMode = () => {
-        const theme = (() => {
-          if (
-            typeof localStorage !== 'undefined' &&
-            localStorage.getItem('vueuse-color-scheme') !== 'auto'
-          ) {
-            return localStorage.getItem('vueuse-color-scheme')
-          }
-          if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            return 'dark'
-          }
-          return 'light'
-        })()
 
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content="A personal website and blog" />
+    <title>Leo Wong</title>
+
+    <script is:inline>
+      const storageKey = 'theme'
+
+      function getTheme() {
+        if (typeof localStorage !== 'undefined') {
+          const stored = localStorage.getItem(storageKey)
+          if (stored === 'dark' || stored === 'light') {
+            return stored
+          }
+        }
+        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+      }
+
+      function setTheme(theme) {
         if (theme === 'dark') {
           document.documentElement.classList.add('dark')
         } else {
@@ -36,12 +37,13 @@ import '@/styles/global.css'
         }
       }
 
-      setDarkMode()
-      document.addEventListener('astro:after-swap', setDarkMode)
+      setTheme(getTheme())
+      document.addEventListener('astro:after-swap', () => setTheme(getTheme()))
     </script>
 
     <ClientRouter />
   </head>
+
   <body class="bg-background text-foreground font-text min-h-dvh transition-colors duration-700">
     <!-- Markup shared across all pages, e.g., NavBar -->
     <Header />

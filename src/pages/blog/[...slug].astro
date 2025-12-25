@@ -19,7 +19,7 @@ const { Content } = await render(post)
 
 <Layout>
   <div class="mt-16 grid grid-cols-[5%_1fr_5%] lg:grid-cols-[15%_1fr_15%]">
-    <aside class="sticky top-[20dvh] mx-auto max-h-[calc(100vh-theme('spacing.24'))]"></aside>
+    <aside class="sticky top-[20dvh] mx-auto max-h-[calc(100vh-(--spacing(24)))]"></aside>
 
     <article
       class="prose dark:prose-invert prose-zinc md:prose-lg prose-p:font-text prose-h1:mb-0 prose-h2:mb-4 prose-h2:scroll-mt-[20vh] prose-a:text-primary prose-p:text-foreground prose-li:text-foreground mx-auto w-full max-w-none"

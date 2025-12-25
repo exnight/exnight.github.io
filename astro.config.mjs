@@ -1,5 +1,4 @@
 import { defineConfig } from 'astro/config';
-import vue from '@astrojs/vue';
 import tailwindcss from '@tailwindcss/vite';
 
 import mdx from '@astrojs/mdx';
@@ -9,13 +8,7 @@ export default defineConfig({
   devToolbar: {
     enabled: false
   },
-  integrations: [vue({
-    template: {
-      compilerOptions: {
-        isCustomElement: (tag) => ['theme-toggle'].includes,
-      },
-    }
-  }), mdx()],
+  integrations: [mdx()],
   markdown: {
     shikiConfig: {
       themes: {
