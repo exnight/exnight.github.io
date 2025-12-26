@@ -1,42 +1,12 @@
 ---
 import Layout from '@/layouts/Layout.astro'
+import Hero from '@/components/Hero.astro'
 import RecentPosts from '@/components/RecentPosts.astro'
+import Footer from '@/components/Footer.astro'
 ---
 
 <Layout>
-  <div class="mx-auto w-11/12 lg:w-7/10">
-    <!-- Hero Section -->
-    <section class="my-20 md:my-28">
-      <div class="space-y-6">
-        <div>
-          <h1 class="text-foreground mb-4 text-5xl leading-tight font-bold md:text-6xl">
-            Leo Wong
-          </h1>
-          <p class="text-secondary text-xl font-light md:text-2xl">
-            Software Engineer • Backend Developer • Basketball Enthusiast
-          </p>
-        </div>
-
-        <div class="text-foreground/90 space-y-4 text-lg leading-relaxed">
-          <p>
-            I'm a software engineer specializing in backend development with Java web applications.
-            I have hands-on experience with containerized applications, Kubernetes/OpenShift, and
-            cloud platforms like AWS and Azure.
-          </p>
-          <p>
-            Beyond coding, I'm passionate about basketball, competitive gaming, and traveling to
-            capture moments through photography.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Recent Posts Section -->
-    <section class="my-20 md:my-28">
-      <div>
-        <h2 class="text-foreground mb-12 text-4xl font-bold">Latest Articles</h2>
-        <RecentPosts />
-      </div>
-    </section>
-  </div>
+  <Hero />
+  <RecentPosts />
+  <Footer />
 </Layout>

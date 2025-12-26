@@ -15,6 +15,7 @@ html.dark {
   --secondary: #64748b;
   --accent: #06b6d4;
   --border: #e7e5e4;
+  --header-height: 56px; /* fallback used when JS hasn't set --header-height yet */
 }
 
 .dark {
@@ -46,20 +47,6 @@ html.dark {
   --font-text: 'Lato', sans-serif;
 }
 
-a {
-  @apply text-primary transition-all duration-200;
-  text-decoration-line: underline;
-  text-decoration-thickness: 0.5px;
-  text-underline-offset: 5px;
-
-  &:hover {
-    @media (hover: hover) {
-      text-decoration-thickness: 2px;
-      opacity: 0.85;
-    }
-  }
-}
-
 html {
   scroll-behavior: smooth;
 }
@@ -78,4 +65,37 @@ html.dark body {
 html:not(.dark) body {
   background: linear-gradient(135deg, #fafaf9 0%, #f5f3f0 100%);
   background-attachment: fixed;
+}
+
+/* Heading styles */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply text-foreground font-bold;
+}
+
+h2 {
+  @apply text-4xl;
+}
+
+h3 {
+  @apply text-2xl;
+}
+
+h4 {
+  @apply text-lg;
+}
+
+/* Smooth transitions for theme switching */
+* {
+  @apply transition-colors duration-200;
+}
+
+/* Header height fallback and utility */
+/* Components can use `calc(100vh - var(--header-height))` or the utility below */
+.min-vh-minus-header {
+  min-height: calc(100vh - var(--header-height, 56px));
 }

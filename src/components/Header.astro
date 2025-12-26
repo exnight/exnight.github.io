@@ -4,21 +4,148 @@ import ThemeToggle from './ThemeToggle.astro'
 ---
 
 <header class="border-border bg-background/95 sticky top-0 z-50 border-b backdrop-blur-sm">
-  <nav class="mx-auto flex w-9/10 items-center justify-between py-5 lg:w-7/10">
-    <a
-      href="/"
-      aria-label="Go to home page"
-      class="no-underline transition-opacity hover:opacity-80"
-    >
-      <NavIcon />
-    </a>
-    <div class="inline-flex items-center space-x-4">
-      <a
-        href="/blog"
-        class="text-secondary hover:text-foreground font-medium transition-colors duration-200"
-        >Blog</a
+  <nav id="navigation" class="mx-auto w-10/12 lg:w-3/4">
+    <div class="flex items-center justify-between py-4">
+      <button id="nav-home" aria-label="Scroll to home" class="transition-opacity hover:opacity-60">
+        <NavIcon />
+      </button>
+
+      <!-- Desktop Navigation -->
+      <div class="hidden items-center gap-8 md:flex">
+        <button id="nav-blog" class="transition-opacity hover:opacity-60"> Blog </button>
+        <button id="nav-gallery" class="transition-opacity hover:opacity-60"> Gallery </button>
+        <ThemeToggle />
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button id="mobile-menu-btn" class="md:hidden" aria-label="Toggle menu">
+        <span id="menu-icon" class="inline">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <line x1="4" y1="6" x2="20" y2="6"></line>
+            <line x1="4" y1="12" x2="20" y2="12"></line>
+            <line x1="4" y1="18" x2="20" y2="18"></line>
+          </svg>
+        </span>
+        <span id="close-icon" class="hidden">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </span>
+      </button>
+    </div>
+
+    <!-- Mobile Navigation -->
+    <div id="mobile-nav" class="hidden px-6 pt-4 pb-2 md:hidden">
+      <button
+        id="mobile-about"
+        class="block w-full py-2 text-left transition-opacity hover:opacity-60"
       >
-      <ThemeToggle />
+        About
+      </button>
+      <button
+        id="mobile-blog"
+        class="block w-full py-2 text-left transition-opacity hover:opacity-60"
+      >
+        Blog
+      </button>
+      <button
+        id="mobile-gallery"
+        class="block w-full py-2 text-left transition-opacity hover:opacity-60"
+      >
+        Gallery
+      </button>
+      <div class="flex items-center gap-2 py-2">
+        <ThemeToggle />
+      </div>
     </div>
   </nav>
+
+  <script>
+    // expose header height as a CSS variable so other components can size accordingly
+    const headerEl = document.querySelector('header')
+    function updateHeaderHeight() {
+      if (!headerEl) return
+      const h = Math.ceil(headerEl.getBoundingClientRect().height)
+      document.documentElement.style.setProperty('--header-height', `${h}px`)
+    }
+    updateHeaderHeight()
+    window.addEventListener('resize', updateHeaderHeight)
+    if (typeof ResizeObserver !== 'undefined' && headerEl) {
+      new ResizeObserver(updateHeaderHeight).observe(headerEl)
+    }
+
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn')
+    const menuIcon = document.getElementById('menu-icon')
+    const closeIcon = document.getElementById('close-icon')
+    const mobileNav = document.getElementById('mobile-nav')
+    const navButtons = [
+      { id: 'nav-home', target: 'home' },
+      { id: 'nav-about', target: 'about' },
+      { id: 'nav-blog', target: 'blog' },
+      { id: 'nav-gallery', target: 'gallery' },
+      { id: 'mobile-about', target: 'about' },
+      { id: 'mobile-blog', target: 'blog' },
+      { id: 'mobile-gallery', target: 'gallery' },
+    ]
+
+    function scrollToSection(sectionId: string) {
+      const element = document.getElementById(sectionId)
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' })
+      }
+      // Close mobile menu after clicking
+      if (mobileNav && !mobileNav.classList.contains('hidden')) {
+        closeMobileMenu()
+      }
+    }
+
+    function closeMobileMenu() {
+      mobileNav?.classList.add('hidden')
+      menuIcon?.classList.remove('hidden')
+      closeIcon?.classList.add('hidden')
+    }
+
+    function toggleMobileMenu() {
+      const isHidden = mobileNav?.classList.contains('hidden')
+      if (isHidden) {
+        mobileNav?.classList.remove('hidden')
+        menuIcon?.classList.add('hidden')
+        closeIcon?.classList.remove('hidden')
+      } else {
+        closeMobileMenu()
+      }
+    }
+
+    // Set up navigation button listeners
+    navButtons.forEach(({ id, target }) => {
+      const btn = document.getElementById(id)
+      if (btn) {
+        btn.addEventListener('click', () => scrollToSection(target))
+      }
+    })
+
+    // Set up mobile menu button
+    mobileMenuBtn?.addEventListener('click', toggleMobileMenu)
+  </script>
 </header>

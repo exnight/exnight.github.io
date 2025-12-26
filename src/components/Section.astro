@@ -1,0 +1,11 @@
+---
+interface Props {
+  id?: string
+}
+
+const { id } = Astro.props
+---
+
+<section class="min-h-dvh scroll-mt-24 overflow-hidden" id={id}>
+  <slot />
+</section>

@@ -10,33 +10,72 @@ const { id, data } = Astro.props.post
 const summary = data.summary ? data.summary : 'I forgot to write the summary 😅'
 ---
 
-<a href={`/blog/${id}`} class="group block no-underline">
-  <div
-    class="border-border from-background to-background/50 hover:border-primary rounded-lg border bg-linear-to-br p-6 transition-all duration-300 group-hover:-translate-y-0.5 hover:shadow-lg dark:from-slate-900/30 dark:to-slate-900/10"
-  >
-    <h3 class="text-foreground group-hover:text-primary mb-2 text-2xl font-bold transition-colors">
-      {data.title}
-    </h3>
-    <p class="text-secondary mb-4 text-sm font-light">
-      {data.publishedOn.toLocaleDateString('en-US', DATE_FORMAT_DISPLAY)}
-    </p>
-    <p
-      class="text-foreground/80 group-hover:text-foreground line-clamp-2 leading-relaxed transition-colors"
-    >
-      {summary}
-    </p>
-    <div class="text-primary mt-4 inline-flex items-center gap-2 font-medium">
-      Read more
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="1em"
-        height="1em"
-        viewBox="0 0 24 24"
-        class="transition-transform group-hover:translate-x-1"
-      >
-        <path fill="currentColor" d="m12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
-        ></path>
-      </svg>
+<article
+  class="border-border rounded-lg border p-6 transition-all hover:border-violet-500 hover:shadow-lg hover:shadow-violet-500/5 dark:hover:border-violet-800/50 dark:hover:shadow-violet-500/5"
+>
+  <a href={`/blog/${id}`} aria-label={data.title}>
+    <div class="space-y-4">
+      <div>
+        <h3
+          class="mb-2 text-xl font-semibold group-hover:text-violet-600 dark:group-hover:text-violet-400"
+        >
+          {data.title}
+        </h3>
+        <p class="text-secondary text-sm leading-relaxed">
+          {summary}
+        </p>
+      </div>
+
+      <div class="flex flex-wrap gap-2">
+        {
+          data.tags?.map((tag) => (
+            <span class="rounded border border-violet-200 bg-violet-100 px-2 py-1 text-xs text-violet-700 dark:border-violet-900/30 dark:bg-violet-900/20 dark:text-violet-300">
+              {tag}
+            </span>
+          ))
+        }
+      </div>
+
+      <div class="text-secondary flex items-center gap-4 pt-2 text-xs">
+        <div class="flex items-center gap-1">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="text-blue-600 dark:text-blue-400"
+          >
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+          </svg>
+          {data.publishedOn.toLocaleDateString('en-US', DATE_FORMAT_DISPLAY)}
+        </div>
+        <div class="flex items-center gap-1">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="text-violet-600 dark:text-violet-400"
+          >
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+          {data.readTime + ' min read'}
+        </div>
+      </div>
     </div>
-  </div>
-</a>
+  </a>
+</article>
