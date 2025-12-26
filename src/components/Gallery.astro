@@ -1,0 +1,77 @@
+---
+
+---
+
+<section id="gallery" class="flex min-h-screen items-center justify-center px-6 py-20">
+  <div class="w-full max-w-6xl">
+    <div class="space-y-12">
+      <div>
+        <h2 class="text-foreground mb-3 text-4xl font-bold">Gallery</h2>
+        <p class="text-secondary">A visual collection of projects, events, and inspiration</p>
+      </div>
+
+      <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {
+          [
+            {
+              id: 1,
+              image:
+                'https://images.unsplash.com/photo-1762279389053-d5a30239ae45?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjB0ZWNobm9sb2d5JTIwYWJzdHJhY3R8ZW58MXx8fHwxNzY2NjI1ODY3fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+              title: 'Tech Conference 2024',
+              category: 'Events',
+            },
+            {
+              id: 2,
+              image:
+                'https://images.unsplash.com/photo-1580922942632-fb585198592e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBhcmNoaXRlY3R1cmUlMjBtaW5pbWFsfGVufDF8fHx8MTc2NjcxMzY2MXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+              title: 'Architecture Patterns',
+              category: 'Design',
+            },
+            {
+              id: 3,
+              image:
+                'https://images.unsplash.com/photo-1595411425732-e69c1abe2763?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGdlb21ldHJpYyUyMHBhdHRlcm58ZW58MXx8fHwxNzY2NjE2Mzc1fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+              title: 'Data Structures',
+              category: 'Visualization',
+            },
+            {
+              id: 4,
+              image:
+                'https://images.unsplash.com/photo-1660810731526-0720827cbd38?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzb2Z0d2FyZSUyMGVuZ2luZWVyJTIwd29ya3NwYWNlfGVufDF8fHx8MTc2NjcxNTA0OHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+              title: 'Workspace Setup',
+              category: 'Workspace',
+            },
+            {
+              id: 5,
+              image:
+                'https://images.unsplash.com/photo-1608742213509-815b97c30b36?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb2RpbmclMjBzY3JlZW4lMjB0ZXJtaW5hbHxlbnwxfHx8fDE3NjY3MTUwNDl8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+              title: 'Code Review',
+              category: 'Development',
+            },
+            {
+              id: 6,
+              image:
+                'https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkYXRhJTIwdmlzdWFsaXphdGlvbnxlbnwxfHx8fDE3NjY3MDczOTV8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
+              title: 'Analytics Dashboard',
+              category: 'Projects',
+            },
+          ].map((item) => (
+            <div class="group bg-muted relative aspect-square cursor-pointer overflow-hidden rounded-lg border-2 border-transparent transition-all hover:border-blue-500 dark:hover:border-blue-800/50">
+              <img
+                src={item.image}
+                alt={item.title}
+                class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
+              />
+              <div class="absolute inset-0 bg-linear-to-t from-blue-900/70 via-violet-900/30 to-transparent opacity-0 transition-opacity group-hover:opacity-100">
+                <div class="absolute right-0 bottom-0 left-0 p-6 text-white">
+                  <p class="mb-1 text-xs text-blue-200 opacity-80">{item.category}</p>
+                  <h4 class="font-semibold text-white">{item.title}</h4>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

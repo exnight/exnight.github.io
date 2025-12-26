@@ -67,28 +67,6 @@ html:not(.dark) body {
   background-attachment: fixed;
 }
 
-/* Heading styles */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  @apply text-foreground font-bold;
-}
-
-h2 {
-  @apply text-4xl;
-}
-
-h3 {
-  @apply text-2xl;
-}
-
-h4 {
-  @apply text-lg;
-}
-
 /* Smooth transitions for theme switching */
 * {
   @apply transition-colors duration-200;
