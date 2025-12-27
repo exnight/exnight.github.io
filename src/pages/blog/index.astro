@@ -1,17 +1,19 @@
 ---
 import Layout from '@/layouts/Layout.astro'
-import RecentPosts from '@/components/RecentPosts.astro'
 import Footer from '@/components/Footer.astro'
+import PostGrid from '@/components/PostGrid.astro'
+import Section from '@/components/Section.astro'
 ---
 
 <Layout>
-  <section class="mx-auto my-24 w-10/12 lg:w-3/4">
-    <h1 class="text-foreground mb-4 text-5xl font-bold md:text-6xl">Blog</h1>
-    <p class="text-secondary text-xl font-light">
-      Thoughts on software engineering, technology, and my hobbies.
-    </p>
-  </section>
-
-  <RecentPosts />
+  <Section>
+    <div class="min-vh-minus-header mx-auto w-10/12 space-y-8 lg:w-3/4">
+      <h1 class="text-foreground mb-4 pt-16 text-5xl font-bold md:text-6xl">Blog</h1>
+      <p class="text-secondary text-xl font-light">
+        Thoughts on software engineering, technology, and my hobbies.
+      </p>
+      <PostGrid />
+    </div>
+  </Section>
   <Footer />
 </Layout>

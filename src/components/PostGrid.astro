@@ -1,0 +1,18 @@
+---
+import PostSummary from '@/components/PostSummary.astro'
+import { blogPosts } from '@/utils'
+
+interface Props {
+  n_posts?: number
+}
+
+const { n_posts = 10 } = Astro.props
+
+const publishedPosts = blogPosts.sort(
+  (a, b) => b.data.publishedOn.valueOf() - a.data.publishedOn.valueOf(),
+)
+---
+
+<div class="grid gap-6 md:grid-cols-2">
+  {publishedPosts.slice(0, n_posts).map((post) => <PostSummary post={post} />)}
+</div>
