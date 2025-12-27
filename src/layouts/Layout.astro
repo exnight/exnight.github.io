@@ -1,5 +1,4 @@
 ---
-import { ClientRouter } from 'astro:transitions'
 import Header from '@/components/Header.astro'
 import Footer from '@/components/Footer.astro'
 
@@ -7,7 +6,7 @@ import '@/styles/global.css'
 ---
 
 <!doctype html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -17,7 +16,7 @@ import '@/styles/global.css'
     <meta name="description" content="Leo Wong - Software Engineer and Blog" />
     <title>Leo Wong</title>
 
-    <script is:inline>
+    <script is:inline data-astro-rerun>
       const storageKey = 'theme'
 
       function getTheme() {
@@ -41,11 +40,9 @@ import '@/styles/global.css'
       setTheme(getTheme())
       document.addEventListener('astro:after-swap', () => setTheme(getTheme()))
     </script>
-
-    <ClientRouter />
   </head>
 
-  <body class="font-text bg-(--bg) transition-colors duration-500">
+  <body class="bg-(--bg) transition-colors duration-500">
     <Header />
     <main>
       <slot />

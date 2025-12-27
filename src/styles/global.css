@@ -22,8 +22,6 @@
   --color-background: var(--bg-dark);
   --color-primary: var(--primary);
   --color-secondary: var(--secondary);
-
-  --font-text: 'Lato', sans-serif;
 }
 
 @layer base {
@@ -35,6 +33,12 @@
 
 html {
   scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition {
+    navigation: auto;
+  }
 }
 
 /* Header height fallback and utility */
