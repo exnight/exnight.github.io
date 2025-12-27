@@ -5,7 +5,7 @@
 
 @import './theme.css';
 
-@custom-variant dark (&: where(.dark, .dark *));
+@custom-variant dark (&:where(.dark, .dark *));
 
 .dark {
   .astro-code,
