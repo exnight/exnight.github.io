@@ -44,7 +44,7 @@ const { Content } = await render(post)
 
     <!-- Sidebar (Desktop Only) -->
     <aside class="hidden lg:sticky lg:top-24 lg:block lg:self-start lg:pl-8">
-      <div class="text-secondary space-y-6 text-sm">
+      <div class="space-y-6 text-sm text-(--text-muted)">
         <div>
           <h3 class="text-foreground mb-3">Published</h3>
           <p>{publishedOn.toLocaleDateString('en-US', DATE_FORMAT_DISPLAY)}</p>
@@ -57,7 +57,7 @@ const { Content } = await render(post)
             </div>
           )
         }
-        <nav class="border-border border-t pt-4">
+        <nav class="border-t pt-4">
           <a href="/blog" class="text-primary hover:text-primary/80 inline-flex items-center gap-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"

@@ -1,31 +1,13 @@
 @import 'tailwindcss';
-@variant dark (&:where(.dark, .dark *));
-@plugin '@tailwindcss/typography';
 
+@plugin '@tailwindcss/typography';
 @import './fonts.css';
 
-html.dark {
-  color-scheme: dark;
-}
+@import './theme.css';
 
-:root {
-  --background: #fafaf9;
-  --foreground: #1c1917;
-  --primary: #2563eb;
-  --secondary: #64748b;
-  --accent: #06b6d4;
-  --border: #e7e5e4;
-  --header-height: 56px; /* fallback used when JS hasn't set --header-height yet */
-}
+@custom-variant dark (&: where(.dark, .dark *));
 
 .dark {
-  --background: #0f172a;
-  --foreground: #f8fafc;
-  --primary: #60a5fa;
-  --secondary: #94a3b8;
-  --accent: #22d3ee;
-  --border: #1e293b;
-
   .astro-code,
   .astro-code span {
     color: var(--shiki-dark) !important;
@@ -37,39 +19,22 @@ html.dark {
 }
 
 @theme {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-background: var(--bg-dark);
   --color-primary: var(--primary);
   --color-secondary: var(--secondary);
-  --color-accent: var(--accent);
-  --color-border: var(--border);
 
   --font-text: 'Lato', sans-serif;
 }
 
+@layer base {
+  html {
+    @apply text-(--text);
+    @apply border-(--border);
+  }
+}
+
 html {
   scroll-behavior: smooth;
-}
-
-body {
-  @apply antialiased;
-  font-feature-settings: 'kern' 1;
-}
-
-/* Subtle gradient background for visual interest */
-html.dark body {
-  background: linear-gradient(135deg, #0f172a 0%, #1a1f35 100%);
-  background-attachment: fixed;
-}
-
-html:not(.dark) body {
-  background: linear-gradient(135deg, #fafaf9 0%, #f5f3f0 100%);
-  background-attachment: fixed;
-}
-
-/* Smooth transitions for theme switching */
-* {
-  @apply transition-colors duration-200;
 }
 
 /* Header height fallback and utility */
