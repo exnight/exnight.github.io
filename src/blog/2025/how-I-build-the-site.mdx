@@ -1,31 +1,44 @@
 ---
-title: 'How I build the site with Astro and Tailwind CSS'
-publishedOn: 2024-12-24
-updatedOn: 2025-01-02
-summary: I revamped my website with Astro and Tailwind CSS.
+title: 'How I Built The Site'
+publishedOn: 2026-01-02
+summary: A concise walkthrough of the site's stack, content workflow, and the key decisions behind it.
 published: true
-tags: ['Web Development', 'Astro', 'Tailwind CSS']
+tags: ['Web Development', 'Astro', 'Tailwind CSS', 'MDX']
 ---
 
-After three years, it's time to revamp my website! The old version was built with [Next.js](https://nextjs.org/docs), [React](https://react.dev/), and [Tailwind CSS](https://tailwindcss.com/), evolved from an ancient craft with plain React since 2016 😅. After all these years, especially the blossom of [Vite](https://vite.dev/guide/), it's very tempting to overhaul the whole setup.
+## Why I built this
 
-## Goals
+I have used this repostiory to host my personal website since 2017. This is a rare opportunity to keep my frontend skills up-to-date.
 
-- I'm hosting a static blog on GitHub pages, so I need static site generation (SSG).
-- Next.js is getting to a point to be way too complex for my simple needs.
-- I want to try out new stuff such as, Vite, instead of Webpack.
-- I'm a bit bored with writing JSX/TSX (React).
+## Tech Stack
 
-## The Ever-changing Plan
+- Frontend framework: [Astro](https://astro.build/)
+- Styling: [Tailwind CSS](https://tailwindcss.com/)
+- CI/CD: GitHub with GitHub Actions
+- Hosting: [Github Pages](https://docs.github.com/en/pages)/[Cloudflare Pages](https://pages.cloudflare.com/)
 
-Therefore, I opted for Vue and Vite, whiling keeping Tailwind CSS. I went over some [Nuxt.js](https://nuxt.com/docs/getting-started/introduction) materials and found it interesting. I updated my repository with Nuxt.js but later realised that it's not what I want.
+### History
 
-The main usage of my website is
+The website has gone through multiple iterations over the years. It evolved from an ancient craft with [React](https://react.dev/) to later [Next.js](https://nextjs.org/docs) and [Tailwind CSS](https://tailwindcss.com/). I played with [Nuxt.js](https://nuxt.com/) briefly but I found it too heavy for my simple needs.
 
-I want to play with the idea of "shipping zero JavaScript".
+After all these years, especially the blossom of [Vite](https://vite.dev/guide/), it's very tempting to overhaul the whole setup.
 
-## The Cherry on Top
+### Why Astro?
 
-As Astro enables integration with multiple UI frameworks, e.g., React, Svelte, Vue, that allows me to try out new things.
+- A modern static site generator with great DX.
+- First-class support for MDX and other formats.
 
-I implemented a dark mode toggle feature using vanilla JavaScript instead of framework-specific code, which helps keep the site lightweight while maintaining full functionality.
+I host my site on GitHub Pages/Cloudflare Pages, which only support static content. I have limited time to maintain my personal projects lately.
+
+Therefore, using Astro keeps things simple and easy to maintain.
+
+## How content works
+
+1. Create a new MDX file and populate frontmatter.
+2. Build the project on local and preview.
+3. Commit and push to GitHub, done!
+
+## Takeaways
+
+- Clarify your goals then pick the right tools.
+- Value your time and focus on what matters.

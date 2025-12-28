@@ -1,0 +1,58 @@
+---
+const {} = Astro.props
+---
+
+<div class="not-prose">
+  <h3 class="mb-3">Contents</h3>
+  <nav id="toc-list" class="text-sm text-(--text-muted)"></nav>
+</div>
+
+<script is:inline>
+  ;(function () {
+    const root = document.querySelector('article')
+    if (!root) return
+
+    const headings = root.querySelectorAll('h2, h3')
+    if (!headings.length) return
+    const ul = document.createElement('ul')
+    ul.className = 'space-y-2'
+
+    const used = {}
+    let lastH2Li = null
+    headings.forEach((h) => {
+      let id =
+        h.id ||
+        h.textContent
+          .trim()
+          .toLowerCase()
+          .replace(/[^\w\s-]/g, '')
+          .replace(/\s+/g, '-')
+      if (used[id]) {
+        used[id]++
+        id = `${id}-${used[id]}`
+      } else {
+        used[id] = 1
+      }
+      h.id = id
+
+      if (h.tagName === 'H2') {
+        const li = document.createElement('li')
+        li.innerHTML = `<a href="#${id}" class="block text-(--text-muted) hover:text-primary font-medium">${h.textContent}</a>`
+        ul.appendChild(li)
+        lastH2Li = li
+      } else if (h.tagName === 'H3') {
+        // place H3 under the last H2; if none, append to root
+        const subUl = (lastH2Li && lastH2Li.querySelector('ul')) || document.createElement('ul')
+        subUl.className = 'ml-4 mt-1 space-y-1'
+        const subLi = document.createElement('li')
+        subLi.innerHTML = `<a href="#${id}" class="block text-(--text-muted) hover:text-primary text-sm">${h.textContent}</a>`
+        subUl.appendChild(subLi)
+        if (lastH2Li && !lastH2Li.querySelector('ul')) lastH2Li.appendChild(subUl)
+        if (!lastH2Li) ul.appendChild(subUl)
+      }
+    })
+
+    const container = document.getElementById('toc-list')
+    if (container) container.appendChild(ul)
+  })()
+</script>

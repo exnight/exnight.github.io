@@ -1,4 +1,6 @@
 ---
+import { ClientRouter } from 'astro:transitions'
+
 import Header from '@/components/Header.astro'
 import Footer from '@/components/Footer.astro'
 
@@ -15,6 +17,8 @@ import '@/styles/global.css'
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content="Leo Wong - Software Engineer and Blog" />
     <title>Leo Wong</title>
+
+    <ClientRouter />
 
     <script is:inline data-astro-rerun>
       const storageKey = 'theme'

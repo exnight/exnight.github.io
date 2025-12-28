@@ -11,12 +11,12 @@ const summary = data.summary ? data.summary : 'I forgot to write the summary ðŸ˜
 ---
 
 <article
-  class="rounded-lg border border-(--border-muted) p-6 shadow transition-all hover:-translate-y-1 hover:shadow-xl"
+  class="rounded-lg border-(--border-muted) p-6 shadow transition-transform hover:-translate-y-1 hover:shadow-xl dark:border"
 >
   <a href={`/blog/${id}`} aria-label={data.title}>
     <div class="space-y-4">
       <div>
-        <h3 class="mb-2 text-xl font-semibold">
+        <h3 class="transition:name={`${id}-title`} mb-2 text-xl font-semibold">
           {data.title}
         </h3>
         <p class="text-sm leading-relaxed text-(--text-muted)">
