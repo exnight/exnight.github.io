@@ -1,6 +1,7 @@
 ---
 title: 'How I Built The Site'
 publishedOn: 2026-01-02
+updatedOn: 2026-02-04
 summary: A concise walkthrough of the site's stack, content workflow, and the key decisions behind it.
 published: true
 tags: ['Web Development', 'Astro', 'Tailwind CSS', 'MDX']
@@ -8,14 +9,13 @@ tags: ['Web Development', 'Astro', 'Tailwind CSS', 'MDX']
 
 ## Why I built this
 
-I have used this repostiory to host my personal website since 2017. This is a rare opportunity to keep my frontend skills up-to-date.
+I have used this repostiory to host my personal website since 2017. This is a rare opportunity to keep my frontend skills up-to-date. I want to have a space to share my thoughts and projects. Therefore, I added blogging functionalities.
 
 ## Tech Stack
 
 - Frontend framework: [Astro](https://astro.build/)
 - Styling: [Tailwind CSS](https://tailwindcss.com/)
-- CI/CD: GitHub with GitHub Actions
-- Hosting: [Github Pages](https://docs.github.com/en/pages)/[Cloudflare Pages](https://pages.cloudflare.com/)
+- Hosting: [Cloudflare Pages](https://pages.cloudflare.com/)
 
 ### History
 
@@ -26,17 +26,33 @@ After all these years, especially the blossom of [Vite](https://vite.dev/guide/)
 ### Why Astro?
 
 - A modern static site generator with great DX.
-- First-class support for MDX and other formats.
+- First-class support for [MDX](https://mdxjs.com/) and other formats.
 
-I host my site on GitHub Pages/Cloudflare Pages, which only support static content. I have limited time to maintain my personal projects lately.
-
-Therefore, using Astro keeps things simple and easy to maintain.
+I host my site statically on Cloudflare Pages, with limited time to maintain it. Using Astro keeps things simple and easy to maintain.
 
 ## How content works
 
 1. Create a new MDX file and populate frontmatter.
 2. Build the project on local and preview.
 3. Commit and push to GitHub, done!
+
+MDX supports a variety of components, for example,
+
+a math forumla:
+
+$$
+\begin{array}{lr}
+F = ma & \text{(1)} \\
+E_k = \frac{1}{2}mv^2 & \text{(2)}
+\end{array}
+$$
+
+or a code block:
+
+```bash
+npm install
+npm run dev
+```
 
 ## Takeaways
 
