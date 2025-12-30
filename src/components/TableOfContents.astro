@@ -2,9 +2,13 @@
 const {} = Astro.props
 ---
 
-<div class="not-prose">
-  <h3 class="mb-3">Contents</h3>
-  <nav id="toc-list" class="text-sm text-(--text-muted)"></nav>
+<div
+  class="top-[calc(var(--header-height,56px)+1rem)] max-h-[calc(100vh-var(--header-height,56px)-2rem)] overflow-y-auto"
+>
+  <div class="rounded-lg border border-(--border-muted) bg-(--bg-light) p-4">
+    <h3 class="mb-4 text-base font-semibold text-(--text)">On this page</h3>
+    <nav id="toc-list" class="text-sm"></nav>
+  </div>
 </div>
 
 <script is:inline>
@@ -37,15 +41,15 @@ const {} = Astro.props
 
       if (h.tagName === 'H2') {
         const li = document.createElement('li')
-        li.innerHTML = `<a href="#${id}" class="block text-(--text-muted) hover:text-primary font-medium">${h.textContent}</a>`
+        li.innerHTML = `<a href="#${id}" class="block rounded px-2 py-1 text-(--text-muted) hover:bg-(--bg) hover:text-secondary font-medium transition-colors">${h.textContent}</a>`
         ul.appendChild(li)
         lastH2Li = li
       } else if (h.tagName === 'H3') {
         // place H3 under the last H2; if none, append to root
         const subUl = (lastH2Li && lastH2Li.querySelector('ul')) || document.createElement('ul')
-        subUl.className = 'ml-4 mt-1 space-y-1'
+        subUl.className = 'ml-2 mt-2 space-y-1 border-l border-(--border-muted) pl-3'
         const subLi = document.createElement('li')
-        subLi.innerHTML = `<a href="#${id}" class="block text-(--text-muted) hover:text-primary text-sm">${h.textContent}</a>`
+        subLi.innerHTML = `<a href="#${id}" class="block rounded px-2 py-1 text-(--text-muted) hover:bg-(--bg) hover:text-secondary text-sm transition-colors">${h.textContent}</a>`
         subUl.appendChild(subLi)
         if (lastH2Li && !lastH2Li.querySelector('ul')) lastH2Li.appendChild(subUl)
         if (!lastH2Li) ul.appendChild(subUl)
@@ -54,5 +58,27 @@ const {} = Astro.props
 
     const container = document.getElementById('toc-list')
     if (container) container.appendChild(ul)
+
+    // Highlight current section
+    const observerOptions = {
+      rootMargin: '-60px 0px -66%',
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        const id = entry.target.id
+        const link = container.querySelector(`a[href="#${id}"]`)
+        if (entry.isIntersecting) {
+          container
+            .querySelectorAll('a')
+            .forEach((a) => a.classList.remove('text-primary', 'font-semibold'))
+          if (link) {
+            link.classList.add('text-primary', 'font-semibold')
+          }
+        }
+      })
+    }, observerOptions)
+
+    headings.forEach((h) => observer.observe(h))
   })()
 </script>

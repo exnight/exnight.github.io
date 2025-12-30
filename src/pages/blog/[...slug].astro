@@ -23,20 +23,17 @@ const { Content } = await render(post)
   <div
     class="mx-auto grid w-10/12 grid-cols-1 space-y-6 pb-8 lg:w-3/4 lg:grid-cols-[1fr_clamp(250px,20%,300px)]"
   >
-    <!-- Main Article -->
     <article
-      class="prose dark:prose-invert md:prose-base prose-p:text-lg prose-p:leading-relaxed prose-h1:text-3xl prose-h1:font-bold prose-h1:mb-2 prose-h1:mt-8 prose-h2:text-2xl prose-h2:font-bold prose-h2:mb-4 prose-h2:mt-8 prose-h2:scroll-mt-20 prose-h3:text-xl prose-h3:font-semibold prose-h3:mt-6 prose-h3:mb-3 prose-a:text-primary prose-a:font-medium prose-code:text-sm prose-code:font-mono prose-code:px-2 prose-code:py-1 prose-code:rounded prose-pre:rounded-lg prose-pre:border prose-pre:border-border prose-blockquote:border-l-4 prose-blockquote:border-primary prose-blockquote:pl-4 prose-li:text-lg prose-li:leading-relaxed max-w-3xl px-4 md:px-0"
+      class="prose dark:prose-invert prose-p:text-lg prose-p:leading-relaxed prose-h1:text-3xl prose-h1:font-bold prose-h1:mb-2 prose-h1:mt-8 prose-h2:text-2xl prose-h2:font-bold prose-h2:mb-4 prose-h2:mt-8 prose-h2:scroll-mt-20 prose-h3:text-xl prose-h3:font-semibold prose-h3:mt-6 prose-h3:mb-3 prose-a:text-primary prose-a:font-medium prose-code:text-sm prose-code:font-mono prose-code:px-2 prose-code:py-1 prose-code:rounded prose-pre:rounded-lg prose-pre:border prose-pre:border-border prose-blockquote:border-l-4 prose-blockquote:border-primary prose-blockquote:pl-4 prose-li:text-lg prose-li:leading-relaxed max-w-3xl px-4 md:px-0"
       transition:name={post.id}
       transition:animate={fade({ duration: '0.7s' })}
     >
-      <!-- Article Header -->
       <div class="not-prose my-8">
         <h1 transition:name={`${post.id}-title`} class="mb-4 text-4xl font-bold md:text-5xl">
           {title}
         </h1>
       </div>
 
-      <!-- Content -->
       <Content components={{ a: ExternalLink }} />
     </article>
 
