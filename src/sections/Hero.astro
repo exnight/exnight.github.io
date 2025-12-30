@@ -1,0 +1,45 @@
+---
+import Section from '@/components/Section.astro'
+---
+
+<Section id="home">
+  <div class="min-vh-minus-header flex w-full items-center justify-center">
+    <div class="w-10/12 space-y-6 lg:w-3/4">
+      <div class="space-y-4">
+        <h1 class="text-4xl font-bold md:text-6xl">
+          Hi, I'm{' '}
+          <span class="bg-linear-to-r from-blue-600 to-violet-600 bg-clip-text text-transparent">
+            Leo Wong
+          </span>
+        </h1>
+        <p class="text-xl md:text-2xl">Software Engineer • Basketball Enthusiast • CS Tactician</p>
+      </div>
+
+      <p class="leading-relaxed text-(--text-muted)">
+        I build scalable backend systems, design robust APIs, and work with data pipelines. I have
+        hands-on experience with containerized applications, Kubernetes/OpenShift, and cloud
+        platforms like AWS and Azure.
+      </p>
+      <p class="leading-relaxed text-(--text-muted)">
+        Beyond coding, I'm passionate about basketball, competitive gaming, and traveling to capture
+        moments through photography.
+      </p>
+    </div>
+
+    <div class="absolute bottom-12 flex flex-col items-center">
+      <p class="text-secondary mb-4 text-xs tracking-widest uppercase">Scroll to explore</p>
+      <svg
+        class="text-secondary h-5 w-5 animate-bounce"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+      </svg>
+    </div>
+  </div>
+</Section>

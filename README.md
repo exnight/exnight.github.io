@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This is a personal website built with Astro.js, Vue.js, TypeScript, and Tailwind CSS.
+This is a personal website built with Astro.js, TypeScript, and Tailwind CSS.
 
 ## Usage
 

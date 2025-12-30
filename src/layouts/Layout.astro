@@ -1,52 +1,64 @@
 ---
 import { ClientRouter } from 'astro:transitions'
+
 import Header from '@/components/Header.astro'
+import Footer from '@/components/Footer.astro'
 
 import '@/styles/global.css'
 ---
 
 <!doctype html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
     <meta name="generator" content={Astro.generator} />
-    <meta name="description" content="A personal website, blog, and gallery" />
+    <meta name="description" content="Leo Wong - Software Engineer and Blog" />
     <title>Leo Wong</title>
+
+    <!-- Get the latest CSS from: https://katex.org/docs/browser -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/katex@0.16.27/dist/katex.min.css"
+      integrity="sha384-Pu5+C18nP5dwykLJOhd2U4Xen7rjScHN/qusop27hdd2drI+lL5KvX7YntvT8yew"
+      crossorigin="anonymous"
+    />
+
+    <ClientRouter />
+
     <script is:inline>
+      const DARK = 'dark'
+
       const setDarkMode = () => {
         const theme = (() => {
-          if (
-            typeof localStorage !== 'undefined' &&
-            localStorage.getItem('vueuse-color-scheme') !== 'auto'
-          ) {
-            return localStorage.getItem('vueuse-color-scheme')
+          if (typeof localStorage !== 'undefined' && localStorage.theme !== 'auto') {
+            return localStorage.theme
           }
           if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            return 'dark'
+            return DARK
           }
           return 'light'
         })()
 
-        if (theme === 'dark') {
-          document.documentElement.classList.add('dark')
+        if (theme === DARK) {
+          document.documentElement.classList.add(DARK)
         } else {
-          document.documentElement.classList.remove('dark')
+          document.documentElement.classList.remove(DARK)
         }
       }
 
       setDarkMode()
       document.addEventListener('astro:after-swap', setDarkMode)
     </script>
-
-    <ClientRouter />
   </head>
-  <body class="bg-background text-foreground font-text min-h-dvh transition-colors duration-700">
-    <!-- Markup shared across all pages, e.g., NavBar -->
+
+  <body class="bg-(--bg) transition-colors duration-500">
     <Header />
     <main>
       <slot />
     </main>
+    <Footer />
   </body>
 </html>

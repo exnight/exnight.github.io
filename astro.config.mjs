@@ -1,21 +1,16 @@
 import { defineConfig } from 'astro/config';
-import vue from '@astrojs/vue';
 import tailwindcss from '@tailwindcss/vite';
 
 import mdx from '@astrojs/mdx';
+import remarkMath from 'remark-math';
+import rehypeKatex from 'rehype-katex';
 
 // https://astro.build/config
 export default defineConfig({
   devToolbar: {
     enabled: false
   },
-  integrations: [vue({
-    template: {
-      compilerOptions: {
-        isCustomElement: (tag) => ['theme-toggle'].includes,
-      },
-    }
-  }), mdx()],
+  integrations: [mdx({ remarkPlugins: [remarkMath], rehypePlugins: [rehypeKatex] })],
   markdown: {
     shikiConfig: {
       themes: {

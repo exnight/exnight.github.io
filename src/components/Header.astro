@@ -1,14 +1,33 @@
 ---
 import NavIcon from './NavIcon.astro'
-import ThemeToggle from './ThemeToggle.vue'
+import ThemeToggle from './ThemeToggle.astro'
 ---
 
-<nav class="mx-auto flex w-9/10 items-center justify-between py-6 lg:w-7/10">
-  <a href="/" aria-label="Go to home page">
-    <NavIcon />
-  </a>
-  <div class="inline-flex items-center space-x-2">
-    <!-- <a href="/blog" class="p-2 underline-offset-4 hover:scale-110 hover:underline">Blog</a> -->
-    <ThemeToggle client:load />
-  </div>
-</nav>
+<header class="sticky top-0 z-50 shadow-xs backdrop-blur-sm">
+  <nav id="navigation" class="mx-auto w-10/12 lg:w-3/4">
+    <div class="flex items-center justify-between py-4">
+      <a href="/" class="transition-opacity hover:opacity-60" aria-label="Home button">
+        <NavIcon />
+      </a>
+      <div class="flex items-center gap-8">
+        <a href="/blog" class="transition-opacity hover:opacity-60"> Blog </a>
+        <ThemeToggle />
+      </div>
+    </div>
+  </nav>
+
+  <script>
+    // expose header height as a CSS variable so other components can size accordingly
+    const headerEl = document.querySelector('header')
+    function updateHeaderHeight() {
+      if (!headerEl) return
+      const h = Math.ceil(headerEl.getBoundingClientRect().height)
+      document.documentElement.style.setProperty('--header-height', `${h}px`)
+    }
+    updateHeaderHeight()
+    window.addEventListener('resize', updateHeaderHeight)
+    if (typeof ResizeObserver !== 'undefined' && headerEl) {
+      new ResizeObserver(updateHeaderHeight).observe(headerEl)
+    }
+  </script>
+</header>

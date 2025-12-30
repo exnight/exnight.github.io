@@ -9,5 +9,5 @@ trim_trailing_whitespace = true
 [*.json]
 indent_size = 4
 
-[*.{js,jsx,mjs,cjs,ts,tsx,mts,cts,vue}]
+[*.{js,mjs,cjs,ts,mts,cts}]
 indent_size = 2
