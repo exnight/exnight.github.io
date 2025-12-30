@@ -37,19 +37,22 @@
 </button>
 
 <script>
+  const DARK = 'dark'
   function setTheme(theme: 'dark' | 'light') {
-    if (theme === 'dark') {
-      document.documentElement.classList.add('dark')
+    if (theme === DARK) {
+      document.documentElement.classList.add(DARK)
     } else {
-      document.documentElement.classList.remove('dark')
+      document.documentElement.classList.remove(DARK)
     }
     localStorage.setItem('theme', theme)
   }
 
   function toggleTheme() {
-    const isDark = document.documentElement.classList.contains('dark')
+    const isDark = document.documentElement.classList.contains(DARK)
     setTheme(isDark ? 'light' : 'dark')
   }
 
-  document.getElementById('theme-toggle')?.addEventListener('click', toggleTheme)
+  document.addEventListener('astro:after-swap', () => {
+    document.getElementById('theme-toggle')?.addEventListener('click', toggleTheme)
+  })
 </script>

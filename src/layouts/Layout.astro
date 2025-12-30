@@ -29,26 +29,28 @@ import '@/styles/global.css'
     <ClientRouter />
 
     <script is:inline>
-      function getTheme() {
-        if (typeof localStorage !== 'undefined') {
-          const stored = localStorage.theme
-          if (stored === 'dark' || stored === 'light') {
-            return stored
+      const DARK = 'dark'
+
+      const setDarkMode = () => {
+        const theme = (() => {
+          if (typeof localStorage !== 'undefined' && localStorage.theme !== 'auto') {
+            return localStorage.theme
           }
-        }
-        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
-      }
+          if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            return DARK
+          }
+          return 'light'
+        })()
 
-      function setTheme(theme) {
-        if (theme === 'dark') {
-          document.documentElement.classList.add('dark')
+        if (theme === DARK) {
+          document.documentElement.classList.add(DARK)
         } else {
-          document.documentElement.classList.remove('dark')
+          document.documentElement.classList.remove(DARK)
         }
       }
 
-      setTheme(getTheme())
-      document.addEventListener('astro:after-swap', () => setTheme(getTheme()))
+      setDarkMode()
+      document.addEventListener('astro:after-swap', setDarkMode)
     </script>
   </head>
 
