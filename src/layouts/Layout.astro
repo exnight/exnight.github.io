@@ -28,12 +28,10 @@ import '@/styles/global.css'
 
     <ClientRouter />
 
-    <script is:inline data-astro-rerun>
-      const storageKey = 'theme'
-
+    <script is:inline>
       function getTheme() {
         if (typeof localStorage !== 'undefined') {
-          const stored = localStorage.getItem(storageKey)
+          const stored = localStorage.theme
           if (stored === 'dark' || stored === 'light') {
             return stored
           }

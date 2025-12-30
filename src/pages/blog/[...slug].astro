@@ -48,12 +48,9 @@ const { Content, headings } = await render(post)
           </p>
           {
             updatedOn && (
-              <>
-                <span class="mx-2 text-sm text-(--text-muted)">|</span>
-                <p class="text-sm text-(--text-muted)">
-                  Last updated: {updatedOn.toLocaleDateString('en-US', DATE_FORMAT_DISPLAY)}
-                </p>
-              </>
+              <p class="ml-1.5 text-sm italic opacity-70">
+                (updated on {updatedOn.toLocaleDateString('en-US', DATE_FORMAT_DISPLAY)})
+              </p>
             )
           }
         </div>
