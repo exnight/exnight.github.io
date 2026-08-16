@@ -1,16 +1,14 @@
-# exnight.github.io [![Node.js CI](https://github.com/exnight/exnight.github.io/actions/workflows/node.js.yml/badge.svg)](https://github.com/exnight/exnight.github.io/actions/workflows/node.js.yml)
-
-## Introduction
+# Personal Website [![Node.js CI](https://github.com/exnight/exnight.github.io/actions/workflows/node.js.yml/badge.svg)](https://github.com/exnight/exnight.github.io/actions/workflows/node.js.yml)
 
 This is a personal website built with Astro.js, TypeScript, and Tailwind CSS.
 
-## Usage
+## Getting Started
 
-The project works with Node version 22 or above.
+The project works with Node version 24 or above.
 
 ### Local Developement
 
-The project now utilizes DEV containers for consistent developement environments. The configuration assumes VS Code as the code editor.
+The project utilizes DEV containers for consistent developement environments. The configuration assumes VS Code as the code editor.
 
 #### Set Up DEV Containers
 
@@ -32,12 +30,18 @@ npm ci # Install dependencies
 npm run dev # Start a local DEV server
 
 npm run build # Generate production optimized code and export as static HTML
-
-npx -y @eslint/config-inspector@latest # Inspect ESLint configuration
 ```
 
-### Deploy to GitHub pages
+### Deployment
+
+The project deploys to both GitHub pages and Cloudflare pages.
+
+#### GitHub Pages
+
+Currently paused due to site revamp work. Refer to GitHub workflow files for more details.
 
 The project uses the **master** branch for deployment instead of the **gh-page** branch.
 
-I build and deploy to GitHub pages with GitHub actions. You may refer to the workflow files for more details.
+#### Cloudflare Pages
+
+TBD
