@@ -13,7 +13,10 @@ export default defineConfig({
   },
   integrations: [mdx()],
   markdown: {
-    processor: unified({ remarkPlugins: [remarkMath], rehypePlugins: [rehypeKatex] }),
+    processor: unified({
+      remarkPlugins: [remarkMath],
+      rehypePlugins: [rehypeKatex]
+    }),
     shikiConfig: {
       themes: {
         light: 'github-light',
