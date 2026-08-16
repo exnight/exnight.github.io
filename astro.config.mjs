@@ -4,14 +4,19 @@ import tailwindcss from '@tailwindcss/vite';
 import mdx from '@astrojs/mdx';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
+import { unified } from '@astrojs/markdown-remark';
 
 // https://astro.build/config
 export default defineConfig({
   devToolbar: {
     enabled: false
   },
-  integrations: [mdx({ remarkPlugins: [remarkMath], rehypePlugins: [rehypeKatex] })],
+  integrations: [mdx()],
   markdown: {
+    processor: unified({
+      remarkPlugins: [remarkMath],
+      rehypePlugins: [rehypeKatex]
+    }),
     shikiConfig: {
       themes: {
         light: 'github-light',
