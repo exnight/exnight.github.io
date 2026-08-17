@@ -25,6 +25,9 @@
             ]
         }
     },
+    "features": {
+        "ghcr.io/devcontainers/features/copilot-cli:1.1.3": {}
+    },
     "mounts": [
         "type=volume,target=${containerWorkspaceFolder}/node_modules"
     ]
