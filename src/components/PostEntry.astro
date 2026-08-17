@@ -1,0 +1,85 @@
+---
+import type { CollectionEntry } from 'astro:content'
+
+import ArrowIcon from '@/components/ArrowIcon.astro'
+import PostMeta from '@/components/PostMeta.astro'
+
+interface Props {
+  post: CollectionEntry<'blog'>
+  variant: 'recent' | 'index'
+  accent?: 'primary' | 'secondary'
+  divider?: boolean
+}
+
+const { post, variant, accent = 'secondary', divider = false } = Astro.props
+const { id, data } = post
+const tags = data.tags ?? []
+
+const titleClass = 'font-display m-0 font-[560] tracking-[-0.022em] text-balance lining-nums'
+---
+
+{
+  variant === 'recent' ? (
+    <article
+      class:list={[
+        'min-w-0',
+        divider && 'border-line border-l max-[720px]:border-t max-[720px]:border-l-0',
+      ]}
+    >
+      <a
+        class="group p-rail relative block min-h-38 pr-[clamp(4.5rem,7vw,7rem)] no-underline transition-colors duration-180 hover:bg-[color-mix(in_srgb,var(--paper-sage)_54%,transparent)] max-[720px]:min-h-0 max-[720px]:py-[0.7rem] max-[720px]:pr-[3.6rem] max-[720px]:pl-0"
+        href={`/blog/${id}`}
+        aria-label={`Read ${data.title}`}
+      >
+        <PostMeta publishedOn={data.publishedOn} tags={tags} variant="recent" />
+        <h3
+          class:list={[titleClass, 'text-recent-title max-[720px]:text-recent-title-mobile']}
+          transition:name={`${id}-title`}
+        >
+          {data.title}
+        </h3>
+        {data.summary ? (
+          <p class="text-muted mt-4 max-w-[60ch] leading-[1.65] max-[720px]:hidden">
+            {data.summary}
+          </p>
+        ) : null}
+        <span
+          class:list={[
+            'ease-editorial text-brass-ink absolute top-1/2 right-[clamp(1.4rem,2.5vw,2.5rem)] grid size-12 -translate-y-1/2 place-items-center rounded-full transition-transform duration-180 group-hover:translate-x-1 max-[720px]:right-0 max-[720px]:size-auto max-[720px]:rounded-none max-[720px]:bg-transparent',
+            accent === 'primary'
+              ? 'bg-vermilion max-[720px]:text-vermilion'
+              : 'bg-brass max-[720px]:text-brass',
+          ]}
+          aria-hidden="true"
+        >
+          <ArrowIcon class="size-4.75" />
+        </span>
+      </a>
+    </article>
+  ) : (
+    <article class:list={[divider && 'border-line border-t']}>
+      <a
+        class="group grid min-h-38 grid-cols-[minmax(8rem,0.22fr)_minmax(0,1fr)_minmax(12rem,0.34fr)] items-center gap-6 py-[1.6rem] pr-0 pl-[clamp(1.4rem,3vw,3rem)] no-underline transition-colors duration-180 hover:bg-[color-mix(in_srgb,var(--paper-sage)_54%,transparent)] max-[980px]:grid-cols-[8rem_minmax(0,1fr)] max-[720px]:min-h-0 max-[720px]:grid-cols-1 max-[720px]:gap-4 max-[720px]:py-6 max-[720px]:pl-0"
+        href={`/blog/${id}`}
+        aria-label={`Read ${data.title}`}
+      >
+        <PostMeta publishedOn={data.publishedOn} readTime={data.readTime} variant="index" />
+        <div>
+          <h3
+            class:list={[titleClass, 'text-index-title max-[720px]:text-index-title-mobile']}
+            transition:name={`${id}-title`}
+          >
+            {data.title}
+          </h3>
+          {data.summary ? (
+            <p class="text-muted mt-[0.8rem] max-w-[62ch] leading-[1.6]">{data.summary}</p>
+          ) : null}
+        </div>
+        <div class="text-meta text-muted col-auto flex items-center justify-end gap-[1.2rem] pr-[1.4rem] text-right font-bold tracking-[0.14em] uppercase max-[980px]:col-start-2 max-[980px]:justify-start max-[980px]:p-0 max-[980px]:text-left max-[720px]:col-auto max-[720px]:justify-between">
+          <span>{tags.length ? tags.slice(0, 3).join(' / ') : 'General note'}</span>
+          <ArrowIcon class="text-ink size-4.75 shrink-0 transition-transform duration-180 group-hover:translate-x-1" />
+        </div>
+      </a>
+    </article>
+  )
+}

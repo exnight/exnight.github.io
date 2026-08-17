@@ -7,18 +7,43 @@ interface Heading {
 
 interface Props {
   headings: Heading[]
+  variant?: 'panel' | 'mobile'
 }
 
-const { headings } = Astro.props
+const { headings, variant = 'panel' } = Astro.props
 ---
 
-<nav class="table-of-contents" aria-label="On this page">
-  <h2>On this page</h2>
-  <ol>
+<nav
+  class:list={[
+    'bg-paper-raised p-5',
+    variant === 'panel'
+      ? 'rounded-panel border-line border'
+      : 'rounded-b-panel border-line-soft border-t',
+  ]}
+  aria-label="On this page"
+>
+  <h2
+    class:list={[
+      'text-meta mt-0 mb-4 font-bold tracking-[0.14em] uppercase',
+      variant === 'mobile' && 'hidden',
+    ]}
+  >
+    On this page
+  </h2>
+  <ol class="m-0 flex list-none flex-col gap-[0.2rem] p-0">
     {
       headings.map((heading) => (
-        <li class:list={{ 'toc-depth-3': heading.depth === 3, 'toc-depth-4': heading.depth >= 4 }}>
-          <a href={`#${heading.slug}`} class="toc-link">
+        <li
+          class:list={[
+            'min-w-0',
+            heading.depth === 3 && 'pl-[0.8rem]',
+            heading.depth >= 4 && 'pl-6',
+          ]}
+        >
+          <a
+            href={`#${heading.slug}`}
+            class="toc-link text-toc-link rounded-control text-muted hover:bg-paper-sage hover:text-ink [&.toc-current]:bg-paper-sage [&.toc-current]:text-ink block px-[0.65rem] py-[0.55rem] leading-[1.35] no-underline [&.toc-current]:font-bold"
+          >
             {heading.text}
           </a>
         </li>

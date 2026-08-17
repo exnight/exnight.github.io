@@ -7,6 +7,12 @@ interface Props {
 const { id, class: className } = Astro.props
 ---
 
-<section class:list={['site-section', className]} id={id}>
+<section
+  class:list={[
+    'min-h-[calc(100vh-var(--header-height))] scroll-mt-(--header-height) py-[clamp(3.5rem,7vw,7rem)] max-[720px]:py-14!',
+    className,
+  ]}
+  id={id}
+>
   <slot />
 </section>

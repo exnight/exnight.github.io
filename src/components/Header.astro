@@ -2,18 +2,35 @@
 import ThemeToggle from './ThemeToggle.astro'
 
 const pathname = Astro.url.pathname
+const navLinkClass =
+  "relative py-[1.55rem] text-meta font-bold tracking-[0.14em] uppercase no-underline after:absolute after:right-0 after:bottom-4 after:left-0 after:h-0.5 after:scale-x-[0.35] after:rounded-sm after:bg-vermilion after:opacity-0 after:transition-[opacity,transform] after:duration-[180ms] after:ease-editorial after:content-[''] hover:after:scale-x-100 hover:after:opacity-100 max-[720px]:py-5 max-[720px]:text-nav-mobile"
+const activeNavLinkClass = 'after:scale-x-100 after:opacity-100'
 ---
 
-<header class="site-header">
-  <nav id="navigation" class="site-frame site-nav" aria-label="Primary navigation">
-    <a href="/" class="site-mark" aria-label="Leo Wong, home">
-      <span class="site-mark__initials">LW</span>
-      <span class="site-mark__name">/ Leo Wong</span>
+<header class="border-line-soft bg-header-surface sticky top-0 z-50 border-b">
+  <nav
+    id="navigation"
+    class="site-frame px-rail flex min-h-17 items-center justify-between max-[720px]:min-h-15 max-[720px]:px-0"
+    aria-label="Primary navigation"
+  >
+    <a href="/" class="inline-flex items-center gap-3 no-underline" aria-label="Leo Wong, home">
+      <span class="text-meta text-vermilion font-bold tracking-[0.14em] uppercase">LW</span>
+      <span class="text-meta text-ink font-bold tracking-[0.14em] uppercase max-[720px]:hidden"
+        >/ Leo Wong</span
+      >
     </a>
 
-    <div class="site-nav__links">
-      <a href="/" aria-current={pathname === '/' ? 'page' : undefined}>Home</a>
-      <a href="/blog" aria-current={pathname.startsWith('/blog') ? 'page' : undefined}>Writing</a>
+    <div class="flex items-center gap-[clamp(1.2rem,3vw,3rem)] max-[720px]:gap-4">
+      <a
+        href="/"
+        class:list={[navLinkClass, pathname === '/' && activeNavLinkClass]}
+        aria-current={pathname === '/' ? 'page' : undefined}>Home</a
+      >
+      <a
+        href="/blog"
+        class:list={[navLinkClass, pathname.startsWith('/blog') && activeNavLinkClass]}
+        aria-current={pathname.startsWith('/blog') ? 'page' : undefined}>Writing</a
+      >
       <ThemeToggle />
     </div>
   </nav>

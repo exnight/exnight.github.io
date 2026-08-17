@@ -2,7 +2,9 @@
 import { render } from 'astro:content'
 
 import Layout from '@/layouts/Layout.astro'
+import ArrowIcon from '@/components/ArrowIcon.astro'
 import ExternalLink from '@/components/ExternalLink.astro'
+import PostMeta from '@/components/PostMeta.astro'
 import Section from '@/components/Section.astro'
 import TableOfContents from '@/components/TableOfContents.astro'
 
@@ -21,27 +23,32 @@ const { Content, headings } = await render(post)
 ---
 
 <Layout title={title} description={summary}>
-  <Section class="article-page">
-    <div class="site-frame article-shell">
-      <a class="back-link" href="/blog">
-        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
-          <path d="M19 12H5M11 6l-6 6 6 6" />
-        </svg>
+  <Section class="pt-[clamp(2rem,5vw,5rem)]">
+    <div class="site-frame max-w-305">
+      <a
+        class="text-control text-muted hover:text-vermilion mb-[clamp(2.5rem,5vw,5rem)] inline-flex items-center gap-[0.6rem] font-bold tracking-[0.12em] uppercase no-underline"
+        href="/blog"
+      >
+        <ArrowIcon class="size-4.5" direction="left" />
         All writing
       </a>
 
-      <header class="article-header">
-        <div class="article-header__meta">
-          <time datetime={publishedOn.toISOString()}>
-            {publishedOn.toLocaleDateString('en-US', DATE_FORMAT_DISPLAY)}
-          </time>
-          {tags?.length ? <span>{tags.join(' / ')}</span> : null}
-        </div>
-        <h1 class="lining-nums" transition:name={`${post.id}-title`}>{title}</h1>
-        {summary ? <p class="article-deck">{summary}</p> : null}
+      <header class="border-line max-w-245 border-b pb-[clamp(2.5rem,5vw,5rem)]">
+        <PostMeta publishedOn={publishedOn} tags={tags} variant="article" />
+        <h1
+          class="font-display text-article-title max-[720px]:text-article-title-mobile m-0 max-w-[18ch] font-[510] tracking-[-0.035em] text-balance lining-nums"
+          transition:name={`${post.id}-title`}
+        >
+          {title}
+        </h1>
+        {
+          summary ? (
+            <p class="text-article-deck text-muted mt-7 max-w-[64ch] leading-[1.7]">{summary}</p>
+          ) : null
+        }
         {
           updatedOn ? (
-            <p class="article-updated">
+            <p class="text-meta text-muted mt-[1.4rem] font-bold tracking-[0.14em] italic">
               Updated{' '}
               <time datetime={updatedOn.toISOString()}>
                 {updatedOn.toLocaleDateString('en-US', DATE_FORMAT_DISPLAY)}
@@ -53,21 +60,25 @@ const { Content, headings } = await render(post)
 
       {
         headings.length ? (
-          <details class="mobile-toc">
-            <summary>On this page</summary>
-            <TableOfContents headings={headings} />
+          <details class="bg-paper-raised rounded-panel border-line mt-8 hidden border max-[980px]:block">
+            <summary class="text-control cursor-pointer px-[1.2rem] py-4 font-bold tracking-[0.12em] uppercase marker:list-inside">
+              On this page
+            </summary>
+            <TableOfContents headings={headings} variant="mobile" />
           </details>
         ) : null
       }
 
-      <div class="article-grid">
+      <div
+        class="grid grid-cols-[minmax(0,1fr)_250px] items-start gap-[clamp(3rem,7vw,7rem)] pt-[clamp(3rem,6vw,6rem)] max-[980px]:grid-cols-1 max-[720px]:pt-12"
+      >
         <article class="markdown-content article-prose">
           <Content components={{ a: ExternalLink }} />
         </article>
 
         {
           headings.length ? (
-            <aside class="article-sidebar">
+            <aside class="sticky top-[calc(var(--header-height)+2rem)] max-[980px]:hidden">
               <TableOfContents headings={headings} />
             </aside>
           ) : null

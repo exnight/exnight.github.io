@@ -1,5 +1,6 @@
 ---
-import { DATE_FORMAT_DISPLAY, getSortedBlogPosts } from '@/utils'
+import PostEntry from '@/components/PostEntry.astro'
+import { getSortedBlogPosts } from '@/utils'
 
 const recentPosts = getSortedBlogPosts().slice(0, 2)
 ---
@@ -75,45 +76,48 @@ const recentPosts = getSortedBlogPosts().slice(0, 2)
     </div>
   </header>
 
-  <section class="recent-writing" aria-labelledby="recent-writing-heading">
-    <div class="recent-writing__heading">
-      <h2 id="recent-writing-heading">Latest writing</h2>
+  <section
+    class="pt-[clamp(0.75rem,1.3vw,1.1rem)] max-[720px]:pt-1"
+    aria-labelledby="recent-writing-heading"
+  >
+    <div
+      class="mx-rail border-line-soft border-b pb-[clamp(0.8rem,1.2vw,1rem)] max-[720px]:mx-0 max-[720px]:pb-2"
+    >
+      <h2
+        id="recent-writing-heading"
+        class="font-display text-index-title m-0 font-[560] tracking-[-0.022em]"
+      >
+        Latest writing
+      </h2>
     </div>
 
-    <div class="recent-writing__grid">
+    <div class="grid grid-cols-2 max-[720px]:grid-cols-1">
       {
-        recentPosts.map((post) => (
-          <article class="recent-entry">
-            <a href={`/blog/${post.id}`} aria-label={`Read ${post.data.title}`}>
-              <div class="recent-entry__meta">
-                <time datetime={post.data.publishedOn.toISOString()}>
-                  {post.data.publishedOn.toLocaleDateString('en-US', DATE_FORMAT_DISPLAY)}
-                </time>
-                {post.data.tags?.length ? (
-                  <span>{post.data.tags.slice(0, 3).join(' / ')}</span>
-                ) : null}
-              </div>
-              <h3 class="lining-nums" transition:name={`${post.id}-title`}>
-                {post.data.title}
-              </h3>
-              {post.data.summary ? <p>{post.data.summary}</p> : null}
-              <span class="entry-arrow" aria-hidden="true">
-                <svg viewBox="0 0 24 24" width="19" height="19">
-                  <path d="M5 12h14M13 6l6 6-6 6" />
-                </svg>
-              </span>
-            </a>
-          </article>
+        recentPosts.map((post, index) => (
+          <PostEntry
+            post={post}
+            variant="recent"
+            accent={index === 0 ? 'primary' : 'secondary'}
+            divider={index > 0}
+          />
         ))
       }
     </div>
   </section>
 
-  <a class="writing-index-link" href="/blog">
-    <span>
+  <a
+    class="text-meta ease-editorial border-t-line border-b-line-soft text-ink hover:border-vermilion min-[1000px]:mr-rail mt-[clamp(1.2rem,2vw,2rem)] flex min-h-15 items-center justify-between border-y px-1 py-3 font-bold tracking-[0.14em] uppercase no-underline transition-colors duration-180 max-[720px]:mt-1 max-[720px]:min-h-[3.4rem] max-[720px]:items-end min-[1000px]:ml-auto min-[1000px]:w-[min(50%,38rem)]"
+    href="/blog"
+  >
+    <span class="flex flex-col gap-[0.35rem]">
       <strong>All writing</strong>
-      <small>Notes and posts, newest first</small>
+      <small class="text-continuation-note text-muted font-normal tracking-normal normal-case">
+        Notes and posts, newest first
+      </small>
     </span>
-    <span>Continue <span aria-hidden="true">→</span></span>
+    <span class="text-vermilion">
+      <span class="max-[720px]:hidden">Continue </span>
+      <span class="max-[720px]:text-continuation-arrow" aria-hidden="true">→</span>
+    </span>
   </a>
 </section>

@@ -1,0 +1,29 @@
+---
+interface Props {
+  title: string
+  description: string
+  note?: string
+}
+
+const { title, description, note } = Astro.props
+---
+
+<header
+  class="mb-[clamp(3rem,6vw,6rem)] grid grid-cols-[minmax(0,1fr)_minmax(16rem,0.45fr)] items-end gap-8 max-[980px]:grid-cols-1"
+>
+  <div>
+    <h1
+      class="font-display text-page-title max-[720px]:text-page-title-mobile m-0 font-[510] tracking-[-0.035em] text-balance"
+    >
+      {title}
+    </h1>
+    <p class="text-page-lead text-muted mt-5 max-w-[62ch] leading-[1.7]">{description}</p>
+  </div>
+  {
+    note ? (
+      <p class="text-page-note border-line text-muted mt-5 max-w-[62ch] border-t pt-4 leading-[1.7] max-[980px]:max-w-3xl">
+        {note}
+      </p>
+    ) : null
+  }
+</header>
