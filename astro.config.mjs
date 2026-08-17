@@ -29,6 +29,7 @@ export default defineConfig({
     server: {
       watch: {
         usePolling: process.env.IS_CONTAINER == 'true',
+        interval: 500
       }
     }
   },

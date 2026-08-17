@@ -1,45 +1,119 @@
 ---
-import Section from '@/components/Section.astro'
+import { DATE_FORMAT_DISPLAY, getSortedBlogPosts } from '@/utils'
+
+const recentPosts = getSortedBlogPosts().slice(0, 2)
 ---
 
-<Section id="home">
-  <div class="min-vh-minus-header flex w-full items-center justify-center">
-    <div class="w-10/12 space-y-6 lg:w-3/4">
-      <div class="space-y-4">
-        <h1 class="text-4xl font-bold md:text-6xl">
-          Hi, I'm{' '}
-          <span class="bg-linear-to-r from-blue-600 to-violet-600 bg-clip-text text-transparent">
-            Leo Wong
-          </span>
-        </h1>
-        <p class="text-xl md:text-2xl">Software Engineer • Basketball Enthusiast • CS Tactician</p>
-      </div>
+<section class="site-frame home-folio" id="home">
+  <header class="home-intro">
+    <aside class="home-annotation home-annotation--practice" aria-label="Professional practice">
+      <span class="home-annotation__label">Profession</span>
+      <span class="home-annotation__rule" aria-hidden="true">
+        <svg class="home-annotation__curve" viewBox="0 0 116 24" preserveAspectRatio="none">
+          <path d="M0 24C52 24 72 0 116 0"></path>
+        </svg>
+      </span>
+      <ul>
+        <li>Backend applications</li>
+        <li>Data pipelines</li>
+        <li>Cloud infrastructure</li>
+        <li>CI/CD automation</li>
+      </ul>
+    </aside>
 
-      <p class="leading-relaxed text-(--text-muted)">
-        I build scalable backend systems, design robust APIs, and work with data pipelines. I have
-        hands-on experience with containerized applications, Kubernetes/OpenShift, and cloud
-        platforms like AWS and Azure.
+    <div class="home-statement">
+      <h1>I build software and keep notes on what I learn.</h1>
+      <p>
+        Most of my work is in backend systems, APIs, data pipelines, and cloud infrastructure. I
+        also write about basketball, competitive gaming, travelling, and photography.
       </p>
-      <p class="leading-relaxed text-(--text-muted)">
-        Beyond coding, I'm passionate about basketball, competitive gaming, and traveling to capture
-        moments through photography.
-      </p>
+      <div class="home-statement__identity">
+        <span aria-hidden="true"></span>
+        <span class="home-statement__identity-accent" aria-hidden="true"></span>
+        <span>Software engineer</span>
+      </div>
     </div>
 
-    <div class="absolute bottom-12 flex flex-col items-center">
-      <p class="text-secondary mb-4 text-xs tracking-widest uppercase">Scroll to explore</p>
+    <aside class="home-annotation home-annotation--interests" aria-label="Personal interests">
+      <span class="home-annotation__label">Beyond Work</span>
+      <span class="home-annotation__rule" aria-hidden="true">
+        <svg class="home-annotation__curve" viewBox="0 0 138 20" preserveAspectRatio="none">
+          <path d="M0 20C46 20 82 0 138 0"></path>
+        </svg>
+      </span>
+      <ul>
+        <li>Travelling</li>
+        <li>Competitive gaming</li>
+        <li>Photography</li>
+        <li>Basketball</li>
+      </ul>
+    </aside>
+
+    <div class="home-annotation-thread" aria-hidden="true">
       <svg
-        class="text-secondary h-5 w-5 animate-bounce"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
+        class="home-annotation-thread__drawing home-annotation-thread__drawing--desktop"
+        viewBox="278 340 1112 110"
+        preserveAspectRatio="none"
       >
         <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+          class="home-annotation-thread__base"
+          d="M278 374C478 344 658 366 818 400S1120 444 1390 392"></path>
+        <path class="home-annotation-thread__accent" d="M940 414C1038 434 1128 430 1210 410"></path>
       </svg>
+      <svg
+        class="home-annotation-thread__drawing home-annotation-thread__drawing--mobile"
+        viewBox="20 550 350 70"
+        preserveAspectRatio="none"
+      >
+        <path
+          class="home-annotation-thread__base"
+          d="M20 574C96 558 166 568 224 588S318 608 370 590"></path>
+        <path class="home-annotation-thread__accent" d="M246 594C292 606 326 602 354 594"></path>
+      </svg>
+      <span class="home-annotation-thread__marker home-annotation-thread__marker--start"></span>
+      <span class="home-annotation-thread__marker home-annotation-thread__marker--end"></span>
     </div>
-  </div>
-</Section>
+  </header>
+
+  <section class="recent-writing" aria-labelledby="recent-writing-heading">
+    <div class="recent-writing__heading">
+      <h2 id="recent-writing-heading">Latest writing</h2>
+    </div>
+
+    <div class="recent-writing__grid">
+      {
+        recentPosts.map((post) => (
+          <article class="recent-entry">
+            <a href={`/blog/${post.id}`} aria-label={`Read ${post.data.title}`}>
+              <div class="recent-entry__meta">
+                <time datetime={post.data.publishedOn.toISOString()}>
+                  {post.data.publishedOn.toLocaleDateString('en-US', DATE_FORMAT_DISPLAY)}
+                </time>
+                {post.data.tags?.length ? (
+                  <span>{post.data.tags.slice(0, 3).join(' / ')}</span>
+                ) : null}
+              </div>
+              <h3 class="lining-nums" transition:name={`${post.id}-title`}>
+                {post.data.title}
+              </h3>
+              {post.data.summary ? <p>{post.data.summary}</p> : null}
+              <span class="entry-arrow" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="19" height="19">
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg>
+              </span>
+            </a>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <a class="writing-index-link" href="/blog">
+    <span>
+      <strong>All writing</strong>
+      <small>Notes and posts, newest first</small>
+    </span>
+    <span>Continue <span aria-hidden="true">→</span></span>
+  </a>
+</section>

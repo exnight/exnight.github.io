@@ -5,12 +5,16 @@ import Section from '@/components/Section.astro'
 ---
 
 <Layout>
-  <Section>
-    <div class="min-vh-minus-header mx-auto w-10/12 space-y-8 pt-16 lg:w-3/4">
-      <h1 class="mb-4 text-5xl font-bold md:text-6xl">Blog</h1>
-      <p class="text-md text-(--text-muted)">
-        Thoughts on software engineering, technology, and my hobbies.
-      </p>
+  <Section class="writing-index-page">
+    <div class="site-frame page-shell">
+      <header class="page-heading writing-index-heading">
+        <div>
+          <h1>My Posts</h1>
+          <p>Technical notes and personal interests, newest first.</p>
+        </div>
+        <p class="writing-index-heading__note">I publish new posts from time to time.</p>
+      </header>
+
       <PostGrid />
     </div>
   </Section>

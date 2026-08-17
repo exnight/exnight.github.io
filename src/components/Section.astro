@@ -1,11 +1,12 @@
 ---
 interface Props {
   id?: string
+  class?: string
 }
 
-const { id } = Astro.props
+const { id, class: className } = Astro.props
 ---
 
-<section class="min-h-dvh scroll-mt-24 pb-8" id={id}>
+<section class:list={['site-section', className]} id={id}>
   <slot />
 </section>

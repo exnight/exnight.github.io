@@ -1,18 +1,36 @@
 ---
 import PostSummary from '@/components/PostSummary.astro'
-import { blogPosts } from '@/utils'
+import { getSortedBlogPosts } from '@/utils'
 
 interface Props {
   n_posts?: number
 }
 
-const { n_posts = 10 } = Astro.props
+const { n_posts = Number.POSITIVE_INFINITY } = Astro.props
 
-const publishedPosts = blogPosts.sort(
-  (a, b) => b.data.publishedOn.valueOf() - a.data.publishedOn.valueOf(),
-)
+const publishedPosts = getSortedBlogPosts().slice(0, n_posts)
+const postsByYear = publishedPosts.reduce<Record<string, typeof publishedPosts>>((groups, post) => {
+  const year = post.data.publishedOn.getFullYear().toString()
+  groups[year] ??= []
+  groups[year].push(post)
+  return groups
+}, {})
+
+const years = Object.entries(postsByYear).sort(([a], [b]) => Number(b) - Number(a))
 ---
 
-<div class="grid gap-6 md:grid-cols-2">
-  {publishedPosts.slice(0, n_posts).map((post) => <PostSummary post={post} />)}
+<div class="publication-years">
+  {
+    years.map(([year, posts]) => (
+      <section class="publication-year" aria-labelledby={`year-${year}`}>
+        <div class="publication-year__heading">
+          <h2 id={`year-${year}`}>{year}</h2>
+          <span>{posts.length === 1 ? '1 note' : `${posts.length} notes`}</span>
+        </div>
+        <div class="publication-year__entries">
+          {posts.map((post) => <PostSummary post={post} />)}
+        </div>
+      </section>
+    ))
+  }
 </div>

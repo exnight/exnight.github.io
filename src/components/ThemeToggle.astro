@@ -1,43 +1,44 @@
----
-// Theme toggle button - handles dark mode switching
----
-
 <button
   type="button"
   id="theme-toggle"
-  aria-label="Toggle theme"
-  class="rounded-lg p-2 hover:bg-neutral-200 dark:hover:bg-neutral-800"
+  class="theme-toggle"
+  aria-label="Switch to dark theme"
+  title="Toggle color theme"
 >
-  <span id="to-dark" class="inline dark:hidden">
+  <span class="theme-toggle__icon theme-toggle__icon--dark" aria-hidden="true">
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="1.5em"
-      height="1.5em"
-      class="fill-neutral-700"
+      width="16"
+      height="16"
       viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.8"
+      stroke-linecap="round"
     >
-      <path
-        d="m17.75 4.09l-2.53 1.94l.91 3.06l-2.63-1.81l-2.63 1.81l.91-3.06l-2.53-1.94L12.44 4l1.06-3l1.06 3zm3.5 6.91l-1.64 1.25l.59 1.98l-1.7-1.17l-1.7 1.17l.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85c-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14c.4-.4.82-.76 1.27-1.08c.75-.53 1.93.36 1.85 1.19c-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82c-2.81 3.14-2.7 7.96.31 10.98c3.02 3.01 7.84 3.12 10.98.31"
-      ></path>
+      <path d="M20 15.5A8.5 8.5 0 0 1 8.5 4 8.5 8.5 0 1 0 20 15.5Z"></path>
     </svg>
   </span>
-  <span id="to-light" class="hidden dark:inline">
+  <span class="theme-toggle__icon theme-toggle__icon--light" aria-hidden="true">
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="1.5em"
-      height="1.5em"
-      class="fill-neutral-300"
+      width="16"
+      height="16"
       viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.8"
+      stroke-linecap="round"
     >
-      <path
-        d="m3.55 19.09l1.41 1.41l1.8-1.79l-1.42-1.42M12 6c-3.31 0-6 2.69-6 6s2.69 6 6 6s6-2.69 6-6c0-3.32-2.69-6-6-6m8 7h3v-2h-3m-2.76 7.71l1.8 1.79l1.41-1.41l-1.79-1.8M20.45 5l-1.41-1.4l-1.8 1.79l1.42 1.42M13 1h-2v3h2M6.76 5.39L4.96 3.6L3.55 5l1.79 1.81zM1 13h3v-2H1m12 9h-2v3h2"
-      ></path>
+      <circle cx="12" cy="12" r="3.5"></circle>
+      <path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.65 17.65l1.42 1.42M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.65 6.35l1.42-1.42"></path>
     </svg>
   </span>
 </button>
 
 <script>
   const DARK = 'dark'
+
   function setTheme(theme: 'dark' | 'light') {
     if (theme === DARK) {
       document.documentElement.classList.add(DARK)
@@ -45,6 +46,7 @@
       document.documentElement.classList.remove(DARK)
     }
     localStorage.setItem('theme', theme)
+    updateToggleLabel()
   }
 
   function toggleTheme() {
@@ -52,7 +54,21 @@
     setTheme(isDark ? 'light' : 'dark')
   }
 
-  document.addEventListener('astro:after-swap', () => {
-    document.getElementById('theme-toggle')?.addEventListener('click', toggleTheme)
-  })
+  function updateToggleLabel() {
+    const button = document.getElementById('theme-toggle')
+    if (!button) return
+    const isDark = document.documentElement.classList.contains(DARK)
+    button.setAttribute('aria-label', `Switch to ${isDark ? 'light' : 'dark'} theme`)
+  }
+
+  function bindThemeToggle() {
+    const button = document.getElementById('theme-toggle')
+    if (!button || button.dataset.bound === 'true') return
+    button.dataset.bound = 'true'
+    button.addEventListener('click', toggleTheme)
+    updateToggleLabel()
+  }
+
+  bindThemeToggle()
+  document.addEventListener('astro:after-swap', bindThemeToggle)
 </script>

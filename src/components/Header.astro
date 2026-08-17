@@ -1,24 +1,26 @@
 ---
-import NavIcon from './NavIcon.astro'
 import ThemeToggle from './ThemeToggle.astro'
+
+const pathname = Astro.url.pathname
 ---
 
-<header class="sticky top-0 z-50 shadow-xs backdrop-blur-sm">
-  <nav id="navigation" class="mx-auto w-10/12 lg:w-3/4">
-    <div class="flex items-center justify-between py-4">
-      <a href="/" class="transition-opacity hover:opacity-60" aria-label="Home button">
-        <NavIcon />
-      </a>
-      <div class="flex items-center gap-8">
-        <a href="/blog" class="transition-opacity hover:opacity-60"> Blog </a>
-        <ThemeToggle />
-      </div>
+<header class="site-header">
+  <nav id="navigation" class="site-frame site-nav" aria-label="Primary navigation">
+    <a href="/" class="site-mark" aria-label="Leo Wong, home">
+      <span class="site-mark__initials">LW</span>
+      <span class="site-mark__name">/ Leo Wong</span>
+    </a>
+
+    <div class="site-nav__links">
+      <a href="/" aria-current={pathname === '/' ? 'page' : undefined}>Home</a>
+      <a href="/blog" aria-current={pathname.startsWith('/blog') ? 'page' : undefined}>Writing</a>
+      <ThemeToggle />
     </div>
   </nav>
 
   <script>
-    // expose header height as a CSS variable so other components can size accordingly
     const headerEl = document.querySelector('header')
+
     function updateHeaderHeight() {
       if (!headerEl) return
       const h = Math.ceil(headerEl.getBoundingClientRect().height)
