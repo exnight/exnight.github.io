@@ -20,6 +20,8 @@ export async function getStaticPaths() {
 const { post } = Astro.props
 const { title, publishedOn, updatedOn, summary, tags } = post.data
 const { Content, headings } = await render(post)
+const articleProseClass =
+  'markdown-content article-prose prose text-article-body max-[720px]:text-article-body-mobile max-w-[72ch] text-ink-soft [--tw-prose-body:var(--ink-soft)] [--tw-prose-headings:var(--ink)] [--tw-prose-lead:var(--muted)] [--tw-prose-links:var(--vermilion)] [--tw-prose-bold:var(--ink)] [--tw-prose-counters:var(--muted)] [--tw-prose-bullets:var(--line)] [--tw-prose-hr:var(--line)] [--tw-prose-quotes:var(--muted)] [--tw-prose-quote-borders:var(--vermilion)] [--tw-prose-captions:var(--muted)] [--tw-prose-code:var(--ink)] [--tw-prose-pre-code:var(--folio-ink)] [--tw-prose-pre-bg:var(--folio)] [--tw-prose-th-borders:var(--line)] [--tw-prose-td-borders:var(--line)] [&>:first-child]:mt-0 prose-headings:font-display prose-headings:font-[570] prose-headings:tracking-[-0.02em] prose-headings:text-ink prose-headings:text-balance prose-headings:scroll-mt-[calc(var(--header-height)+2rem)] prose-h2:text-article-h2 prose-h2:mt-[3.8rem] prose-h2:mb-[1.1rem] prose-h3:text-article-h3 prose-h3:mt-[2.8rem] prose-h3:mb-[0.9rem] prose-h4:my-[1.33em] prose-h4:text-[1em] prose-p:my-[1.35rem] prose-ul:my-[1.35rem] prose-ul:list-none prose-ul:pl-0 prose-ol:my-[1.35rem] prose-ol:list-none prose-ol:pl-0 prose-li:my-0 prose-a:font-bold prose-a:text-vermilion prose-a:no-underline prose-blockquote:my-[1.35rem] prose-blockquote:border-l prose-blockquote:border-vermilion prose-blockquote:py-[0.4rem] prose-blockquote:pr-0 prose-blockquote:pl-[1.4rem] prose-blockquote:font-display prose-blockquote:text-[1.2em] prose-blockquote:font-normal prose-blockquote:text-muted prose-blockquote:italic prose-code:font-normal prose-code:before:content-none prose-code:after:content-none prose-pre:my-[1.35rem] prose-img:my-0 prose-img:max-w-full prose-table:my-0 prose-table:w-full prose-table:max-w-full prose-table:border-collapse prose-table:text-[1em] prose-table:leading-[inherit] prose-table:[font-variant-numeric:lining-nums_tabular-nums] prose-th:border-b prose-th:border-line prose-th:p-3 prose-th:text-left prose-td:border-b prose-td:border-line prose-td:p-3 prose-td:text-left [&_blockquote_p:first-of-type::before]:content-none [&_blockquote_p:last-of-type::after]:content-none'
 ---
 
 <Layout title={title} description={summary}>
@@ -72,7 +74,7 @@ const { Content, headings } = await render(post)
       <div
         class="grid grid-cols-[minmax(0,1fr)_250px] items-start gap-[clamp(3rem,7vw,7rem)] pt-[clamp(3rem,6vw,6rem)] max-[980px]:grid-cols-1 max-[720px]:pt-12"
       >
-        <article class="markdown-content article-prose">
+        <article class={articleProseClass}>
           <Content components={{ a: ExternalLink }} />
         </article>
 

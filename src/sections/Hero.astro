@@ -5,48 +5,80 @@ import { getSortedBlogPosts } from '@/utils'
 const recentPosts = getSortedBlogPosts().slice(0, 2)
 ---
 
-<section class="site-frame home-folio" id="home">
-  <header class="home-intro">
-    <aside class="home-annotation home-annotation--practice" aria-label="Professional practice">
-      <span class="home-annotation__label">Profession</span>
+<section
+  class="site-frame pt-[clamp(1.25rem,2vw,2rem)] pb-[clamp(2rem,4vw,4rem)] max-[720px]:pt-[1.15rem]"
+  id="home"
+>
+  <header
+    class="relative grid grid-cols-[minmax(10rem,0.7fr)_minmax(32rem,3fr)_minmax(11rem,0.8fr)] items-start gap-x-[clamp(2.5rem,4.5vw,5.5rem)] pt-[clamp(3.25rem,5vw,5rem)] pb-[clamp(0.75rem,1.5vw,1.5rem)] max-[980px]:grid-cols-2 max-[720px]:grid-cols-1 max-[720px]:pt-7 max-[720px]:pb-1"
+  >
+    <aside
+      class="home-annotation--practice pl-rail min-w-0 pt-[clamp(2.6rem,4vw,4rem)] max-[980px]:col-start-1 max-[980px]:px-0 max-[980px]:pt-13 max-[720px]:col-start-1 max-[720px]:row-start-2 max-[720px]:pt-5"
+      aria-label="Professional practice"
+    >
+      <span class="text-meta text-vermilion block font-bold tracking-[0.14em] uppercase"
+        >Profession</span
+      >
       <span class="home-annotation__rule" aria-hidden="true">
         <svg class="home-annotation__curve" viewBox="0 0 116 24" preserveAspectRatio="none">
           <path d="M0 24C52 24 72 0 116 0"></path>
         </svg>
       </span>
-      <ul>
-        <li>Backend applications</li>
-        <li>Data pipelines</li>
-        <li>Cloud infrastructure</li>
-        <li>CI/CD automation</li>
+      <ul
+        class="m-0 flex list-none flex-col gap-3 p-0 max-[720px]:flex-row max-[720px]:flex-wrap max-[720px]:gap-x-[0.85rem] max-[720px]:gap-y-[0.35rem]"
+      >
+        <li class="text-meta text-ink font-bold tracking-[0.11em] uppercase">
+          Backend applications
+        </li>
+        <li class="text-meta text-ink font-bold tracking-[0.11em] uppercase">Data pipelines</li>
+        <li class="text-meta text-ink font-bold tracking-[0.11em] uppercase">
+          Cloud infrastructure
+        </li>
+        <li class="text-meta text-ink font-bold tracking-[0.11em] uppercase">CI/CD automation</li>
       </ul>
     </aside>
 
-    <div class="home-statement">
-      <h1>I build software and keep notes on what I learn.</h1>
-      <p>
+    <div class="max-[980px]:col-span-full max-[980px]:row-start-1 max-[720px]:col-start-1">
+      <h1
+        class="font-display text-hero-title max-[720px]:text-hero-title-mobile m-0 max-w-[21ch] font-[510] tracking-[-0.035em] text-balance max-[720px]:max-w-none"
+      >
+        I build software and keep notes on what I learn.
+      </h1>
+      <p
+        class="text-hero-detail max-[720px]:text-hero-detail-mobile text-muted mt-[clamp(2.75rem,4vw,4rem)] max-w-[74ch] max-[720px]:mt-8"
+      >
         Most of my work is in backend systems, APIs, data pipelines, and cloud infrastructure. I
         also write about basketball, competitive gaming, travelling, and photography.
       </p>
-      <div class="home-statement__identity">
-        <span aria-hidden="true"></span>
-        <span class="home-statement__identity-accent" aria-hidden="true"></span>
-        <span>Software engineer</span>
+      <div
+        class="text-meta text-muted mt-[clamp(2rem,3vw,3rem)] grid max-w-3xl grid-cols-[minmax(4rem,1fr)_clamp(3rem,5vw,5rem)_auto] items-center gap-4 font-bold tracking-[0.14em] uppercase max-[720px]:mt-5 max-[720px]:grid-cols-[minmax(2rem,1fr)_2.5rem_auto] max-[720px]:gap-3"
+      >
+        <span class="bg-line-soft h-px" aria-hidden="true"></span>
+        <span class="bg-brass h-1" aria-hidden="true"></span>
+        <span class="text-brass">Software engineer</span>
       </div>
     </div>
 
-    <aside class="home-annotation home-annotation--interests" aria-label="Personal interests">
-      <span class="home-annotation__label">Beyond Work</span>
-      <span class="home-annotation__rule" aria-hidden="true">
+    <aside
+      class="home-annotation--interests pr-rail min-w-0 pt-[clamp(3rem,4.5vw,4.5rem)] max-[980px]:col-start-2 max-[980px]:px-0 max-[980px]:pt-13 max-[720px]:col-start-1 max-[720px]:row-start-3 max-[720px]:pt-4"
+      aria-label="Personal interests"
+    >
+      <span
+        class="text-meta text-sage block font-bold tracking-[0.14em] uppercase max-[980px]:text-right"
+        >Beyond Work</span
+      >
+      <span class="home-annotation__rule max-[980px]:ml-auto" aria-hidden="true">
         <svg class="home-annotation__curve" viewBox="0 0 138 20" preserveAspectRatio="none">
           <path d="M0 20C46 20 82 0 138 0"></path>
         </svg>
       </span>
-      <ul>
-        <li>Travelling</li>
-        <li>Competitive gaming</li>
-        <li>Photography</li>
-        <li>Basketball</li>
+      <ul
+        class="m-0 flex list-none flex-col gap-3 p-0 max-[980px]:ml-auto max-[980px]:text-right max-[720px]:flex-row max-[720px]:flex-wrap max-[720px]:gap-x-[0.85rem] max-[720px]:gap-y-[0.35rem]"
+      >
+        <li class="text-meta text-ink font-bold tracking-[0.11em] uppercase">Travelling</li>
+        <li class="text-meta text-ink font-bold tracking-[0.11em] uppercase">Competitive gaming</li>
+        <li class="text-meta text-ink font-bold tracking-[0.11em] uppercase">Photography</li>
+        <li class="text-meta text-ink font-bold tracking-[0.11em] uppercase">Basketball</li>
       </ul>
     </aside>
 
