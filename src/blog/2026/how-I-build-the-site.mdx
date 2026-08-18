@@ -1,7 +1,7 @@
 ---
 title: 'How I Built The Site'
-publishedOn: 2026-01-02
-updatedOn: 2026-02-04
+publishedOn: 2026-01-04
+updatedOn: 2026-08-20
 summary: A concise walkthrough of the site's stack, content workflow, and the key decisions behind it.
 published: true
 tags: ['Web Dev', 'Astro', 'Tailwind CSS', 'MDX']
@@ -9,32 +9,19 @@ tags: ['Web Dev', 'Astro', 'Tailwind CSS', 'MDX']
 
 ## Why I built this
 
-I have used this repostiory to host my personal website since 2017. This is a rare opportunity to keep my frontend skills up-to-date. I want to have a space to share my thoughts and projects. Therefore, I added blogging functionalities.
+I have used this repostiory to host my personal website since 2017. This is a rare opportunity to keep my frontend skills up-to-date. I also want to have a space to share my thoughts and projects. Therefore, I added a blog recently.
 
 ## Tech Stack
 
-- Frontend framework: [Astro](https://astro.build/)
-- Styling: [Tailwind CSS](https://tailwindcss.com/)
-- Hosting: [Cloudflare Pages](https://pages.cloudflare.com/)
-
-### History
-
 The website has gone through multiple iterations over the years. It evolved from an ancient craft with [React](https://react.dev/) to later [Next.js](https://nextjs.org/docs) and [Tailwind CSS](https://tailwindcss.com/). I played with [Nuxt.js](https://nuxt.com/) briefly but I found it too heavy for my simple needs.
 
-After all these years, especially the blossom of [Vite](https://vite.dev/guide/), it's very tempting to overhaul the whole setup.
+After all these years, especially the blossom of [Vite](https://vite.dev/guide/), it's very tempting to overhaul the whole setup. I adopted [Astro](https://astro.build/) as it's a modern static site generator with great DX. It also provides first-class support for [MDX](https://mdxjs.com/) and other formats.
 
-### Why Astro?
-
-- A modern static site generator with great DX.
-- First-class support for [MDX](https://mdxjs.com/) and other formats.
-
-I host my site statically on Cloudflare Pages, with limited time to maintain it. Using Astro keeps things simple and easy to maintain.
+I used to host my site on [GitHub pages](https://docs.github.com/en/pages), but I was playing around with [Cloudflare Pages](https://pages.cloudflare.com/) lately. Given I have limited time to maintain the site, using Astro help keep things simple and easy to maintain.
 
 ## How content works
 
-1. Create a new MDX file and populate frontmatter.
-2. Build the project on local and preview.
-3. Commit and push to GitHub, done!
+I can first create a new MDX file and populate frontmatter. Next, I build the project on local and preview. Lastly, I commit and push to GitHub, done!
 
 MDX supports a variety of components, for example,
 
@@ -54,7 +41,10 @@ npm install
 npm run dev
 ```
 
+## How about AI agents
+
+I have to admit that I'm never a good designer. Fortunately, I found ["Impeccable"](https://impeccable.style/). Combining it with [Copilot CLI](https://github.com/features/copilot/cli) and various models, I revamped the visuals to something better than what I can produce.
+
 ## Takeaways
 
-- Clarify your goals then pick the right tools.
-- Value your time and focus on what matters.
+Clarify your goals then pick the right tools. Value your time and focus on what matters.
