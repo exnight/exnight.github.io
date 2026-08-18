@@ -14,8 +14,6 @@ interface Props {
 const { post, variant, accent = 'secondary', divider = false } = Astro.props
 const { id, data } = post
 const tags = data.tags ?? []
-
-const titleClass = 'font-display m-0 font-[560] tracking-[-0.022em] text-balance lining-nums'
 ---
 
 {
@@ -33,7 +31,7 @@ const titleClass = 'font-display m-0 font-[560] tracking-[-0.022em] text-balance
       >
         <PostMeta publishedOn={data.publishedOn} tags={tags} variant="recent" />
         <h3
-          class:list={[titleClass, 'text-recent-title max-[720px]:text-recent-title-mobile']}
+          class="font-display text-recent-title max-[720px]:text-recent-title-mobile m-0 font-[560] tracking-[-0.022em] text-balance wrap-break-word lining-nums"
           transition:name={`${id}-title`}
         >
           {data.title}
@@ -66,7 +64,7 @@ const titleClass = 'font-display m-0 font-[560] tracking-[-0.022em] text-balance
         <PostMeta publishedOn={data.publishedOn} readTime={data.readTime} variant="index" />
         <div>
           <h3
-            class:list={[titleClass, 'text-index-title max-[720px]:text-index-title-mobile']}
+            class="font-display text-index-title max-[720px]:text-index-title-mobile m-0 font-[560] tracking-[-0.022em] text-balance wrap-break-word lining-nums"
             transition:name={`${id}-title`}
           >
             {data.title}

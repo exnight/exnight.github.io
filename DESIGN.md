@@ -106,7 +106,7 @@ components:
     backgroundColor: '{colors.warm-paper}'
     textColor: '{colors.editorial-ink}'
     padding: '0.75rem 0.25rem'
-    width: 'min(50%, 38rem)'
+    width: 'clamp(18rem, 25%, 22rem)'
     desktopMarginInlineEnd: 'clamp(1.2rem, 1.8vw, 1.8rem)'
   table-of-contents:
     backgroundColor: '{colors.raised-paper}'
@@ -196,9 +196,9 @@ The light palette combines warm paper with botanical ink and restrained accents.
 
 ### Hierarchy
 
-- **Display** (variable weight `510`, `clamp(3.5rem, 7vw, 6rem)`, `0.96` line-height): Page and article headings with balanced wrapping.
+- **Display** (variable weight `510`, up to `6rem`, with tight line-height): Page headings retain the broad display range. Article headings use `clamp(3.1rem, 6vw, 4.75rem)` across the full article-header measure so ordinary post titles remain on one line at desktop widths.
 - **Headline** (variable weight `510`, `clamp(3.2rem, 4.7vw, 4.6rem)`, `1` line-height; `clamp(2.65rem, 12vw, 3.25rem)` at mobile): The homepage factual statement; it remains a statement, not an oversized name treatment.
-- **Title** (variable weight around `560`, approximately `1.08` line-height): Recent-writing titles use a long-title-safe `clamp(1.65rem, 2.35vw, 2.25rem)` and tighten to `1.35rem` on mobile; chronological-index titles use `clamp(1.55rem, 2.6vw, 2.35rem)`.
+- **Title** (variable weight around `560`, approximately `1.08` line-height): Recent-writing titles use a long-title-safe `clamp(1.25rem, 2.35vw, 2.25rem)`, allowing the narrow two-column range to fit ordinary titles on one line without changing wide-desktop scale; mobile remains `1.25rem`. Chronological-index titles use `clamp(1.55rem, 2.6vw, 2.35rem)` and `clamp(1.4rem, 5.5vw, 1.55rem)` on mobile. All mobile article titles use the same `clamp(2rem, 9vw, 2.7rem)` scale with safe word wrapping and a two-line target for ordinary titles at the narrowest supported width.
 - **Body** (weight `400`, generally `1rem`, `1.65–1.82` line-height): Interface descriptions and long-form reading. Article prose is capped at `72ch`.
 - **Label** (weight `700`, usually `0.72rem`, `0.14em` tracking, uppercase): Navigation, dates, topics, role text, and compact wayfinding.
 
@@ -212,9 +212,9 @@ The light palette combines warm paper with botanical ink and restrained accents.
 
 ## Layout
 
-The page is a full-width, full-height paper or graphite field at every viewport size. Content aligns to a centered frame capped at `1452px`, with `1.5rem` side insets and `1.125rem` on screens at or below `720px`. The body and `.site-sheet` repeat two extremely low-contrast `25px` linear gradients to give the field a quiet paper fiber without creating a visible grid.
+The page is a full-width, full-height paper or graphite field at every viewport size. Content aligns to a centered frame capped at `1452px`, with `1.5rem` side insets and `1.125rem` on screens at or below `720px`. Conventional pages, navigation, and footer use the shared `PageFrame` primitive, which adds the `clamp(1.2rem, 1.8vw, 1.8rem)` desktop alignment rail and resets that inner padding on mobile. The body and `.site-sheet` repeat two low-contrast `25px` linear gradients to give the field a quiet paper fiber without creating a dominant grid. Dark mobile strengthens this fiber slightly so it remains perceptible on the compact graphite field.
 
-Vertical sections use viewport-aware spacing (`clamp(3.5rem, 7vw, 7rem)`) and a header-aware minimum height. The homepage remains deliberately compact. Above `980px`, Practice, the statement, and Curiosity form a three-column field; below `980px`, the statement leads and the annotations share the next row. At `720px`, the order becomes statement, Practice, Curiosity, then the closing thread; annotation lists wrap into compact rows, the side curves disappear, and their opposed straight rule-and-dot directions remain intact. The main thread swaps between separate authored desktop and mobile SVG drawings rather than stretching one path across both compositions.
+Vertical sections use viewport-aware spacing (`clamp(3.5rem, 7vw, 7rem)`) and a header-aware minimum height. The homepage remains deliberately compact. Above `980px`, Practice, the statement, and Curiosity form a three-column field; below `980px`, the statement leads and the annotations share the next row. At `720px`, the order becomes statement, Practice, Curiosity, then the closing thread; both annotation lists use the same natural flex wrapping, with Practice aligned left and Curiosity aligned right. The side curves disappear, and their opposed straight rule-and-dot directions remain intact. The main thread swaps between separate authored desktop and mobile SVG drawings rather than stretching one path across both compositions.
 
 Blog entries accumulate inside year groups with dates, titles, summaries, and topic cues aligned in open rows. Recent notes shift from two columns to one at `720px`. Article layouts use a measured reading column plus a `250px` sticky table of contents, collapsing to one column with a native `details` disclosure at `980px`.
 
@@ -304,7 +304,7 @@ Components behave like parts of one open publication: compact controls, bounded 
 ### All Writing Continuation
 
 - **Material:** Open paper with top and bottom rules; no fill, radius, or shadow.
-- **Layout:** The link is full width below desktop and becomes a compact right-aligned region (`min(50%, 38rem)`) at `1000px`, with its right edge held to the shared homepage inset.
+- **Layout:** The link is full width below desktop and becomes a compact right-aligned region (`clamp(18rem, 25%, 22rem)`) at `1000px`, roughly half a recent-post tile, with its right edge held to the shared homepage inset.
 - **Content:** “All writing,” a plain newest-first explanation, and a vermilion continuation cue. On mobile the word “Continue” is visually omitted, leaving the open arrow.
 - **State:** Hover shifts the rules to vermilion without lifting the link.
 

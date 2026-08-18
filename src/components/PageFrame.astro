@@ -1,0 +1,20 @@
+---
+interface Props {
+  as?: 'div' | 'nav'
+  class?: string
+  id?: string
+  'aria-label'?: string
+}
+
+const { as: Tag = 'div', class: className, ...attrs } = Astro.props
+---
+
+<Tag
+  {...attrs}
+  class:list={[
+    'px-rail mx-auto w-[min(1452px,calc(100%-3rem))] max-[720px]:w-[min(100%-2.25rem,1452px)] max-[720px]:px-0',
+    className,
+  ]}
+>
+  <slot />
+</Tag>

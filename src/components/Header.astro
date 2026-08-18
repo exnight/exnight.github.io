@@ -1,4 +1,5 @@
 ---
+import PageFrame from './PageFrame.astro'
 import ThemeToggle from './ThemeToggle.astro'
 
 const pathname = Astro.url.pathname
@@ -8,9 +9,10 @@ const activeNavLinkClass = 'after:scale-x-100 after:opacity-100'
 ---
 
 <header class="border-line-soft bg-header-surface sticky top-0 z-50 border-b">
-  <nav
+  <PageFrame
+    as="nav"
     id="navigation"
-    class="site-frame px-rail flex min-h-17 items-center justify-between max-[720px]:min-h-15 max-[720px]:px-0"
+    class="flex min-h-17 items-center justify-between max-[720px]:min-h-15"
     aria-label="Primary navigation"
   >
     <a href="/" class="inline-flex items-center gap-3 no-underline" aria-label="Leo Wong, home">
@@ -33,7 +35,7 @@ const activeNavLinkClass = 'after:scale-x-100 after:opacity-100'
       >
       <ThemeToggle />
     </div>
-  </nav>
+  </PageFrame>
 
   <script>
     const headerEl = document.querySelector('header')

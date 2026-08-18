@@ -1,10 +1,13 @@
 ---
+import PageFrame from '@/components/PageFrame.astro'
+
 interface Props {
   id?: string
   class?: string
+  frameClass?: string
 }
 
-const { id, class: className } = Astro.props
+const { id, class: className, frameClass } = Astro.props
 ---
 
 <section
@@ -14,5 +17,7 @@ const { id, class: className } = Astro.props
   ]}
   id={id}
 >
-  <slot />
+  <PageFrame class={frameClass}>
+    <slot />
+  </PageFrame>
 </section>

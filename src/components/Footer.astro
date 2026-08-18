@@ -1,11 +1,10 @@
 ---
+import PageFrame from '@/components/PageFrame.astro'
 import SocialIconLink from '@/components/SocialIconLink.astro'
 ---
 
 <footer class="border-line bg-folio text-folio-ink border-t">
-  <div
-    class="site-frame px-rail flex min-h-22 items-center justify-between max-[720px]:min-h-20 max-[720px]:px-0"
-  >
+  <PageFrame class="flex min-h-22 items-center justify-between max-[720px]:min-h-20">
     <span class="text-footer text-folio-muted">© {new Date().getFullYear()}</span>
     <nav class="flex gap-[0.65rem]" aria-label="Social profiles">
       <SocialIconLink
@@ -19,5 +18,5 @@ import SocialIconLink from '@/components/SocialIconLink.astro'
         network="linkedin"
       />
     </nav>
-  </div>
+  </PageFrame>
 </footer>

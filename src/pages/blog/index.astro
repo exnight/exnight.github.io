@@ -6,14 +6,12 @@ import Section from '@/components/Section.astro'
 ---
 
 <Layout>
-  <Section>
-    <div class="site-frame min-h-[70vh]">
-      <PageHeading
-        title="My Posts"
-        description="Technical notes and personal interests, newest first."
-        note="I publish new posts from time to time."
-      />
-      <PostGrid />
-    </div>
+  <Section class="min-h-[70vh]">
+    <PageHeading
+      title="My Posts"
+      description="Technical notes and personal interests, newest first."
+      note="I publish my thoughts from time to time."
+    />
+    <PostGrid />
   </Section>
 </Layout>
