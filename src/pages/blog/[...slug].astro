@@ -20,7 +20,7 @@ const { post } = Astro.props
 const { title, publishedOn, updatedOn, summary, tags } = post.data
 const { Content, headings } = await render(post)
 const articleProseClass =
-  'markdown-content article-prose prose text-article-body max-[720px]:text-article-body-mobile w-full max-[1180px]:max-w-[72ch] text-ink-soft [--tw-prose-body:var(--ink-soft)] [--tw-prose-headings:var(--ink)] [--tw-prose-lead:var(--muted)] [--tw-prose-links:var(--vermilion)] [--tw-prose-bold:var(--ink)] [--tw-prose-counters:var(--muted)] [--tw-prose-bullets:var(--line)] [--tw-prose-hr:var(--line)] [--tw-prose-quotes:var(--muted)] [--tw-prose-quote-borders:var(--vermilion)] [--tw-prose-captions:var(--muted)] [--tw-prose-code:var(--ink)] [--tw-prose-pre-code:var(--folio-ink)] [--tw-prose-pre-bg:var(--folio)] [--tw-prose-th-borders:var(--line)] [--tw-prose-td-borders:var(--line)] [&>:first-child]:mt-0 prose-headings:font-display prose-headings:font-[570] prose-headings:tracking-[-0.02em] prose-headings:text-ink prose-headings:text-balance prose-headings:scroll-mt-[calc(var(--header-height)+2rem)] prose-h2:text-article-h2 prose-h2:mt-[3.8rem] prose-h2:mb-[1.1rem] prose-h3:text-article-h3 prose-h3:mt-[2.8rem] prose-h3:mb-[0.9rem] prose-h4:my-[1.33em] prose-h4:text-[1em] prose-p:my-[1.35rem] prose-ul:my-[1.35rem] prose-ul:list-none prose-ul:pl-0 prose-ol:my-[1.35rem] prose-ol:list-none prose-ol:pl-0 prose-li:my-0 prose-a:font-bold prose-a:text-vermilion prose-a:no-underline prose-blockquote:my-[1.35rem] prose-blockquote:border-l prose-blockquote:border-vermilion prose-blockquote:py-[0.4rem] prose-blockquote:pr-0 prose-blockquote:pl-[1.4rem] prose-blockquote:font-display prose-blockquote:text-[1.2em] prose-blockquote:font-normal prose-blockquote:text-muted prose-blockquote:italic prose-code:font-normal prose-code:before:content-none prose-code:after:content-none prose-pre:my-[1.35rem] prose-img:my-0 prose-img:max-w-full prose-table:my-0 prose-table:w-full prose-table:max-w-full prose-table:border-collapse prose-table:text-[1em] prose-table:leading-[inherit] prose-table:[font-variant-numeric:lining-nums_tabular-nums] prose-th:border-b prose-th:border-line prose-th:p-3 prose-th:text-left prose-td:border-b prose-td:border-line prose-td:p-3 prose-td:text-left [&_blockquote_p:first-of-type::before]:content-none [&_blockquote_p:last-of-type::after]:content-none'
+  'markdown-content article-prose prose text-article-body max-[720px]:text-article-body-mobile w-full max-w-none text-ink-soft [--tw-prose-body:var(--ink-soft)] [--tw-prose-headings:var(--ink)] [--tw-prose-lead:var(--muted)] [--tw-prose-links:var(--vermilion)] [--tw-prose-bold:var(--ink)] [--tw-prose-counters:var(--muted)] [--tw-prose-bullets:var(--line)] [--tw-prose-hr:var(--line)] [--tw-prose-quotes:var(--muted)] [--tw-prose-quote-borders:var(--vermilion)] [--tw-prose-captions:var(--muted)] [--tw-prose-code:var(--ink)] [--tw-prose-pre-code:var(--folio-ink)] [--tw-prose-pre-bg:var(--folio)] [--tw-prose-th-borders:var(--line)] [--tw-prose-td-borders:var(--line)] [&>:first-child]:mt-0 prose-headings:font-display prose-headings:font-[570] prose-headings:tracking-[-0.02em] prose-headings:text-ink prose-headings:text-balance prose-headings:scroll-mt-[calc(var(--header-height)+2rem)] prose-h2:text-article-h2 prose-h2:mt-[3.8rem] prose-h2:mb-[1.1rem] prose-h3:text-article-h3 prose-h3:mt-[2.8rem] prose-h3:mb-[0.9rem] prose-h4:my-[1.33em] prose-h4:text-[1em] prose-p:my-[1.35rem] prose-ul:my-[1.35rem] prose-ul:list-none prose-ul:pl-0 prose-ol:my-[1.35rem] prose-ol:list-none prose-ol:pl-0 prose-li:my-0 prose-a:font-bold prose-a:text-vermilion prose-a:no-underline prose-blockquote:my-[1.35rem] prose-blockquote:border-l prose-blockquote:border-vermilion prose-blockquote:py-[0.4rem] prose-blockquote:pr-0 prose-blockquote:pl-[1.4rem] prose-blockquote:font-display prose-blockquote:text-[1.2em] prose-blockquote:font-normal prose-blockquote:text-muted prose-blockquote:italic prose-code:font-normal prose-code:before:content-none prose-code:after:content-none prose-pre:my-[1.35rem] prose-img:my-0 prose-img:max-w-full prose-table:my-0 prose-table:w-full prose-table:max-w-full prose-table:border-collapse prose-table:text-[1em] prose-table:leading-[inherit] prose-table:[font-variant-numeric:lining-nums_tabular-nums] prose-th:border-b prose-th:border-line prose-th:p-3 prose-th:text-left prose-td:border-b prose-td:border-line prose-td:p-3 prose-td:text-left [&_blockquote_p:first-of-type::before]:content-none [&_blockquote_p:last-of-type::after]:content-none'
 ---
 
 <Layout title={title} description={summary}>
@@ -34,13 +34,11 @@ const articleProseClass =
     </a>
 
     <div
-      class="grid w-full grid-cols-[minmax(0,72ch)_minmax(0,1fr)_18rem] items-start gap-x-[clamp(2.5rem,5vw,3rem)] max-[1180px]:grid-cols-1"
+      class="grid w-full grid-cols-[minmax(0,1fr)_18rem] items-start gap-x-[clamp(2.5rem,5vw,3rem)] max-[980px]:grid-cols-1"
     >
-      <header
-        class="article-header border-line col-span-2 col-start-1 row-start-1 max-w-245 border-b max-[1180px]:col-span-1"
-      >
+      <header class="article-header border-line col-start-1 row-start-1 min-w-0 border-b">
         <h1
-          class="font-display text-article-title max-[720px]:text-article-title-mobile m-0 max-w-[18ch] font-[510] tracking-[-0.035em] text-balance wrap-break-word lining-nums"
+          class="font-display text-article-title max-[720px]:text-article-title-mobile m-0 max-w-none font-[510] tracking-[-0.035em] text-balance wrap-break-word lining-nums"
           transition:name={`${post.id}-title`}
         >
           {title}
@@ -79,7 +77,7 @@ const articleProseClass =
             tags.length ? (
               <div class="article-header__field article-header__topics">
                 <dt class="text-vermilion">Topics</dt>
-                <dd class="text-muted m-0 leading-[1.55]">{tags.join(' / ')}</dd>
+                <dd class="text-muted m-0">{tags.join(' / ')}</dd>
               </div>
             ) : null
           }
@@ -88,7 +86,7 @@ const articleProseClass =
 
       {
         headings.length ? (
-          <aside class="sticky top-[calc(var(--header-height)+2rem)] col-start-3 row-span-2 row-start-1 w-full self-start max-[1180px]:hidden">
+          <aside class="sticky top-[calc(var(--header-height)+2rem)] col-start-2 row-span-2 row-start-1 w-full self-start max-[980px]:hidden">
             <TableOfContents headings={headings} />
           </aside>
         ) : null
@@ -96,7 +94,7 @@ const articleProseClass =
 
       {
         headings.length ? (
-          <details class="bg-paper-raised rounded-panel border-line col-span-2 col-start-1 row-start-2 mt-6 hidden max-w-245 border max-[1180px]:col-span-1 max-[1180px]:block">
+          <details class="bg-paper-raised rounded-panel border-line col-start-1 row-start-2 mt-6 hidden border max-[980px]:block">
             <summary class="text-control cursor-pointer px-[1.2rem] py-4 font-bold tracking-[0.12em] uppercase marker:list-inside">
               On this page
             </summary>
@@ -109,7 +107,7 @@ const articleProseClass =
         class:list={[
           articleProseClass,
           'col-start-1 pt-[clamp(2rem,3vw,3rem)] max-[720px]:pt-10',
-          headings.length ? 'row-start-2 max-[1180px]:row-start-3' : 'row-start-2',
+          headings.length ? 'row-start-2 max-[980px]:row-start-3' : 'row-start-2',
         ]}
       >
         <Content components={{ a: ExternalLink }} />
@@ -124,12 +122,13 @@ const articleProseClass =
   }
 
   .article-header__summary {
-    max-width: 60ch;
+    max-width: none;
     margin-top: 1.25rem;
   }
 
   .article-header__meta {
     grid-template-columns: max-content max-content minmax(14rem, 1fr);
+    align-items: baseline;
     margin-top: 1.5rem;
     padding-top: 0;
   }
@@ -139,6 +138,7 @@ const articleProseClass =
     gap: 0.55rem;
     align-items: baseline;
     min-width: 0;
+    line-height: 1.55;
   }
 
   .article-header__topics {
@@ -188,10 +188,22 @@ const articleProseClass =
     text-decoration: var(--shiki-dark-text-decoration);
   }
 
+  @media (max-width: 1180px) {
+    .article-header__meta {
+      grid-template-columns: max-content max-content;
+      row-gap: 0.8rem;
+    }
+
+    .article-header__topics {
+      grid-column: 1 / -1;
+      justify-self: start;
+      text-align: left;
+    }
+  }
+
   @media (max-width: 720px) {
     .article-header__meta {
       grid-template-columns: minmax(0, 1fr);
-      row-gap: 0.8rem;
     }
 
     .article-header__topics {
