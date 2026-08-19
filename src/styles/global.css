@@ -23,6 +23,7 @@
   --color-sage: var(--sage);
   --color-brass: var(--brass);
   --color-brass-ink: var(--brass-ink);
+  --color-accent-ink: var(--accent-ink);
   --color-focus: var(--focus);
   --color-shadow: var(--shadow);
   --font-display: 'Source Serif 4 Variable', ui-serif, Georgia, serif;

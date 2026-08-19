@@ -20,12 +20,12 @@ const tags = data.tags ?? []
   variant === 'recent' ? (
     <article
       class:list={[
-        'min-w-0',
+        'h-full min-w-0 max-[720px]:h-auto',
         divider && 'border-line border-l max-[720px]:border-t max-[720px]:border-l-0',
       ]}
     >
       <a
-        class="group p-rail relative block min-h-38 pr-[clamp(4.5rem,7vw,7rem)] no-underline transition-colors duration-180 hover:bg-[color-mix(in_srgb,var(--paper-sage)_54%,transparent)] max-[720px]:min-h-0 max-[720px]:py-6 max-[720px]:pr-[3.6rem] max-[720px]:pl-0"
+        class="group p-rail relative block h-full min-h-38 pr-[clamp(4.5rem,7vw,7rem)] no-underline transition-colors duration-180 hover:bg-[color-mix(in_srgb,var(--paper-sage)_54%,transparent)] max-[720px]:h-auto max-[720px]:min-h-0 max-[720px]:py-6 max-[720px]:pr-[3.6rem] max-[720px]:pl-0"
         href={`/blog/${id}`}
         aria-label={`Read ${data.title}`}
       >
@@ -43,10 +43,10 @@ const tags = data.tags ?? []
         ) : null}
         <span
           class:list={[
-            'ease-editorial text-brass-ink absolute top-1/2 right-[clamp(1.4rem,2.5vw,2.5rem)] grid size-12 -translate-y-1/2 place-items-center rounded-full transition-transform duration-180 group-hover:translate-x-1 max-[720px]:right-0 max-[720px]:size-auto max-[720px]:rounded-none max-[720px]:bg-transparent',
+            'ease-editorial absolute top-1/2 right-[clamp(1.4rem,2.5vw,2.5rem)] grid size-12 -translate-y-1/2 place-items-center rounded-full transition-transform duration-180 group-hover:translate-x-1 max-[720px]:right-0 max-[720px]:size-auto max-[720px]:rounded-none max-[720px]:bg-transparent',
             accent === 'primary'
-              ? 'bg-vermilion max-[720px]:text-vermilion'
-              : 'bg-brass max-[720px]:text-brass',
+              ? 'bg-vermilion text-accent-ink max-[720px]:text-vermilion'
+              : 'bg-brass text-brass-ink max-[720px]:text-brass',
           ]}
           aria-hidden="true"
         >
