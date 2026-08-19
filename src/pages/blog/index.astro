@@ -1,17 +1,17 @@
 ---
 import Layout from '@/layouts/Layout.astro'
+import PageHeading from '@/components/PageHeading.astro'
 import PostGrid from '@/components/PostGrid.astro'
 import Section from '@/components/Section.astro'
 ---
 
 <Layout>
-  <Section>
-    <div class="min-vh-minus-header mx-auto w-10/12 space-y-8 pt-16 lg:w-3/4">
-      <h1 class="mb-4 text-5xl font-bold md:text-6xl">Blog</h1>
-      <p class="text-md text-(--text-muted)">
-        Thoughts on software engineering, technology, and my hobbies.
-      </p>
-      <PostGrid />
-    </div>
+  <Section class="min-h-[70vh]">
+    <PageHeading
+      title="My Posts"
+      description="Technical notes and personal interests, newest first."
+      note="I publish my thoughts from time to time."
+    />
+    <PostGrid />
   </Section>
 </Layout>

@@ -1,45 +1,321 @@
 ---
-import Section from '@/components/Section.astro'
+import PostEntry from '@/components/PostEntry.astro'
+import { getSortedBlogPosts } from '@/utils'
+
+const recentPosts = getSortedBlogPosts().slice(0, 2)
 ---
 
-<Section id="home">
-  <div class="min-vh-minus-header flex w-full items-center justify-center">
-    <div class="w-10/12 space-y-6 lg:w-3/4">
-      <div class="space-y-4">
-        <h1 class="text-4xl font-bold md:text-6xl">
-          Hi, I'm{' '}
-          <span class="bg-linear-to-r from-blue-600 to-violet-600 bg-clip-text text-transparent">
-            Leo Wong
-          </span>
-        </h1>
-        <p class="text-xl md:text-2xl">Software Engineer • Basketball Enthusiast • CS Tactician</p>
-      </div>
+<section
+  class="mx-auto w-[min(1452px,calc(100%-3rem))] pt-[clamp(1.25rem,2vw,2rem)] pb-[clamp(2rem,4vw,4rem)] max-[720px]:w-[min(100%-2.25rem,1452px)] max-[720px]:pt-[1.15rem] max-[720px]:pb-16"
+  id="home"
+>
+  <header
+    class="relative grid grid-cols-[minmax(10rem,0.7fr)_minmax(32rem,3fr)_minmax(11rem,0.8fr)] items-start gap-x-[clamp(2.5rem,4.5vw,5.5rem)] pt-[clamp(3.25rem,5vw,5rem)] pb-[clamp(0.75rem,1.5vw,1.5rem)] max-[980px]:grid-cols-2 max-[720px]:grid-cols-1 max-[720px]:pt-7 max-[720px]:pb-1"
+  >
+    <aside
+      class="home-annotation--practice pl-rail min-w-0 pt-[clamp(2.6rem,4vw,4rem)] max-[980px]:col-start-1 max-[980px]:px-0 max-[980px]:pt-13 max-[720px]:col-start-1 max-[720px]:row-start-2 max-[720px]:pt-10"
+      aria-label="Professional practice"
+    >
+      <span class="text-meta text-vermilion block font-bold tracking-[0.14em] uppercase"
+        >Profession</span
+      >
+      <span class="home-annotation__rule" aria-hidden="true">
+        <svg class="home-annotation__curve" viewBox="0 0 116 24" preserveAspectRatio="none">
+          <path d="M0 24C52 24 72 0 116 0"></path>
+        </svg>
+      </span>
+      <ul
+        class="m-0 flex list-none flex-col gap-3 p-0 max-[720px]:flex-row max-[720px]:flex-wrap max-[720px]:gap-x-[0.85rem] max-[720px]:gap-y-[0.35rem]"
+      >
+        <li class="text-meta text-ink font-bold tracking-[0.11em] uppercase">
+          Backend applications
+        </li>
+        <li class="text-meta text-ink font-bold tracking-[0.11em] uppercase">Data pipelines</li>
+        <li class="text-meta text-ink font-bold tracking-[0.11em] uppercase">
+          Cloud infrastructure
+        </li>
+        <li class="text-meta text-ink font-bold tracking-[0.11em] uppercase">CI/CD automation</li>
+      </ul>
+    </aside>
 
-      <p class="leading-relaxed text-(--text-muted)">
-        I build scalable backend systems, design robust APIs, and work with data pipelines. I have
-        hands-on experience with containerized applications, Kubernetes/OpenShift, and cloud
-        platforms like AWS and Azure.
+    <div class="max-[980px]:col-span-full max-[980px]:row-start-1 max-[720px]:col-start-1">
+      <h1
+        class="font-display text-hero-title max-[720px]:text-hero-title-mobile m-0 max-w-[21ch] font-[510] tracking-[-0.035em] text-balance max-[720px]:max-w-none"
+      >
+        I build software and keep notes on what I learn.
+      </h1>
+      <p
+        class="text-hero-detail max-[720px]:text-hero-detail-mobile text-muted mt-[clamp(2.75rem,4vw,4rem)] max-w-[74ch] max-[720px]:mt-8"
+      >
+        Most of my work is in backend systems, APIs, data pipelines, and cloud infrastructure. I
+        also write about basketball, competitive gaming, travelling, and photography.
       </p>
-      <p class="leading-relaxed text-(--text-muted)">
-        Beyond coding, I'm passionate about basketball, competitive gaming, and traveling to capture
-        moments through photography.
-      </p>
+      <div
+        class="text-meta text-muted mt-[clamp(2rem,3vw,3rem)] grid max-w-3xl grid-cols-[minmax(4rem,1fr)_clamp(3rem,5vw,5rem)_auto] items-center gap-4 font-bold tracking-[0.14em] uppercase max-[720px]:mt-6 max-[720px]:grid-cols-[minmax(2rem,1fr)_2.5rem_auto] max-[720px]:gap-3"
+      >
+        <span class="bg-line-soft h-px" aria-hidden="true"></span>
+        <span class="bg-brass h-1" aria-hidden="true"></span>
+        <span class="text-brass">Software engineer</span>
+      </div>
     </div>
 
-    <div class="absolute bottom-12 flex flex-col items-center">
-      <p class="text-secondary mb-4 text-xs tracking-widest uppercase">Scroll to explore</p>
+    <aside
+      class="home-annotation--interests pr-rail min-w-0 pt-[clamp(3rem,4.5vw,4.5rem)] max-[980px]:col-start-2 max-[980px]:px-0 max-[980px]:pt-13 max-[720px]:col-start-1 max-[720px]:row-start-3 max-[720px]:pt-8"
+      aria-label="Personal interests"
+    >
+      <span
+        class="text-meta text-sage block font-bold tracking-[0.14em] uppercase max-[980px]:text-right"
+        >Beyond Work</span
+      >
+      <span class="home-annotation__rule max-[980px]:ml-auto" aria-hidden="true">
+        <svg class="home-annotation__curve" viewBox="0 0 138 20" preserveAspectRatio="none">
+          <path d="M0 20C46 20 82 0 138 0"></path>
+        </svg>
+      </span>
+      <ul
+        class="m-0 flex list-none flex-col gap-3 p-0 max-[980px]:ml-auto max-[980px]:text-right max-[720px]:flex-row max-[720px]:flex-wrap max-[720px]:justify-end max-[720px]:gap-x-[0.85rem] max-[720px]:gap-y-[0.35rem]"
+      >
+        <li class="text-meta text-ink font-bold tracking-[0.11em] uppercase">Travelling</li>
+        <li class="text-meta text-ink font-bold tracking-[0.11em] uppercase">Competitive gaming</li>
+        <li class="text-meta text-ink font-bold tracking-[0.11em] uppercase">Photography</li>
+        <li class="text-meta text-ink font-bold tracking-[0.11em] uppercase">Basketball</li>
+      </ul>
+    </aside>
+
+    <div class="home-annotation-thread" aria-hidden="true">
       <svg
-        class="text-secondary h-5 w-5 animate-bounce"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
+        class="home-annotation-thread__drawing home-annotation-thread__drawing--desktop"
+        viewBox="278 340 1112 110"
+        preserveAspectRatio="none"
       >
         <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+          class="home-annotation-thread__base"
+          d="M278 374C478 344 658 366 818 400S1120 444 1390 392"></path>
+        <path class="home-annotation-thread__accent" d="M940 414C1038 434 1128 430 1210 410"></path>
       </svg>
+      <svg
+        class="home-annotation-thread__drawing home-annotation-thread__drawing--mobile"
+        viewBox="20 550 350 70"
+        preserveAspectRatio="none"
+      >
+        <path
+          class="home-annotation-thread__base"
+          d="M20 574C96 558 166 568 224 588S318 608 370 590"></path>
+        <path class="home-annotation-thread__accent" d="M246 594C292 606 326 602 354 594"></path>
+      </svg>
+      <span class="home-annotation-thread__marker home-annotation-thread__marker--start"></span>
+      <span class="home-annotation-thread__marker home-annotation-thread__marker--end"></span>
     </div>
-  </div>
-</Section>
+  </header>
+
+  <section
+    class="pt-[clamp(0.75rem,1.3vw,1.1rem)] max-[720px]:pt-12"
+    aria-labelledby="recent-writing-heading"
+  >
+    <div
+      class="mx-rail border-line-soft border-b pb-[clamp(0.8rem,1.2vw,1rem)] max-[720px]:mx-0 max-[720px]:pb-2"
+    >
+      <h2
+        id="recent-writing-heading"
+        class="font-display text-index-title m-0 font-[560] tracking-[-0.022em]"
+      >
+        Latest writing
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-2 max-[720px]:grid-cols-1">
+      {
+        recentPosts.map((post, index) => (
+          <PostEntry
+            post={post}
+            variant="recent"
+            accent={index === 0 ? 'primary' : 'secondary'}
+            divider={index > 0}
+          />
+        ))
+      }
+    </div>
+  </section>
+
+  <style>
+    .home-annotation__rule {
+      position: relative;
+      display: block;
+      width: min(100%, 10rem);
+      height: 1px;
+      margin: 0.9rem 0 1.25rem;
+      background: var(--line);
+    }
+
+    .home-annotation__rule::before {
+      position: absolute;
+      top: 50%;
+      width: 0.55rem;
+      height: 0.55rem;
+      border-radius: 50%;
+      background: var(--vermilion);
+      content: '';
+      transform: translateY(-50%);
+    }
+
+    .home-annotation--practice .home-annotation__rule::before {
+      right: -0.25rem;
+    }
+
+    .home-annotation--interests .home-annotation__rule::before {
+      left: -0.25rem;
+      background: var(--sage);
+    }
+
+    .home-annotation__curve {
+      position: absolute;
+      overflow: visible;
+    }
+
+    .home-annotation__curve path {
+      fill: none;
+      stroke: var(--vermilion);
+      stroke-linecap: round;
+      stroke-width: 2;
+      vector-effect: non-scaling-stroke;
+    }
+
+    .home-annotation--practice .home-annotation__curve {
+      top: -1.5rem;
+      left: calc(100% + 0.15rem);
+      width: 7.25rem;
+      height: 1.5rem;
+    }
+
+    .home-annotation--interests .home-annotation__curve {
+      top: 0;
+      right: calc(100% + 0.15rem);
+      width: 8.625rem;
+      height: 1.25rem;
+    }
+
+    .home-annotation--interests .home-annotation__curve path {
+      stroke: var(--sage);
+    }
+
+    .home-annotation-thread {
+      position: relative;
+      width: auto;
+      height: clamp(3.5rem, 4.5vw, 4.5rem);
+      margin-top: clamp(1.25rem, 2vw, 2rem);
+      margin-inline-end: clamp(1.2rem, 1.8vw, 1.8rem);
+      overflow: visible;
+      grid-column: 2 / -1;
+    }
+
+    .home-annotation-thread__drawing {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      inset: 0;
+      overflow: visible;
+    }
+
+    .home-annotation-thread__drawing--mobile {
+      display: none;
+    }
+
+    .home-annotation-thread__drawing path {
+      fill: none;
+      vector-effect: non-scaling-stroke;
+    }
+
+    .home-annotation-thread__base {
+      stroke: var(--line-soft);
+      stroke-width: 1.25;
+    }
+
+    .home-annotation-thread__accent {
+      stroke: var(--vermilion);
+      stroke-linecap: round;
+      stroke-width: 4;
+    }
+
+    .home-annotation-thread__marker {
+      position: absolute;
+      width: 0.65rem;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .home-annotation-thread__marker--start {
+      top: 31%;
+      left: 0;
+      background: var(--brass);
+    }
+
+    .home-annotation-thread__marker--end {
+      top: 64%;
+      left: 84%;
+      background: var(--vermilion);
+    }
+
+    @media (max-width: 980px) {
+      .home-annotation--interests .home-annotation__rule {
+        margin-inline-start: auto;
+      }
+
+      .home-annotation-thread {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .home-annotation__rule {
+        width: 8rem;
+        margin-block: 0.5rem 0.55rem;
+      }
+
+      .home-annotation__curve {
+        display: none;
+      }
+
+      .home-annotation-thread {
+        height: 1.75rem;
+        margin-top: 1.5rem;
+        margin-inline-end: 0;
+        grid-column: 1;
+        grid-row: 4;
+      }
+
+      .home-annotation-thread__drawing--desktop {
+        display: none;
+      }
+
+      .home-annotation-thread__drawing--mobile {
+        display: block;
+      }
+
+      .home-annotation-thread__marker--start {
+        top: 34%;
+      }
+
+      .home-annotation-thread__marker--end {
+        top: 63%;
+        left: 95.5%;
+      }
+    }
+  </style>
+
+  <a
+    class="text-meta ease-editorial border-t-line border-b-line-soft text-ink hover:border-vermilion min-[1000px]:mr-rail mt-[clamp(1.2rem,2vw,2rem)] flex min-h-15 items-center justify-between border-y px-1 py-3 font-bold tracking-[0.14em] uppercase no-underline transition-colors duration-180 max-[720px]:mt-8 max-[720px]:min-h-[3.4rem] max-[720px]:items-end min-[1000px]:ml-auto min-[1000px]:w-[clamp(18rem,25%,22rem)]"
+    href="/blog"
+  >
+    <span class="flex flex-col gap-[0.35rem]">
+      <strong>All writing</strong>
+      <small class="text-continuation-note text-muted font-normal tracking-normal normal-case">
+        Notes and posts, newest first
+      </small>
+    </span>
+    <span class="text-vermilion">
+      <span class="max-[720px]:hidden">Continue </span>
+      <span class="max-[720px]:text-continuation-arrow" aria-hidden="true">→</span>
+    </span>
+  </a>
+</section>

@@ -1,0 +1,33 @@
+---
+import { DATE_FORMAT_DISPLAY } from '@/utils'
+
+interface Props {
+  publishedOn: Date
+  tags?: string[]
+  readTime?: number
+  variant: 'recent' | 'index' | 'article'
+}
+
+const { publishedOn, tags = [], readTime, variant }: Props = Astro.props
+const displayedTags = variant === 'recent' ? tags.slice(0, 3) : tags
+const baseClass = 'text-meta font-bold tracking-[0.14em] uppercase'
+const variantClasses: Record<Props['variant'], string> = {
+  recent:
+    'mb-4 flex flex-wrap gap-x-8 gap-y-3 text-vermilion max-[720px]:mb-[0.7rem] max-[720px]:text-entry-meta-mobile',
+  index:
+    'flex flex-col gap-[0.55rem] text-vermilion max-[720px]:flex-row max-[720px]:flex-wrap max-[720px]:gap-x-4 max-[720px]:gap-y-[0.6rem]',
+  article: 'mb-6 flex flex-wrap gap-x-6 gap-y-3 text-vermilion',
+}
+---
+
+<div class:list={[baseClass, variantClasses[variant]]}>
+  <time datetime={publishedOn.toISOString()}>
+    {publishedOn.toLocaleDateString('en-US', DATE_FORMAT_DISPLAY)}
+  </time>
+  {variant === 'index' && readTime ? <span class="text-muted">{readTime} min read</span> : null}
+  {
+    variant !== 'index' && displayedTags.length ? (
+      <span class="text-muted">{displayedTags.join(' / ')}</span>
+    ) : null
+  }
+</div>

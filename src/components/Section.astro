@@ -1,11 +1,23 @@
 ---
+import PageFrame from '@/components/PageFrame.astro'
+
 interface Props {
   id?: string
+  class?: string
+  frameClass?: string
 }
 
-const { id } = Astro.props
+const { id, class: className, frameClass } = Astro.props
 ---
 
-<section class="min-h-dvh scroll-mt-24 pb-8" id={id}>
-  <slot />
+<section
+  class:list={[
+    'min-h-[calc(100vh-var(--header-height))] scroll-mt-(--header-height) py-[clamp(3.5rem,7vw,7rem)] max-[720px]:py-14!',
+    className,
+  ]}
+  id={id}
+>
+  <PageFrame class={frameClass}>
+    <slot />
+  </PageFrame>
 </section>

@@ -7,88 +7,91 @@ interface Heading {
 
 interface Props {
   headings: Heading[]
+  variant?: 'panel' | 'mobile'
 }
 
-const { headings } = Astro.props
+const { headings, variant = 'panel' } = Astro.props
 ---
 
-<div class="rounded-lg border border-(--border-muted) bg-(--bg-light) p-4">
-  <h3 class="mb-4 text-lg font-semibold text-(--text)">On this page</h3>
-  <ul>
+<nav
+  class:list={[
+    'bg-paper-raised p-5',
+    variant === 'panel'
+      ? 'rounded-panel border-line border'
+      : 'rounded-b-panel border-line-soft border-t',
+  ]}
+  aria-label="On this page"
+>
+  <h2
+    class:list={[
+      'text-meta mt-0 mb-4 font-bold tracking-[0.14em] uppercase',
+      variant === 'mobile' && 'hidden',
+    ]}
+  >
+    On this page
+  </h2>
+  <ol class="m-0 flex list-none flex-col gap-[0.2rem] p-0">
     {
       headings.map((heading) => (
         <li
-          class="py-0.5"
-          class:list={{
-            'ml-4 border-l': heading.depth === 3,
-            'ml-8 border-l': heading.depth === 4,
-          }}
+          class:list={[
+            'min-w-0',
+            heading.depth === 3 && 'pl-[0.8rem]',
+            heading.depth >= 4 && 'pl-6',
+          ]}
         >
           <a
             href={`#${heading.slug}`}
-            class="toc-link hover:text-secondary block rounded px-2.5 py-1.5 text-(--text-muted) transition-colors hover:bg-(--bg)"
-            class:list={{
-              'ml-2': heading.depth === 3 || heading.depth === 4,
-              'ml-0': heading.depth === 2,
-            }}
+            class="toc-link text-toc-link rounded-control text-muted hover:bg-paper-sage hover:text-ink [&.toc-current]:bg-paper-sage [&.toc-current]:text-ink block px-[0.65rem] py-[0.55rem] leading-[1.35] no-underline [&.toc-current]:font-bold"
           >
             {heading.text}
           </a>
         </li>
       ))
     }
-  </ul>
-</div>
+  </ol>
+</nav>
 
 <script>
-  // Wrapper for Blog post content
   let wrappingElement: Element | null
   let observeHeaderTags: IntersectionObserver
   let allHeaderTags: NodeListOf<Element>
 
-  // Function that runs when the Intersection Observer fires
-  function setCurrent(e: IntersectionObserverEntry[]) {
-    var allSectionLinks = document.querySelectorAll('.toc-link')
-    e.map((i) => {
-      if (i.isIntersecting === true) {
-        allSectionLinks.forEach((link) => link.classList.remove('toc-current'))
-        const targetLink = document.querySelector(`a[href="#${i.target.id}"].toc-link`)
+  function setCurrent(entries: IntersectionObserverEntry[]) {
+    const allSectionLinks = document.querySelectorAll<HTMLAnchorElement>('.toc-link')
 
-        if (targetLink) targetLink.classList.add('toc-current')
-      }
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return
+
+      allSectionLinks.forEach((link) => {
+        link.classList.remove('toc-current')
+        link.removeAttribute('aria-current')
+      })
+
+      document
+        .querySelectorAll<HTMLAnchorElement>(`a[href="#${entry.target.id}"].toc-link`)
+        .forEach((targetLink) => {
+          targetLink.classList.add('toc-current')
+          targetLink.setAttribute('aria-current', 'location')
+        })
     })
   }
 
   function initTOC() {
-    // update this with whatever class wraps your blog post content
+    observeHeaderTags?.disconnect()
     wrappingElement = document.querySelector('.markdown-content')
-    if (wrappingElement !== null) {
-      // Get all H1/H2/H3 tags from the post
-      allHeaderTags = wrappingElement.querySelectorAll(':scope > h1, :scope > h2, :scope > h3')
-    }
+    if (!wrappingElement) return
 
-    // Intersection Observer Options
-    let options: IntersectionObserverInit = {
+    allHeaderTags = wrappingElement.querySelectorAll(':scope > h1, :scope > h2, :scope > h3')
+    observeHeaderTags = new IntersectionObserver(setCurrent, {
       root: null,
-      rootMargin: '0px 0px -50% 0px',
-      threshold: [1],
-    }
-
-    // Each Intersection Observer runs setCurrent
-    observeHeaderTags = new IntersectionObserver(setCurrent, options)
-    if (wrappingElement === null) {
-      return
-    }
-    allHeaderTags.forEach((tag) => {
-      // add scroll margin top to account for fixed navbar
-      tag.classList.add('scroll-mt-24')
-      observeHeaderTags.observe(tag)
+      rootMargin: '-18% 0px -68% 0px',
+      threshold: [0, 1],
     })
+
+    allHeaderTags.forEach((tag) => observeHeaderTags.observe(tag))
   }
 
-  // runs on initial page load
   initTOC()
-
-  // runs on view transitions navigation
   document.addEventListener('astro:after-swap', initTOC)
 </script>

@@ -1,24 +1,45 @@
 ---
-import NavIcon from './NavIcon.astro'
+import PageFrame from './PageFrame.astro'
 import ThemeToggle from './ThemeToggle.astro'
+
+const pathname = Astro.url.pathname
+const navLinkClass =
+  "relative py-[1.55rem] text-meta font-bold tracking-[0.14em] uppercase no-underline after:absolute after:right-0 after:bottom-4 after:left-0 after:h-0.5 after:scale-x-[0.35] after:rounded-sm after:bg-vermilion after:opacity-0 after:transition-[opacity,transform] after:duration-[180ms] after:ease-editorial after:content-[''] hover:after:scale-x-100 hover:after:opacity-100 max-[720px]:py-5 max-[720px]:text-nav-mobile"
+const activeNavLinkClass = 'after:scale-x-100 after:opacity-100'
 ---
 
-<header class="sticky top-0 z-50 shadow-xs backdrop-blur-sm">
-  <nav id="navigation" class="mx-auto w-10/12 lg:w-3/4">
-    <div class="flex items-center justify-between py-4">
-      <a href="/" class="transition-opacity hover:opacity-60" aria-label="Home button">
-        <NavIcon />
-      </a>
-      <div class="flex items-center gap-8">
-        <a href="/blog" class="transition-opacity hover:opacity-60"> Blog </a>
-        <ThemeToggle />
-      </div>
+<header class="border-line-soft bg-header-surface sticky top-0 z-50 border-b">
+  <PageFrame
+    as="nav"
+    id="navigation"
+    class="flex min-h-17 items-center justify-between max-[720px]:min-h-15"
+    aria-label="Primary navigation"
+  >
+    <a href="/" class="inline-flex items-center gap-3 no-underline" aria-label="Leo Wong, home">
+      <span class="text-meta text-vermilion font-bold tracking-[0.14em] uppercase">LW</span>
+      <span class="text-meta text-ink font-bold tracking-[0.14em] uppercase max-[720px]:hidden"
+        >/ Leo Wong</span
+      >
+    </a>
+
+    <div class="flex items-center gap-[clamp(1.2rem,3vw,3rem)] max-[720px]:gap-4">
+      <a
+        href="/"
+        class:list={[navLinkClass, pathname === '/' && activeNavLinkClass]}
+        aria-current={pathname === '/' ? 'page' : undefined}>Home</a
+      >
+      <a
+        href="/blog"
+        class:list={[navLinkClass, pathname.startsWith('/blog') && activeNavLinkClass]}
+        aria-current={pathname.startsWith('/blog') ? 'page' : undefined}>Writing</a
+      >
+      <ThemeToggle />
     </div>
-  </nav>
+  </PageFrame>
 
   <script>
-    // expose header height as a CSS variable so other components can size accordingly
     const headerEl = document.querySelector('header')
+
     function updateHeaderHeight() {
       if (!headerEl) return
       const h = Math.ceil(headerEl.getBoundingClientRect().height)

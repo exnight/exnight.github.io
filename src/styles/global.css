@@ -1,38 +1,174 @@
 @import 'tailwindcss';
-
 @plugin '@tailwindcss/typography';
 @import './fonts.css';
-
 @import './theme.css';
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-.dark {
-  .astro-code,
-  .astro-code span {
-    color: var(--shiki-dark) !important;
-    background-color: var(--shiki-dark-bg) !important;
-    font-style: var(--shiki-dark-font-style) !important;
-    font-weight: var(--shiki-dark-font-weight) !important;
-    text-decoration: var(--shiki-dark-text-decoration) !important;
-  }
+@theme inline {
+  --color-paper: var(--paper);
+  --color-paper-raised: var(--paper-raised);
+  --color-paper-sage: var(--paper-sage);
+  --color-folio: var(--folio);
+  --color-folio-ink: var(--folio-ink);
+  --color-folio-muted: color-mix(in srgb, var(--folio-ink) 68%, var(--sage));
+  --color-folio-line: color-mix(in srgb, var(--folio-ink) 38%, transparent);
+  --color-header-surface: color-mix(in srgb, var(--paper) 94%, transparent);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-line-soft: var(--line-soft);
+  --color-vermilion: var(--vermilion);
+  --color-sage: var(--sage);
+  --color-brass: var(--brass);
+  --color-brass-ink: var(--brass-ink);
+  --color-focus: var(--focus);
+  --color-shadow: var(--shadow);
+  --font-display: 'Source Serif 4 Variable', ui-serif, Georgia, serif;
+  --font-sans: 'Lato', ui-sans-serif, system-ui, sans-serif;
+  --text-meta: 0.72rem;
+  --text-meta--line-height: 1.2;
+  --text-entry-meta-mobile: 0.6rem;
+  --text-entry-meta-mobile--line-height: 1.2;
+  --text-nav-mobile: 0.63rem;
+  --text-nav-mobile--line-height: 1.2;
+  --text-footer: 0.85rem;
+  --text-control: 0.78rem;
+  --text-hero-title: clamp(3.2rem, 4.7vw, 4.6rem);
+  --text-hero-title--line-height: 1;
+  --text-hero-title-mobile: clamp(2.65rem, 12vw, 3.25rem);
+  --text-hero-title-mobile--line-height: 1.02;
+  --text-hero-detail: clamp(0.92rem, 1vw, 1rem);
+  --text-hero-detail--line-height: 1.6;
+  --text-hero-detail-mobile: 0.82rem;
+  --text-hero-detail-mobile--line-height: 1.55;
+  --text-page-lead: 1.08rem;
+  --text-page-note: 0.9rem;
+  --text-page-title: clamp(3.5rem, 7vw, 6rem);
+  --text-page-title--line-height: 0.96;
+  --text-page-title-mobile: clamp(3.2rem, 15vw, 4.8rem);
+  --text-page-title-mobile--line-height: 0.96;
+  --text-recent-title: clamp(1.25rem, 2.35vw, 2.25rem);
+  --text-recent-title--line-height: 1.08;
+  --text-recent-title-mobile: 1.25rem;
+  --text-recent-title-mobile--line-height: 1.08;
+  --text-index-title: clamp(1.55rem, 2.6vw, 2.35rem);
+  --text-index-title--line-height: 1.08;
+  --text-index-title-mobile: clamp(1.4rem, 5.5vw, 1.55rem);
+  --text-index-title-mobile--line-height: 1.08;
+  --text-year-title: clamp(2rem, 4vw, 3.5rem);
+  --text-year-title--line-height: 1;
+  --text-article-title: clamp(3.1rem, 6vw, 4.75rem);
+  --text-article-title--line-height: 1;
+  --text-article-title-mobile: clamp(2rem, 9vw, 2.7rem);
+  --text-article-title-mobile--line-height: 1.02;
+  --text-article-deck: clamp(1.05rem, 1.5vw, 1.25rem);
+  --text-article-body: clamp(1.05rem, 1.25vw, 1.17rem);
+  --text-article-body--line-height: 1.82;
+  --text-article-body-mobile: 1.02rem;
+  --text-article-body-mobile--line-height: 1.75;
+  --text-article-h2: clamp(2rem, 3vw, 2.8rem);
+  --text-article-h2--line-height: 1.15;
+  --text-article-h3: clamp(1.55rem, 2.3vw, 2rem);
+  --text-article-h3--line-height: 1.15;
+  --text-continuation-note: 0.74rem;
+  --text-continuation-arrow: 1.2rem;
+  --text-toc-link: 0.86rem;
+  --spacing-rail: clamp(1.2rem, 1.8vw, 1.8rem);
+  --radius-control: 7px;
+  --radius-panel: 11px;
+  --radius-capsule: 1.2rem;
+  --ease-editorial: ease-out;
 }
 
-@theme {
-  --color-background: var(--bg-dark);
-  --color-primary: var(--primary);
-  --color-secondary: var(--secondary);
-}
-
-@layer base {
-  html {
-    @apply text-(--text);
-    @apply border-(--border);
-  }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 html {
+  background: var(--paper-sage);
+  color: var(--ink);
+  font-family: 'Lato', ui-sans-serif, system-ui, sans-serif;
   scroll-behavior: smooth;
+  scrollbar-color: var(--sage) var(--paper);
+  text-rendering: optimizeLegibility;
+}
+
+body,
+.site-sheet {
+  background-color: var(--paper);
+  background-image:
+    repeating-linear-gradient(0deg, transparent 0 25px, var(--grid-line-strong) 25px 26px),
+    repeating-linear-gradient(90deg, transparent 0 25px, var(--grid-line-soft) 25px 26px);
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  color: var(--ink);
+  transition:
+    background-color 300ms ease,
+    color 300ms ease;
+}
+
+.site-sheet {
+  min-height: 100vh;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--brass) 72%, transparent);
+  color: var(--brass-ink);
+}
+
+a {
+  color: inherit;
+  text-underline-offset: 0.2em;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+:focus-visible {
+  border-radius: var(--radius-control);
+  outline: 3px solid var(--focus);
+  outline-offset: 4px;
+}
+
+svg {
+  display: block;
+}
+
+time,
+.lining-nums {
+  font-variant-numeric: lining-nums tabular-nums;
+  font-feature-settings:
+    'lnum' 1,
+    'tnum' 1;
+}
+
+.skip-link {
+  position: fixed;
+  z-index: 100;
+  top: 0.75rem;
+  left: 0.75rem;
+  padding: 0.7rem 1rem;
+  border-radius: var(--radius-control);
+  background: var(--folio);
+  color: var(--folio-ink);
+  font-size: var(--text-control);
+  font-weight: 700;
+  transform: translateY(-160%);
+  transition: transform 180ms ease-out;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -41,8 +177,15 @@ html {
   }
 }
 
-/* Header height fallback and utility */
-/* Components can use `calc(100vh - var(--header-height))` or the utility below */
-.min-vh-minus-header {
-  min-height: calc(100vh - var(--header-height, 56px));
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+  }
 }

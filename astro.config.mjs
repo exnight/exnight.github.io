@@ -21,7 +21,8 @@ export default defineConfig({
       themes: {
         light: 'github-light',
         dark: "github-dark"
-      }
+      },
+      defaultColor: false
     }
   },
   vite: {
@@ -29,6 +30,7 @@ export default defineConfig({
     server: {
       watch: {
         usePolling: process.env.IS_CONTAINER == 'true',
+        interval: 500
       }
     }
   },

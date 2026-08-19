@@ -1,0 +1,90 @@
+---
+interface Props {
+  title: string
+  description: string
+  note?: string
+}
+
+const { title, description, note } = Astro.props
+---
+
+<header
+  class="mb-[clamp(3rem,6vw,6rem)] grid grid-cols-[minmax(0,1fr)_minmax(20rem,0.38fr)] items-stretch gap-[clamp(2rem,4vw,4.5rem)] max-[980px]:grid-cols-1 max-[720px]:mb-12"
+>
+  <div>
+    <h1
+      class="font-display text-page-title max-[720px]:text-page-title-mobile m-0 font-[510] tracking-[-0.035em] text-balance"
+    >
+      {title}
+    </h1>
+    <p class="text-page-lead text-muted mt-5 max-w-[62ch] leading-[1.7]">{description}</p>
+  </div>
+  {
+    note ? (
+      <aside class="border-line flex min-h-32 items-stretch border-t border-l pt-5 pb-4 pl-[clamp(1.5rem,2.5vw,2.5rem)] max-[720px]:block max-[720px]:min-h-0 max-[720px]:border-b max-[720px]:border-l-0 max-[720px]:p-0">
+        <div class="grid w-full min-w-0 content-center gap-3 max-[720px]:hidden">
+          <span
+            class="text-meta text-vermilion font-bold tracking-[0.14em] uppercase"
+            aria-hidden="true"
+          >
+            Find a note
+          </span>
+          <fieldset
+            class="m-0 grid min-w-0 gap-[0.7rem] border-0 p-0 disabled:opacity-100"
+            disabled
+          >
+            <legend class="sr-only">Future blog search and tag filters</legend>
+            <label class="sr-only" for="blog-search-preview">
+              Search posts
+            </label>
+            <span class="border-ink grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4 border-b pt-[0.4rem] pb-[0.55rem]">
+              <input
+                id="blog-search-preview"
+                class="font-display text-page-lead text-ink placeholder:text-ink min-w-0 border-0 bg-transparent p-0 leading-[1.2] opacity-100 outline-0 [-webkit-text-fill-color:var(--ink)] placeholder:opacity-100"
+                type="search"
+                placeholder="Search by title or idea"
+              />
+              <span class="text-meta text-muted font-bold tracking-[0.08em]" aria-hidden="true">
+                /
+              </span>
+            </span>
+            <span
+              class="flex flex-wrap items-center gap-x-4 gap-y-[0.45rem]"
+              aria-label="Filter posts by topic"
+            >
+              <button
+                class="text-meta border-vermilion text-ink border-0 border-b bg-transparent px-0 pt-0 pb-[0.15rem] font-bold tracking-widest uppercase opacity-100"
+                type="button"
+              >
+                All
+              </button>
+              <button
+                class="text-meta text-muted border-0 border-b border-transparent bg-transparent px-0 pt-0 pb-[0.15rem] font-bold tracking-widest uppercase opacity-100"
+                type="button"
+              >
+                Engineering
+              </button>
+              <button
+                class="text-meta text-muted border-0 border-b border-transparent bg-transparent px-0 pt-0 pb-[0.15rem] font-bold tracking-widest uppercase opacity-100"
+                type="button"
+              >
+                Personal
+              </button>
+            </span>
+          </fieldset>
+          <p class="text-page-note text-muted m-0 max-w-[38ch] leading-[1.6]">{note}</p>
+        </div>
+        <button
+          class="hidden min-h-17 w-full items-center justify-between gap-4 border-0 bg-transparent p-0 text-left opacity-100 max-[720px]:flex"
+          type="button"
+          disabled
+        >
+          <span class="font-display text-page-lead text-ink font-[560]">Browse archive</span>
+          <span class="text-meta text-muted text-right font-bold tracking-widest uppercase">
+            Search + topics
+          </span>
+        </button>
+      </aside>
+    ) : null
+  }
+</header>

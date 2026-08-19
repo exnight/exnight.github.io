@@ -1,290 +1,360 @@
 ---
-name: 'The Plain & Simple Journal'
-description: 'Quiet personal publication — straightforward hierarchy, generous space, and restrained interaction keep attention on the writing.'
+name: 'Open Field Folio'
+description: 'A full-viewport living index on warm paper, connecting dependable systems to chronological writing.'
 colors:
-  deep-ink-blue: 'oklch(0.4 0.1 256)'
-  open-sky-blue: 'oklch(0.76 0.1 256)'
-  burnished-umber: 'oklch(0.4 0.1 76)'
-  soft-amber: 'oklch(0.76 0.1 76)'
-  blue-mist-ground: 'oklch(0.92 0.02 256)'
-  cloud-paper: 'oklch(0.96 0.02 256)'
-  porcelain-surface: 'oklch(1 0.02 256)'
-  midnight-ink: 'oklch(0.15 0.04 256)'
-  slate-copy: 'oklch(0.4 0.04 256)'
-  slate-rule: 'oklch(0.6 0.04 256)'
-  mist-rule: 'oklch(0.7 0.04 256)'
-  midnight-ground: 'oklch(0.1 0.02 256)'
-  deep-navy-canvas: 'oklch(0.15 0.02 256)'
-  raised-navy: 'oklch(0.2 0.02 256)'
-  frosted-ink: 'oklch(0.96 0.04 256)'
-  blue-gray-copy: 'oklch(0.76 0.04 256)'
-  blue-gray-rule: 'oklch(0.4 0.04 256)'
-  night-rule: 'oklch(0.3 0.04 256)'
+  warm-paper: '#f6f2e7'
+  raised-paper: '#fcfaf2'
+  sage-paper: '#dfe3d8'
+  green-black-folio: '#1a2a23'
+  folio-ivory: '#f8f3e6'
+  editorial-ink: '#17211d'
+  softened-ink: '#34423b'
+  muted-sage-copy: '#637169'
+  structural-rule: '#98a198'
+  soft-rule: '#c4c9c1'
+  vermilion: '#a94331'
+  field-sage: '#819184'
+  muted-brass: '#c8a748'
+  focus-vermilion: '#b34734'
+  shadow-ink: 'rgb(13 23 17 / 0.14)'
+  dark-paper: '#181817'
+  dark-raised-paper: '#232321'
+  dark-secondary-paper: '#2b2b27'
+  dark-deepest-surface: '#10100f'
+  dark-folio-ivory: '#f3eee3'
+  dark-editorial-ink: '#eee9de'
+  dark-softened-ink: '#d5d0c7'
+  dark-muted-copy: '#aaa69d'
+  dark-structural-rule: '#6b6962'
+  dark-soft-rule: '#3e3d39'
+  dark-vermilion: '#ea8069'
+  dark-sage-accent: '#9eaa9f'
+  dark-muted-brass: '#d4b75f'
+  dark-focus-vermilion: '#ef8a72'
+  dark-shadow-ink: 'rgb(0 0 0 / 0.3)'
 typography:
   display:
-    fontFamily: 'ui-sans-serif, system-ui, sans-serif'
-    fontSize: '3.75rem'
-    fontWeight: 700
-    lineHeight: 1
-    letterSpacing: 'normal'
+    fontFamily: "'Source Serif 4 Variable', ui-serif, Georgia, serif"
+    fontSize: 'clamp(3.5rem, 7vw, 6rem)'
+    fontWeight: 510
+    lineHeight: 0.96
+    letterSpacing: '-0.035em'
+    fontVariation: "'wght' 510"
   headline:
-    fontFamily: 'ui-sans-serif, system-ui, sans-serif'
-    fontSize: '2.25rem'
-    fontWeight: 700
-    lineHeight: '2.5rem'
-    letterSpacing: 'normal'
+    fontFamily: "'Source Serif 4 Variable', ui-serif, Georgia, serif"
+    fontSize: 'clamp(3.2rem, 4.7vw, 4.6rem)'
+    fontWeight: 510
+    lineHeight: 1
+    letterSpacing: '-0.035em'
+    fontVariation: "'wght' 510"
   title:
-    fontFamily: 'ui-sans-serif, system-ui, sans-serif'
-    fontSize: '1.25rem'
-    fontWeight: 600
-    lineHeight: '1.75rem'
-    letterSpacing: 'normal'
+    fontFamily: "'Source Serif 4 Variable', ui-serif, Georgia, serif"
+    fontSize: 'clamp(1.55rem, 2.6vw, 2.35rem)'
+    fontWeight: 560
+    lineHeight: 1.08
+    letterSpacing: '-0.022em'
+    fontVariation: "'wght' 560"
   body:
-    fontFamily: 'ui-sans-serif, system-ui, sans-serif'
+    fontFamily: "'Lato', ui-sans-serif, system-ui, sans-serif"
     fontSize: '1rem'
     fontWeight: 400
-    lineHeight: '1.5rem'
+    lineHeight: 1.7
     letterSpacing: 'normal'
   label:
-    fontFamily: 'ui-sans-serif, system-ui, sans-serif'
-    fontSize: '0.75rem'
-    fontWeight: 400
-    lineHeight: '1rem'
-    letterSpacing: '0.1em'
+    fontFamily: "'Lato', ui-sans-serif, system-ui, sans-serif"
+    fontSize: '0.72rem'
+    fontWeight: 700
+    lineHeight: 1.2
+    letterSpacing: '0.14em'
 rounded:
-  subtle-corner: '0.25rem'
-  soft-corner: '0.5rem'
+  compact-control: '7px'
+  bounded-panel: '11px'
+  capsule-control: '1.2rem'
 spacing:
-  micro-space: '0.25rem'
-  compact-space: '0.5rem'
-  standard-space: '1rem'
-  roomy-space: '1.5rem'
-  section-space: '2rem'
+  compact: '0.75rem'
+  standard: '1rem'
+  roomy: '1.5rem'
+  section: '2rem'
 components:
+  header-navigation:
+    backgroundColor: '{colors.warm-paper}'
+    textColor: '{colors.editorial-ink}'
+    height: '68px'
+    padding: '0'
+  homepage-introduction:
+    backgroundColor: '{colors.warm-paper}'
+    textColor: '{colors.editorial-ink}'
+    typography: '{typography.headline}'
+    padding: 'clamp(3.25rem, 5vw, 5rem) 0 clamp(0.75rem, 1.5vw, 1.5rem)'
   theme-toggle:
-    rounded: '{rounded.soft-corner}'
-    padding: '{spacing.compact-space}'
-    size: '2.5rem'
-  post-card:
-    rounded: '{rounded.soft-corner}'
-    padding: '{spacing.roomy-space}'
-  tag-chip-light:
-    backgroundColor: '{colors.blue-mist-ground}'
-    textColor: '{colors.deep-ink-blue}'
-    rounded: '{rounded.subtle-corner}'
-    padding: '0.25rem 0.5rem'
-  tag-chip-dark:
-    backgroundColor: '{colors.midnight-ground}'
-    textColor: '{colors.open-sky-blue}'
-    rounded: '{rounded.subtle-corner}'
-    padding: '0.25rem 0.5rem'
-  table-of-contents-light:
-    backgroundColor: '{colors.porcelain-surface}'
-    textColor: '{colors.midnight-ink}'
-    rounded: '{rounded.soft-corner}'
-    padding: '{spacing.standard-space}'
-  table-of-contents-dark:
-    backgroundColor: '{colors.raised-navy}'
-    textColor: '{colors.frosted-ink}'
-    rounded: '{rounded.soft-corner}'
-    padding: '{spacing.standard-space}'
+    backgroundColor: '{colors.raised-paper}'
+    textColor: '{colors.editorial-ink}'
+    rounded: '{rounded.capsule-control}'
+    width: '3.8rem'
+    height: '2.35rem'
+  annotation-thread:
+    backgroundColor: '{colors.warm-paper}'
+    textColor: '{colors.editorial-ink}'
+    width: '100%'
+    height: 'clamp(3.5rem, 4.5vw, 4.5rem)'
+  chronological-row:
+    backgroundColor: '{colors.warm-paper}'
+    textColor: '{colors.editorial-ink}'
+    typography: '{typography.title}'
+    padding: '1.6rem 0 1.6rem clamp(1.4rem, 3vw, 3rem)'
+  writing-index-continuation:
+    backgroundColor: '{colors.warm-paper}'
+    textColor: '{colors.editorial-ink}'
+    padding: '0.75rem 0.25rem'
+    width: 'clamp(18rem, 25%, 22rem)'
+    desktopMarginInlineEnd: 'clamp(1.2rem, 1.8vw, 1.8rem)'
+  table-of-contents:
+    backgroundColor: '{colors.raised-paper}'
+    textColor: '{colors.editorial-ink}'
+    rounded: '{rounded.bounded-panel}'
+    padding: '1.25rem'
   article-prose:
-    width: '65ch'
+    textColor: '{colors.softened-ink}'
+    typography: '{typography.body}'
+    width: '72ch'
 ---
 
-# Design System: The Plain & Simple Journal
+Design System: Open Field Folio
 
 ## Overview
 
-**Creative North Star: "The Plain & Simple Journal"**
+Creative North Star: "Open Field Folio / Living Index"
 
-The Plain & Simple Journal is the incumbent visual baseline captured before a future redesign. It records what the shipped site does now; it is historical evidence, not a requirement that the next visual direction preserve this world.
+Open Field Folio treats the site as a living personal publication rather than a developer-portfolio hero or an archive costume. Warm uncoated paper reaches every viewport edge, while deep green-black is reserved for closure, code, and skip-link surfaces. Restrained vermilion, sage, and muted brass orient the reader without turning the publication into a dashboard.
 
-Quiet personal publication — straightforward hierarchy, generous space, and restrained interaction keep attention on the writing. Broad editorial layouts, paired light and dark tonal surfaces, and compact metadata frame the content without turning the publication into a dense interface. Avoid dense layouts and compact information presentation.
+The system is editorial but not precious. Source Serif 4 gives statements and headings gentle authority; self-hosted Lato keeps body copy, metadata, navigation, and controls factual. Open space, fine rules, chronological accumulation, and a loose annotation thread connect engineering practice, interests, and writing.
+
+The shipped homepage is an open annotation field. Practice and Curiosity facts flank the factual statement on desktop, then become separated rows below its detail copy on mobile. A restrained structural curve closes the field before two recent-writing rows and a compact, right-aligned All writing continuation.
 
 **Key Characteristics:**
 
-- Generous broad editorial widths that open into multi-column layouts only when space supports them.
-- Tonal hierarchy across paired light and dark surfaces, with two restrained accents.
-- System-sans typography with a compact five-role hierarchy and a relaxed article measure.
-- Flat reading surfaces, selective ambient lift, and tactile movement reserved for post cards.
-- Compact bordered metadata and restrained navigation around the writing.
+- A full-viewport paper field at every width, with centered max-width content columns rather than an inset desktop object.
+- An open, unboxed homepage introduction with stable facts annotated around the central statement.
+- Serif-led editorial hierarchy paired with compact humanist-sans metadata.
+- Warm botanical neutrals in light mode and neutral warm graphite surfaces in dark mode.
+- Deep folio anchors with vermilion, sage, and muted-brass orientation accents.
+- Open chronological rows instead of generic card grids.
+- A quiet annotation thread with structural, brass, and vermilion marks.
+- A subtly crosshatched `.site-sheet` material that remains paper-like rather than decorative.
+- Compact responsive stacking, visible focus, paired themes, and reduced-motion support.
 
 ## Colors
 
-The palette is a cool blue-neutral publication field with an ink-blue primary and a restrained earth-warm secondary, mirrored into brighter dark-theme counterparts.
+The light palette combines warm paper with botanical ink and restrained accents. Dark mode shifts the surfaces to neutral warm graphite while preserving sage only as an accent and structural note.
 
 ### Primary
 
-- **Deep Ink Blue:** Carries light-theme links, the navigation mark, and small informational icons.
-- **Open-Sky Blue:** Preserves the same role with higher lightness on dark surfaces.
+- **Folio Vermilion:** Marks current navigation, dates, primary note emphasis, editorial links, and visible focus in a deliberately limited share of the page.
+- **Night Vermilion:** Preserves those roles with enough brightness for the graphite reading field.
 
 ### Secondary
 
-- **Burnished Umber:** Marks light-theme metadata and secondary editorial navigation without competing with titles.
-- **Soft Amber:** Provides the dark-theme counterpart for the same supporting emphasis.
+- **Muted Brass:** Marks secondary entry actions, the Software engineer role line, thread orientation, and selection.
+- **Night Brass:** The brighter dark-theme counterpart, never a general background color.
+
+### Tertiary
+
+- **Field Sage:** Supports the Curiosity annotation, scrollbars, softened detail, and restrained tonal hover.
+- **Night Sage Accent:** Keeps that orienting role in dark mode; it does not become a dark surface.
 
 ### Neutral
 
-- **Blue Mist Ground:** The deeper light-theme ground used for quiet tonal contrast and tag fills.
-- **Cloud Paper:** The default light reading canvas.
-- **Porcelain Surface:** The highest light-theme surface used by contained reading aids.
-- **Midnight Ink:** The primary light-theme text color.
-- **Slate Copy:** The subdued light-theme copy color for summaries and metadata.
-- **Slate Rule:** The stronger light-theme line color.
-- **Mist Rule:** The softer light-theme border and divider color.
-- **Midnight Ground:** The deepest dark-theme ground.
-- **Deep Navy Canvas:** The default dark reading canvas.
-- **Raised Navy:** The higher dark-theme surface used by contained reading aids.
-- **Frosted Ink:** The primary dark-theme text color.
-- **Blue-Gray Copy:** The subdued dark-theme copy color.
-- **Blue-Gray Rule:** The stronger dark-theme line color.
-- **Night Rule:** The softer dark-theme border and divider color.
+- **Warm Paper:** The default light reading field and dominant viewport surface.
+- **Raised Paper:** A quiet bounded surface for the theme control and table of contents.
+- **Sage Paper:** A secondary light tonal field for restrained hover states and inline code.
+- **Green-Black Folio:** The footer, code surface, and skip link.
+- **Folio Ivory:** Text placed on the green-black folio.
+- **Editorial Ink:** Primary light-theme text, strong rules, and directional icons.
+- **Softened Ink / Muted Sage Copy:** Long-form reading and supporting metadata.
+- **Structural Rule / Soft Rule:** Strong and quiet dividers that organize the open field without enclosing every region.
+- **Dark Paper / Dark Raised Paper / Dark Secondary Paper / Dark Deepest Surface:** The four neutral graphite layers used for the page, raised controls, secondary tonal fields, and deepest bounded surfaces.
+- **Dark Folio Ivory / Dark Editorial Ink / Dark Softened Ink / Dark Muted Copy:** The dark-theme text hierarchy.
+- **Dark Structural Rule / Dark Soft Rule:** The dark-theme divider pair.
+- **Shadow Ink / Dark Shadow Ink:** Theme-specific shadow colors used only by bounded lift.
 
 ### Named Rules
 
-**The Tonal-First Rule.** Establish hierarchy with ground, canvas, surface, copy, and rule roles before adding either accent.
+**The Full-Field Material Rule.** The paper or graphite page surface reaches every viewport edge; deep folio color belongs to bounded functional surfaces and the footer, not to an outer environment.
 
-**The Paired-Theme Rule.** Treat light and dark values as semantic pairs; never mix tokens from opposite theme sets on one surface.
+**The Restrained-Accent Rule.** Vermilion signals current, editorial, and primary-action emphasis; brass signals secondary action and identity; sage signals structure. None becomes a general-purpose fill.
+
+**The Neutral-Night Rule.** Dark-mode surfaces use the neutral graphite family; sage remains an accent and must not tint the primary dark reading field.
+
+**The Paired-Theme Rule.** Light and dark tokens stay paired by semantic role, and a surface never mixes values from opposite theme sets.
 
 ## Typography
 
-**Display Font:** System sans (`ui-sans-serif, system-ui, sans-serif`)
-**Body Font:** System sans (`ui-sans-serif, system-ui, sans-serif`)
+**Display Font:** Source Serif 4 Variable (with `ui-serif`, Georgia, serif fallbacks)
+**Body Font:** Self-hosted Lato (with `ui-sans-serif`, system-ui, sans-serif fallbacks)
 
-**Character:** One familiar sans-serif stack keeps the hierarchy plainspoken and low-maintenance. Scale, weight, spacing, and measure create distinction rather than a decorative type pairing.
+**Character:** The serif is soft-edged, editorial, and gently weighted rather than monumental. Lato supplies plainspoken body copy and compact record-like metadata, keeping the system contemporary and factual.
 
 ### Hierarchy
 
-- **Display:** Reserved for the largest first-view headline.
-- **Headline:** Used for page and major article headings.
-- **Title:** Used for post-card titles and compact section headings.
-- **Body:** Used for interface and editorial copy.
-- **Label:** Used for small tracked cues and terse metadata.
-- **Article prose:** Uses a relaxed `1.75rem` line-height and a maximum measure of `65ch`.
+- **Display** (variable weight `510`, up to `6rem`, with tight line-height): Page headings retain the broad display range. Article headings use `clamp(3.1rem, 6vw, 4.75rem)` across the full article-header measure so ordinary post titles remain on one line at desktop widths.
+- **Headline** (variable weight `510`, `clamp(3.2rem, 4.7vw, 4.6rem)`, `1` line-height; `clamp(2.65rem, 12vw, 3.25rem)` at mobile): The homepage factual statement; it remains a statement, not an oversized name treatment.
+- **Title** (variable weight around `560`, approximately `1.08` line-height): Recent-writing titles use a long-title-safe `clamp(1.25rem, 2.35vw, 2.25rem)`, allowing the narrow two-column range to fit ordinary titles on one line without changing wide-desktop scale; mobile remains `1.25rem`. Chronological-index titles use `clamp(1.55rem, 2.6vw, 2.35rem)` and `clamp(1.4rem, 5.5vw, 1.55rem)` on mobile. All mobile article titles use the same `clamp(2rem, 9vw, 2.7rem)` scale with safe word wrapping and a two-line target for ordinary titles at the narrowest supported width.
+- **Body** (weight `400`, generally `1rem`, `1.65–1.82` line-height): Interface descriptions and long-form reading. Article prose is capped at `72ch`.
+- **Label** (weight `700`, usually `0.72rem`, `0.14em` tracking, uppercase): Navigation, dates, topics, role text, and compact wayfinding.
 
-### Named Rules
+### Named Rules - Typography
 
-**The Rendered-Stack Rule.** Use the system sans stack that the shipped pages actually render; the present but unused Lato files are not part of this baseline.
+**The Two-Voice Rule.** Source Serif 4 owns editorial display and headings; Lato owns body copy, metadata, navigation, and controls.
 
-**The Reading-Measure Rule.** Keep long-form prose at or below `65ch`; added width belongs to surrounding layout, not to the text line.
+**The Lining-Record Rule.** Dates, tables, and mixed letter-number titles such as M43 use lining tabular numerals so records align and numerals sit naturally beside capitals.
+
+**The Gentle-Weight Rule.** Create hierarchy through scale, measure, and spacing before pushing Source Serif into heavy display weights.
 
 ## Layout
 
-The default content frame is `10/12` of the viewport and narrows to `3/4` at the `64rem` large breakpoint. The observed breakpoints are medium at `48rem`, large at `64rem`, and extra large at `80rem`. Reused spacing follows the five-step rhythm in the frontmatter, favoring open sections over compressed stacks.
+The page is a full-width, full-height paper or graphite field at every viewport size. Content aligns to a centered frame capped at `1452px`, with `1.5rem` side insets and `1.125rem` on screens at or below `720px`. Conventional pages, navigation, and footer use the shared `PageFrame` primitive, which adds the `clamp(1.2rem, 1.8vw, 1.8rem)` desktop alignment rail and resets that inner padding on mobile. The body and `.site-sheet` repeat two low-contrast `25px` linear gradients to give the field a quiet paper fiber without creating a dominant grid. Dark mobile strengthens this fiber slightly so it remains perceptible on the compact graphite field.
 
-Post grids progress from one column to two at `48rem`. Article pages remain single-column until `64rem`, then use a `2fr / 1fr` content-to-sidebar split and widen that relationship to `3fr / 1fr` at `80rem`. Sections use a minimum height of `100dvh` with `2rem` bottom padding. The header is sticky at the top of the viewport; the desktop table of contents is sticky within the article sidebar.
+Vertical sections use viewport-aware spacing (`clamp(3.5rem, 7vw, 7rem)`) and a header-aware minimum height. The homepage remains deliberately compact. Above `980px`, Practice, the statement, and Curiosity form a three-column field; below `980px`, the statement leads and the annotations share the next row. At `720px`, the order becomes statement, Practice, Curiosity, then the closing thread; both annotation lists use the same natural flex wrapping, with Practice aligned left and Curiosity aligned right. The side curves disappear, and their opposed straight rule-and-dot directions remain intact. The main thread swaps between separate authored desktop and mobile SVG drawings rather than stretching one path across both compositions.
 
-**The Broad-Editorial Rule.** Preserve generous outer width and vertical space; do not trade reading calm for denser information presentation.
+Blog entries accumulate inside year groups with dates, titles, summaries, and topic cues aligned in open rows. Recent notes shift from two columns to one at `720px`. Article layouts use a measured reading column plus a `250px` sticky table of contents, collapsing to one column with a native `details` disclosure at `980px`.
 
-**The Progressive-Split Rule.** Add columns only at the observed breakpoints, keeping post and article content linear on smaller screens.
+**The Full-Viewport Field Rule.** Keep the page surface edge-to-edge at every width and constrain content with inner max-width frames.
+
+**The Homepage Alignment-Rail Rule.** At desktop widths, navigation contents, the Practice annotation, the Latest writing heading and divider, the first recent-post title, the annotation-thread right edge, the All writing continuation's right edge, and the footer contents share the `clamp(1.2rem, 1.8vw, 1.8rem)` inner inset; Curiosity mirrors it from the right. At `980px` and below, annotation inline padding resets; at `720px` and below, navigation inline padding, the Latest writing heading's inline margins, the thread's inline-end margin, and footer inline padding reset to zero so mobile alignment returns to the site frame.
+
+**The Open-Field Rule.** Use width, whitespace, and fine rules to organize information; do not replace the publication field with a grid of boxed cards.
+
+**The Chronological-Accumulation Rule.** Writing surfaces grow as dated rows grouped by year, preserving direct scan order from newest to oldest.
+
+**The Responsive-Continuity Rule.** Narrow layouts simplify and stack the same hierarchy; they do not become a separate mobile visual world.
 
 ## Elevation & Depth
 
-The elevation philosophy is flat reading surfaces with selective ambient lift. Tonal separation handles most hierarchy; shadows are reserved for sticky navigation and interactive post cards.
+The system is flat at page scale. Tonal surfaces, one-pixel rules, subtle paper fiber, and the contrast between paper and deep folio materials establish depth; the viewport field itself has no ambient lift. The only recurring shadow is bounded lift for dark code blocks.
 
 ### Shadow Vocabulary
 
-- **Sticky navigation:** `0 1px 2px 0 rgb(0 0 0 / 0.05)` with `8px` backdrop blur. This separates the persistent header without making it feel like a floating panel.
-- **Card rest:** `0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)`. This gives post cards a quiet tactile edge.
-- **Card hover:** `0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)` plus `translateY(-4px)`. This is the only pronounced lift response.
+- **Bounded lift** (`0 10px 24px var(--shadow)`): Used by code blocks at rest.
 
-State transitions use `150ms cubic-bezier(0.4, 0, 0.2, 1)`. Theme color changes use `500ms`; the hero scroll cue bounces on a `1s infinite` loop. View transitions are gated by `prefers-reduced-motion: no-preference`, while smooth scrolling and the current bounce are not.
+State motion is quiet: most hover, underline, and arrow changes use `180ms ease-out`; theme surface transitions use `300ms ease`. The homepage annotation geometry is static and fully legible without motion. Reduced-motion mode removes practical animation and smooth scrolling.
 
-### Named Rules
+### Named Rules - Layout
 
-**The Flat-by-Default Rule.** Keep reading surfaces flat and let tonal contrast do the structural work.
+**The Flat-Field Rule.** Do not lift or shadow the viewport field; use rules and tonal contrast for page-scale structure.
 
-**The Selective-Lift Rule.** Reserve pronounced shadow and vertical movement for interactive post-card hover; do not distribute tactile lift across ordinary containers.
+**The Bounded-Lift Rule.** Shadow belongs only to materially bounded code surfaces, never to ordinary rows or continuation links.
+
+**The Orientation-Motion Rule.** Motion may clarify path or state, but no meaning depends on it and reduced-motion preference takes precedence.
 
 ## Shapes
 
-The form language uses two gently curved corner sizes: a subtle radius for compact chips and a soft radius for cards, panels, and icon controls. Thin borders provide most enclosure, while content sections and reading surfaces remain visually open.
+The form language combines open rectangular fields with a small durable radius family. Compact links inside bounded panels use gently curved `7px` corners; table-of-contents panels and code blocks use `11px`. The viewport field, header, introduction, chronological rows, All writing continuation, and footer remain structurally square and open.
 
-**The Two-Corner Rule.** Reuse the subtle and soft corner tokens; do not introduce extra radii for neighboring editorial components.
+Circular filled arrow controls punctuate desktop recent-note rows, then open into unbounded vermilion and brass arrows on mobile. The theme toggle uses a capsule because it is a binary control. Content labels, topics, and metadata remain unpilled. Fine one-pixel rules provide most structure, with a stronger `1.5px` line only at the start of major indices.
+
+**The Bounded-Surface Rule.** Rounded corners belong to compact controls and genuinely bounded panels, not to the page field or open content regions.
+
+**The Control-Capsule Rule.** Capsule and circle silhouettes are reserved for controls and directional affordances, not for content chips or decorative badges.
 
 ## Components
 
-The component philosophy is restrained, readable, and lightly responsive. Compact controls and bordered metadata support broad editorial layouts, while cards receive the only pronounced tactile hover response.
+Components behave like parts of one open publication: compact controls, bounded utility surfaces, and rows that stay visually connected to the full-viewport field.
 
 ### Header Navigation
 
-- **Structure:** A sticky, blurred header contains the broad editorial width and a small right-aligned navigation cluster.
-- **State:** Navigation links fade to `60%` opacity on hover with the standard state transition.
-- **Behavior:** The header remains fixed in reading context without adding a heavy filled bar.
+- **Structure:** Sticky and paper-toned across the viewport, with navigation content aligned to the shared max-width frame.
+- **Typography:** Compact uppercase Lato labels; desktop pairs vermilion `LW` with `/ Leo Wong`, while mobile keeps only the initials.
+- **State:** Hover and current-page links reveal a `2px` vermilion underline. The navigation remains visible and simple on mobile.
 
-### Nav Mark
+### Homepage Introduction
 
-- **Style:** A compact custom SVG mark uses the primary accent and acts as the home link.
-- **State:** The home link shares the navigation opacity response.
+- **Structure:** Open and unboxed. Practice occupies the left gutter, the statement and detail copy occupy the center, and Curiosity occupies the right gutter. Opposed straight rules and dots pair with authored desktop callouts: a `116 × 24` Practice SVG curve and a `138 × 20` Curiosity SVG curve, both pointing inward without touching the statement.
+- **Copy:** The statement is “I build software and keep notes on what I learn.” The detail copy carries the backend, API, data-pipeline, cloud-infrastructure, basketball, competitive-gaming, travelling, and photography context. The identity line is role-only: a soft structural rule, a short brass rule segment, then “Software engineer.” Leo Wong does not appear on this line.
+- **Responsive:** Below `980px`, the statement leads a two-column annotation row. Below `720px`, Practice and Curiosity become separated rows after the detail and identity copy, their lists wrap horizontally, the authored side curves are hidden while the straight rules and dots remain, and the loose thread closes the field below them.
+- **Restraint:** Facts remain stable semantic content; no post titles or other mutable content enter the annotation geometry.
 
 ### Theme Toggle
 
-- **Shape:** A compact soft-corner icon control with balanced internal padding.
-- **State:** Theme-specific neutral hover fills are local implementation details, not reusable palette tokens.
-- **Iconography:** Inline moon and sun silhouettes indicate the destination theme.
+- **Shape:** A compact capsule (`3.8rem × 2.35rem`, reduced to `3rem × 2rem` on mobile) with a one-pixel rule.
+- **Surface:** Raised paper with editorial ink; it inherits the equivalent graphite roles in dark mode.
+- **State:** Border shifts to vermilion on hover; moon and sun SVGs rotate and fade over `180ms`.
+- **Accessibility:** The label states the destination theme and updates after every change.
 
-### Footer Social Link
+### Annotation Thread
 
-- **Shape:** A compact soft-corner icon link.
-- **State:** The shipped footer-specific blue hover colors remain local to the component and are not a general interaction palette.
+- **Structure:** One loose baseline with a soft structural stroke, a short vermilion segment, and brass/vermilion endpoint markers. The paths live in separate desktop and mobile SVG drawings; the markers are CSS circles outside the SVGs.
+- **Geometry:** The desktop drawing uses the approved `viewBox="278 340 1112 110"` geometry across the statement-side field. The mobile drawing uses the approved `viewBox="20 550 350 70"` geometry across the single column. The container compresses from `clamp(3.5rem, 4.5vw, 4.5rem)` to `1.75rem`.
+- **Behavior:** Static and decorative (`aria-hidden`). The responsive breakpoint swaps drawings instead of non-uniformly scaling one shared path, and each CSS marker uses `aspect-ratio: 1` so it remains circular.
+- **Purpose:** Close the factual annotation field and hand the page into recent writing without becoming a timeline.
 
-### Post Card
+### Recent Note Rows
 
-- **Shape:** A soft-corner bordered article container with roomy internal padding.
-- **Content:** Title, subdued summary, tag row, and compact date/read-time metadata form a consistent vertical stack.
-- **State:** The rest and hover shadows follow the selective-lift vocabulary; hover also moves the card upward by `4px`.
+- **Structure:** The two newest notes share one ruled field on desktop and stack into a single chronological column on mobile.
+- **Content:** Date, up to three topic cues, a long-title-safe Source Serif title, optional summary, and a directional action.
+- **Action:** The first entry uses vermilion and the second uses brass. Desktop actions are filled circles; below `720px` they become open arrows, while summaries disappear and title scale tightens to preserve first-viewport rhythm.
+- **State:** A sage-paper tonal hover and a small rightward arrow shift provide feedback without lifting the row.
 
-### Tag Chip
+### Chronological Writing Index
 
-- **Style:** A subtle-corner bordered chip uses the deeper ground tone and primary accent text.
-- **Density:** Compact horizontal and vertical padding keeps metadata secondary without collapsing the surrounding card.
+- **Structure:** Years occupy a dedicated leading column; entries remain open rows divided by rules rather than cards.
+- **Content:** Date and read time, title and optional summary, then non-interactive topic cues and direction.
+- **Responsive:** The year header becomes a horizontal lead-in and every entry becomes linear below `720px`.
+- **Capacity:** The year grouping is the durable structure for a growing publication, not a layout tuned only to the current post count.
 
-### Post Grid
+### All Writing Continuation
 
-- **Behavior:** One column by default and two columns from the medium breakpoint.
-- **Rhythm:** Uses the roomy spacing token between cards.
+- **Material:** Open paper with top and bottom rules; no fill, radius, or shadow.
+- **Layout:** The link is full width below desktop and becomes a compact right-aligned region (`clamp(18rem, 25%, 22rem)`) at `1000px`, roughly half a recent-post tile, with its right edge held to the shared homepage inset.
+- **Content:** “All writing,” a plain newest-first explanation, and a vermilion continuation cue. On mobile the word “Continue” is visually omitted, leaving the open arrow.
+- **State:** Hover shifts the rules to vermilion without lifting the link.
 
 ### Table of Contents
 
-- **Style:** A soft-corner bordered panel on the raised surface, with muted links and nested indentation for deeper headings.
-- **State:** Links receive a tonal background and secondary accent on hover.
-- **Behavior:** The panel is desktop-only and sticky inside the article sidebar. The script applies a current-item hook, but the build has no durable active visual style to record.
+- **Desktop:** A `250px` sticky raised-paper panel with nested indentation and a visible current-location state.
+- **Mobile:** A compact native `details` disclosure above the article body.
+- **State:** Hovered and current links use the secondary paper tone; the current item also gains weight and `aria-current="location"`.
 
-### Article Typography
+### Article Prose
 
-- **Style:** Relaxed long-form leading within a `65ch` maximum measure.
-- **Structure:** Headings receive deliberate vertical spacing; code blocks retain bordered treatment through the prose integration.
+- **Measure:** Maximum `72ch`, with a quiet Lato reading color and `1.75–1.82` line-height.
+- **Headings:** Source Serif at variable weight around `570`, balanced wrapping, and header-aware scroll offsets.
+- **Editorial details:** Vermilion links, a thin vermilion blockquote rule, deep-surface code blocks, and lining tabular numerals in tables.
 
-### Section
+### Footer
 
-- **Behavior:** Full-viewport-minimum editorial sections with bottom breathing room and header-aware scroll offset.
+- **Material:** The deepest folio surface closes the full-width publication field.
+- **Structure:** A compact single row keeps copyright on the shared left rail and icon-only GitHub and LinkedIn links on the shared right rail at every width.
+- **State:** Each circular social control shifts its rule and icon to brass on hover while retaining a visible keyboard focus ring.
 
-### Hero Scroll Cue
+**The Integrated-Publication Rule.** Header, main field, article, and footer read as one continuous full-viewport publication rather than detached app-shell panels.
 
-- **Style:** A small tracked uppercase label and downward arrow use the secondary accent.
-- **Motion:** The arrow uses the existing continuous bounce.
+**The Row-Not-Card Rule.** Notes use open chronological rows with rules and tonal hover, not repeated rounded cards with individual shadows.
 
-**The Writing-First Component Rule.** Controls and metadata stay compact so cards, navigation, and reading aids support rather than dominate the editorial field.
-
-**The Existing-Patterns Rule.** Extend only the documented incumbent patterns; do not infer buttons, fields, dialogs, tooltips, active table-of-contents styling, or a custom focus-visible treatment from this baseline.
+**The Honest-Wayfinding Rule.** Controls and labels describe real destinations or current location; do not render inactive search, filter, or archive controls.
 
 ## Do's and Don'ts
 
-### Do:
+### Do's
 
-- **Do** preserve broad editorial width, generous section height, and a relaxed article measure.
-- **Do** use tonal surface steps for hierarchy before reaching for shadows.
-- **Do** keep light and dark theme roles paired by meaning.
-- **Do** reserve the primary accent for links, the nav mark, and compact informational emphasis.
-- **Do** keep metadata compact, bordered, and subordinate to titles and prose.
-- **Do** use the observed breakpoint progression when a post or article layout gains columns.
+- **Do** keep the paper or graphite page field full-viewport at every width and constrain only the inner content columns.
+- **Do** keep the homepage introduction open, unboxed, factual, and arranged as the shipped desktop/mobile annotation topology.
+- **Do** preserve the warm light palette, deep folio anchors, and neutral warm graphite dark surfaces.
+- **Do** reserve sage for accent, structure, and restrained tonal feedback in dark mode.
+- **Do** pair Source Serif 4 headings with self-hosted Lato body and metadata.
+- **Do** use lining tabular numerals for dates, tables, and mixed titles such as M43.
+- **Do** organize growing writing collections as chronological year groups and open rows.
+- **Do** keep the `.site-sheet` fiber extremely restrained and repeat the same material in light and dark page fields.
+- **Do** keep recent-writing titles long-title-safe, preserve the vermilion/brass action sequence, and open the arrows on mobile.
+- **Do** keep All writing as a compact open continuation rather than a promotional banner.
+- **Do** provide visible focus, light and dark themes, reduced-motion behavior, and compact mobile article wayfinding.
 
-### Don't:
+### Don'ts
 
-- **Don't** compress the publication into dense layouts or compact information presentation.
-- **Don't** spread strong hover lift to static panels, article surfaces, or ordinary navigation.
-- **Don't** introduce decorative font families on the basis of unused font files.
-- **Don't** invent form controls, primary CTA buttons, dialogs, tooltips, active table-of-contents styling, or custom focus-visible styling.
-- **Don't** promote one-off hero, footer, theme-toggle, or positioning values into durable system tokens.
-- **Don't** treat this incumbent historical baseline as a constraint that the future redesign must preserve.
+- **Don't** reintroduce an outer desktop environment, inset page treatment, large page corner, or page-scale shadow.
+- **Don't** rebuild the homepage introduction as a bounded personal record or add institutional labels.
+- **Don't** use sage-tinted surfaces as the dark-mode page foundation.
+- **Don't** turn the homepage annotation thread into a timeline, label it with mutable post content, or let its callouts touch the statement.
+- **Don't** turn the publication into a generic developer-portfolio hero, bento grid, dashboard, or decorative archive.
+- **Don't** apply vermilion, brass, sage, shadows, capsules, or circles outside their documented orientation, action, and control roles.
+- **Don't** introduce oversized name treatments, heavy serif display weights, glyph icons, or system display faces.
+- **Don't** imply unavailable search, filtering, portfolio, timeline, contact, or social-proof features through inactive UI.

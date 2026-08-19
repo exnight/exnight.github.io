@@ -1,18 +1,45 @@
 ---
-import PostSummary from '@/components/PostSummary.astro'
-import { blogPosts } from '@/utils'
+import PostEntry from '@/components/PostEntry.astro'
+import { getSortedBlogPosts } from '@/utils'
 
 interface Props {
   n_posts?: number
 }
 
-const { n_posts = 10 } = Astro.props
+const { n_posts = Number.POSITIVE_INFINITY } = Astro.props
 
-const publishedPosts = blogPosts.sort(
-  (a, b) => b.data.publishedOn.valueOf() - a.data.publishedOn.valueOf(),
-)
+const publishedPosts = getSortedBlogPosts().slice(0, n_posts)
+const postsByYear = publishedPosts.reduce<Record<string, typeof publishedPosts>>((groups, post) => {
+  const year = post.data.publishedOn.getFullYear().toString()
+  groups[year] ??= []
+  groups[year].push(post)
+  return groups
+}, {})
+
+const years = Object.entries(postsByYear).sort(([a], [b]) => Number(b) - Number(a))
 ---
 
-<div class="grid gap-6 md:grid-cols-2">
-  {publishedPosts.slice(0, n_posts).map((post) => <PostSummary post={post} />)}
+<div class="border-ink border-t-[1.5px]">
+  {
+    years.map(([year, posts]) => (
+      <section
+        class="border-line grid grid-cols-[minmax(8rem,0.22fr)_1fr] border-b max-[720px]:grid-cols-1"
+        aria-labelledby={`year-${year}`}
+      >
+        <div class="py-8 pr-8 pl-0 max-[720px]:flex max-[720px]:items-baseline max-[720px]:justify-between max-[720px]:py-6">
+          <h2 id={`year-${year}`} class="font-display text-year-title m-0 font-[520]">
+            {year}
+          </h2>
+          <span class="text-meta text-muted mt-[0.8rem] block font-bold tracking-[0.14em] uppercase max-[720px]:m-0">
+            {posts.length === 1 ? '1 note' : `${posts.length} notes`}
+          </span>
+        </div>
+        <div class="border-line border-l max-[720px]:border-t max-[720px]:border-l-0">
+          {posts.map((post, index) => (
+            <PostEntry post={post} variant="index" divider={index > 0} />
+          ))}
+        </div>
+      </section>
+    ))
+  }
 </div>
