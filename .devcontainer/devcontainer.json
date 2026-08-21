@@ -29,6 +29,9 @@
         "ghcr.io/devcontainers/features/copilot-cli:1.1.3": {}
     },
     "mounts": [
+        "source=${localEnv:HOME}${localEnv:USERPROFILE}/.gitconfig,target=/tmp/.gitconfig-host,type=bind",
+        "source=${localEnv:HOME}${localEnv:USERPROFILE}/.ssh,target=/home/node/.ssh,type=bind,consistency=cached",
         "type=volume,target=${containerWorkspaceFolder}/node_modules"
-    ]
+    ],
+    "appPort": [3000]
 }
