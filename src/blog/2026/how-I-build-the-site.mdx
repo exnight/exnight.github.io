@@ -1,31 +1,51 @@
 ---
-title: 'How I Built The Site'
+title: 'How I Build The Site'
 publishedOn: 2026-01-04
-updatedOn: 2026-08-20
+updatedOn: 2026-08-14
 summary: A concise walkthrough of the site's stack, content workflow, and the key decisions behind it.
 published: true
 tags: ['Web Dev', 'Astro', 'Tailwind CSS', 'MDX']
 ---
 
-## Why I built this
+## TL;DR
 
-I have used this repostiory to host my personal website since 2017. This is a rare opportunity to keep my frontend skills up-to-date. I also want to have a space to share my thoughts and projects. Therefore, I added a blog recently.
+This site has evolved from a React learning project since 2017 to an Astro + Tailwind + MDX static setup, hosted on Cloudflare Pages with branch previews. Content lives as MDX with typed frontmatter via Astro content collections. Recently, I leaned on AI tools (Impeccable + Copilot CLI) to fix my weakest skill: visual design.
 
-## Tech Stack
+## Site Evolution
 
-The website has gone through multiple iterations over the years. It evolved from an ancient craft with [React](https://react.dev/) to later [Next.js](https://nextjs.org/docs) and [Tailwind CSS](https://tailwindcss.com/). I played with [Nuxt.js](https://nuxt.com/) briefly but I found it too heavy for my simple needs.
+The website has gone through multiple iterations over the years. I first used it as a learning project for [React](https://react.dev/) and frontend development. I wrote class components then later functional components with separated state management.
 
-After all these years, especially the blossom of [Vite](https://vite.dev/guide/), it's very tempting to overhaul the whole setup. I adopted [Astro](https://astro.build/) as it's a modern static site generator with great DX. It also provides first-class support for [MDX](https://mdxjs.com/) and other formats.
+When [Next.js](https://nextjs.org/docs) and [Tailwind CSS](https://tailwindcss.com/) were released, I hopped on the train as I wanted to try every new shiny tool back then. I like the static build functionalities of Next.js, but I started to explore alternatives of React due to slow releases and bloated SSR features.
 
-I used to host my site on [GitHub pages](https://docs.github.com/en/pages), but I was playing around with [Cloudflare Pages](https://pages.cloudflare.com/) lately. Given I have limited time to maintain the site, using Astro help keep things simple and easy to maintain.
+I played with [Nuxt.js](https://nuxt.com/) briefly, but I found it similar to Next.js and I didn't want to learn Vue for my simple needs.
 
-## How content works
+## Current Tech Stack
 
-I can first create a new MDX file and populate frontmatter. Next, I build the project on local and preview. Lastly, I commit and push to GitHub, done!
+After all these years, especially with [Vite](https://vite.dev/guide/)'s rise in popularity, it's very tempting to overhaul the whole setup. I clarified my use cases and static site generation covers my needs. I later found [Astro](https://astro.build/) and I like its philosophy, design, and developer experience. Astro provides first-class support for [MDX](https://mdxjs.com/), and its island architecture ensures minimal JavaScript usage and loading.
 
-MDX supports a variety of components, for example,
+Tailwind CSS makes component styling straightforward, therefore it is retained throughout multiple iterations.
 
-a math forumla:
+After working as a software engineer for 6 years, I prefer simplicity and stability over a bucket of new and shiny tools — which is why Astro's minimal-JS approach and Tailwind's utility-first CSS appeal to me now.
+
+## Hosting & Deployment
+
+I used to host my site on [GitHub pages](https://docs.github.com/en/pages), but I was playing around with [Cloudflare Pages](https://pages.cloudflare.com/) lately. I like the branch preview deployment by Cloudflare. It deploys my PR to a temporary slot and I can verify my changes without affecting the main site.
+
+I'm considering fully switching to Cloudflare Pages based on my current experiment.
+
+## Content Workflow
+
+[Content collections](https://docs.astro.build/en/guides/content-collections/) are the Astro-recommended way to manage sets of structured content in Astro projects.
+
+I define a blog posts collection, specifying its location in `src/content.config.ts` and the shape of its entries. Frontmatter in the post MDX files covers metadata and acts as filtering criteria.
+
+Local development is straightforward. I just run `npm run dev` for a local dev server. Then, I create a new MDX file and populate frontmatter. Astro renders the post in a few seconds and I have the preview. Once I finish the content, I commit and push to GitHub. Runners will build and deploy automatically, done!
+
+## MDX Capabilities
+
+Given I write about software engineering and other random topics, I need support for math formulas and code blocks with syntax highlighting.
+
+MDX is a great fit, for example, math formulas:
 
 $$
 \begin{array}{lr}
@@ -34,17 +54,31 @@ E_k = \frac{1}{2}mv^2 & \text{(2)}
 \end{array}
 $$
 
-or a code block:
+and code blocks:
 
 ```bash
 npm install
 npm run dev
 ```
 
-## How about AI agents
+```python
+print("Hello world!")
+```
 
-I have to admit that I'm never a good designer. Fortunately, I found ["Impeccable"](https://impeccable.style/). Combining it with [Copilot CLI](https://github.com/features/copilot/cli) and various models, I revamped the visuals to something better than what I can produce.
+## Design & AI-Assisted Visuals
+
+I have to admit that I'm never a good designer. I attempted multiple times on revamping the site UI, but I wasn't satisfied with any of the outcomes. I partially gave up and just ignored my site for some time, until the days of AI agents.
+
+With various harnesses and pre-trained LLM models, I see an opportunity to have a decent design despite the lack of "good visual sense". I'm concerned about the AI-flavoured visuals a lot of people complain about. I want a personalised site with styling that reflects my character, not futuristic or "modern" purple gradients.
+
+Recently, I found ["Impeccable"](https://impeccable.style/). It first clarifies and extracts my purposes and ideas of the website. Then, it guides LLMs to provide personalised output and iterates with visual demos/variants.
+
+Combining it with [Copilot CLI](https://github.com/features/copilot/cli) and various models, I revamped the visuals to something better than what I can produce.
 
 ## Takeaways
 
-Clarify your goals then pick the right tools. Value your time and focus on what matters.
+Fewer, stabler dependencies beat novelty — six years as an engineer taught me that maintenance cost compounds. Static-first tools (Astro, content collections) age better than framework churn — I spent years chasing "shiny" before realizing my needs were simple all along.
+
+AI-assisted design works best when you supply direction, not just prompts; tools like Impeccable close the gap between "lacking visual sense" and a site that still feels personal.
+
+And ultimately: clarify your goals before picking tools, not after.

@@ -10,11 +10,12 @@
   --muted: #637169;
   --line: #98a198;
   --line-soft: #c4c9c1;
-  --vermilion: #a94331;
+  --vermilion: #33507e;
   --sage: #819184;
   --brass: #c8a748;
   --brass-ink: #17211d;
-  --focus: #b34734;
+  --accent-ink: #f8f3e6;
+  --focus: #24406c;
   --shadow: rgb(13 23 17 / 0.14);
   --grid-line-strong: rgb(82 97 88 / 0.025);
   --grid-line-soft: rgb(82 97 88 / 0.018);
@@ -23,21 +24,22 @@
 
 .dark {
   color-scheme: dark;
-  --paper: #181817;
-  --paper-raised: #232321;
-  --paper-sage: #2b2b27;
-  --folio: #10100f;
+  --paper: #1c1712;
+  --paper-raised: #262019;
+  --paper-sage: #2c271e;
+  --folio: #10160f;
   --folio-ink: #f3eee3;
   --ink: #eee9de;
   --ink-soft: #d5d0c7;
   --muted: #aaa69d;
-  --line: #6b6962;
-  --line-soft: #3e3d39;
-  --vermilion: #ea8069;
+  --line: #746b5c;
+  --line-soft: #423a2e;
+  --vermilion: #8fb0e0;
   --sage: #9eaa9f;
   --brass: #d4b75f;
   --brass-ink: #17211d;
-  --focus: #ef8a72;
+  --accent-ink: #17211d;
+  --focus: #a9c4ec;
   --shadow: rgb(0 0 0 / 0.3);
   --grid-line-strong: rgb(158 170 159 / 0.05);
   --grid-line-soft: rgb(158 170 159 / 0.032);

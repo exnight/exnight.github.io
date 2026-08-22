@@ -6,4 +6,6 @@ if [ -d ./.devcontainer/config ]; then
 fi
 
 sudo chown node node_modules
-npm install
+npm ci
+
+cp /tmp/.gitconfig-host /home/node/.gitconfig && git config --global --add safe.directory $(pwd)
