@@ -10,6 +10,25 @@
         "IS_CONTAINER": "true",
         "GIT_SSH_COMMAND": "ssh"
     },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "astro-build.astro-vscode",
+                "bradlc.vscode-tailwindcss",
+                "unifiedjs.vscode-mdx",
+                "esbenp.prettier-vscode"
+            ],
+            "settings": {
+                "editor.defaultFormatter": "esbenp.prettier-vscode",
+                "[astro]": {
+                    "editor.defaultFormatter": "astro-build.astro-vscode"
+                },
+                "editor.quickSuggestions": {
+                    "strings": "on"
+                }
+            }
+        }
+    },
     "postCreateCommand": "npm ci",
     "mounts": [
         "source=${localEnv:HOME}/dev-tools/dev-agent,target=/opt/dev-agent,type=bind,readonly",
