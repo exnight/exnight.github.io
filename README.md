@@ -12,7 +12,7 @@ The project utilizes DEV containers for consistent developement environments. Th
 
 #### Set Up DEV Containers
 
-The `devcontainer.json` works with Podman. You may want to set up local SSH agent to share Git credentials following [this guide](https://code.visualstudio.com/remote/advancedcontainers/sharing-git-credentials#_using-ssh-keys).
+You may want to set up local SSH agent to share Git credentials following [this guide](https://code.visualstudio.com/remote/advancedcontainers/sharing-git-credentials#_using-ssh-keys).
 
 ```sh
 ssh -T git@github.com # Test your SSH connection to GitHub, or other remote repos
