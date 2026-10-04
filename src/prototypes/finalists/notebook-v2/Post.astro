@@ -1,0 +1,100 @@
+---
+import Frame from './Frame.astro'
+import ExternalLink from '@/components/ExternalLink.astro'
+import ProtoTable from '../shared/ProtoTable.astro'
+import { type Article } from '../shared/data'
+import { formatDate, publishedPosts } from '@/prototypes/shared/data'
+
+interface Props {
+  article: Article
+}
+
+const { article } = Astro.props
+const { title, summary, publishedOn, updatedOn, tags, readTime, Content, headings } = article
+const toc = headings.filter((heading) => heading.depth <= 3)
+const all = publishedPosts()
+const index = all.findIndex((entry) => entry.id === article.id)
+const entryNo = index >= 0 ? String(all.length - index).padStart(2, '0') : null
+const crumbs = article.id.split('/')
+let section = 0
+---
+
+<Frame page={article.id} title={title}>
+  <article class="n-wrap n-article">
+    <!-- Heading sits on the reading column (no box): crumbs, one meta line, title, deck -->
+    <header class="n-article__head">
+      <p class="n-mono n-crumbs">
+        <a href="/prototypes/notebook-v2/#writing">← writing</a>
+        <span>/ {crumbs.join(' / ')}</span>
+      </p>
+      {
+        article.isFixture ? (
+          <p class="n-mono n-fixture-note">review fixture · same wording as the published post</p>
+        ) : null
+      }
+      <p class="n-meta n-article__meta">
+        {entryNo ? <span class="n-meta__entry">entry #{entryNo}</span> : null}
+        {tags.map((tag) => <span>{tag}</span>)}
+        <time datetime={publishedOn.toISOString()}>{formatDate(publishedOn)}</time>
+        <span>{readTime} min read</span>
+        {
+          updatedOn ? (
+            <span>
+              Updated <time datetime={updatedOn.toISOString()}>{formatDate(updatedOn)}</time>
+            </span>
+          ) : null
+        }
+      </p>
+      <h1>{title}</h1>
+      {summary ? <p class="n-deck">{summary}</p> : null}
+    </header>
+
+    {
+      toc.length ? (
+        <nav class="n-toc" aria-label="Contents" data-toc>
+          <details data-open-above="1000">
+            <summary class="n-mono">Sheet index</summary>
+            <ol>
+              {toc.map((heading) => (
+                <li class:list={[heading.depth === 3 && 'is-sub']}>
+                  <a href={`#${heading.slug}`}>
+                    {heading.depth === 2 ? (
+                      <span class="n-balloon n-balloon--sm">{++section}</span>
+                    ) : null}
+                    <span>{heading.text}</span>
+                  </a>
+                </li>
+              ))}
+            </ol>
+          </details>
+        </nav>
+      ) : null
+    }
+
+    <div class="n-prose">
+      <Content components={{ a: ExternalLink, table: ProtoTable }} />
+    </div>
+  </article>
+</Frame>
+
+<script>
+  // Snap each table to one of two measures: the text column, or — only if its natural
+  // width needs more room — the wide measure (to the frame edge). Avoids in-between edges.
+  function snapTables() {
+    const text = document.querySelector('.n-prose > p')?.getBoundingClientRect().width ?? 0
+    document.querySelectorAll<HTMLElement>('.n-prose .fx-table').forEach((wrap) => {
+      const table = wrap.querySelector('table')
+      if (!table) return
+      const { width, maxWidth } = wrap.style
+      wrap.style.width = 'max-content'
+      wrap.style.maxWidth = 'none'
+      const natural = table.getBoundingClientRect().width
+      wrap.style.width = width
+      wrap.style.maxWidth = maxWidth
+      wrap.classList.toggle('is-wide', natural > text + 1)
+    })
+  }
+  snapTables()
+  document.fonts?.ready.then(snapTables)
+  window.addEventListener('resize', snapTables)
+</script>

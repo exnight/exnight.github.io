@@ -1,0 +1,39 @@
+---
+import { finalists, reviewPages, type FinalistId } from './data'
+
+interface Props {
+  current: FinalistId
+  page: string
+}
+
+const { current, page } = Astro.props
+const pagePath = reviewPages.find((item) => item.id === page)?.path ?? ''
+---
+
+<nav class="fx-bar" aria-label="Finalist switcher">
+  <a class="fx-bar__title" href="/prototypes">Revised finalists</a>
+  <span class="fx-bar__group">
+    {
+      finalists.map((f) => (
+        <a
+          href={`/prototypes/${f.id}/${pagePath}`}
+          aria-current={f.id === current ? 'page' : undefined}
+        >
+          {f.label}
+        </a>
+      ))
+    }
+  </span>
+  <span class="fx-bar__group">
+    {
+      reviewPages.map((item) => (
+        <a
+          href={`/prototypes/${current}/${item.path}`}
+          aria-current={item.id === page ? 'page' : undefined}
+        >
+          {item.label}
+        </a>
+      ))
+    }
+  </span>
+</nav>

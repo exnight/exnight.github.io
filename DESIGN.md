@@ -134,11 +134,7 @@ components:
   - Post with lists and tables: `/prototypes/notebook-v2/blog/2026/flight-ticket-redemption`
   - Post with code, maths and images (review fixture, same wording as the published post): `/prototypes/notebook-v2/blog/review-fixture/how-i-build-the-site`
   - Screenshots: `src/prototypes/finalists/notebook-v2/screenshots/` (1440×900 and 390×844, viewport + full page + details).
-- **Earlier references (preserved):**
-  - `finalists/notebook/` (v1)
-  - `finalists/editorial/` (Folio Editorial, source of the borrowed elements)
-  - `workbook/` (original D)
-  - originals A–F at `/prototypes`
+- **Earlier prototypes (removed after the decision):** originals A–F, Finalist 1 v1 and Folio Editorial. They were never committed. A local, git-ignored backup is at `.astro/prototypes-archive-before-cleanup.tar.gz`; extract it with `tar -xzf` from the repo root if you need them again.
 - **Preview:** prototype routes exist only in `npm run dev` or a `PROTOTYPES=1` build. Production builds contain no prototype code.
 
 ## Design Read
@@ -283,7 +279,7 @@ components:
 - **Writing page:** design the full post list; the homepage shows recent posts only.
 - **Homepage gap:** on wide screens the diagram is taller than the intro text. Revisit if photos are added.
 - **Clean-up after migration:**
-  - remove prototype-only dependencies (`@fontsource-variable/archivo`, `@fontsource-variable/jost`, `@fontsource-variable/schibsted-grotesk`) and Lato
+  - remove Lato (`public/fonts/`, `src/styles/fonts.css`); the prototype-only fonts (Archivo, Jost, Schibsted Grotesk) are already uninstalled
   - remove the prototype hook in `astro.config.mjs` and the `src/prototypes/` folder
 
 ---

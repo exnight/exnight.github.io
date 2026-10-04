@@ -1,0 +1,68 @@
+---
+import '@fontsource-variable/bricolage-grotesque/standard.css'
+import '@fontsource-variable/source-serif-4/opsz.css'
+import '@fontsource-variable/source-serif-4/opsz-italic.css'
+import '@fontsource/ibm-plex-mono/400.css'
+import '@fontsource/ibm-plex-mono/500.css'
+import './notebook-v2.css'
+
+import NavIcon from '@/components/NavIcon.astro'
+import FinalistShell from '../shared/FinalistShell.astro'
+import { profile } from '@/prototypes/shared/data'
+import Sketch from './Sketch.astro'
+
+interface Props {
+  page: string
+  title: string
+}
+
+const { page, title } = Astro.props
+const isHome = page === 'home'
+const links = [
+  { label: 'Home', href: '/prototypes/notebook-v2/', current: isHome },
+  { label: 'Writing', href: '/prototypes/notebook-v2/#writing', current: !isHome },
+]
+---
+
+<FinalistShell finalist="notebook-v2" page={page} title={title}>
+  <svg class="n-defs" width="0" height="0" aria-hidden="true" focusable="false">
+    <filter id="n-sketch" x="-5%" y="-20%" width="110%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="2" seed="7"></feTurbulence>
+      <feDisplacementMap in="SourceGraphic" scale="2.4"></feDisplacementMap>
+    </filter>
+  </svg>
+
+  <div class="n-site">
+    <header class="n-header">
+      <nav class="n-wrap n-header__inner" aria-label="Primary navigation">
+        <a class="n-brand" href="/prototypes/notebook-v2/" aria-label="Leo Wong, home">
+          <span class="n-mark"><NavIcon /></span>
+          <span class="n-brand__name">{profile.name}</span>
+          <span class="n-mono n-brand__role">/ {profile.role.toLowerCase()}</span>
+        </a>
+        <span class="n-nav">
+          {
+            links.map((link) => (
+              <a href={link.href} aria-current={link.current ? 'page' : undefined}>
+                {link.label}
+                {link.current ? <Sketch kind="circle" class="n-nav__circle" /> : null}
+              </a>
+            ))
+          }
+        </span>
+      </nav>
+    </header>
+
+    <main id="main-content"><slot /></main>
+
+    <footer class="n-footer">
+      <div class="n-wrap n-footer__inner">
+        <p class="n-mono">drawn by {profile.name} · {new Date().getFullYear()}</p>
+        <p class="n-footer__links">
+          <a href={profile.github}>GitHub ↗</a>
+          <a href={profile.linkedin}>LinkedIn ↗</a>
+        </p>
+      </div>
+    </footer>
+  </div>
+</FinalistShell>

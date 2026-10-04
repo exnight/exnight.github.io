@@ -1,0 +1,57 @@
+---
+// Prototype index page (rendered by Chooser.astro at /prototypes).
+import { finalists, reviewPages } from '@/prototypes/finalists/shared/data'
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="robots" content="noindex" />
+    <title>Design prototypes · Leo Wong</title>
+    <style>
+      /* Scoped to the index page: this route also serves the prototype pages. */
+      .proto-index {
+        max-width: 46rem;
+        margin: 3rem auto;
+        padding: 0 1.25rem;
+        color: #222;
+        font:
+          16px/1.6 ui-monospace,
+          SFMono-Regular,
+          Menlo,
+          monospace;
+      }
+      .proto-index li {
+        margin-bottom: 1.25rem;
+      }
+      .proto-index a {
+        color: #33507e;
+      }
+    </style>
+  </head>
+  <body class="proto-index">
+    <h1>Design prototypes</h1>
+    <p>
+      Exploration only — not linked from the site and not generated in production builds. The
+      approved direction is documented in DESIGN.md.
+    </p>
+    <ol>
+      {
+        finalists.map((f) => (
+          <li>
+            <strong>{f.label}</strong>
+            <br />
+            {reviewPages.map((p, i) => (
+              <>
+                {i > 0 ? ' · ' : ''}
+                <a href={`/prototypes/${f.id}/${p.path}`}>{p.label}</a>
+              </>
+            ))}
+          </li>
+        ))
+      }
+    </ol>
+  </body>
+</html>

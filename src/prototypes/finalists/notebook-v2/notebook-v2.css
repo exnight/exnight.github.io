@@ -1,0 +1,1210 @@
+/* Finalist 1 v2 — Drafting Notebook (revised). v1 + Folio Editorial's post heading
+   (no box, on the reading column) and homepage tag line, a wider reading measure
+   (38rem → 42rem), and a less texty homepage.
+   Based on Finalist 1 — Drafting Notebook (revised from D · Workbook).
+   Keeps D's vibe: dot-grid drafting paper, Bricolage + Source Serif + Plex Mono,
+   blue pen with a little highlighter, light sketch marks, drawing-sheet details.
+   Revised: far fewer boxes and rules, soft radii on the containers that remain,
+   numbered balloons (from F's clear contents) shared by contents and headings. */
+
+html.fx-notebook-v2 {
+  --paper: #f2f1ec;
+  --raised: #fbfaf6;
+  --tint: #ebeae3;
+  --ink: #1d1f22;
+  --ink-soft: #2d3035;
+  --muted: #5c5f64;
+  --hair: rgb(29 31 34 / 0.12);
+  --hair-strong: rgb(29 31 34 / 0.22);
+  --pen: #33507e;
+  --marker: #f1d24a;
+  --dot: rgb(29 31 34 / 0.09);
+  --focus: #33507e;
+  --r-sm: 8px;
+  --r-md: 14px;
+  --r-lg: 18px;
+  --display: 'Bricolage Grotesque Variable', ui-sans-serif, system-ui, sans-serif;
+  --serif: 'Source Serif 4 Variable', ui-serif, Georgia, serif;
+  --mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--display);
+}
+
+html.fx-notebook-v2 body {
+  background-color: var(--paper);
+  background-image: radial-gradient(circle at 1px 1px, var(--dot) 1px, transparent 1.3px);
+  background-size: 24px 24px;
+}
+
+html.fx-notebook-v2 ::selection {
+  background: color-mix(in srgb, var(--marker) 75%, transparent);
+  color: var(--ink);
+}
+
+.fx-notebook-v2 .n-defs {
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+
+.fx-notebook-v2 .n-site {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.fx-notebook-v2 main {
+  flex: 1 0 auto;
+}
+
+.fx-notebook-v2 .n-wrap {
+  width: min(1240px, calc(100% - 2 * clamp(1.125rem, 4vw, 3rem)));
+  margin-inline: auto;
+}
+
+.fx-notebook-v2 .n-mono {
+  font-family: var(--mono);
+  font-weight: 400;
+}
+
+.fx-notebook-v2 a {
+  color: inherit;
+}
+
+.fx-notebook-v2 .n-kicker {
+  margin: 0 0 1rem;
+  color: var(--pen);
+  font-family: var(--mono);
+  font-size: 0.8rem;
+}
+
+/* Sketch marks */
+.fx-notebook-v2 .n-sketch {
+  overflow: visible;
+  filter: url(#n-sketch);
+  pointer-events: none;
+}
+
+.fx-notebook-v2 .n-sketch path {
+  fill: none;
+  stroke: var(--pen);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2.2;
+  vector-effect: non-scaling-stroke;
+}
+
+.fx-notebook-v2 .n-sketch .n-sketch__ghost {
+  opacity: 0.45;
+  stroke-width: 1.4;
+}
+
+.fx-notebook-v2 .n-sketch .n-sketch__fill {
+  fill: color-mix(in srgb, var(--marker) 80%, transparent);
+  stroke: none;
+}
+
+/* Balloons — drawing callouts, shared by the system sketch, contents and headings */
+.fx-notebook-v2 .n-balloon {
+  display: inline-grid;
+  flex: none;
+  width: 1.6rem;
+  height: 1.6rem;
+  place-items: center;
+  border: 1.5px solid var(--ink);
+  border-radius: 50%;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.fx-notebook-v2 .n-balloon--sm {
+  width: 1.35rem;
+  height: 1.35rem;
+  border-width: 1.2px;
+  font-size: 0.68rem;
+}
+
+/* Header — one hairline, no double rule */
+.fx-notebook-v2 .n-header {
+  border-bottom: 1px solid var(--hair-strong);
+}
+
+.fx-notebook-v2 .n-header__inner {
+  display: flex;
+  min-height: 4.5rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.fx-notebook-v2 .n-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  text-decoration: none;
+}
+
+.fx-notebook-v2 .n-mark svg {
+  width: auto;
+  height: 1.9rem;
+  fill: var(--pen);
+}
+
+.fx-notebook-v2 .n-brand__name {
+  font-size: 1.1rem;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+}
+
+.fx-notebook-v2 .n-brand__role {
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.fx-notebook-v2 .n-nav {
+  display: flex;
+  gap: clamp(0.75rem, 2vw, 1.5rem);
+}
+
+.fx-notebook-v2 .n-nav a {
+  position: relative;
+  padding: 0.45rem 0.85rem;
+  font-size: 1.02rem;
+  font-weight: 550;
+  text-decoration: none;
+}
+
+.fx-notebook-v2 .n-nav a:hover {
+  color: var(--pen);
+}
+
+.fx-notebook-v2 .n-nav__circle {
+  position: absolute;
+  inset: -0.2rem -0.35rem;
+  width: calc(100% + 0.7rem);
+  height: calc(100% + 0.4rem);
+}
+
+.fx-notebook-v2 .n-nav__circle path {
+  stroke-width: 1.6;
+}
+
+/* Hero */
+.fx-notebook-v2 .n-hero {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-template-rows: auto auto 1fr;
+  align-items: start;
+  column-gap: 1.5rem;
+  padding: clamp(3rem, 7vw, 6rem) 0 0;
+}
+
+.fx-notebook-v2 .n-hero__statement {
+  grid-column: 1 / span 8;
+}
+
+.fx-notebook-v2 .n-hero__statement {
+  margin: 0;
+  font-size: clamp(2.7rem, 5.6vw, 5.2rem);
+  font-stretch: 90%;
+  font-weight: 650;
+  letter-spacing: -0.028em;
+  line-height: 1;
+  text-wrap: balance;
+}
+
+.fx-notebook-v2 .n-mark-under,
+.fx-notebook-v2 .n-mark-high {
+  position: relative;
+  white-space: nowrap;
+}
+
+.fx-notebook-v2 .n-mark-under .n-sketch {
+  position: absolute;
+  bottom: -0.14em;
+  left: -2%;
+  width: 104%;
+  height: 0.2em;
+}
+
+.fx-notebook-v2 .n-mark-under .n-sketch path {
+  stroke-width: 3;
+}
+
+.fx-notebook-v2 .n-mark-high .n-sketch {
+  position: absolute;
+  z-index: 0;
+  top: 20%;
+  left: -6%;
+  width: 112%;
+  height: 72%;
+}
+
+.fx-notebook-v2 .n-mark-high > span {
+  position: relative;
+  z-index: 1;
+}
+
+.fx-notebook-v2 .n-hero__detail {
+  grid-column: 1 / span 7;
+  max-width: 64ch;
+  margin: clamp(1.75rem, 3vw, 2.5rem) 0 0;
+  color: var(--ink-soft);
+  font-family: var(--serif);
+  font-size: clamp(1.1rem, 1.4vw, 1.25rem);
+  line-height: 1.6;
+  text-wrap: pretty;
+}
+
+/* System sketch — soft cards joined by a single pen line */
+.fx-notebook-v2 .n-system {
+  grid-column: 9 / span 4;
+  grid-row: 1 / span 3;
+  margin: 0;
+  padding-left: 0.5rem;
+}
+
+.fx-notebook-v2 .n-system__core {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.fx-notebook-v2 .n-system__node {
+  display: grid;
+  width: 3.25rem;
+  height: 3.25rem;
+  place-items: center;
+  border: 1.5px solid var(--ink);
+  border-radius: 50%;
+  background: var(--raised);
+}
+
+.fx-notebook-v2 .n-system__node svg {
+  width: auto;
+  height: 1.15rem;
+  fill: var(--pen);
+}
+
+.fx-notebook-v2 .n-system__cards {
+  margin-left: 1.625rem;
+  padding: 1.25rem 0 0 1.5rem;
+}
+
+.fx-notebook-v2 .n-system__card {
+  position: relative;
+  padding: 0.9rem 1.1rem 0.6rem;
+  border: 1px solid var(--hair-strong);
+  border-radius: var(--r-md);
+  background: var(--raised);
+}
+
+.fx-notebook-v2 .n-system__card + .n-system__card {
+  margin-top: 1.25rem;
+}
+
+.fx-notebook-v2 .n-system__card::before,
+.fx-notebook-v2 .n-system__card::after {
+  position: absolute;
+  content: '';
+  filter: url(#n-sketch);
+  pointer-events: none;
+}
+
+/* One continuous spine (drawn by the first card) so the filter never breaks it */
+.fx-notebook-v2 .n-system__card:first-child::before {
+  top: calc(-1.25rem - 1px);
+  left: calc(-1.5rem - 1px - 6px);
+  width: 12px;
+  height: calc(100% + 1.25rem + 2px + 1.25rem + 1.65rem + 1px);
+  background: linear-gradient(90deg, transparent 5px, var(--pen) 5px 7px, transparent 7px);
+}
+
+.fx-notebook-v2 .n-system__card:not(:first-child)::before {
+  content: none;
+}
+
+.fx-notebook-v2 .n-system__card::after {
+  top: calc(1.65rem - 6px);
+  left: calc(-1.5rem - 1px);
+  width: 1.5rem;
+  height: 12px;
+  background: linear-gradient(180deg, transparent 5px, var(--pen) 5px 7px, transparent 7px);
+}
+
+.fx-notebook-v2 .n-balloon-title {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0 0 0.4rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.fx-notebook-v2 .n-system__card ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.fx-notebook-v2 .n-system__card li {
+  display: block;
+  padding: 0.38rem 0;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* Recent writing — no separators; whitespace and soft hover tiles */
+.fx-notebook-v2 .n-log {
+  margin-top: clamp(4rem, 8vw, 7rem);
+  padding-bottom: clamp(3.5rem, 7vw, 5.5rem);
+}
+
+.fx-notebook-v2 .n-log__list {
+  display: grid;
+  gap: 0.35rem;
+  margin: 0 -1rem;
+  padding: 0;
+  list-style: none;
+}
+
+.fx-notebook-v2 .n-entry {
+  display: grid;
+  grid-template-columns: 2.25rem minmax(0, 1fr) 4rem;
+  gap: 1.25rem;
+  align-items: start;
+  padding: 1.5rem 1rem 1.6rem;
+  border-radius: var(--r-lg);
+  text-decoration: none;
+  transition: background-color 180ms ease-out;
+}
+
+.fx-notebook-v2 .n-entry:hover,
+.fx-notebook-v2 .n-entry:focus-visible {
+  background: color-mix(in srgb, var(--raised) 85%, transparent);
+}
+
+.fx-notebook-v2 .n-entry__no {
+  padding-top: 0.5rem;
+  font-size: 0.85rem;
+}
+
+.fx-notebook-v2 .n-entry__no {
+  color: var(--pen);
+  font-weight: 500;
+}
+
+.fx-notebook-v2 .n-entry__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.fx-notebook-v2 .n-entry__title {
+  font-size: clamp(1.45rem, 2.4vw, 2.1rem);
+  font-stretch: 92%;
+  font-weight: 620;
+  letter-spacing: -0.025em;
+  line-height: 1.08;
+  text-wrap: balance;
+}
+
+.fx-notebook-v2 .n-entry__summary {
+  max-width: 72ch;
+  color: var(--ink-soft);
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+
+.fx-notebook-v2 .n-entry__arrow {
+  width: 3.5rem;
+  height: 1.8rem;
+  align-self: center;
+  opacity: 0;
+  transition: opacity 120ms ease-out;
+}
+
+.fx-notebook-v2 .n-entry__arrow .n-sketch__draw {
+  stroke-dasharray: 72;
+  stroke-dashoffset: 72;
+  transition: stroke-dashoffset 380ms ease-out;
+}
+
+.fx-notebook-v2 .n-entry:hover .n-entry__arrow,
+.fx-notebook-v2 .n-entry:focus-visible .n-entry__arrow {
+  opacity: 1;
+}
+
+.fx-notebook-v2 .n-entry:hover .n-sketch__draw,
+.fx-notebook-v2 .n-entry:focus-visible .n-sketch__draw {
+  stroke-dashoffset: 0;
+}
+
+@media (hover: none) {
+  .fx-notebook-v2 .n-entry__arrow {
+    opacity: 1;
+  }
+
+  .fx-notebook-v2 .n-entry__arrow .n-sketch__draw {
+    stroke-dashoffset: 0;
+  }
+}
+
+.fx-notebook-v2 .n-all {
+  display: inline-block;
+  margin-top: 1.25rem;
+  color: var(--pen);
+  font-size: 0.85rem;
+  text-decoration: none;
+}
+
+.fx-notebook-v2 .n-all:hover {
+  text-decoration: underline wavy;
+  text-underline-offset: 0.3em;
+}
+
+/* Footer — unboxed */
+.fx-notebook-v2 .n-footer {
+  border-top: 1px solid var(--hair-strong);
+}
+
+.fx-notebook-v2 .n-footer__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 2rem;
+  padding: 1.5rem 0 2.25rem;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.fx-notebook-v2 .n-footer p {
+  margin: 0;
+}
+
+.fx-notebook-v2 .n-footer__links {
+  display: flex;
+  gap: 1.5rem;
+  font-weight: 550;
+}
+
+.fx-notebook-v2 .n-footer a {
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.fx-notebook-v2 .n-footer a:hover {
+  color: var(--pen);
+}
+
+/* Article head */
+.fx-notebook-v2 .n-article {
+  padding: clamp(1.5rem, 3vw, 2.5rem) 0 clamp(4rem, 8vw, 6rem);
+}
+
+.fx-notebook-v2 .n-crumbs {
+  display: flex;
+  flex-wrap: wrap;
+  grid-column: 1 / -1;
+  gap: 0.5rem;
+  margin: 0 0 clamp(2rem, 4vw, 3.5rem);
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.fx-notebook-v2 .n-crumbs a {
+  color: var(--pen);
+  text-decoration: none;
+}
+
+.fx-notebook-v2 .n-crumbs a:hover {
+  text-decoration: underline wavy;
+  text-underline-offset: 0.25em;
+}
+
+.fx-notebook-v2 .n-deck {
+  max-width: 46ch;
+  margin: 1.1rem 0 0;
+  color: var(--ink-soft);
+  font-family: var(--serif);
+  font-size: clamp(1.15rem, 1.6vw, 1.35rem);
+  font-style: italic;
+  line-height: 1.45;
+  text-wrap: pretty;
+}
+
+.fx-notebook-v2 .n-toc {
+  position: sticky;
+  top: 1.5rem;
+  grid-column: 1;
+  align-self: start;
+}
+
+.fx-notebook-v2 .n-toc summary {
+  margin-bottom: 0.75rem;
+  color: var(--muted);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.fx-notebook-v2 .n-toc ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.fx-notebook-v2 .n-toc a {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  padding: 0.32rem 0.5rem 0.32rem 0;
+  border-radius: var(--r-sm);
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+  line-height: 1.3;
+  text-decoration: none;
+}
+
+.fx-notebook-v2 .n-toc .is-sub a {
+  padding-left: 1.95rem;
+  color: var(--muted);
+  font-size: 0.86rem;
+}
+
+.fx-notebook-v2 .n-toc a:hover {
+  color: var(--pen);
+}
+
+.fx-notebook-v2 .n-toc a[aria-current='location'] {
+  color: var(--pen);
+  font-weight: 600;
+}
+
+.fx-notebook-v2 .n-toc a[aria-current='location'] .n-balloon {
+  border-color: var(--pen);
+  background: var(--pen);
+  color: var(--raised);
+}
+
+/* Prose */
+.fx-notebook-v2 .n-prose {
+  display: grid;
+  grid-column: 2 / -1;
+  grid-template-columns: subgrid;
+  color: var(--ink-soft);
+  counter-reset: sec tbl fig;
+  font-family: var(--serif);
+  font-size: 1.1875rem;
+  line-height: 1.7;
+  text-wrap: pretty;
+}
+
+.fx-notebook-v2 .n-prose > * {
+  grid-column: 1;
+  min-width: 0;
+  margin: 0 0 1.15em;
+}
+
+.fx-notebook-v2 .n-prose h2,
+.fx-notebook-v2 .n-prose h3 {
+  color: var(--ink);
+  font-family: var(--display);
+  text-wrap: balance;
+}
+
+.fx-notebook-v2 .n-prose h2 {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 2em 0 0.6em;
+  counter-increment: sec;
+  font-size: clamp(1.55rem, 2.3vw, 1.95rem);
+  font-stretch: 92%;
+  font-weight: 620;
+  letter-spacing: -0.022em;
+  line-height: 1.15;
+}
+
+/* Heading balloons match the contents numbering */
+.fx-notebook-v2 .n-prose h2::before {
+  display: inline-grid;
+  flex: none;
+  width: 1.9rem;
+  height: 1.9rem;
+  place-items: center;
+  border: 1.5px solid var(--ink);
+  border-radius: 50%;
+  content: counter(sec);
+  font-family: var(--mono);
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+.fx-notebook-v2 .n-prose > h2:first-child {
+  margin-top: 0;
+}
+
+.fx-notebook-v2 .n-prose h3 {
+  margin: 1.7em 0 0.45em;
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+}
+
+/* TL;DR — taped note card (soft corners) */
+.fx-notebook-v2 .n-prose h2#tldr + p {
+  position: relative;
+  z-index: 0;
+  margin-bottom: 1.5em;
+  padding: 1.15rem 1.35rem;
+  color: var(--ink);
+  font-size: 1.12rem;
+}
+
+.fx-notebook-v2 .n-prose h2#tldr + p::after {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  border: 1px solid var(--hair-strong);
+  border-radius: var(--r-md);
+  background: var(--raised);
+  content: '';
+  transform: rotate(-0.5deg);
+}
+
+.fx-notebook-v2 .n-prose h2#tldr + p::before {
+  position: absolute;
+  top: -0.65rem;
+  left: 50%;
+  width: 4.5rem;
+  height: 1.15rem;
+  border-radius: 2px;
+  background: color-mix(in srgb, var(--marker) 55%, transparent);
+  content: '';
+  transform: translateX(-50%) rotate(-3deg);
+}
+
+/* Takeaways — pen bracket until the next section */
+.fx-notebook-v2 .n-prose h2#takeaways ~ :not(h2):not(h2#takeaways ~ h2 ~ *) {
+  margin-bottom: 0;
+  padding: 0 0 1.15em 1.25rem;
+  border-left: 2px solid var(--pen);
+}
+
+.fx-notebook-v2 .n-prose a {
+  color: var(--pen);
+  text-decoration-color: color-mix(in srgb, var(--pen) 45%, transparent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+
+.fx-notebook-v2 .n-prose a:hover {
+  text-decoration-color: var(--pen);
+  text-decoration-style: wavy;
+}
+
+.fx-notebook-v2 .n-prose strong {
+  background: linear-gradient(
+    transparent 62%,
+    color-mix(in srgb, var(--marker) 55%, transparent) 62%
+  );
+  color: var(--ink);
+  font-weight: 650;
+}
+
+.fx-notebook-v2 .n-prose ul,
+.fx-notebook-v2 .n-prose ol {
+  padding-left: 1.4em;
+}
+
+.fx-notebook-v2 .n-prose li {
+  margin: 0.35em 0;
+  padding-left: 0.2em;
+}
+
+.fx-notebook-v2 .n-prose ul > li::marker {
+  color: var(--pen);
+  content: '– ';
+  font-family: var(--mono);
+}
+
+.fx-notebook-v2 .n-prose code:not(pre code) {
+  padding: 0.08em 0.32em;
+  border-radius: 5px;
+  background: var(--tint);
+  font-family: var(--mono);
+  font-size: 0.82em;
+}
+
+/* Code — soft sheet with a language label */
+.fx-notebook-v2 .n-prose pre {
+  position: relative;
+  padding: 2rem 1.25rem 1.1rem;
+  border: 1px solid var(--hair-strong);
+  border-radius: var(--r-md);
+  background: var(--raised) !important;
+  font-family: var(--mono);
+  font-size: 0.86rem;
+  line-height: 1.6;
+}
+
+.fx-notebook-v2 .n-prose pre[data-language]::before {
+  position: absolute;
+  top: 0.6rem;
+  left: 1.25rem;
+  color: var(--muted);
+  content: attr(data-language);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.fx-notebook-v2 .astro-code span {
+  color: var(--shiki-light);
+  font-style: var(--shiki-light-font-style);
+  font-weight: var(--shiki-light-font-weight);
+}
+
+/* Tables — one strong header rule, light row hairlines, mono figures */
+.fx-notebook-v2 .n-prose .fx-table {
+  grid-column: 1 / -1;
+  max-width: 58rem;
+  margin: 0.4em 0 0.5em;
+  counter-increment: tbl;
+}
+
+.fx-notebook-v2 .n-prose table {
+  font-family: var(--display);
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.fx-notebook-v2 .n-prose th {
+  padding: 0.55rem 0.75rem;
+  border-bottom: 1.5px solid var(--ink);
+  color: var(--ink);
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.fx-notebook-v2 .n-prose td {
+  padding: 0.6rem 0.75rem;
+  border-bottom: 1px solid var(--hair);
+}
+
+.fx-notebook-v2 .n-prose td:first-child {
+  font-weight: 550;
+}
+
+.fx-notebook-v2 .n-prose th:first-child,
+.fx-notebook-v2 .n-prose td:first-child {
+  padding-left: 0;
+}
+
+.fx-notebook-v2 .n-prose th:last-child,
+.fx-notebook-v2 .n-prose td:last-child {
+  padding-right: 0;
+}
+
+.fx-notebook-v2 .n-prose th:not(:first-child),
+.fx-notebook-v2 .n-prose td:not(:first-child) {
+  font-family: var(--mono);
+  font-size: 0.86rem;
+  text-align: right;
+}
+
+.fx-notebook-v2 .n-prose th:not(:first-child) {
+  font-size: 0.7rem;
+}
+
+.fx-notebook-v2 .n-prose .fx-table + p:has(> em:only-child) {
+  max-width: 60ch;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.fx-notebook-v2 .n-prose .fx-table + p:has(> em:only-child)::before {
+  margin-right: 0.5rem;
+  color: var(--pen);
+  content: 'Table ' counter(tbl) ' —';
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  font-style: normal;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* Figures — soft corners, numbered like drawing figures */
+.fx-notebook-v2 .n-prose .fx-figure {
+  counter-increment: fig;
+  margin: 0.6em 0 1.6em;
+}
+
+.fx-notebook-v2 .n-prose .fx-figure img {
+  border: 1px solid var(--hair-strong);
+  border-radius: var(--r-md);
+  background: var(--raised);
+}
+
+.fx-notebook-v2 .n-prose .fx-figure figcaption {
+  margin-top: 0.7rem;
+  color: var(--muted);
+  font-size: 0.92rem;
+  font-style: italic;
+  line-height: 1.45;
+}
+
+.fx-notebook-v2 .n-prose .fx-figure figcaption::before {
+  display: block;
+  margin-bottom: 0.15rem;
+  color: var(--pen);
+  content: 'fig. ' counter(fig);
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  font-style: normal;
+}
+
+.fx-notebook-v2 .n-prose .fx-figure--wide {
+  grid-column: 1 / -1;
+  max-width: 56rem;
+}
+
+/* Tall (phone) screenshots: narrow image with the caption beside it */
+.fx-notebook-v2 .n-prose .fx-figure--tall {
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: minmax(0, 18rem) minmax(0, 20rem);
+  gap: 1.5rem;
+  align-items: end;
+}
+
+.fx-notebook-v2 .n-prose .fx-figure--tall figcaption {
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+  .fx-notebook-v2 .n-toc {
+    position: static;
+    margin-bottom: 2.25rem;
+    padding: 0.85rem 1rem;
+    border: 1px solid var(--hair);
+    border-radius: var(--r-md);
+    background: var(--raised);
+  }
+
+  .fx-notebook-v2 .n-toc summary {
+    margin: 0;
+  }
+
+  .fx-notebook-v2 .n-toc details[open] summary {
+    margin-bottom: 0.75rem;
+  }
+
+  .fx-notebook-v2 .n-prose {
+    grid-column: 1;
+    grid-template-columns: minmax(0, 1fr);
+    max-width: 40rem;
+  }
+
+  .fx-notebook-v2 .n-prose > *,
+  .fx-notebook-v2 .n-prose .fx-table,
+  .fx-notebook-v2 .n-prose .fx-figure--wide,
+  .fx-notebook-v2 .n-prose .fx-figure--tall {
+    grid-column: 1;
+  }
+}
+
+@media (max-width: 900px) {
+  .fx-notebook-v2 .n-hero__statement,
+  .fx-notebook-v2 .n-hero__detail {
+    grid-column: 1 / -1;
+  }
+
+  .fx-notebook-v2 .n-system {
+    grid-column: 1 / -1;
+    grid-row: auto;
+    max-width: 30rem;
+    margin-top: 2.75rem;
+    padding-left: 0;
+  }
+}
+
+@media (max-width: 720px) {
+  .fx-notebook-v2 .n-brand__role {
+    display: none;
+  }
+
+  .fx-notebook-v2 .n-header__inner {
+    min-height: 3.75rem;
+  }
+
+  .fx-notebook-v2 .n-mark svg {
+    height: 1.6rem;
+  }
+
+  .fx-notebook-v2 .n-hero__statement {
+    font-size: clamp(2.35rem, 11vw, 3rem);
+  }
+
+  .fx-notebook-v2 .n-log__list {
+    margin: 0 -0.75rem;
+  }
+
+  .fx-notebook-v2 .n-entry {
+    grid-template-columns: 2.75rem minmax(0, 1fr);
+    gap: 0.4rem 0.75rem;
+    padding: 1.2rem 0.75rem 1.3rem;
+  }
+
+  .fx-notebook-v2 .n-entry__no {
+    padding-top: 0;
+  }
+
+  .fx-notebook-v2 .n-entry__body {
+    grid-column: 2;
+  }
+
+  .fx-notebook-v2 .n-entry__arrow {
+    display: none;
+  }
+
+  .fx-notebook-v2 .n-entry__title {
+    font-size: 1.45rem;
+  }
+
+  .fx-notebook-v2 .n-entry__summary {
+    font-size: 1rem;
+  }
+
+  .fx-notebook-v2 .n-prose {
+    font-size: 1.0625rem;
+  }
+
+  .fx-notebook-v2 .n-prose h2::before {
+    width: 1.7rem;
+    height: 1.7rem;
+  }
+
+  .fx-notebook-v2 .n-prose th,
+  .fx-notebook-v2 .n-prose td {
+    white-space: nowrap;
+  }
+
+  .fx-notebook-v2 .n-prose h2#tldr + p::after {
+    transform: none;
+  }
+
+  .fx-notebook-v2 .n-prose .fx-figure--tall {
+    grid-template-columns: minmax(0, 15rem);
+    justify-content: center;
+  }
+
+  .fx-notebook-v2 .n-prose .fx-figure--tall figcaption {
+    margin-top: 0.7rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fx-notebook-v2 .n-entry__arrow .n-sketch__draw {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* v2 additions                                                        */
+/* ------------------------------------------------------------------ */
+
+/* Meta line (from Folio Editorial): date · tags · read time, one quiet line */
+.fx-notebook-v2 .n-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.2rem 0;
+  margin: 0;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* Separator trails the previous item, so wrapped lines never start with a dot */
+.fx-notebook-v2 .n-meta > :not(:last-child)::after {
+  margin: 0 0.7rem;
+  color: var(--hair-strong);
+  content: '·';
+}
+
+.fx-notebook-v2 .n-meta time {
+  color: var(--ink-soft);
+}
+
+.fx-notebook-v2 .n-meta__entry {
+  color: var(--pen);
+}
+
+/* Section title with pen underline (no side label) */
+.fx-notebook-v2 .n-section-title {
+  position: relative;
+  display: inline-block;
+  margin: 0 0 1.75rem;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-stretch: 90%;
+  font-weight: 650;
+  letter-spacing: -0.03em;
+}
+
+.fx-notebook-v2 .n-section-title__mark {
+  position: absolute;
+  bottom: -0.25em;
+  left: 0;
+  width: 100%;
+  height: 0.22em;
+}
+
+/* Post number as a drawing balloon */
+.fx-notebook-v2 .n-entry__no {
+  width: 2rem;
+  height: 2rem;
+  margin-top: 0.05rem;
+  font-size: 0.8rem;
+}
+
+.fx-notebook-v2 .n-entry:hover .n-entry__no {
+  border-color: var(--pen);
+  background: var(--pen);
+  color: var(--raised);
+}
+
+/* Post: the article is the grid — heading over the reading column, no box */
+.fx-notebook-v2 .n-article {
+  display: grid;
+  grid-template-columns: 13rem minmax(0, 42rem) minmax(0, 1fr);
+  column-gap: clamp(2rem, 4vw, 4rem);
+}
+
+.fx-notebook-v2 .n-article__head {
+  display: block;
+  grid-column: 2 / -1;
+  grid-row: 1;
+  padding-bottom: clamp(2.25rem, 4vw, 3.5rem);
+}
+
+.fx-notebook-v2 .n-fixture-note {
+  margin: 0 0 0.6rem;
+  color: var(--pen);
+  font-size: 0.75rem;
+}
+
+.fx-notebook-v2 .n-article__meta {
+  margin-bottom: 1rem;
+}
+
+.fx-notebook-v2 .n-article__head h1 {
+  max-width: 22ch;
+  margin: 0;
+  font-size: clamp(2.5rem, 5.4vw, 4.6rem);
+  font-stretch: 90%;
+  font-weight: 650;
+  letter-spacing: -0.035em;
+  line-height: 1;
+  text-wrap: balance;
+}
+
+.fx-notebook-v2 .n-article__head .n-deck {
+  max-width: 60ch;
+}
+
+.fx-notebook-v2 .n-toc {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.fx-notebook-v2 .n-prose {
+  grid-column: 2 / -1;
+  grid-row: 2;
+}
+
+/* Two measures only: the text measure (42rem) and the wide measure (to the frame's
+   right edge, which lines up with the nav). Tables snap to one of them — never an
+   in-between width that would read as a misalignment. Default (and no-JS fallback):
+   the text measure, scrolling inside if needed. Post.astro adds .is-wide when the
+   table's natural width exceeds the text measure. Captions stay at text width. */
+.fx-notebook-v2 .n-prose .fx-table {
+  justify-self: start;
+  width: min(100%, 42rem);
+  min-width: 0;
+  max-width: 100%;
+}
+
+.fx-notebook-v2 .n-prose .fx-table.is-wide {
+  width: 100%;
+}
+
+.fx-notebook-v2 .n-prose .fx-figure--wide {
+  max-width: none;
+}
+
+@media (max-width: 1000px) {
+  .fx-notebook-v2 .n-article {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .fx-notebook-v2 .n-article__head,
+  .fx-notebook-v2 .n-toc,
+  .fx-notebook-v2 .n-prose {
+    grid-column: 1;
+  }
+
+  .fx-notebook-v2 .n-toc {
+    grid-row: 2;
+    max-width: 42rem;
+  }
+
+  .fx-notebook-v2 .n-prose {
+    grid-row: 3;
+    max-width: 42rem;
+  }
+}
+
+@media (max-width: 720px) {
+  .fx-notebook-v2 .n-entry {
+    grid-template-columns: 2rem minmax(0, 1fr);
+    gap: 0.4rem 0.75rem;
+  }
+
+  .fx-notebook-v2 .n-entry__no {
+    grid-row: 1 / span 2;
+    width: 1.75rem;
+    height: 1.75rem;
+    font-size: 0.72rem;
+  }
+
+  .fx-notebook-v2 .n-entry__body {
+    grid-column: 2;
+  }
+
+  .fx-notebook-v2 .n-meta {
+    font-size: 0.68rem;
+  }
+
+  .fx-notebook-v2 .n-meta > :not(:last-child)::after {
+    margin: 0 0.5rem;
+  }
+}
