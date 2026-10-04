@@ -2,6 +2,20 @@
 
 This is a personal website built with Astro.js, TypeScript, and Tailwind CSS.
 
+## Approved design and migration
+
+**Drafting Notebook is approved for migration; production still uses Open Field Folio.**
+
+- [Product context](PRODUCT.md)
+- [Approved visual system](DESIGN.md)
+- [Production migration hand-off and new-session prompt](docs/design/MIGRATION.md)
+- [Approved preview references](docs/design/reference/README.md)
+- [Historical Folio specification](docs/design/archive/open-field-folio.md) (not migration authority)
+
+Page-specific direction contracts live in `.impeccable/surfaces/`; `.impeccable/design.json` carries visual-system extensions. These are durable, tracked documentation. Generated Impeccable reviews/state remain ignored.
+
+Prototype previews are available in dev at `/prototypes/notebook-v2/` and `/prototypes/notebook-v2/writing/`; normal production builds exclude them. Read the hand-off before porting.
+
 ## Getting Started
 
 The project works with Node version 24 or above.

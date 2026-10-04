@@ -25,4 +25,7 @@ pnpm-debug.log*
 .idea/
 
 .devcontainer/config/*
-.impeccable/
+# Keep durable design context; ignore generated reviews and tool state.
+.impeccable/*
+!.impeccable/design.json
+!.impeccable/surfaces/
