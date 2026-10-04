@@ -27,6 +27,8 @@ html.fx-notebook-v2 {
   --serif: 'Source Serif 4 Variable', ui-serif, Georgia, serif;
   --mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
 
+  color-scheme: light;
+  scrollbar-color: var(--muted) var(--paper);
   background: var(--paper);
   color: var(--ink);
   font-family: var(--display);
@@ -78,6 +80,177 @@ html.fx-notebook-v2 ::selection {
   color: var(--pen);
   font-family: var(--mono);
   font-size: 0.8rem;
+}
+
+/* Graphite notebook: a low-light reading surface, not a glowing blueprint. */
+html.fx-notebook-v2[data-notebook-theme='dark'] {
+  color-scheme: dark;
+  --paper: #20211f;
+  --raised: #292b28;
+  --tint: #343731;
+  --ink: #eeeee5;
+  --ink-soft: #d8dbd2;
+  --muted: #afb5aa;
+  --hair: rgb(238 238 229 / 0.12);
+  --hair-strong: rgb(238 238 229 / 0.25);
+  --pen: #a2bfe8;
+  --marker: #c5aa45;
+  --dot: rgb(238 238 229 / 0.065);
+  --focus: #a2bfe8;
+}
+
+.fx-notebook-v2[data-notebook-theme='dark'] .astro-code span {
+  color: var(--shiki-dark);
+  font-style: var(--shiki-dark-font-style);
+  font-weight: var(--shiki-dark-font-weight);
+}
+
+.fx-notebook-v2 .n-theme {
+  display: grid;
+  flex: none;
+  width: 2.75rem;
+  height: 2.75rem;
+  place-items: center;
+  border: 1px solid var(--hair-strong);
+  border-radius: var(--r-sm);
+  background: var(--raised);
+  color: var(--pen);
+  cursor: pointer;
+  transition:
+    border-color 180ms ease-out,
+    background-color 180ms ease-out;
+}
+
+.fx-notebook-v2 .n-theme[hidden] {
+  display: none;
+}
+.fx-notebook-v2 .n-theme:hover {
+  border-color: var(--pen);
+  background: var(--tint);
+}
+.fx-notebook-v2 .n-theme:active {
+  background: var(--paper);
+}
+.fx-notebook-v2 .n-theme__sun {
+  display: none;
+}
+.fx-notebook-v2[data-notebook-theme='dark'] .n-theme__sun {
+  display: initial;
+}
+.fx-notebook-v2[data-notebook-theme='dark'] .n-theme__moon {
+  display: none;
+}
+.fx-notebook-v2 .n-nav {
+  margin-left: auto;
+}
+.fx-notebook-v2 .n-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1rem;
+  margin: 0;
+  padding: 0;
+  color: var(--muted);
+  font-family: var(--display);
+  font-size: 0.875rem;
+  line-height: 1.5;
+  list-style: none;
+  text-transform: none;
+}
+.fx-notebook-v2 .n-entry__body {
+  min-width: 0;
+}
+.fx-notebook-v2 .n-tags > * {
+  overflow-wrap: anywhere;
+}
+.fx-notebook-v2 .n-brand__name {
+  white-space: nowrap;
+}
+
+/* Reading-led archive: years organize the collection; entries stay open. */
+.fx-notebook-v2 .n-archive {
+  padding-block: clamp(3rem, 6vw, 5.5rem) clamp(4rem, 8vw, 7rem);
+}
+.fx-notebook-v2 .n-archive__head {
+  margin-bottom: clamp(3rem, 6vw, 5rem);
+}
+.fx-notebook-v2 .n-archive__head h1 {
+  position: relative;
+  display: inline-block;
+  margin: 0;
+  font-size: clamp(3rem, 5.4vw, 4.6rem);
+  font-stretch: 90%;
+  font-weight: 650;
+  letter-spacing: -0.035em;
+  line-height: 1.05;
+}
+.fx-notebook-v2 .n-archive__mark {
+  position: absolute;
+  bottom: -0.15em;
+  left: 0;
+  width: 100%;
+  height: 0.18em;
+}
+.fx-notebook-v2 .n-archive__head p {
+  max-width: 42rem;
+  margin: 1.75rem 0 1rem;
+  color: var(--ink-soft);
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+.fx-notebook-v2 .n-archive__count {
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+.fx-notebook-v2 .n-archive__year {
+  display: grid;
+  grid-template-columns: 8rem minmax(0, 1fr);
+  gap: clamp(1.5rem, 4vw, 4rem);
+}
+.fx-notebook-v2 .n-archive__year + .n-archive__year {
+  margin-top: 3.5rem;
+}
+.fx-notebook-v2 .n-archive__year > h2 {
+  margin: 1.5rem 0 0;
+  color: var(--pen);
+  font-size: 1.15rem;
+  line-height: 1.4;
+}
+.fx-notebook-v2 .n-archive__empty {
+  color: var(--ink-soft);
+}
+
+@media (max-width: 720px) {
+  .fx-notebook-v2 .n-header__inner {
+    gap: 0.5rem;
+  }
+  .fx-notebook-v2 .n-nav {
+    gap: 0;
+  }
+  .fx-notebook-v2 .n-nav a {
+    padding: 0.65rem 0.5rem;
+  }
+  .fx-notebook-v2 .n-brand {
+    gap: 0.4rem;
+  }
+  .fx-notebook-v2 .n-brand__name {
+    font-size: 1rem;
+  }
+  .fx-notebook-v2 .n-archive__year {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.8rem;
+  }
+  .fx-notebook-v2 .n-archive__year > h2 {
+    margin-top: 0;
+  }
+  .fx-notebook-v2 .n-archive__head p {
+    font-size: 1.0625rem;
+  }
+}
+@media (max-width: 380px) {
+  .fx-notebook-v2 .n-brand__name {
+    display: none;
+  }
 }
 
 /* Sketch marks */
@@ -260,103 +433,31 @@ html.fx-notebook-v2 ::selection {
   text-wrap: pretty;
 }
 
-/* System sketch — soft cards joined by a single pen line */
-.fx-notebook-v2 .n-system {
+/* Plain profile groups: the facts carry meaning without diagram notation. */
+.fx-notebook-v2 .n-profile {
   grid-column: 9 / span 4;
   grid-row: 1 / span 3;
-  margin: 0;
-  padding-left: 0.5rem;
+  padding-left: clamp(1rem, 2vw, 2rem);
 }
-
-.fx-notebook-v2 .n-system__core {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
+.fx-notebook-v2 .n-profile__group + .n-profile__group {
+  margin-top: 2.25rem;
 }
-
-.fx-notebook-v2 .n-system__node {
-  display: grid;
-  width: 3.25rem;
-  height: 3.25rem;
-  place-items: center;
-  border: 1.5px solid var(--ink);
-  border-radius: 50%;
-  background: var(--raised);
+.fx-notebook-v2 .n-profile__group h2 {
+  margin: 0 0 0.8rem;
+  color: var(--pen);
+  font-size: 1.05rem;
+  font-weight: 600;
 }
-
-.fx-notebook-v2 .n-system__node svg {
-  width: auto;
-  height: 1.15rem;
-  fill: var(--pen);
-}
-
-.fx-notebook-v2 .n-system__cards {
-  margin-left: 1.625rem;
-  padding: 1.25rem 0 0 1.5rem;
-}
-
-.fx-notebook-v2 .n-system__card {
-  position: relative;
-  padding: 0.9rem 1.1rem 0.6rem;
-  border: 1px solid var(--hair-strong);
-  border-radius: var(--r-md);
-  background: var(--raised);
-}
-
-.fx-notebook-v2 .n-system__card + .n-system__card {
-  margin-top: 1.25rem;
-}
-
-.fx-notebook-v2 .n-system__card::before,
-.fx-notebook-v2 .n-system__card::after {
-  position: absolute;
-  content: '';
-  filter: url(#n-sketch);
-  pointer-events: none;
-}
-
-/* One continuous spine (drawn by the first card) so the filter never breaks it */
-.fx-notebook-v2 .n-system__card:first-child::before {
-  top: calc(-1.25rem - 1px);
-  left: calc(-1.5rem - 1px - 6px);
-  width: 12px;
-  height: calc(100% + 1.25rem + 2px + 1.25rem + 1.65rem + 1px);
-  background: linear-gradient(90deg, transparent 5px, var(--pen) 5px 7px, transparent 7px);
-}
-
-.fx-notebook-v2 .n-system__card:not(:first-child)::before {
-  content: none;
-}
-
-.fx-notebook-v2 .n-system__card::after {
-  top: calc(1.65rem - 6px);
-  left: calc(-1.5rem - 1px);
-  width: 1.5rem;
-  height: 12px;
-  background: linear-gradient(180deg, transparent 5px, var(--pen) 5px 7px, transparent 7px);
-}
-
-.fx-notebook-v2 .n-balloon-title {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  margin: 0 0 0.4rem;
-  font-size: 0.78rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.fx-notebook-v2 .n-system__card ol {
+.fx-notebook-v2 .n-profile__group ul {
   margin: 0;
   padding: 0;
   list-style: none;
 }
-
-.fx-notebook-v2 .n-system__card li {
-  display: block;
-  padding: 0.38rem 0;
+.fx-notebook-v2 .n-profile__group li {
+  padding-block: 0.25rem;
+  color: var(--ink-soft);
   font-size: 1rem;
-  font-weight: 500;
+  line-height: 1.5;
 }
 
 /* Recent writing — no separators; whitespace and soft hover tiles */
@@ -375,7 +476,7 @@ html.fx-notebook-v2 ::selection {
 
 .fx-notebook-v2 .n-entry {
   display: grid;
-  grid-template-columns: 2.25rem minmax(0, 1fr) 4rem;
+  grid-template-columns: minmax(0, 1fr) 4rem;
   gap: 1.25rem;
   align-items: start;
   padding: 1.5rem 1rem 1.6rem;
@@ -387,16 +488,6 @@ html.fx-notebook-v2 ::selection {
 .fx-notebook-v2 .n-entry:hover,
 .fx-notebook-v2 .n-entry:focus-visible {
   background: color-mix(in srgb, var(--raised) 85%, transparent);
-}
-
-.fx-notebook-v2 .n-entry__no {
-  padding-top: 0.5rem;
-  font-size: 0.85rem;
-}
-
-.fx-notebook-v2 .n-entry__no {
-  color: var(--pen);
-  font-weight: 500;
 }
 
 .fx-notebook-v2 .n-entry__body {
@@ -415,7 +506,7 @@ html.fx-notebook-v2 ::selection {
 }
 
 .fx-notebook-v2 .n-entry__summary {
-  max-width: 72ch;
+  max-width: 85ch;
   color: var(--ink-soft);
   font-family: var(--serif);
   font-size: 1.05rem;
@@ -662,16 +753,23 @@ html.fx-notebook-v2 ::selection {
 }
 
 /* TL;DR — taped note card (soft corners) */
-.fx-notebook-v2 .n-prose h2#tldr + p {
+.fx-notebook-v2 .n-summary {
   position: relative;
   z-index: 0;
   margin-bottom: 1.5em;
-  padding: 1.15rem 1.35rem;
+  padding: 1.15rem 1rem;
   color: var(--ink);
-  font-size: 1.12rem;
+  font-size: inherit;
+  line-height: inherit;
+}
+.fx-notebook-v2 .n-summary > * {
+  margin: 0 0 1em;
+}
+.fx-notebook-v2 .n-summary > :last-child {
+  margin-bottom: 0;
 }
 
-.fx-notebook-v2 .n-prose h2#tldr + p::after {
+.fx-notebook-v2 .n-summary::after {
   position: absolute;
   z-index: -1;
   inset: 0;
@@ -682,7 +780,7 @@ html.fx-notebook-v2 ::selection {
   transform: rotate(-0.5deg);
 }
 
-.fx-notebook-v2 .n-prose h2#tldr + p::before {
+.fx-notebook-v2 .n-summary::before {
   position: absolute;
   top: -0.65rem;
   left: 50%;
@@ -714,12 +812,13 @@ html.fx-notebook-v2 ::selection {
 }
 
 .fx-notebook-v2 .n-prose strong {
-  background: linear-gradient(
-    transparent 62%,
-    color-mix(in srgb, var(--marker) 55%, transparent) 62%
-  );
   color: var(--ink);
   font-weight: 650;
+}
+
+.fx-notebook-v2 .n-prose mark {
+  background: color-mix(in srgb, var(--marker) 55%, transparent);
+  color: var(--ink);
 }
 
 .fx-notebook-v2 .n-prose ul,
@@ -824,7 +923,7 @@ html.fx-notebook-v2 ::selection {
 .fx-notebook-v2 .n-prose td:not(:first-child) {
   font-family: var(--mono);
   font-size: 0.86rem;
-  text-align: right;
+  /* Markdown's per-column inline alignment wins; otherwise use natural left alignment. */
 }
 
 .fx-notebook-v2 .n-prose th:not(:first-child) {
@@ -936,12 +1035,17 @@ html.fx-notebook-v2 ::selection {
     grid-column: 1 / -1;
   }
 
-  .fx-notebook-v2 .n-system {
+  .fx-notebook-v2 .n-profile {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem;
     grid-column: 1 / -1;
     grid-row: auto;
-    max-width: 30rem;
     margin-top: 2.75rem;
     padding-left: 0;
+  }
+  .fx-notebook-v2 .n-profile__group + .n-profile__group {
+    margin-top: 0;
   }
 }
 
@@ -967,17 +1071,13 @@ html.fx-notebook-v2 ::selection {
   }
 
   .fx-notebook-v2 .n-entry {
-    grid-template-columns: 2.75rem minmax(0, 1fr);
-    gap: 0.4rem 0.75rem;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.75rem;
     padding: 1.2rem 0.75rem 1.3rem;
   }
 
-  .fx-notebook-v2 .n-entry__no {
-    padding-top: 0;
-  }
-
   .fx-notebook-v2 .n-entry__body {
-    grid-column: 2;
+    grid-column: 1;
   }
 
   .fx-notebook-v2 .n-entry__arrow {
@@ -1006,7 +1106,7 @@ html.fx-notebook-v2 ::selection {
     white-space: nowrap;
   }
 
-  .fx-notebook-v2 .n-prose h2#tldr + p::after {
+  .fx-notebook-v2 .n-summary::after {
     transform: none;
   }
 
@@ -1078,20 +1178,6 @@ html.fx-notebook-v2 ::selection {
   height: 0.22em;
 }
 
-/* Post number as a drawing balloon */
-.fx-notebook-v2 .n-entry__no {
-  width: 2rem;
-  height: 2rem;
-  margin-top: 0.05rem;
-  font-size: 0.8rem;
-}
-
-.fx-notebook-v2 .n-entry:hover .n-entry__no {
-  border-color: var(--pen);
-  background: var(--pen);
-  color: var(--raised);
-}
-
 /* Post: the article is the grid — heading over the reading column, no box */
 .fx-notebook-v2 .n-article {
   display: grid;
@@ -1113,7 +1199,8 @@ html.fx-notebook-v2 ::selection {
 }
 
 .fx-notebook-v2 .n-article__meta {
-  margin-bottom: 1rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
 }
 
 .fx-notebook-v2 .n-article__head h1 {
@@ -1184,22 +1271,6 @@ html.fx-notebook-v2 ::selection {
 }
 
 @media (max-width: 720px) {
-  .fx-notebook-v2 .n-entry {
-    grid-template-columns: 2rem minmax(0, 1fr);
-    gap: 0.4rem 0.75rem;
-  }
-
-  .fx-notebook-v2 .n-entry__no {
-    grid-row: 1 / span 2;
-    width: 1.75rem;
-    height: 1.75rem;
-    font-size: 0.72rem;
-  }
-
-  .fx-notebook-v2 .n-entry__body {
-    grid-column: 2;
-  }
-
   .fx-notebook-v2 .n-meta {
     font-size: 0.68rem;
   }

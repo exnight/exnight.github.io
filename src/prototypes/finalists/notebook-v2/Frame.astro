@@ -20,7 +20,7 @@ const { page, title } = Astro.props
 const isHome = page === 'home'
 const links = [
   { label: 'Home', href: '/prototypes/notebook-v2/', current: isHome },
-  { label: 'Writing', href: '/prototypes/notebook-v2/#writing', current: !isHome },
+  { label: 'Writing', href: '/prototypes/notebook-v2/writing/', current: !isHome },
 ]
 ---
 
@@ -50,6 +50,31 @@ const links = [
             ))
           }
         </span>
+        <button
+          class="n-theme"
+          type="button"
+          data-notebook-theme
+          aria-label="Switch to dark theme"
+          hidden
+        >
+          <svg
+            viewBox="0 0 24 24"
+            width="20"
+            height="20"
+            aria-hidden="true"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.6"
+          >
+            <path class="n-theme__moon" d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z"
+            ></path>
+            <g class="n-theme__sun"
+              ><circle cx="12" cy="12" r="4"></circle><path
+                d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"
+              ></path></g
+            >
+          </svg>
+        </button>
       </nav>
     </header>
 
@@ -57,12 +82,43 @@ const links = [
 
     <footer class="n-footer">
       <div class="n-wrap n-footer__inner">
-        <p class="n-mono">drawn by {profile.name} · {new Date().getFullYear()}</p>
+        <p class="n-mono">© {new Date().getFullYear()} {profile.name}</p>
         <p class="n-footer__links">
-          <a href={profile.github}>GitHub ↗</a>
-          <a href={profile.linkedin}>LinkedIn ↗</a>
+          <a
+            href={profile.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub (opens in a new tab)">GitHub ↗</a
+          >
+          <a
+            href={profile.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn (opens in a new tab)">LinkedIn ↗</a
+          >
         </p>
       </div>
     </footer>
   </div>
 </FinalistShell>
+
+<script>
+  const button = document.querySelector<HTMLButtonElement>('button[data-notebook-theme]')
+  if (button) {
+    const update = () => {
+      const dark = document.documentElement.dataset.notebookTheme === 'dark'
+      button.setAttribute('aria-label', `Switch to ${dark ? 'light' : 'dark'} theme`)
+      button.title = `Switch to ${dark ? 'light' : 'dark'} theme`
+    }
+    button.hidden = false
+    update()
+    button.addEventListener('click', () => {
+      const theme = document.documentElement.dataset.notebookTheme === 'dark' ? 'light' : 'dark'
+      document.documentElement.dataset.notebookTheme = theme
+      try {
+        localStorage.setItem('notebook-prototype-theme', theme)
+      } catch {}
+      update()
+    })
+  }
+</script>

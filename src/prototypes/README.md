@@ -2,7 +2,9 @@
 
 Prototype routes only exist in `npm run dev` or a `PROTOTYPES=1` build (hook in `astro.config.mjs`).
 Production builds contain no prototype code. The **approved direction is Finalist 1 v2 · Drafting
-Notebook** (`finalists/notebook-v2/`), referenced from `DESIGN.md`.
+Notebook** (`finalists/notebook-v2/`), including the final approved detail refinement. `DESIGN.md`
+is the consolidated target; `docs/design/MIGRATION.md` is the production hand-off. Durable approved
+screenshots are in `docs/design/reference/`, not the older finalist screenshot folder.
 
 ## What's here
 

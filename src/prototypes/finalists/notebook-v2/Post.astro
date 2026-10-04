@@ -3,7 +3,7 @@ import Frame from './Frame.astro'
 import ExternalLink from '@/components/ExternalLink.astro'
 import ProtoTable from '../shared/ProtoTable.astro'
 import { type Article } from '../shared/data'
-import { formatDate, publishedPosts } from '@/prototypes/shared/data'
+import { formatDate } from '@/prototypes/shared/data'
 
 interface Props {
   article: Article
@@ -12,29 +12,24 @@ interface Props {
 const { article } = Astro.props
 const { title, summary, publishedOn, updatedOn, tags, readTime, Content, headings } = article
 const toc = headings.filter((heading) => heading.depth <= 3)
-const all = publishedPosts()
-const index = all.findIndex((entry) => entry.id === article.id)
-const entryNo = index >= 0 ? String(all.length - index).padStart(2, '0') : null
-const crumbs = article.id.split('/')
 let section = 0
 ---
 
 <Frame page={article.id} title={title}>
   <article class="n-wrap n-article">
-    <!-- Heading sits on the reading column (no box): crumbs, one meta line, title, deck -->
+    <!-- Subject first; publication details and topics are separate supporting groups. -->
     <header class="n-article__head">
       <p class="n-mono n-crumbs">
-        <a href="/prototypes/notebook-v2/#writing">← writing</a>
-        <span>/ {crumbs.join(' / ')}</span>
+        <a href="/prototypes/notebook-v2/writing/">← Back to Writing</a>
       </p>
       {
         article.isFixture ? (
           <p class="n-mono n-fixture-note">review fixture · same wording as the published post</p>
         ) : null
       }
+      <h1>{title}</h1>
+      {summary ? <p class="n-deck">{summary}</p> : null}
       <p class="n-meta n-article__meta">
-        {entryNo ? <span class="n-meta__entry">entry #{entryNo}</span> : null}
-        {tags.map((tag) => <span>{tag}</span>)}
         <time datetime={publishedOn.toISOString()}>{formatDate(publishedOn)}</time>
         <span>{readTime} min read</span>
         {
@@ -45,8 +40,15 @@ let section = 0
           ) : null
         }
       </p>
-      <h1>{title}</h1>
-      {summary ? <p class="n-deck">{summary}</p> : null}
+      {
+        tags.length > 0 && (
+          <ul class="n-tags" aria-label="Topics">
+            {tags.map((tag) => (
+              <li>{tag}</li>
+            ))}
+          </ul>
+        )
+      }
     </header>
 
     {
@@ -93,6 +95,17 @@ let section = 0
       wrap.style.maxWidth = maxWidth
       wrap.classList.toggle('is-wide', natural > text + 1)
     })
+  }
+  // Prototype enhancement: collect every TL;DR block, not just the first paragraph.
+  // Production will render this with an explicit MDX component instead.
+  const heading = document.querySelector('.n-prose > h2#tldr')
+  if (heading && heading.nextElementSibling && heading.nextElementSibling.tagName !== 'H2') {
+    const card = document.createElement('div')
+    card.className = 'n-summary'
+    heading.after(card)
+    while (card.nextElementSibling && card.nextElementSibling.tagName !== 'H2') {
+      card.append(card.nextElementSibling)
+    }
   }
   snapTables()
   document.fonts?.ready.then(snapTables)

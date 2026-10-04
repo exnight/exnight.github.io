@@ -55,6 +55,7 @@ export function fixtureArticle(): Article {
 /** Pages shown in the finalist switcher. */
 export const reviewPages = [
   { id: 'home', label: 'Home', path: '' },
+  { id: 'writing', label: 'Writing', path: 'writing' },
   {
     id: '2026/flight-ticket-redemption',
     label: 'Post: Flight (lists, tables)',
@@ -72,6 +73,7 @@ export function finalistPaths() {
   if (!prototypesEnabled) return []
   return finalists.flatMap(({ id }) => [
     { params: { path: id }, props: { view: 'home', finalist: id } },
+    { params: { path: `${id}/writing` }, props: { view: 'writing', finalist: id } },
     ...publishedPosts().map((post) => ({
       params: { path: `${id}/blog/${post.id}` },
       props: { view: 'post', finalist: id, post },

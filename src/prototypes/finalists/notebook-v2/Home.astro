@@ -1,11 +1,9 @@
 ---
-import NavIcon from '@/components/NavIcon.astro'
 import Frame from './Frame.astro'
 import Sketch from './Sketch.astro'
 import { formatDate, profile, publishedPosts } from '@/prototypes/shared/data'
 
-const posts = publishedPosts().slice(0, 3) // homepage shows recent posts only
-const total = publishedPosts().length
+const posts = publishedPosts().slice(0, 2) // two recent posts; keep this limit at four or fewer
 
 // Mark two phrases of the real statement without changing its copy.
 const statement = profile.statement
@@ -16,8 +14,8 @@ const h = statement.indexOf(highlight)
 const canMark = u >= 0 && h > u + underline.length
 
 const groups = [
-  { key: 'A', title: 'Profession', items: profile.profession },
-  { key: 'B', title: 'Beyond work', items: profile.beyondWork },
+  { title: 'Profession', items: profile.profession },
+  { title: 'Beyond work', items: profile.beyondWork },
 ]
 ---
 
@@ -47,27 +45,20 @@ const groups = [
       </h1>
       <p class="n-hero__detail">{profile.detail}</p>
 
-      <figure class="n-system" aria-label="Profession and interests">
-        <div class="n-system__core">
-          <span class="n-system__node"><NavIcon /></span>
-        </div>
-        <div class="n-system__cards">
-          {
-            groups.map((group) => (
-              <section class="n-system__card" aria-label={group.title}>
-                <h2 class="n-mono n-balloon-title">
-                  <span class="n-balloon">{group.key}</span> {group.title}
-                </h2>
-                <ol>
-                  {group.items.map((item) => (
-                    <li>{item}</li>
-                  ))}
-                </ol>
-              </section>
-            ))
-          }
-        </div>
-      </figure>
+      <aside class="n-profile" aria-label="Profession and interests">
+        {
+          groups.map((group) => (
+            <section class="n-profile__group" aria-label={group.title}>
+              <h2>{group.title}</h2>
+              <ul>
+                {group.items.map((item) => (
+                  <li>{item}</li>
+                ))}
+              </ul>
+            </section>
+          ))
+        }
+      </aside>
     </section>
   </div>
 
@@ -78,25 +69,27 @@ const groups = [
     </h2>
     <ol class="n-log__list">
       {
-        posts.map((post, index) => (
+        posts.map((post) => (
           <li>
             <a class="n-entry" href={`/prototypes/notebook-v2/blog/${post.id}`}>
-              <span class="n-balloon n-entry__no" aria-hidden="true">
-                {total - index}
-              </span>
               <span class="n-entry__body">
+                <span class="n-entry__title">{post.data.title}</span>
                 <span class="n-meta">
                   <time datetime={post.data.publishedOn.toISOString()}>
                     {formatDate(post.data.publishedOn)}
                   </time>
-                  {post.data.tags.slice(0, 3).map((tag) => (
-                    <span>{tag}</span>
-                  ))}
+                  <span>{post.data.readTime} min read</span>
                 </span>
-                <span class="n-entry__title">{post.data.title}</span>
                 {post.data.summary ? (
                   <span class="n-entry__summary">{post.data.summary}</span>
                 ) : null}
+                {post.data.tags.length > 0 && (
+                  <span class="n-tags" aria-label="Topics">
+                    {post.data.tags.map((tag) => (
+                      <span>{tag}</span>
+                    ))}
+                  </span>
+                )}
               </span>
               <Sketch kind="arrow" class="n-entry__arrow" />
             </a>
@@ -104,6 +97,6 @@ const groups = [
         ))
       }
     </ol>
-    <a class="n-mono n-all" href="/blog">All writing →</a>
+    <a class="n-mono n-all" href="/prototypes/notebook-v2/writing/">All writing →</a>
   </section>
 </Frame>
