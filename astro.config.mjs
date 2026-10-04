@@ -6,12 +6,24 @@ import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 import { unified } from '@astrojs/markdown-remark';
 
+// Design prototype of the approved direction (src/prototypes). The route is only registered in
+// `astro dev` or when PROTOTYPES=1, so production builds never include it.
+const prototypes = {
+    name: 'design-prototypes',
+    hooks: {
+        'astro:config:setup': ({ command, injectRoute }) => {
+            if (command !== 'dev' && process.env.PROTOTYPES !== '1') return;
+            injectRoute({ pattern: '/prototypes/[...path]', entrypoint: './src/prototypes/routes/Chooser.astro' });
+        }
+    }
+};
+
 // https://astro.build/config
 export default defineConfig({
     devToolbar: {
         enabled: false
     },
-    integrations: [mdx()],
+    integrations: [mdx(), prototypes],
     markdown: {
         processor: unified({
             remarkPlugins: [remarkMath],

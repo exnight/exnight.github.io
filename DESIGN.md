@@ -119,6 +119,182 @@ components:
     width: '72ch'
 ---
 
+
+> **Status — two systems are documented here.**
+> **Drafting Notebook** (next section) is the **approved target direction**. It exists as a prototype only and is **not yet implemented**.
+> **Open Field Folio** (further below), together with the YAML front matter above, describes the **live site** and stays authoritative for production code until the migration is requested and completed.
+
+# Approved Target Direction — Drafting Notebook (not yet implemented)
+
+## Status and Prototype References
+
+- **Decision:** Drafting Notebook chosen over Folio Editorial after prototype review. It keeps two elements from Folio Editorial: the post heading layout (no box, on the reading column) and the homepage tag line.
+- **Approved prototype:** Finalist 1 v2: `src/prototypes/finalists/notebook-v2/`. Read its `README.md` for changes, measurements and remaining issues.
+  - Home: `/prototypes/notebook-v2/`
+  - Post with lists and tables: `/prototypes/notebook-v2/blog/2026/flight-ticket-redemption`
+  - Post with code, maths and images (review fixture, same wording as the published post): `/prototypes/notebook-v2/blog/review-fixture/how-i-build-the-site`
+  - Screenshots: `src/prototypes/finalists/notebook-v2/screenshots/` (1440×900 and 390×844, viewport + full page + details).
+- **Earlier references (preserved):**
+  - `finalists/notebook/` (v1)
+  - `finalists/editorial/` (Folio Editorial, source of the borrowed elements)
+  - `workbook/` (original D)
+  - originals A–F at `/prototypes`
+- **Preview:** prototype routes exist only in `npm run dev` or a `PROTOTYPES=1` build. Production builds contain no prototype code.
+
+## Design Read
+
+- **Positioning:** an engineer's drafting notebook. Precise drawing conventions (numbered circles, figure numbers, a sheet index, hairlines) with a light pen-and-highlighter layer. Character: "engineering, but also a little sketchy".
+- **Mode:** light-first (most readers use light mode). A dark theme is still to be designed.
+- **Dials:** visual variance 5, motion 3, information density 5, asset dependence 2 (works without photos), brand fidelity: the LW mark (`NavIcon`) and the blue `#33507e` are fixed.
+
+## Colors
+
+| Role | Value | Use |
+| --- | --- | --- |
+| Paper | `#f2f1ec` | Page background, with a dot grid: `rgb(29 31 34 / 0.09)` dots every 24px |
+| Raised paper | `#fbfaf6` | Cards, TL;DR card, code blocks, mobile contents panel |
+| Tint | `#ebeae3` | Inline code background |
+| Ink | `#1d1f22` | Headings, primary text |
+| Soft ink | `#2d3035` | Article body text |
+| Muted | `#5c5f64` | Details lines, captions, secondary labels |
+| Hairline / strong hairline | `rgb(29 31 34 / 0.12)` / `0.22` | Row lines, container borders, header and footer rules |
+| Pen (accent) | `#33507e` | Links, current state, sketch marks, numbered circles, focus ring |
+| Highlighter | `#f1d24a` | **Small, occasional use only:** one highlight in the hero statement, bold text, the TL;DR tape, text selection |
+
+**The One-Pen Rule.** Blue is the only accent colour. Yellow appears only as a highlighter in small amounts. No other hues.
+
+## Typography
+
+- **Headings and interface:** Bricolage Grotesque Variable at 90–92% width, weights 550–650, tight tracking.
+  - Hero statement: `clamp(2.7rem, 5.6vw, 5.2rem)` / 650 / line height 1.
+  - Post title: `clamp(2.5rem, 5.4vw, 4.6rem)` / 650, max 22ch.
+  - H2: `clamp(1.55rem, 2.3vw, 1.95rem)` / 620.
+  - H3: 1.3rem / 600.
+- **Reading text:** Source Serif 4 Variable with optical sizing and real italic. 19px / 1.7 on desktop, 17px on mobile. Summaries (decks) and captions use the italic.
+- **Labels, details lines and code:** IBM Plex Mono, about 0.64–0.8rem. Details lines are uppercase with 0.06em letter-spacing.
+- **No handwriting fonts.** The sketchiness comes only from drawn marks.
+
+## Layout and Measures
+
+- **Frame:** `min(1240px, 100% − 2 × clamp(1.125rem, 4vw, 3rem))`.
+- **Post grid:** `13rem` contents | `minmax(0, 42rem)` text | `minmax(0, 1fr)` room for wide content, gap `clamp(2rem, 4vw, 4rem)`.
+- **The Two-Edges Rule.** A post page has exactly two right-hand edges:
+  - **Text edge (42rem, full lines about 72–76 characters):** text, captions, and tables that fit.
+  - **Wide edge (the page's right edge, lined up with the nav):** wide figures, and tables whose natural width is wider than the text. Tables snap to one edge or the other, never in between (a small script measures them; without JavaScript they stay at the text edge and scroll).
+- **Post heading:** sits over the text column with no box. Order: breadcrumb, details line (entry # · tags · date · read time · updated), title, italic summary. The contents list starts next to the first section.
+- **Homepage:** 12 columns. Statement in columns 1–8 and paragraph in columns 1–7 (max 64ch); the system diagram sits in columns 9–12. Below that, "Recent writing" shows recent posts only.
+- **Breakpoints:**
+  - **1000px:** post becomes one column and the contents list collapses into a panel.
+  - **900px:** hero stacks and the diagram moves below the paragraph.
+  - **720px:** mobile type and list layouts.
+
+## Shapes, Lines and Elevation
+
+- **The Fewer-Boxes Rule.** Use whitespace and hairlines first. Boxes are kept only for real objects: system cards, the TL;DR card, code blocks, figures, and the mobile contents panel.
+- **Corner radii:** 8 / 14 / 18px. Circles are kept for numbered circles and the logo node.
+- **Rules:** one hairline under the header and over the footer. One rule under table headers, with faint row lines below. No dividers between posts and no double rules.
+- **Elevation:** none (no shadows).
+
+## Sketch Layer
+
+- Pen marks are precise SVG paths roughened by an SVG displacement filter (`feTurbulence` + `feDisplacementMap`, scale about 2.4).
+- **The Two-Marks Rule.** At most two decorative marks per view: in the hero, an underline under "build software" and a highlight on "notes". Interaction marks are extra: a circle around the current nav item and an arrow that draws itself when hovering over a post.
+- **Connector lines:** draw them as gradients inside boxes wider than the line, so the filter never clips them. The diagram's spine is one continuous element, so there are no kinks at joints.
+
+## Components
+
+- **Header:** LW mark in pen blue, name, mono role. Nav: Home, Writing, with a sketched circle around the current item. One hairline below.
+- **System diagram:** LW node, then one pen line, then two soft cards (A · Profession, B · Beyond work) with numbered circles. No extra captions or item codes.
+- **Recent writing:**
+  - heading with a pen underline
+  - each post: number circle (fills blue on hover), mono details line "date · tags", title, summary (max 72ch), and an arrow that draws on hover
+  - no dividers between posts
+- **Contents ("Sheet index"):** numbered circles that match the numbered circles on H2 headings. The current section is marked (`aria-current="location"`), shown as a filled circle. Sticky on desktop, a collapsible disclosure below 1000px.
+- **TL;DR:** a raised card with a soft border, a slightly tilted paper layer (the text stays straight) and highlighter tape.
+- **Takeaways:** a pen line down the left side until the next section.
+- **Code:** a raised sheet with a soft border, radius 14px, a mono language label from `data-language`, and the light syntax theme.
+- **Tables:**
+  - mono uppercase headers with a 1.5px ink rule underneath
+  - faint row lines
+  - first column in the heading font at 550 weight; numbers in mono, right-aligned
+  - caption labelled "Table N —"
+- **Figures:**
+  - "fig. N" label with an italic caption, radius 14px
+  - wide images span to the wide edge
+  - phone screenshots stay narrow (about 18rem) with the caption beside them; on mobile the caption goes below
+- **Footer:** one plain line with "drawn by Leo Wong · year" and GitHub and LinkedIn links.
+
+## Motion and Accessibility
+
+- **Motion:** 120–380ms ease-out (hover tint, arrow drawing, current-section changes). With reduced motion, transitions are switched off and arrows appear already drawn.
+- **Focus:** a visible 3px blue focus ring. A skip link. The current page is marked in the nav and the current section in the contents.
+
+## Do's and Don'ts
+
+- **Do:**
+  - keep exactly two right edges (text and wide)
+  - keep the reading column at 42rem
+  - keep labels and details lines in mono and reading text in serif
+- **Don't:**
+  - add boxes, double rules or dividers to separate content
+  - use more than two decorative sketch marks per view
+  - use handwriting fonts, fake photos, or yellow beyond small highlights
+- **Don't** add controls for features that don't exist (search, filters). The Honest-Wayfinding rule carries over.
+
+## Migration Notes (hand-off)
+
+**Preserve (protected contracts):**
+- **Routes:** `/`, `/blog`, `/blog/[...slug]`; post ids and slugs; heading anchor ids.
+- **Content:** file-based MDX publishing and the content-collection schema (`title`, `publishedOn`, `updatedOn`, `summary`, `published`, `tags`, `readTime`). Drafts appear only in dev.
+- **Homepage copy:** keep the wording in `src/sections/Hero.astro` (the prototype copied it verbatim).
+- **Behaviour:**
+  - title view transitions (`transition:name`)
+  - the theme script and the `localStorage` key `theme` (no flash of the wrong theme on load)
+  - skip link, visible focus, `aria-current`
+  - reduced-motion handling
+  - KaTeX, the Shiki dual themes (`defaultColor: false`), and external-link handling (`ExternalLink`)
+  - contents tracking of the current section
+- **Theme toggle:** keep it, even though the prototype has none. Dark mode needs its own design pass first.
+
+**Suggested order:**
+1. Tokens and fonts in Tailwind `@theme`. Rename `--vermilion` to a role name such as `--pen`.
+2. Shared frame: header, footer, dot paper, sketch filter.
+3. Post page: heading layout, contents list, prose, the two-edges table snap, figures, code.
+4. Homepage: hero marks, system diagram, recent writing.
+5. Writing index page: needs its own design (title naming below).
+6. Dark theme.
+7. Clean-up (listed under Open Items).
+
+**Known production issues to fix during the migration:**
+- the disabled search and filter controls in `PageHeading`
+- the same page is named "Writing", "My Posts", "All writing" and "Latest writing"; pick one name (suggested: "Writing")
+- ten Lato TTF files are shipped from `public/fonts/` but only four are used; drop Lato
+- the favicon is Astro's logo; the LW mark (`NavIcon`) is the identity
+- there are no tests beyond a placeholder
+
+**Prototype hand-off:** `src/prototypes/README.md` lists which prototype files the approved prototype depends on, what is safe to delete, and tooling notes.
+
+## Open Items Before or During Implementation
+
+- **Dark theme:** design it and pair the tokens by role.
+- **Browsers:** test in Safari and Firefox, especially the SVG filter rendering.
+- **TL;DR and Takeaways:** the styling depends on those exact heading names. Decide between keeping the convention or adding an MDX component or remark plugin.
+- **Table alignment:** right-aligning every column but the first is a rule of thumb. Consider per-column alignment in Markdown.
+- **Writing page:** design the full post list; the homepage shows recent posts only.
+- **Homepage gap:** on wide screens the diagram is taller than the intro text. Revisit if photos are added.
+- **Clean-up after migration:**
+  - remove prototype-only dependencies (`@fontsource-variable/archivo`, `@fontsource-variable/jost`, `@fontsource-variable/schibsted-grotesk`) and Lato
+  - remove the prototype hook in `astro.config.mjs` and the `src/prototypes/` folder
+
+---
+
+# Current Implementation — Open Field Folio (live until migration)
+
+> This section and the YAML front matter describe the site as it runs today. Known differences between this description and the code:
+> - The accent token is still named `--vermilion` but holds blue `#33507e` (`#8fb0e0` in dark mode). The switch to blue was intentional.
+> - The dark paper is warm brown `#1c1712`, not neutral graphite.
+> - `PageHeading` shows disabled search and filter controls, which breaks the Honest-Wayfinding rule. They're due to be removed in the migration.
+
 Design System: Open Field Folio
 
 ## Overview
