@@ -4,17 +4,19 @@ This is a personal website built with Astro.js, TypeScript, and Tailwind CSS.
 
 ## Approved design and migration
 
-**Drafting Notebook is approved for migration; production still uses Open Field Folio.**
+**Drafting Notebook is implemented in production.**
 
 - [Product context](PRODUCT.md)
 - [Approved visual system](DESIGN.md)
-- [Production migration hand-off and new-session prompt](docs/design/MIGRATION.md)
+- [Completed migration and protected contracts](docs/design/MIGRATION.md)
+- [MDX component authoring](docs/design/AUTHORING.md)
+- [Production verification and remaining limits](docs/design/VERIFICATION.md)
 - [Approved preview references](docs/design/reference/README.md)
 - [Historical Folio specification](docs/design/archive/open-field-folio.md) (not migration authority)
 
 Page-specific direction contracts live in `.impeccable/surfaces/`; `.impeccable/design.json` carries visual-system extensions. These are durable, tracked documentation. Generated Impeccable reviews/state remain ignored.
 
-Prototype previews are available in dev at `/prototypes/notebook-v2/` and `/prototypes/notebook-v2/writing/`; normal production builds exclude them. Read the hand-off before porting.
+Prototype routes/tooling have been removed after production verification. Approved reference captures remain in `docs/design/reference/`; test-only acceptance fixtures live in `test/fixtures/` and are never published.
 
 ## Getting Started
 
@@ -43,7 +45,11 @@ npm ci # Install dependencies
 
 npm run dev # Start a local DEV server
 
-npm run build # Generate production optimized code and export as static HTML
+npm run test # Component and behavior regressions
+
+npm run build # Static production build plus route/content invariant checks
+
+npm run test:browser # Explicit Chromium acceptance of dist; no second dev server
 ```
 
 ### Deployment

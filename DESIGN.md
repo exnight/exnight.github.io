@@ -86,7 +86,93 @@ typography:
     fontSize: '0.875rem'
     fontWeight: 400
     lineHeight: 1.5
+  hero-mobile:
+    fontFamily: "'Bricolage Grotesque Variable', ui-sans-serif, system-ui, sans-serif"
+    fontSize: 'clamp(2.35rem, 11vw, 3rem)'
+    fontWeight: 650
+    lineHeight: 1
+    letterSpacing: '-0.028em'
+  hero-detail:
+    fontFamily: "'Source Serif 4 Variable', ui-serif, Georgia, serif"
+    fontSize: 'clamp(1.1rem, 1.4vw, 1.25rem)'
+    lineHeight: 1.6
+  recent-heading:
+    fontFamily: "'Bricolage Grotesque Variable', ui-sans-serif, system-ui, sans-serif"
+    fontSize: 'clamp(1.8rem, 3vw, 2.6rem)'
+    fontWeight: 650
+    letterSpacing: '-0.03em'
+  archive-deck:
+    fontFamily: "'Source Serif 4 Variable', ui-serif, Georgia, serif"
+    fontSize: '1.2rem'
+    lineHeight: 1.6
+  article-deck:
+    fontFamily: "'Source Serif 4 Variable', ui-serif, Georgia, serif"
+    fontSize: 'clamp(1.15rem, 1.6vw, 1.35rem)'
+    lineHeight: 1.45
+  interface:
+    fontFamily: "'Bricolage Grotesque Variable', ui-sans-serif, system-ui, sans-serif"
+    fontSize: '1rem'
+    lineHeight: 1.5
+  navigation:
+    fontFamily: "'Bricolage Grotesque Variable', ui-sans-serif, system-ui, sans-serif"
+    fontSize: '1.02rem'
+    fontWeight: 550
+  brand:
+    fontFamily: "'Bricolage Grotesque Variable', ui-sans-serif, system-ui, sans-serif"
+    fontSize: '1.1rem'
+    fontWeight: 650
+  profile-heading:
+    fontFamily: "'Bricolage Grotesque Variable', ui-sans-serif, system-ui, sans-serif"
+    fontSize: '1.05rem'
+    fontWeight: 600
+  year:
+    fontFamily: "'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace"
+    fontSize: '1.15rem'
+    lineHeight: 1.4
+  contents:
+    fontFamily: "'Bricolage Grotesque Variable', ui-sans-serif, system-ui, sans-serif"
+    fontSize: '0.92rem'
+    lineHeight: 1.3
+  contents-nested:
+    fontFamily: "'Bricolage Grotesque Variable', ui-sans-serif, system-ui, sans-serif"
+    fontSize: '0.86rem'
+  caption:
+    fontFamily: "'Source Serif 4 Variable', ui-serif, Georgia, serif"
+    fontSize: '0.92rem'
+    lineHeight: 1.45
+  code:
+    fontFamily: "'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace"
+    fontSize: '0.86rem'
+    lineHeight: 1.6
+  table:
+    fontFamily: "'Bricolage Grotesque Variable', ui-sans-serif, system-ui, sans-serif"
+    fontSize: '0.95rem'
+    lineHeight: 1.4
+  table-header:
+    fontFamily: "'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace"
+    fontSize: '0.7rem'
+    fontWeight: 500
+  metadata-mobile:
+    fontFamily: "'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace"
+    fontSize: '0.68rem'
+    letterSpacing: '0.06em'
+  contents-label:
+    fontFamily: "'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace"
+    fontSize: '0.75rem'
+    letterSpacing: '0.08em'
+  brand-role:
+    fontFamily: "'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace"
+    fontSize: '0.78rem'
+  footer:
+    fontFamily: "'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace"
+    fontSize: '0.82rem'
+  back-link:
+    fontFamily: "'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace"
+    fontSize: '0.8rem'
 rounded:
+  tape: '2px'
+  focus: '4px'
+  inline-code: '5px'
   compact: '8px'
   sheet: '14px'
   entry-hover: '18px'
@@ -118,7 +204,7 @@ components:
 
 ## Overview
 
-**Status: approved for migration; not yet implemented in production.** The final prototype, including graphite mode and the latest detail refinements, is approved. Production still uses Open Field Folio. Its historical specification is archived at `docs/design/archive/open-field-folio.md`; it is not authority for the new design.
+**Status: implemented in production.** The approved final prototype, including graphite mode and its detail refinements, is now shipped on `/`, `/blog`, and existing article routes. The historical Open Field Folio specification remains archived at `docs/design/archive/open-field-folio.md`; it is not current design authority. Chromium production acceptance passed; Firefox/Safari and physical-device checks remain limitations recorded in `docs/design/VERIFICATION.md`.
 
 **Creative North Star: “Drafting Notebook”**
 
@@ -132,7 +218,7 @@ Light paper supports everyday browsing; graphite supports reading in low ambient
 - Open writing rows and unboxed profile facts.
 - Drawing conventions only where they provide orientation: article section references and numbered figures/tables, not arbitrary post numbers.
 
-Approved source: `src/prototypes/finalists/notebook-v2/`. Durable review captures: `docs/design/reference/`. Implementation contracts and checks: `docs/design/MIGRATION.md` and the Impeccable surface briefs. YAML describes the approved prototype target, not the current production CSS. Reconcile it with shipped code at migration completion.
+Production authority: `src/styles/theme.css`, `src/styles/notebook.css`, `src/styles/article.css`, and the shared components in `src/components/`. Durable approved prototype captures remain in `docs/design/reference/`; preview source/tooling has been removed after production passed. YAML now records shipped roles and supporting type/radius steps. Contracts, authoring, and evidence: `docs/design/MIGRATION.md`, `docs/design/AUTHORING.md`, `docs/design/VERIFICATION.md`, and the Impeccable surface briefs.
 
 ## Colors
 
@@ -144,7 +230,7 @@ Approved source: `src/prototypes/finalists/notebook-v2/`. Durable review capture
 
 ### Secondary
 
-**Highlighter yellow** is reserved for the hero’s “notes”, TL;DR tape, selection and explicit text highlights. Ordinary bold text uses weight, not yellow fill.
+**Highlighter yellow** is reserved for the hero’s “notes”, TL;DR tape, selection and explicit text highlights. Ordinary bold text uses weight, not yellow fill. Light hero highlighting uses 80% marker, graphite uses 55% to maintain light-ink contrast. Selection uses 75% in light and 55% in graphite. These are accessibility-only opacity refinements; the paired palette is unchanged.
 
 ### Neutral
 
@@ -160,7 +246,7 @@ Paper is the continuous viewport ground. Raised paper belongs to real reading ob
 
 **Records/code:** IBM Plex Mono. Short publication details use uppercase and measured tracking. Tags use normally cased Bricolage, wrap separately, and are not controls or pills. Dates and numeric tables use lining tabular numerals.
 
-Mobile hero uses `clamp(2.35rem, 11vw, 3rem)`; mobile entry titles use 1.45rem. Article titles cap at 22ch. Prose headings keep readable hierarchy without shrinking to fit long words. Metadata wraps without leading separators.
+Mobile hero uses `clamp(2.35rem, 11vw, 3rem)`; mobile entry titles use 1.45rem. Article titles cap at 22ch. Prose headings keep readable hierarchy without shrinking to fit long words. Metadata wraps without leading separators. Global line-height is `normal` (matching the approved prototype rather than Tailwind's 1.5 reset); prose and each reading role supply their own explicit line-height. Supporting table/caption/contents and compact record sizes are included in the frontmatter, not additional visual voices.
 
 **The Reading-Measure Rule.** Main article text remains 42rem, with full desktop lines approximately 72–76 characters. Short scanning summaries may reach 85ch within the available row; this does not authorize widening article prose.
 
@@ -190,7 +276,7 @@ Sketch paths use subtle SVG displacement (approximately 2.4), never distorted te
 
 ## Shapes
 
-Compact controls use 8px corners, reading sheets/figures/mobile contents use 14px, and post hover regions use 18px. Minor inline-code/tape details may use smaller corners. Circles are reserved for section cross-references, not post-list numbering or profile labels.
+Compact controls use 8px corners, reading sheets/figures/mobile contents use 14px, and post hover regions use 18px. Minor inline code, focus outlines, and tape use 5px, 4px, and 2px corners respectively; these are documented supporting shapes, not alternative container radii. Circles are reserved for section cross-references, not post-list numbering or profile labels.
 
 One header hairline and one footer hairline. Tables have one stronger rule beneath headers and faint row rules. No double rules or dividers between posts.
 
@@ -212,15 +298,15 @@ Open linked rows: title → short date/read-time line → optional summary → s
 
 ### TL;DR and Takeaways
 
-TL;DR is a raised sheet with a soft border and small highlighter tape. It inherits body font size/line height with 1rem horizontal padding and supports paragraphs/lists. Takeaways uses a quiet blue vertical pen rule. Production needs explicit, server-rendered content boundaries rather than incidental sibling selectors or client DOM reconstruction; plain Markdown must remain usable.
+TL;DR is a raised sheet with a soft border and small highlighter tape. It inherits body font size/line height with 1rem horizontal padding and supports paragraphs/lists. Takeaways uses a quiet blue vertical pen rule. `NotebookSummary` and `NotebookTakeaways` provide explicit server-rendered content boundaries rather than incidental sibling selectors or client DOM reconstruction. Existing articles adopt these boundaries with wording and anchors unchanged. Plain Markdown remains usable. See `docs/design/AUTHORING.md`.
 
 ### Code, tables and figures
 
 Code is a raised sheet with a mono language label and local horizontal scrolling. Use the matching Shiki light/dark variables.
 
-Table headers are mono uppercase with a 1.5px ink rule; rows use faint strokes. First-column text uses Bricolage at 550; data columns may use mono. Respect Markdown’s per-column alignment; unspecified columns align left. Captions are semantic and numbered “Table N —”.
+Table headers are mono uppercase with a 1.5px ink rule; rows use faint strokes. First-column text uses Bricolage at 550; data columns may use mono. Respect Markdown’s per-column alignment; unspecified columns align left. `NotebookTable` captions use semantic `<caption>` elements and are numbered “Table N —”. Natural table width is measured against the resolved article reading track (including subgrid), after fonts and on resize, with Astro lifecycle cleanup. No-JS tables remain reading-width and scroll locally.
 
-Figures have softly rounded images, numbered “fig. N” labels and italic captions. Wide figures reach the wide edge; phone captures stay about 18rem with captions alongside, stacking below on mobile.
+`NotebookFigure` uses semantic `<figure>` / `<figcaption>`, softly rounded images, numbered “fig. N” labels and italic captions. No captions are inferred from neighboring paragraphs. Wide figures reach the wide edge; phone captures stay about 18rem with captions alongside, stacking below on mobile.
 
 ### Footer and accessibility
 

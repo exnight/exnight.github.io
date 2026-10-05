@@ -37,7 +37,7 @@ The site is a personally maintained publication rather than a marketing funnel o
 ## Brand Commitments
 
 - Preserve the Leo Wong identity and the truthful description of him as a software engineer with interests beyond engineering.
-- Preserve the existing LW mark (`NavIcon`) and blue pen identity. The approved Drafting Notebook visual system is documented in `DESIGN.md`; production migration status is separate from product truth.
+- Preserve the existing LW mark (`NavIcon`) and blue pen identity. The shipped Drafting Notebook visual system is documented in `DESIGN.md`; verification evidence and limitations live in `docs/design/VERIFICATION.md`.
 - Keep the site broad enough for both professional and personal-interest writing as the topic mix evolves.
 - Claims must remain factual. Do not invent testimonials, client or employer endorsements, audience numbers, awards, benchmarks, achievements, or other social proof.
 
