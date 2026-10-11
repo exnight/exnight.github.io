@@ -1,0 +1,47 @@
+/* Generated code blocks: sheet, language label and Shiki theme integration.
+   Imported into the components layer; Preflight supplies the shared mono family. */
+
+.notebook .n-prose pre {
+  position: relative;
+  padding: 2rem 1.25rem 1.1rem;
+  border: 1px solid var(--hair-strong);
+  border-radius: var(--r-md);
+  /* Shiki uses defaultColor: false; its inline variables need no !important override. */
+  background: var(--raised);
+  overflow-x: auto;
+  font-size: 0.86rem;
+  line-height: 1.6;
+}
+
+.notebook .n-prose pre[data-language]::before {
+  position: absolute;
+  top: 0.6rem;
+  left: 1.25rem;
+  color: var(--muted);
+  content: attr(data-language);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.notebook .n-prose .astro-code {
+  color: var(--shiki-light);
+}
+
+.notebook .n-prose .astro-code span {
+  color: var(--shiki-light);
+  font-style: var(--shiki-light-font-style);
+  font-weight: var(--shiki-light-font-weight);
+  text-decoration: var(--shiki-light-text-decoration);
+}
+
+.notebook.dark .n-prose .astro-code {
+  color: var(--shiki-dark);
+}
+
+.notebook.dark .n-prose .astro-code span {
+  color: var(--shiki-dark);
+  font-style: var(--shiki-dark-font-style);
+  font-weight: var(--shiki-dark-font-weight);
+  text-decoration: var(--shiki-dark-text-decoration);
+}

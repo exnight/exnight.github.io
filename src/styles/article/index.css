@@ -1,0 +1,4 @@
+/* Article-only styles. The blog-post page loads this after shared foundations. */
+@import './content.css' layer(components);
+@import './toc.css' layer(components);
+@import './code.css' layer(components);

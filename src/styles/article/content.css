@@ -1,0 +1,296 @@
+/* Article grid: contents | reading | spare. The page owns heading typography. */
+
+.notebook .n-article {
+  display: grid;
+  --reading-base: 42rem;
+  --contents-width: 13rem;
+  --reading-share: 0.2;
+  --article-gap: clamp(2rem, 4vw, 4rem);
+  /* Prose gains 20% of the spare track; the left edge and both gaps stay fixed. */
+  --reading-growth: max(
+    0px,
+    calc(
+      (100% - var(--contents-width) - var(--reading-base) - 2 * var(--article-gap)) *
+        var(--reading-share)
+    )
+  );
+  grid-template-columns:
+    var(--contents-width) minmax(0, calc(var(--reading-base) + var(--reading-growth)))
+    minmax(0, 1fr);
+  column-gap: var(--article-gap);
+}
+
+/* The heading starts on the reading track; contents starts beside the first section. */
+.notebook .n-article__head {
+  grid-column: 2 / -1;
+  grid-row: 1;
+}
+
+/* Reading typography and Markdown defaults */
+
+.notebook .n-prose {
+  display: grid;
+  grid-template-columns: subgrid;
+  color: var(--ink-soft);
+  counter-reset: sec tbl fig;
+  font-family: var(--serif);
+  font-size: 1.1875rem;
+  line-height: 1.7;
+  text-wrap: pretty;
+  grid-column: 2 / -1;
+  grid-row: 2;
+}
+
+.notebook .n-prose > * {
+  grid-column: 1;
+  min-width: 0;
+  margin: 0 0 1.15em;
+}
+
+.notebook .n-prose h2,
+.notebook .n-prose h3,
+.notebook .n-prose h4 {
+  color: var(--ink);
+  overflow-wrap: anywhere;
+}
+
+.notebook .n-prose h2,
+.notebook .n-prose h3 {
+  font-family: var(--display);
+  text-wrap: balance;
+}
+
+.notebook .n-prose h2 {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 2em 0 0.6em;
+  counter-increment: sec;
+  font-size: clamp(1.55rem, 2.3vw, 1.95rem);
+  font-stretch: 92%;
+  font-weight: 620;
+  letter-spacing: -0.022em;
+  line-height: 1.15;
+}
+
+.notebook .n-prose h2::before {
+  display: inline-grid;
+  flex: none;
+  width: 1.9rem;
+  height: 1.9rem;
+  place-items: center;
+  border: 1.5px solid var(--ink);
+  border-radius: 50%;
+  content: counter(sec);
+  font-family: var(--mono);
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+.notebook .n-prose > h2:first-child {
+  margin-top: 0;
+}
+
+.notebook .n-prose h3 {
+  margin: 1.7em 0 0.45em;
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+}
+
+.notebook .n-prose h4 {
+  margin-top: 1.5em;
+  font: 600 1.1rem/1.3 var(--display);
+}
+
+.notebook .n-prose a {
+  color: var(--pen);
+  text-decoration-line: underline;
+  text-decoration-color: color-mix(in srgb, var(--pen) 45%, transparent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+
+.notebook .n-prose a:hover {
+  text-decoration-color: var(--pen);
+  text-decoration-style: wavy;
+}
+
+.notebook .n-prose strong {
+  color: var(--ink);
+  font-weight: 650;
+}
+
+.notebook .n-prose mark {
+  background: color-mix(in srgb, var(--marker) 55%, transparent);
+  color: var(--ink);
+}
+
+.notebook .n-prose ul,
+.notebook .n-prose ol {
+  padding-left: 1.4em;
+}
+
+/* Restore ordered markers removed by Preflight, including nested author content. */
+
+.notebook .n-prose ol {
+  list-style-type: decimal;
+}
+
+.notebook .n-prose ol ol {
+  list-style-type: lower-alpha;
+}
+
+.notebook .n-prose ol ol ol {
+  list-style-type: lower-roman;
+}
+
+.notebook .n-prose li {
+  margin: 0.35em 0;
+  padding-left: 0.2em;
+}
+
+.notebook .n-prose ul > li::marker {
+  color: var(--pen);
+  content: '- ';
+  font-family: var(--mono);
+}
+
+.notebook .n-prose blockquote {
+  border-left: 2px solid var(--pen);
+  padding-left: 1.25rem;
+  font-style: italic;
+}
+
+/* Preflight already draws a 1px solid top border. */
+.notebook .n-prose hr {
+  border-color: var(--hair-strong);
+  margin-block: 2em;
+}
+
+/* Inline code and mathematics. Code blocks are owned by code.css. */
+
+.notebook .n-prose code:not(pre code) {
+  padding: 0.08em 0.32em;
+  border-radius: 5px;
+  background: var(--tint);
+  font-size: 0.82em;
+}
+
+.notebook .n-prose .katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+/* Tables and captions */
+
+/* Text-track by default (also without JS); article.ts promotes natural wide tables. */
+
+.notebook .n-prose .notebook-table {
+  counter-increment: tbl;
+  grid-column: 1;
+}
+
+/* NotebookTable owns appearance for both structured rows and slotted Markdown. */
+.notebook .n-prose caption {
+  max-width: var(--reading-base);
+}
+
+.notebook .n-prose caption::before {
+  margin-right: 0.5rem;
+  color: var(--pen);
+  content: 'Table ' counter(tbl) ' —';
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  font-style: normal;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.notebook .n-prose .notebook-table.is-wide {
+  grid-column: 1 / -1;
+}
+
+/* Figure appearance is component-owned; article placement stays overridable. */
+
+.notebook .n-prose .notebook-figure--wide,
+.notebook .n-prose .notebook-figure--tall {
+  grid-column: 1 / -1;
+}
+
+/* Responsive adaptations and progressive-enhancement fallbacks */
+
+/* Older engines use the base cap and the visible frame, not an overflowing table. */
+
+@media (width <= 65.5rem) {
+  .notebook .n-prose caption {
+    max-width: min(100%, calc(100vw - 2 * clamp(1.125rem, 4vw, 3rem)), var(--reading-base));
+  }
+}
+
+/* Captions in wide tables follow the reading track using the outer article width.
+   Never size-contain .n-prose: containment breaks its inherited subgrid tracks. */
+
+@supports (width: 1cqi) and (grid-template-columns: subgrid) {
+  .notebook .n-article {
+    container-type: inline-size;
+  }
+  .notebook .n-prose caption {
+    max-width: min(
+      100%,
+      calc(100cqi - var(--contents-width) - 2 * var(--article-gap)),
+      calc(
+        var(--reading-base) +
+          max(
+            0px,
+            (100cqi - var(--contents-width) - var(--reading-base) - 2 * var(--article-gap)) *
+              var(--reading-share)
+          )
+      )
+    );
+  }
+  @media (width <= 65.5rem) {
+    .notebook .n-prose caption {
+      max-width: min(100%, 100cqi, var(--reading-base));
+    }
+  }
+}
+
+@media (width <= 65.5rem) {
+  /* Contents collapses: center one reading-width column in the frame. */
+  .notebook .n-article {
+    grid-template-columns: minmax(0, var(--reading-base));
+    justify-content: center;
+  }
+  .notebook .n-article__head {
+    grid-column: 1;
+  }
+  /* Own single track: subgrid tracks would ignore the column cap. */
+  .notebook .n-prose {
+    grid-column: 1;
+    grid-template-columns: minmax(0, 1fr);
+    grid-row: 3;
+  }
+}
+
+@media (width <= 45rem) {
+  .notebook .n-prose {
+    font-size: 1.0625rem;
+  }
+  .notebook .n-prose h2::before {
+    width: 1.7rem;
+    height: 1.7rem;
+  }
+}
+
+@supports not (grid-template-columns: subgrid) {
+  .notebook .n-prose {
+    grid-template-columns: minmax(0, var(--reading-base));
+  }
+  .notebook .n-prose .notebook-table,
+  .notebook .n-prose .notebook-figure--wide {
+    grid-column: 1;
+  }
+}
