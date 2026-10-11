@@ -1,0 +1,58 @@
+---
+interface Props {
+  caption?: string
+  headers?: string[]
+  rows?: string[][]
+  align?: ('left' | 'center' | 'right')[]
+}
+const { caption, headers, rows, align = [] } = Astro.props
+---
+
+<div
+  class="notebook-table m-[0.4em_0_0.5em] w-full max-w-full min-w-0 [justify-self:start] overflow-x-auto [overscroll-behavior-inline:contain]"
+  data-notebook-table
+  tabindex="0"
+  role="region"
+  aria-label={caption || 'Scrollable table'}
+>
+  <table
+    class:list={[
+      'font-display w-full border-collapse text-[0.95rem] leading-[1.4] [font-variant-numeric:lining-nums_tabular-nums]',
+      '[&_th]:text-ink [&_th]:p-[0.55rem_0.75rem] [&_th]:font-mono [&_th]:text-[0.7rem] [&_th]:font-medium [&_th]:tracking-wider [&_th]:uppercase [&_th]:[border-bottom:1.5px_solid_var(--ink)]',
+      '[&_:is(th,td)]:text-left [&_td]:p-[0.6rem_0.75rem] [&_td]:[border-bottom:1px_solid_var(--hair)]',
+      '[&_td:first-child]:font-[550] [&_td:not(:first-child)]:font-mono [&_td:not(:first-child)]:text-[0.86rem]',
+      '[&_:is(th,td):first-child]:pl-0 [&_:is(th,td):last-child]:pr-0',
+      '[&_:is(th,td)[align=center]]:text-center [&_:is(th,td)[align=right]]:text-right',
+      '[&_caption]:text-muted [&_caption]:caption-bottom [&_caption]:pt-[0.7rem] [&_caption]:text-left [&_caption]:font-serif [&_caption]:text-[0.92rem] [&_caption]:leading-normal [&_caption]:italic',
+      'compact:[&_:is(th,td)]:whitespace-nowrap',
+    ]}
+  >
+    {caption && <caption>{caption}</caption>}
+    {
+      headers ? (
+        <>
+          <thead>
+            <tr>
+              {headers.map((header, i) => (
+                <th scope="col" style={`text-align:${align[i] || 'left'}`}>
+                  {header}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {rows?.map((row) => (
+              <tr>
+                {row.map((cell, i) => (
+                  <td style={`text-align:${align[i] || 'left'}`}>{cell}</td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </>
+      ) : (
+        <slot />
+      )
+    }
+  </table>
+</div>

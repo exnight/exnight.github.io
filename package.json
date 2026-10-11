@@ -21,7 +21,6 @@
     },
     "devDependencies": {
         "@astrojs/compiler": "^3.0.1",
-        "@tailwindcss/typography": "^0.5.19",
         "@tailwindcss/vite": "^4.1.18",
         "@types/eslint-config-prettier": "^6.11.3",
         "@typescript-eslint/parser": "^8.50.1",

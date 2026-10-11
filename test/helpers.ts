@@ -67,11 +67,6 @@ export async function compileCSS(candidates: string[], extraCSS = '') {
   const loaded: string[] = []
   const compiler = await compile(readFileSync('src/styles/global.css', 'utf8') + extraCSS, {
     base: resolve('src/styles'),
-    // Temporary support for the legacy article's Typography plugin.
-    loadModule: async (id, base) => {
-      const path = require.resolve(id, { paths: [base] })
-      return { path, base: dirname(path), module: require(path) }
-    },
     loadStylesheet: async (id, base) => {
       const path = id.startsWith('.')
         ? resolve(base, id)

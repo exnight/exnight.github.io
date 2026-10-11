@@ -7,9 +7,16 @@ published: true
 tags: ['Web Dev', 'Astro', 'Tailwind CSS', 'MDX']
 ---
 
+import NotebookSummary from '@/components/NotebookSummary.astro'
+import NotebookTakeaways from '@/components/NotebookTakeaways.astro'
+
 ## TL;DR
 
+<NotebookSummary>
+
 This site has evolved from a React learning project since 2017 to an Astro + Tailwind + MDX static setup, hosted on Cloudflare Pages with branch previews. Content lives as MDX with typed frontmatter via Astro content collections. Recently, I leaned on AI tools (Impeccable + Copilot CLI) to fix my weakest skill: visual design.
+
+</NotebookSummary>
 
 ## Site Evolution
 
@@ -77,8 +84,12 @@ Combining it with [Copilot CLI](https://github.com/features/copilot/cli) and var
 
 ## Takeaways
 
+<NotebookTakeaways>
+
 Fewer, stabler dependencies beat novelty — six years as an engineer taught me that maintenance cost compounds. Static-first tools (Astro, content collections) age better than framework churn — I spent years chasing "shiny" before realizing my needs were simple all along.
 
 AI-assisted design works best when you supply direction, not just prompts; tools like Impeccable close the gap between "lacking visual sense" and a site that still feels personal.
 
 And ultimately: clarify your goals before picking tools, not after.
+
+</NotebookTakeaways>

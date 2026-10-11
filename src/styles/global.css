@@ -5,8 +5,6 @@
 @import 'tailwindcss';
 @import './fonts.css';
 @import './theme.css' layer(theme);
-/* Temporary bridge for the existing article; removed with its Notebook migration. */
-@import './legacy-article.css';
 
 @custom-variant dark (&:where(.dark, .dark *));
 

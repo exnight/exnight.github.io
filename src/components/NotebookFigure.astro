@@ -1,0 +1,60 @@
+---
+interface Props {
+  src: string
+  alt: string
+  caption?: string
+  kind?: 'text' | 'wide' | 'phone'
+  width?: number
+  height?: number
+}
+const { src, alt, caption, kind = 'text', width, height } = Astro.props
+---
+
+<figure
+  class:list={[
+    'notebook-figure m-[0.6em_0_1.6em]',
+    kind === 'wide' && 'notebook-figure--wide',
+    kind === 'phone' &&
+      'notebook-figure--tall compact:grid-cols-[minmax(0,15rem)] compact:justify-center grid grid-cols-[minmax(0,18rem)_minmax(0,20rem)] [align-items:end] gap-6',
+  ]}
+>
+  <img
+    class="rounded-sheet border-strong-hairline bg-raised-paper w-full border object-contain"
+    src={src}
+    alt={alt}
+    width={width}
+    height={height}
+    loading="lazy"
+    decoding="async"
+  />
+  {
+    (caption || Astro.slots.has('default')) && (
+      <figcaption
+        class:list={[
+          'text-muted text-[0.92rem] leading-[1.45] italic',
+          kind === 'phone' ? 'compact:mt-[0.7rem] m-0' : 'mt-[0.7rem]',
+        ]}
+      >
+        {caption}
+        <slot />
+      </figcaption>
+    )
+  }
+</figure>
+
+<style>
+  @layer components {
+    .notebook-figure {
+      counter-increment: fig;
+    }
+    figcaption::before {
+      display: block;
+      margin-bottom: 0.15rem;
+      color: var(--pen);
+      content: 'fig. ' counter(fig);
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      font-style: normal;
+    }
+  }
+</style>

@@ -1,0 +1,41 @@
+---
+// Keep the existing Markdown heading outside this boundary so its native ID is unchanged.
+---
+
+<div class="n-summary text-ink relative z-0 mb-[1.5em] px-4 py-[1.15rem] *:m-[0_0_1em] *:last:mb-0">
+  <slot />
+</div>
+
+<style>
+  @layer components {
+    /* Rotate only the paper. The wrapper keeps it behind the straight text. */
+    .n-summary::after {
+      position: absolute;
+      z-index: -1;
+      inset: 0;
+      border: 1px solid var(--hair-strong);
+      border-radius: var(--r-md);
+      background: var(--raised);
+      content: '';
+      transform: rotate(-0.5deg);
+    }
+
+    .n-summary::before {
+      position: absolute;
+      top: -0.65rem;
+      left: 50%;
+      width: 4.5rem;
+      height: 1.15rem;
+      border-radius: 2px;
+      background: color-mix(in srgb, var(--marker) 55%, transparent);
+      content: '';
+      transform: translateX(-50%) rotate(-3deg);
+    }
+
+    @media (width <= 45rem) {
+      .n-summary::after {
+        transform: none;
+      }
+    }
+  }
+</style>
