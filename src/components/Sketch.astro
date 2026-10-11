@@ -1,0 +1,80 @@
+---
+// Pen marks roughened by the production-scoped #notebook-sketch filter in Layout.
+interface Props {
+  kind: 'underline' | 'circle' | 'arrow' | 'highlight'
+  class?: string
+}
+
+const { kind, class: className } = Astro.props
+const viewBoxes = {
+  underline: '0 0 200 14',
+  circle: '0 0 120 52',
+  arrow: '0 0 64 32',
+  highlight: '0 0 200 40',
+}
+---
+
+<svg
+  class:list={[
+    'n-sketch stroke-pen pointer-events-none overflow-visible fill-none stroke-(length:--sketch-stroke,2.2)',
+    `n-sketch--${kind}`,
+    className,
+  ]}
+  viewBox={viewBoxes[kind]}
+  preserveAspectRatio="none"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  aria-hidden="true"
+  focusable="false"
+>
+  {
+    kind === 'underline' && (
+      <>
+        <path d="M3 8C42 3 92 11 132 6S186 4 197 7" />
+        <path class="n-sketch__ghost opacity-45" stroke-width="1.4" d="M8 11C62 7 122 12 194 9" />
+      </>
+    )
+  }
+  {
+    kind === 'circle' && (
+      <path d="M20 33C9 15 58 3 97 10C122 15 117 41 81 47C45 53 7 45 9 29C11 18 31 9 55 7" />
+    )
+  }
+  {
+    kind === 'arrow' && (
+      <>
+        <path class="n-sketch__draw" d="M3 22C20 7 38 7 57 17" />
+        <path class="n-sketch__draw" d="M46 9L58 17L47 25" />
+      </>
+    )
+  }
+  {
+    kind === 'highlight' && (
+      <path
+        class="n-sketch__fill stroke-none"
+        d="M4 15C52 8 140 6 196 11L193 33C138 30 62 35 6 31Z"
+      />
+    )
+  }
+</svg>
+
+<style>
+  @layer components {
+    /* Keep the filter and mixed highlighter colors readable as component effects. */
+    .n-sketch {
+      filter: url(#notebook-sketch);
+    }
+
+    path {
+      vector-effect: non-scaling-stroke;
+    }
+
+    .n-sketch__fill {
+      fill: color-mix(in srgb, var(--marker) 80%, transparent);
+    }
+
+    :global(.dark) .n-sketch__fill {
+      fill: color-mix(in srgb, var(--marker) 55%, transparent);
+    }
+  }
+</style>
