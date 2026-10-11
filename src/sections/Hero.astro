@@ -1,8 +1,8 @@
 ---
 import PostEntry from '@/components/PostEntry.astro'
-import { getSortedBlogPosts } from '@/utils'
+import { getBlogPosts, selectPosts } from '@/lib/posts'
 
-const recentPosts = getSortedBlogPosts().slice(0, 2)
+const recentPosts = selectPosts(await getBlogPosts()).slice(0, 2)
 ---
 
 <section
