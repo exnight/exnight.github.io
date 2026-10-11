@@ -7,10 +7,11 @@ import ExternalLink from '@/components/ExternalLink.astro'
 import Section from '@/components/Section.astro'
 import TableOfContents from '@/components/TableOfContents.astro'
 
-import { DATE_FORMAT_DISPLAY, blogPosts } from '@/utils'
+import { DATE_FORMAT_DISPLAY, getBlogPosts } from '@/lib/posts'
 
 export async function getStaticPaths() {
-  return blogPosts.map((post) => ({
+  const posts = await getBlogPosts()
+  return posts.map((post) => ({
     params: { slug: post.id },
     props: { post },
   }))

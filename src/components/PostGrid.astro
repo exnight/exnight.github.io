@@ -1,6 +1,6 @@
 ---
 import PostEntry from '@/components/PostEntry.astro'
-import { getSortedBlogPosts } from '@/utils'
+import { getBlogPosts, groupPostsByYear } from '@/lib/posts'
 
 interface Props {
   n_posts?: number
@@ -8,15 +8,8 @@ interface Props {
 
 const { n_posts = Number.POSITIVE_INFINITY } = Astro.props
 
-const publishedPosts = getSortedBlogPosts().slice(0, n_posts)
-const postsByYear = publishedPosts.reduce<Record<string, typeof publishedPosts>>((groups, post) => {
-  const year = post.data.publishedOn.getFullYear().toString()
-  groups[year] ??= []
-  groups[year].push(post)
-  return groups
-}, {})
-
-const years = Object.entries(postsByYear).sort(([a], [b]) => Number(b) - Number(a))
+const posts = await getBlogPosts()
+const years = groupPostsByYear(posts.slice(0, n_posts))
 ---
 
 <div class="border-ink border-t-[1.5px]">
