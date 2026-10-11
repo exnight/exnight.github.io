@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="390" height="844" viewBox="0 0 390 844">
+  <title>Portrait layout test image</title>
+  <desc>Three colored vertical bands with corner markers and a centered dimension label. Placeholder artwork for a phone-shaped figure.</desc>
+  <rect width="130" height="844" fill="#b9d3e2"/>
+  <rect x="130" width="130" height="844" fill="#668b78"/>
+  <rect x="260" width="130" height="844" fill="#d3b78b"/>
+  <g fill="none" stroke="#233b43" stroke-width="4">
+    <rect x="12" y="12" width="366" height="820"/>
+    <path d="M12 48V12h36M342 12h36v36M12 796v36h36M342 832h36v-36" stroke-width="8"/>
+  </g>
+  <rect x="35" y="362" width="320" height="120" rx="8" fill="#fff"/>
+  <g text-anchor="middle" font-family="sans-serif" font-size="26" fill="#233b43">
+    <text x="195" y="408">PORTRAIT</text>
+    <text x="195" y="450">390 × 844</text>
+  </g>
+</svg>

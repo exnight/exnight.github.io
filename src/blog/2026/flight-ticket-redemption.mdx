@@ -7,9 +7,17 @@ tags: ['Travelling']
 readTime: 10
 ---
 
+import NotebookSummary from '@/components/NotebookSummary.astro'
+import NotebookTakeaways from '@/components/NotebookTakeaways.astro'
+import NotebookTable from '@/components/NotebookTable.astro'
+
 ## TL;DR
 
+<NotebookSummary>
+
 Redeeming flight tickets can save you 35-50% on premium cabins if you plan ~1 year ahead. This is the 1st post of the series on the flight ticket redemption topic.
+
+</NotebookSummary>
 
 ## What Is Flight Ticket Redemption
 
@@ -39,14 +47,16 @@ Airline points can be earned by flying with the airline or its partners, or by t
 
 Before I go into the details, let me share my experience so far. I had a trip to Switzerland in 2026 early July and I redeemed flight tickets in mid-July 2025, one year ahead. I will have a trip to the East Coast in 2027 and I just redeemed the tickets. Prices are in HKD with equivalent USD in brackets.
 
-| Flight                 | Redemption Requirement | Cost (HKD) per Point | Equivalent Cash |
-| ---------------------- | ---------------------- | -------------------- | --------------- |
-| Hong Kong → Zurich     | 88000 miles + HKD934   | 0.108-0.120          | ~11000 ($1410)  |
-| Zurich → Hong Kong     | 77877 miles + CHF356   | 0.122-0.137          | ~13700 ($1760)  |
-| Hong Kong → East Coast | 80000 miles + HKD2239  | 0.108-0.120          | ~11400 ($1460)  |
-| East Coast → Hong Kong | 119000 miles + HKD1808 | 0.108-0.120          | ~15400 ($1970)  |
-
-_Taxes and fees are charged by mileage programs depending on the route, thus in multiple currencies. The overall equivalent cash values are normalized._
+<NotebookTable
+  headers={['Flight', 'Redemption Requirement', 'Cost (HKD) per Point', 'Equivalent Cash']}
+  rows={[
+    ['Hong Kong → Zurich', '88000 miles + HKD934', '0.108-0.120', '~11000 ($1410)'],
+    ['Zurich → Hong Kong', '77877 miles + CHF356', '0.122-0.137', '~13700 ($1760)'],
+    ['Hong Kong → East Coast', '80000 miles + HKD2239', '0.108-0.120', '~11400 ($1460)'],
+    ['East Coast → Hong Kong', '119000 miles + HKD1808', '0.108-0.120', '~15400 ($1970)'],
+  ]}
+  caption="Taxes and fees are charged by mileage programs depending on the route, thus in multiple currencies. The overall equivalent cash values are normalized."
+/>
 
 Comparing with the cash prices, I had a 35%+ discount for the Switzerland trip (back then it cost ~HKD38000) and a ~50% discount for the East Coast trip. The savings are big enough to justify my time and effort.
 
@@ -81,11 +91,15 @@ Therefore, one needs to plan ahead and catch the early-bird opportunities for po
 
 ## Takeaways
 
+<NotebookTakeaways>
+
 In general, either redeem at initial release (330-360 days ahead), or at last minute (14-30 days before departure). Searching 3 months out is unlikely to yield good results.
 
 Economy seats seldom justify the costs. Premium classes extract more value per point than their cash cost.
 
 Don't ignore the hidden costs. Planning ahead, time spent monitoring, flexibility on dates and routes, and knowledge on release patterns and sweet spots are the "price" you pay instead of cash.
+
+</NotebookTakeaways>
 
 ## Very Helpful Resources
 
