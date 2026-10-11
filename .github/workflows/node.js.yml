@@ -9,21 +9,30 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [24.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+    timeout-minutes: 20
 
     steps:
-      - uses: actions/checkout@v6.0.1
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v6.1.0
+      - name: Checkout
+        uses: actions/checkout@v7.0.1
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v7.1.0
         with:
-          node-version: ${{ matrix.node-version }}
-      - run: npm ci
-      - run: npm test
-      - run: npm run build
+          node-version: '26.10.0'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run tests
+        run: npm test
+
+      - name: Build site
+        run: npm run build

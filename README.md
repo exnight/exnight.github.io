@@ -4,7 +4,7 @@ Leo’s personal website and blog, built with Astro, TypeScript, Tailwind CSS, a
 
 ## Getting started
 
-Requires Node.js 24 or later. An optional VS Code Dev Container configuration is included in `.devcontainer/`; see [sharing Git credentials](https://code.visualstudio.com/remote/advancedcontainers/sharing-git-credentials) for container setup.
+Requires Node.js 26 or later. An optional VS Code Dev Container configuration is included in `.devcontainer/`; see [sharing Git credentials](https://code.visualstudio.com/remote/advancedcontainers/sharing-git-credentials) for container setup.
 
 ### Coding
 

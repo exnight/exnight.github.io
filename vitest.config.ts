@@ -13,5 +13,6 @@ export default getViteConfig({
     coverage: {
       include: ['src/**/*.{ts,astro}'],
     },
+    fsModuleCache: true,
   },
 })
