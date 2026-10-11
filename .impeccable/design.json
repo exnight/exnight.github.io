@@ -1,0 +1,142 @@
+{
+    "schemaVersion": 2,
+    "generatedAt": "2026-10-04T14:10:00Z",
+    "title": "Design System: Drafting Notebook",
+    "extensions": {
+        "motion": [
+            {
+                "name": "hover-tint",
+                "value": "180ms ease-out",
+                "purpose": "Quiet linked-row and control feedback; disabled with reduced motion."
+            },
+            {
+                "name": "arrow-appearance",
+                "value": "120ms ease-out",
+                "purpose": "Reveal the post link arrow."
+            },
+            {
+                "name": "arrow-drawing",
+                "value": "380ms ease-out",
+                "purpose": "Draw the link arrow on hover/focus; completed under reduced motion."
+            }
+        ],
+        "breakpoints": [
+            { "name": "article-collapse", "value": "65.5rem" },
+            { "name": "profile-stack", "value": "56.25rem" },
+            { "name": "mobile-type", "value": "45rem" },
+            { "name": "compact-brand", "value": "23.75rem" }
+        ],
+        "shadows": []
+    },
+    "components": [
+        {
+            "name": "Theme Control",
+            "kind": "button",
+            "refersTo": "theme-toggle",
+            "description": "Illustrative 44px destination-labelled sun/moon control; production behavior is documented in docs/CSS.md.",
+            "html": "<button class=\"ds-theme\" aria-label=\"Switch to dark theme\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" aria-hidden=\"true\"><path d=\"M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z\"/></svg></button>",
+            "css": ".ds-theme{display:grid;place-items:center;width:44px;height:44px;border:1px solid var(--hair-strong);border-radius:8px;background:var(--raised);color:var(--pen);cursor:pointer;transition:background-color 180ms ease-out}.ds-theme:hover{background:var(--tint);border-color:var(--pen)}.ds-theme:focus-visible{outline:3px solid var(--focus);outline-offset:3px}.ds-theme:active{background:var(--paper)}"
+        },
+        {
+            "name": "Writing Entry",
+            "kind": "custom",
+            "description": "Open title-first row, without post numbering or dividers.",
+            "html": "<a class=\"ds-entry\" href=\"/blog/2026/how-i-build-the-site\"><h3>How I Build The Site</h3><p class=\"ds-meta\">Jan 4, 2026 · 5 min read</p><p class=\"ds-summary\">A concise walkthrough of the site's stack, content workflow, and the key decisions behind it.</p><ul class=\"ds-tags\" aria-label=\"Topics\"><li>Web Dev</li><li>Astro</li><li>Tailwind CSS</li><li>MDX</li></ul></a>",
+            "css": ".ds-entry{display:flex;flex-direction:column;gap:.6rem;padding:1.5rem 1rem;color:var(--ink);border-radius:18px;text-decoration:none;transition:background-color 180ms ease-out}.ds-entry h3{margin:0;font-family:'Bricolage Grotesque Variable',sans-serif;font-size:clamp(1.45rem,2.4vw,2.1rem);font-weight:620;font-stretch:92%;letter-spacing:-.025em;line-height:1.08;overflow-wrap:anywhere}.ds-meta{margin:0;font-family:'IBM Plex Mono',monospace;font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}.ds-summary{margin:0;font-family:'Source Serif 4 Variable',serif;font-size:1.05rem;max-width:85ch;line-height:1.5;color:var(--ink-soft)}.ds-tags{display:flex;flex-wrap:wrap;gap:.4rem 1rem;margin:0;padding:0;list-style:none;font-family:'Bricolage Grotesque Variable',sans-serif;font-size:.875rem;line-height:1.5;color:var(--muted)}.ds-tags li{overflow-wrap:anywhere}.ds-entry:hover,.ds-entry:focus-visible{background:color-mix(in srgb,var(--raised) 85%,transparent)}.ds-entry:focus-visible{outline:3px solid var(--focus);outline-offset:3px}@media(width <= 45rem){.ds-summary{font-size:1rem}}@media(prefers-reduced-motion:reduce){.ds-entry{transition:none}}"
+        },
+        {
+            "name": "Summary Sheet",
+            "kind": "card",
+            "refersTo": "summary-card",
+            "description": "Server-rendered NotebookSummary boundary supports paragraphs/lists at sustained-prose typography; highlighter tape and a tilted backing sheet keep text straight.",
+            "html": "<div class=\"ds-summary-sheet\"><p>A concise summary of the article’s main ideas.</p></div>",
+            "css": ".ds-summary-sheet{position:relative;z-index:0;padding:1.15rem 1rem;color:var(--ink);font-family:'Source Serif 4 Variable',serif;font-size:1.1875rem;line-height:1.7}.ds-summary-sheet>*{margin:0 0 1em}.ds-summary-sheet>:last-child{margin-bottom:0}.ds-summary-sheet:after{content:'';position:absolute;z-index:-1;inset:0;background:var(--raised);border:1px solid var(--hair-strong);border-radius:14px;transform:rotate(-.5deg)}.ds-summary-sheet:before{content:'';position:absolute;top:-.65rem;left:50%;width:4.5rem;height:1.15rem;border-radius:2px;background:color-mix(in srgb,var(--marker) 55%,transparent);transform:translateX(-50%) rotate(-3deg)}@media(width <= 45rem){.ds-summary-sheet{font-size:1.0625rem}.ds-summary-sheet:after{transform:none}}"
+        },
+        {
+            "name": "Code Sheet",
+            "kind": "custom",
+            "refersTo": "code-sheet",
+            "description": "Bounded reading object; actual syntax colours come from theme-matched Shiki variables.",
+            "html": "<pre class=\"ds-code\" data-language=\"bash\"><code>npm install\nnpm run dev</code></pre>",
+            "css": ".ds-code{position:relative;overflow-x:auto;padding:2rem 1.25rem 1.1rem;background:var(--raised);color:var(--ink-soft);border:1px solid var(--hair-strong);border-radius:14px;font-family:'IBM Plex Mono',monospace;font-size:.86rem;line-height:1.6}.ds-code code{font-family:inherit}.ds-code:before{content:attr(data-language);position:absolute;top:.6rem;left:1.25rem;font-size:.68rem;text-transform:uppercase;color:var(--muted)}"
+        },
+        {
+            "name": "Topics",
+            "kind": "custom",
+            "description": "Normally cased, independently wrapping topic text; not filtering controls.",
+            "html": "<ul class=\"ds-topics\" aria-label=\"Topics\"><li>Web Dev</li><li>Astro</li><li>Tailwind CSS</li><li>MDX</li></ul>",
+            "css": ".ds-topics{display:flex;flex-wrap:wrap;gap:.4rem 1rem;margin:0;padding:0;list-style:none;font-family:'Bricolage Grotesque Variable',sans-serif;font-size:.875rem;line-height:1.5;color:var(--muted)}.ds-topics li{overflow-wrap:anywhere}"
+        },
+        {
+            "name": "Takeaways",
+            "kind": "custom",
+            "description": "Explicit server-rendered NotebookTakeaways boundary; a quiet pen rule supports conclusions without heading-name selectors.",
+            "html": "<div class=\"ds-takeaways\"><p>Clarify your goals before picking tools, not after.</p></div>",
+            "css": ".ds-takeaways{padding-left:1.25rem;border-left:2px solid var(--pen);font-family:'Source Serif 4 Variable',serif;font-size:1.1875rem;line-height:1.7;color:var(--ink-soft)}.ds-takeaways>*{margin:0 0 1.15em}.ds-takeaways>:last-child{margin-bottom:0}@media(width <= 45rem){.ds-takeaways{font-size:1.0625rem}}"
+        },
+        {
+            "name": "Captioned Table",
+            "kind": "custom",
+            "description": "Real table/caption semantics, preserved alignment and local keyboard-scroll region; production snaps between text and wide edges.",
+            "html": "<div class=\"ds-table\" tabindex=\"0\" role=\"region\" aria-label=\"Prices in HKD\"><table><caption>Table 1 — Prices in HKD.</caption><thead><tr><th scope=\"col\">Route</th><th scope=\"col\" style=\"text-align:right\">Cost</th></tr></thead><tbody><tr><td>Hong Kong → Zurich</td><td style=\"text-align:right\">100</td></tr></tbody></table></div>",
+            "css": ".ds-table{max-width:100%;overflow-x:auto}.ds-table table{width:100%;border-collapse:collapse;color:var(--ink-soft);font-family:'Bricolage Grotesque Variable',sans-serif;font-size:.95rem;line-height:1.4;font-variant-numeric:lining-nums tabular-nums}.ds-table th{padding:.55rem .75rem;border-bottom:1.5px solid var(--ink);color:var(--ink);font-family:'IBM Plex Mono',monospace;font-size:.7rem;font-weight:500;letter-spacing:.05em;text-transform:uppercase;text-align:left}.ds-table td{padding:.6rem .75rem;border-bottom:1px solid var(--hair)}.ds-table td:first-child{font-weight:550}.ds-table td:not(:first-child){font-family:'IBM Plex Mono',monospace;font-size:.86rem}.ds-table caption{caption-side:bottom;padding-top:.7rem;text-align:left;font-family:'Source Serif 4 Variable',serif;font-size:.92rem;font-style:italic;color:var(--muted)}.ds-table:focus-visible{outline:3px solid var(--focus);outline-offset:3px}"
+        }
+    ],
+    "narrative": {
+        "northStar": "Drafting Notebook",
+        "overview": "An engineer’s personal publication: precise structure with restrained pen-and-highlighter marks, not a portfolio dashboard or technical costume. Preserve the LW identity and factual copy. Light paper and graphite share hierarchy and geometry through paired semantic colours.",
+        "keyCharacteristics": [
+            "Bricolage headings/interface, Source Serif reading text, Plex Mono records/code.",
+            "Blue pen, restrained yellow, subtle dot paper, no shadows.",
+            "Open writing rows and unboxed profile facts.",
+            "Drawing conventions only where they provide orientation: article section references and numbered figures/tables, not arbitrary post numbers."
+        ],
+        "rules": [
+            {
+                "name": "The One-Pen Rule",
+                "body": "Blue is the only interface accent; syntax colours and authored images may retain meaningful colour.",
+                "section": "colors"
+            },
+            {
+                "name": "The Paired-Theme Rule",
+                "body": "Map every role to its light or graphite counterpart. Do not mix surfaces from opposite themes. No neon, glow or sage-tinted dark field.",
+                "section": "colors"
+            },
+            {
+                "name": "The Reading-Measure Rule",
+                "body": "Above 65.5rem, use 13rem contents, gaps of `clamp(2rem, 4vw, 4rem)`, and a reading column of `42rem + max(0px, (frame width - 13rem - 42rem - 2 × gap) × 0.2)`. Prose, TL;DR, and ordinary tables gain 20% of the spare track; retain 80%, both gaps, the left reading edge, and frame-right wide edge. Text must not fall below 42rem beside contents. At 65.5rem and below, center a fluid column capped at 42rem.",
+                "section": "layout"
+            },
+            {
+                "name": "The Two-Edges Rule",
+                "body": "Normal article content uses the text edge; wide tables/figures extend to the frame’s right edge. Tables snap to one or the other, never an incidental intermediate edge. Without JavaScript, wide tables remain text-width and scroll locally. Intentionally narrow phone figures with adjacent captions are an explicit exception.",
+                "section": "layout"
+            },
+            {
+                "name": "The Two-Marks Rule",
+                "body": "At most two decorative marks per section. Hero underline and highlight count as two; a writing heading underline counts as one. Current-navigation circles and link arrows are functional state marks, not extra decoration.",
+                "section": "elevation"
+            },
+            {
+                "name": "The Fewer-Boxes Rule",
+                "body": "Use whitespace first. Boxes belong to TL;DR, code, figures, compact controls and mobile contents—not homepage profile facts, article headings or recurring post cards.",
+                "section": "shapes"
+            }
+        ],
+        "dos": [
+            "Do preserve the approved Notebook identity and factual content.",
+            "Do pair light/graphite roles and render the correct code syntax theme.",
+            "Do separate tags from short publication details.",
+            "Do preserve the Reading-Measure and Two-Edges rules.",
+            "Do retain article section circles where they provide cross-reference.",
+            "Do keep layouts legible with long titles, many tags, no summary and narrow viewports."
+        ],
+        "donts": [
+            "Don't restore the logo node, connectors, A/B profile labels or post-number circles.",
+            "Don't highlight all bold text or add handwriting fonts, glow or shadows.",
+            "Don't box profile facts, article headings or post rows as repeated cards.",
+            "Don't add inactive search, filters or other nonexistent features.",
+            "Don't replace factual copy, invent proof, or substitute superseded design directions for the approved Notebook system."
+        ]
+    }
+}

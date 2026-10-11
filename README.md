@@ -1,67 +1,43 @@
 # Personal Website [![Node.js CI](https://github.com/exnight/exnight.github.io/actions/workflows/node.js.yml/badge.svg)](https://github.com/exnight/exnight.github.io/actions/workflows/node.js.yml)
 
-This is a personal website built with Astro.js, TypeScript, and Tailwind CSS.
+Leo’s personal website and blog, built with Astro, TypeScript, Tailwind CSS, and MDX. The site is statically generated and supports light and dark themes.
 
-## Approved design and migration
+## Getting started
 
-**Drafting Notebook is implemented in production.**
+Requires Node.js 24 or later. An optional VS Code Dev Container configuration is included in `.devcontainer/`; see [sharing Git credentials](https://code.visualstudio.com/remote/advancedcontainers/sharing-git-credentials) for container setup.
 
-- [Product context](PRODUCT.md)
-- [Approved visual system](DESIGN.md)
-- [Completed migration and protected contracts](docs/design/MIGRATION.md)
-- [MDX component authoring](docs/design/AUTHORING.md)
-- [Production verification and remaining limits](docs/design/VERIFICATION.md)
-- [Approved preview references](docs/design/reference/README.md)
-- [Historical Folio specification](docs/design/archive/open-field-folio.md) (not migration authority)
-
-Page-specific direction contracts live in `.impeccable/surfaces/`; `.impeccable/design.json` carries visual-system extensions. These are durable, tracked documentation. Generated Impeccable reviews/state remain ignored.
-
-Prototype routes/tooling have been removed after production verification. Approved reference captures remain in `docs/design/reference/`; test-only acceptance fixtures live in `test/fixtures/` and are never published.
-
-## Getting Started
-
-The project works with Node version 24 or above.
-
-### Local Developement
-
-The project utilizes DEV containers for consistent developement environments. The configuration assumes VS Code as the code editor.
-
-#### Set Up DEV Containers
-
-You may want to set up local SSH agent to share Git credentials following [this guide](https://code.visualstudio.com/remote/advancedcontainers/sharing-git-credentials#_using-ssh-keys).
+### Coding
 
 ```sh
-ssh -T git@github.com # Test your SSH connection to GitHub, or other remote repos
-ssh-add -L # List available SSH key(s)
-ssh-add $HOME/.ssh/YOUR_SSH_PRIVATE_KEY # Add a new SSH key
+npm ci          # Install dependencies
+npm run dev     # Start the development server
+npm run test    # Run unit tests
+npm run build   # Generate the static production site
 ```
 
-Note that SSH keys with a passphrase [may not work](https://code.visualstudio.com/docs/devcontainers/containers#_known-limitations).
+Coding-agent workflow and check policy live in [AGENTS.md](AGENTS.md). These commands are available tools, not a mandatory sequence after each edit.
 
-#### Coding
+Unit tests need no server, browser, or build. Optional local draft-page acceptance uses `node test/blog/draft-post.browser.mjs` and requires the port-3000 dev server and an installed Chrome/Chromium; run it only on request. See [draft-page acceptance](docs/CSS.md#local-draft-page-acceptance).
 
-```bash
-npm ci # Install dependencies
+## Publishing contracts
 
-npm run dev # Start a local DEV server
+- Posts live in `src/blog/` as MDX files. Preserve existing post IDs/slugs, authored wording/data, and native heading anchors. Public routes are `/`, `/blog`, and `/blog/[...slug]`.
+- Frontmatter fields are `title`, `publishedOn`, `updatedOn`, `summary`, `published`, `tags`, and `readTime`. Do not add `createdOn` merely for sorting.
+- `src/lib/posts.ts` owns publication filtering, newest-first sorting, and year grouping. Home shows the two latest published posts, including in development; archive and article routes allow drafts only in development.
+- Preserve article-title view transitions, Astro navigation cleanup, native contents links, theme persistence, reduced-motion support, KaTeX, paired Shiki themes, and safe external links.
 
-npm run test # Component and behavior regressions
+The unpublished `src/blog/draft-post.mdx` and its artwork in `src/blog/draft-assets/` provide local test content.
 
-npm run build # Static production build plus route/content invariant checks
+## Deployment
 
-npm run test:browser # Explicit Chromium acceptance of dist; no second dev server
-```
+- **Cloudflare Pages:** deployed; the owner previewed and accepted the appearance. Deployment settings are not documented here.
+- **GitHub Pages:** currently paused. The documented deployment branch is `master`, not `gh-page`; see `.github/workflows/` for configuration.
 
-### Deployment
+## Documentation
 
-The project deploys to both GitHub pages and Cloudflare pages.
+- [Product context](PRODUCT.md)
+- [Drafting Notebook visual system](DESIGN.md)
+- [MDX component authoring and APIs](docs/design/AUTHORING.md)
+- [CSS architecture, theme startup, and article fallback constraints](docs/CSS.md)
 
-#### GitHub Pages
-
-Currently paused due to site revamp work. Refer to GitHub workflow files for more details.
-
-The project uses the **master** branch for deployment instead of the **gh-page** branch.
-
-#### Cloudflare Pages
-
-TBD
+Page-specific design briefs live in `.impeccable/surfaces/`; `.impeccable/design.json` holds visual-system extensions.

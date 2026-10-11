@@ -204,67 +204,60 @@ components:
 
 ## Overview
 
-**Status: implemented in production.** The approved final prototype, including graphite mode and its detail refinements, is now shipped on `/`, `/blog`, and existing article routes. The historical Open Field Folio specification remains archived at `docs/design/archive/open-field-folio.md`; it is not current design authority. Chromium production acceptance passed; Firefox/Safari and physical-device checks remain limitations recorded in `docs/design/VERIFICATION.md`.
-
 **Creative North Star: “Drafting Notebook”**
 
-An engineer’s personal publication with precise drawing conventions and a light pen-and-highlighter layer. The interface balances professional clarity with personal writing, without becoming a portfolio dashboard or a technical costume. Existing LW identity and factual copy remain intact.
-
-Light paper supports everyday browsing; graphite supports reading in low ambient light. Both use the same hierarchy and geometry, with paired semantic colours rather than unrelated skins.
+An engineer’s personal publication: precise structure with restrained pen-and-highlighter marks, not a portfolio dashboard or technical costume. Preserve the LW identity and factual copy. Light paper and graphite share hierarchy and geometry through paired semantic colours.
 
 **Key Characteristics:**
+
 - Bricolage headings/interface, Source Serif reading text, Plex Mono records/code.
 - Blue pen, restrained yellow, subtle dot paper, no shadows.
 - Open writing rows and unboxed profile facts.
 - Drawing conventions only where they provide orientation: article section references and numbered figures/tables, not arbitrary post numbers.
 
-Production authority: `src/styles/theme.css`, `src/styles/notebook.css`, `src/styles/article.css`, and the shared components in `src/components/`. Durable approved prototype captures remain in `docs/design/reference/`; preview source/tooling has been removed after production passed. YAML now records shipped roles and supporting type/radius steps. Contracts, authoring, and evidence: `docs/design/MIGRATION.md`, `docs/design/AUTHORING.md`, `docs/design/VERIFICATION.md`, and the Impeccable surface briefs.
+YAML records the established tokens; prose explains their use. See [CSS constraints](docs/CSS.md), [authoring APIs](docs/design/AUTHORING.md), and [publishing contracts](README.md#publishing-contracts). Page-specific composition belongs in `.impeccable/surfaces/`. This record describes the accepted system, not cross-browser certification.
 
 ## Colors
 
 ### Primary
 
-**Pen blue** owns editorial links, current state, sketch marks and focus. Its graphite counterpart has enough lightness to remain legible on dark paper. Keep the LW identity in this family.
+**Pen blue** owns links, current state, sketch marks, focus, and the LW identity; use its paired light value on graphite.
 
 **The One-Pen Rule.** Blue is the only interface accent; syntax colours and authored images may retain meaningful colour.
 
 ### Secondary
 
-**Highlighter yellow** is reserved for the hero’s “notes”, TL;DR tape, selection and explicit text highlights. Ordinary bold text uses weight, not yellow fill. Light hero highlighting uses 80% marker, graphite uses 55% to maintain light-ink contrast. Selection uses 75% in light and 55% in graphite. These are accessibility-only opacity refinements; the paired palette is unchanged.
+**Highlighter yellow** is reserved for hero “notes”, TL;DR tape, selection, and explicit highlights—not ordinary bold text. Hero marker opacity is 80% in light / 55% in graphite; selection is 75% / 55%.
 
 ### Neutral
 
-Paper is the continuous viewport ground. Raised paper belongs to real reading objects and controls; tint supports inline code. Ink, soft ink and muted text establish hierarchy. Hairlines separate structural regions without boxing every element. Dot paper repeats every 24px and stays subordinate to text.
+Paper fills the viewport; raised paper supports reading objects and controls; tint supports inline code. Ink roles establish hierarchy, hairlines separate structure, and subordinate dots repeat every 24px.
 
 **The Paired-Theme Rule.** Map every role to its light or graphite counterpart. Do not mix surfaces from opposite themes. No neon, glow or sage-tinted dark field.
 
 ## Typography
 
-**Headings/interface:** Bricolage Grotesque Variable, generally 90–92% width for larger headings, weights 550–650. Hierarchy comes from scale, weight and space; no handwriting fonts.
+- **Headings/interface:** Bricolage Grotesque Variable; larger headings generally use 90–92% width and weights 550–650. Hierarchy comes from scale, weight, and space.
+- **Reading:** Source Serif 4 Variable with optical sizing and real italic. Use italic decks/captions and roman post summaries; prose follows the body tokens.
+- **Records/code:** IBM Plex Mono; short publication details are uppercase with measured tracking. Dates/numeric tables use lining tabular numerals. Tags use normally cased Bricolage and wrap separately, without pills or controls.
 
-**Reading text:** Source Serif 4 Variable with optical sizing and real italic. Main prose is 19px desktop / 17px mobile at 1.7 line height. Article decks and captions use italic; post-list summaries are roman.
-
-**Records/code:** IBM Plex Mono. Short publication details use uppercase and measured tracking. Tags use normally cased Bricolage, wrap separately, and are not controls or pills. Dates and numeric tables use lining tabular numerals.
-
-Mobile hero uses `clamp(2.35rem, 11vw, 3rem)`; mobile entry titles use 1.45rem. Article titles cap at 22ch. Prose headings keep readable hierarchy without shrinking to fit long words. Metadata wraps without leading separators. Global line-height is `normal` (matching the approved prototype rather than Tailwind's 1.5 reset); prose and each reading role supply their own explicit line-height. Supporting table/caption/contents and compact record sizes are included in the frontmatter, not additional visual voices.
-
-**The Reading-Measure Rule.** Main article text remains 42rem, with full desktop lines approximately 72–76 characters. Short scanning summaries may reach 85ch within the available row; this does not authorize widening article prose.
+Article titles cap at 22ch; mobile entry titles use 1.45rem. Keep long headings readable and metadata free of leading separators. Global line-height is `normal`; reading roles set explicit line-height. Scanning summaries may reach 85ch within their row.
 
 ## Layout
 
-The paper field reaches every viewport edge. Shared frame: `min(1240px, calc(100% - 2 * clamp(1.125rem, 4vw, 3rem)))`. Keep header, main and footer on this frame.
+The paper field reaches every viewport edge. Shared frame: `min(77.5rem, calc(100% - 2 * clamp(1.125rem, 4vw, 3rem)))` (1240px at the 16px default). Keep header, main and footer on this frame.
 
-Article grid: 13rem contents, `minmax(0, 42rem)` reading column, and flexible room for wide content; gaps `clamp(2rem, 4vw, 4rem)`. Article heading begins on the reading column; desktop contents begins beside the first section. Page-specific composition and reading order live in the surface briefs.
+**The Reading-Measure Rule.** Above 65.5rem, use 13rem contents, gaps of `clamp(2rem, 4vw, 4rem)`, and a reading column of `42rem + max(0px, (frame width - 13rem - 42rem - 2 × gap) × 0.2)`. Prose, TL;DR, and ordinary tables gain 20% of the spare track; retain 80%, both gaps, the left reading edge, and frame-right wide edge. Text must not fall below 42rem beside contents. At 65.5rem and below, center a fluid column capped at 42rem.
 
 **The Two-Edges Rule.** Normal article content uses the text edge; wide tables/figures extend to the frame’s right edge. Tables snap to one or the other, never an incidental intermediate edge. Without JavaScript, wide tables remain text-width and scroll locally. Intentionally narrow phone figures with adjacent captions are an explicit exception.
 
-Responsive thresholds:
-- At 1000px and below, article becomes one column and contents becomes a disclosure.
-- At 900px and below, homepage profile groups move below the introduction.
-- At 720px and below, mobile typography and list layouts apply.
-- At very narrow widths, the name may yield to the LW mark so navigation and theme control remain usable; do not wrap the name awkwardly.
+Use inclusive rem thresholds that follow the reader’s default font size:
 
-Use more space above sections than within related content. Post lists use whitespace, not row dividers. Year grouping supports a growing archive without search/filter features.
+- **65.5rem:** centered article column and native contents disclosure; contents, two gaps, and 42rem text no longer fit beside one another.
+- **56.25rem:** homepage profile groups move below the introduction; above it they meet the frame-right edge.
+- **45rem:** mobile typography and list layouts.
+
+At very narrow widths, the name may yield to the LW mark; keep navigation and theme control usable. Use more space between sections than within related content, and whitespace rather than post dividers. Preserve article support/fallback rules, values, and order; see [CSS constraints](docs/CSS.md#browser-fallbacks-and-support-limits).
 
 ## Elevation & Depth
 
@@ -276,7 +269,7 @@ Sketch paths use subtle SVG displacement (approximately 2.4), never distorted te
 
 ## Shapes
 
-Compact controls use 8px corners, reading sheets/figures/mobile contents use 14px, and post hover regions use 18px. Minor inline code, focus outlines, and tape use 5px, 4px, and 2px corners respectively; these are documented supporting shapes, not alternative container radii. Circles are reserved for section cross-references, not post-list numbering or profile labels.
+Use the radius tokens by role: compact controls, reading sheets/figures/mobile contents, post hover regions, inline code, focus, and tape. Circles belong to section cross-references, not post numbering or profile labels.
 
 One header hairline and one footer hairline. Tables have one stronger rule beneath headers and faint row rules. No double rules or dividers between posts.
 
@@ -286,11 +279,11 @@ One header hairline and one footer hairline. Tables have one stronger rule benea
 
 ### Shared navigation and theme control
 
-LW mark, name and mono role; Home and Writing destinations. A sketched circle marks the current page, backed by `aria-current="page"`. Keep visible hover/focus states. Theme toggle is a labelled sun/moon control with a 44px target and a destination-theme label. Production theme persistence and initialization remain protected contracts.
+LW mark, name, mono role, and Home/Writing links. A sketched circle and `aria-current="page"` mark the current page. Theme toggle uses a labelled sun/moon, a 44px target, and a destination-theme label. Preserve hover/focus, theme persistence, and pre-paint initialization.
 
 ### Writing entries and tags
 
-Open linked rows: title → short date/read-time line → optional summary → separate wrapping topics. No post circles or entry numbers. Hover/focus reveals a drawn arrow and soft tonal feedback; touch users must not depend on hover. Tags are quiet text, not invented filtering controls. Summaries cap at 85ch, bounded by row width.
+Open linked rows: title → date/read time → optional summary → wrapping topics. Hover/focus adds a drawn arrow and soft tint; touch must not depend on hover. Tags are quiet text, not filtering controls.
 
 ### Article contents and headings
 
@@ -298,15 +291,15 @@ Open linked rows: title → short date/read-time line → optional summary → s
 
 ### TL;DR and Takeaways
 
-TL;DR is a raised sheet with a soft border and small highlighter tape. It inherits body font size/line height with 1rem horizontal padding and supports paragraphs/lists. Takeaways uses a quiet blue vertical pen rule. `NotebookSummary` and `NotebookTakeaways` provide explicit server-rendered content boundaries rather than incidental sibling selectors or client DOM reconstruction. Existing articles adopt these boundaries with wording and anchors unchanged. Plain Markdown remains usable. See `docs/design/AUTHORING.md`.
+TL;DR is raised paper with a soft border and highlighter tape; Takeaways uses a quiet vertical blue rule. Both inherit prose typography. Preserve explicit server-rendered boundaries, unchanged wording/anchors, and plain Markdown support; see [authoring APIs](docs/design/AUTHORING.md).
 
 ### Code, tables and figures
 
 Code is a raised sheet with a mono language label and local horizontal scrolling. Use the matching Shiki light/dark variables.
 
-Table headers are mono uppercase with a 1.5px ink rule; rows use faint strokes. First-column text uses Bricolage at 550; data columns may use mono. Respect Markdown’s per-column alignment; unspecified columns align left. `NotebookTable` captions use semantic `<caption>` elements and are numbered “Table N —”. Natural table width is measured against the resolved article reading track (including subgrid), after fonts and on resize, with Astro lifecycle cleanup. No-JS tables remain reading-width and scroll locally.
+Tables use uppercase mono headers, a 1.5px ink header rule, and faint row strokes. First-column text uses Bricolage at 550; data may use mono. Preserve column alignment (left by default), semantic captions numbered “Table N —”, and local scrolling. Width promotion follows the resolved reading track after fonts/resize, with Astro cleanup.
 
-`NotebookFigure` uses semantic `<figure>` / `<figcaption>`, softly rounded images, numbered “fig. N” labels and italic captions. No captions are inferred from neighboring paragraphs. Wide figures reach the wide edge; phone captures stay about 18rem with captions alongside, stacking below on mobile.
+Figures use semantic captions, soft corners, “fig. N” labels, and italic captions. Wide figures reach the wide edge; phone figures stay about 18rem with adjacent captions, stacking on mobile. Never infer captions from neighboring paragraphs.
 
 ### Footer and accessibility
 
@@ -317,16 +310,18 @@ Provide a skip link, visible 3px pen-blue focus outline, semantic headings and l
 ## Do's and Don'ts
 
 ### Do
+
 - **Do** preserve the approved Notebook identity and factual content.
 - **Do** pair light/graphite roles and render the correct code syntax theme.
 - **Do** separate tags from short publication details.
-- **Do** preserve 42rem sustained reading and allow 85ch scanning summaries.
+- **Do** preserve the Reading-Measure and Two-Edges rules.
 - **Do** retain article section circles where they provide cross-reference.
 - **Do** keep layouts legible with long titles, many tags, no summary and narrow viewports.
 
 ### Don't
+
 - **Don't** restore the logo node, connectors, A/B profile labels or post-number circles.
 - **Don't** highlight all bold text or add handwriting fonts, glow or shadows.
 - **Don't** box profile facts, article headings or post rows as repeated cards.
 - **Don't** add inactive search, filters or other nonexistent features.
-- **Don't** replace factual copy, invent proof, or treat archived Folio rules as the migration target.
+- **Don't** replace factual copy, invent proof, or substitute superseded design directions for the approved Notebook system.
