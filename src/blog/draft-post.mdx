@@ -2,6 +2,128 @@
 title: 'Draft Post'
 publishedOn: 2024-01-02
 summary: You should not see this post on the deployed site.
+published: false
 ---
 
+import NotebookSummary from '@/components/NotebookSummary.astro'
+import NotebookTakeaways from '@/components/NotebookTakeaways.astro'
+import NotebookFigure from '@/components/NotebookFigure.astro'
+import NotebookTable from '@/components/NotebookTable.astro'
+import landscape from './draft-assets/landscape.svg?raw'
+import portrait from './draft-assets/portrait.svg?raw'
+
+export const landscapeSrc = `data:image/svg+xml,${encodeURIComponent(landscape)}`
+export const portraitSrc = `data:image/svg+xml,${encodeURIComponent(portrait)}`
+
 This is an unpublished draft post with no tags. It is only visible on local development.
+
+## Summary
+
+<NotebookSummary>
+
+This development sample checks ordinary paragraphs and lists inside a summary.
+
+- Keep the normal reading size and line height.
+- Keep the list inside the summary boundary.
+
+This second paragraph checks spacing after a list.
+
+</NotebookSummary>
+
+## Figures
+
+### Reading figure
+
+<NotebookFigure
+  src={landscapeSrc}
+  alt="Landscape test artwork with three color bands and an inset border"
+  width={1440}
+  height={900}
+  caption="A reading-width figure with an explicit caption."
+/>
+
+### Wide figure
+
+<NotebookFigure
+  src={landscapeSrc}
+  alt="Wide landscape test artwork with all four borders visible"
+  width={1440}
+  height={900}
+  kind="wide"
+>
+  A wide figure with <em>inline caption markup</em>.
+</NotebookFigure>
+
+### Phone figure
+
+<NotebookFigure
+  src={portraitSrc}
+  alt="Portrait test artwork with three color bands labeled 390 by 844 pixels"
+  width={390}
+  height={844}
+  kind="phone"
+  caption="A narrow image with a caption alongside on desktop and below on mobile."
+/>
+
+## Tables
+
+### Structured table
+
+<NotebookTable
+  headers={['Label', 'Center', 'Right']}
+  rows={[
+    ['Alpha', '10', '100'],
+    ['Beta', '20', '200'],
+  ]}
+  align={['left', 'center', 'right']}
+  caption="Sample values with explicit column alignment."
+/>
+
+### Wide table
+
+<NotebookTable
+  headers={['Record', 'Artifact', 'Count']}
+  rows={[
+    [
+      'draft_record_abcdefghijklmnopqrstuvwxyz_ABCDEFGHIJKLMNOPQRSTUVWXYZ_0123456789',
+      'draft_artifact_abcdefghijklmnopqrstuvwxyz_ABCDEFGHIJKLMNOPQRSTUVWXYZ_0123456789',
+      '123,456',
+    ],
+  ]}
+  align={['left', 'left', 'right']}
+  caption="Long unbroken sample values require local scrolling on a narrow screen."
+/>
+
+### Markdown table
+
+| Left  | Center | Right |
+| :---- | :----: | ----: |
+| Alpha |   A    |    12 |
+| Beta  |   B    |   345 |
+
+## Code and math
+
+The long line and equation below check local overflow without page scrolling.
+
+```ts
+const sample =
+  'draft_record_abcdefghijklmnopqrstuvwxyz_ABCDEFGHIJKLMNOPQRSTUVWXYZ_0123456789_draft_artifact_abcdefghijklmnopqrstuvwxyz_ABCDEFGHIJKLMNOPQRSTUVWXYZ_0123456789'
+```
+
+$$
+\text{A deliberately long development equation with enough terms to exceed a narrow reading column}
+= \sum_{i=1}^{100} i^2 + \sum_{j=1}^{100} j^3
+$$
+
+## Takeaways
+
+<NotebookTakeaways>
+
+This draft is the active content source for local acceptance checks. It must not be published.
+
+- Unit tests check publication selection without a dev server.
+- Local acceptance checks use this real MDX page only on demand.
+
+This final paragraph checks spacing after the takeaway list.
+
+</NotebookTakeaways>

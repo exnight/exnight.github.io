@@ -1,54 +1,52 @@
 ---
-import PageFrame from './PageFrame.astro'
+import NavIcon from './NavIcon.astro'
+import Sketch from './Sketch.astro'
 import ThemeToggle from './ThemeToggle.astro'
-
-const pathname = Astro.url.pathname
-const navLinkClass =
-  "relative py-[1.55rem] text-meta font-bold tracking-[0.14em] uppercase no-underline after:absolute after:right-0 after:bottom-4 after:left-0 after:h-0.5 after:scale-x-[0.35] after:rounded-sm after:bg-vermilion after:opacity-0 after:transition-[opacity,transform] after:duration-[180ms] after:ease-editorial after:content-[''] hover:after:scale-x-100 hover:after:opacity-100 max-[720px]:py-5 max-[720px]:text-nav-mobile"
-const activeNavLinkClass = 'after:scale-x-100 after:opacity-100'
+const path = Astro.url.pathname
+const links = [
+  { label: 'Home', href: '/', current: path === '/' },
+  { label: 'Writing', href: '/blog', current: path.startsWith('/blog') },
+]
 ---
 
-<header class="border-line-soft bg-header-surface sticky top-0 z-50 border-b">
-  <PageFrame
-    as="nav"
-    id="navigation"
-    class="flex min-h-17 items-center justify-between max-[720px]:min-h-15"
+<header class="n-header border-b-strong-hairline border-b">
+  <nav
+    class="n-wrap n-header__inner compact:min-h-15 compact:gap-2 flex min-h-18 items-center justify-between gap-4"
     aria-label="Primary navigation"
   >
-    <a href="/" class="inline-flex items-center gap-3 no-underline" aria-label="Leo Wong, home">
-      <span class="text-meta text-vermilion font-bold tracking-[0.14em] uppercase">LW</span>
-      <span class="text-meta text-ink font-bold tracking-[0.14em] uppercase max-[720px]:hidden"
-        >/ Leo Wong</span
+    <a
+      class="n-brand compact:gap-[0.4rem] inline-flex items-center gap-[0.7rem] no-underline"
+      href="/"
+      aria-label="Leo Wong, home"
+    >
+      <span class="n-mark"><NavIcon /></span>
+      <span
+        class="n-brand__name compact:text-[1rem] narrow:hidden text-[1.1rem] font-[650] tracking-[-0.01em] whitespace-nowrap"
+        >Leo Wong</span
+      >
+      <span class="n-brand__role text-muted compact:hidden font-mono text-[0.78rem] font-normal"
+        >/ software engineer</span
       >
     </a>
-
-    <div class="flex items-center gap-[clamp(1.2rem,3vw,3rem)] max-[720px]:gap-4">
-      <a
-        href="/"
-        class:list={[navLinkClass, pathname === '/' && activeNavLinkClass]}
-        aria-current={pathname === '/' ? 'page' : undefined}>Home</a
-      >
-      <a
-        href="/blog"
-        class:list={[navLinkClass, pathname.startsWith('/blog') && activeNavLinkClass]}
-        aria-current={pathname.startsWith('/blog') ? 'page' : undefined}>Writing</a
-      >
-      <ThemeToggle />
-    </div>
-  </PageFrame>
-
-  <script>
-    const headerEl = document.querySelector('header')
-
-    function updateHeaderHeight() {
-      if (!headerEl) return
-      const h = Math.ceil(headerEl.getBoundingClientRect().height)
-      document.documentElement.style.setProperty('--header-height', `${h}px`)
-    }
-    updateHeaderHeight()
-    window.addEventListener('resize', updateHeaderHeight)
-    if (typeof ResizeObserver !== 'undefined' && headerEl) {
-      new ResizeObserver(updateHeaderHeight).observe(headerEl)
-    }
-  </script>
+    <span class="n-nav compact:gap-0 ml-auto flex gap-[clamp(0.75rem,2vw,1.5rem)]">
+      {
+        links.map((link) => (
+          <a
+            class="[&:hover]:text-pen compact:px-2 compact:py-[0.65rem] relative px-[0.85rem] py-[0.45rem] text-[1.02rem] font-[550] no-underline"
+            href={link.href}
+            aria-current={link.current ? 'page' : undefined}
+          >
+            {link.label}
+            {link.current && (
+              <Sketch
+                kind="circle"
+                class="n-nav__circle absolute inset-x-[-0.35rem] inset-y-[-0.2rem] h-[calc(100%+0.4rem)] w-[calc(100%+0.7rem)] [--sketch-stroke:1.6]"
+              />
+            )}
+          </a>
+        ))
+      }
+    </span>
+    <ThemeToggle />
+  </nav>
 </header>

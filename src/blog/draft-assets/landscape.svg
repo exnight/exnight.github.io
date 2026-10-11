@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900">
+  <title>Landscape layout test image</title>
+  <desc>Three colored horizontal bands with corner markers and a centered dimension label. Placeholder artwork, not a photograph.</desc>
+  <rect width="1440" height="300" fill="#b9d3e2"/>
+  <rect y="300" width="1440" height="300" fill="#668b78"/>
+  <rect y="600" width="1440" height="300" fill="#d3b78b"/>
+  <g fill="none" stroke="#233b43" stroke-width="8">
+    <rect x="24" y="24" width="1392" height="852"/>
+    <path d="M24 96V24h72M1344 24h72v72M24 804v72h72M1344 876h72v-72" stroke-width="16"/>
+  </g>
+  <rect x="380" y="390" width="680" height="120" rx="8" fill="#fff"/>
+  <text x="720" y="464" text-anchor="middle" font-family="sans-serif" font-size="42" fill="#233b43">LANDSCAPE · 1440 × 900</text>
+</svg>

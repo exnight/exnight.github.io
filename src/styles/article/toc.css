@@ -1,0 +1,44 @@
+/* Article contents placement and disclosure. TableOfContents owns its utilities.
+   Keep the breakpoint equal to content.css and article.ts. */
+
+.notebook .n-toc {
+  position: sticky;
+  top: 1.5rem;
+  align-self: start;
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.notebook .n-toc summary {
+  margin-bottom: 0.75rem;
+}
+
+@media (width <= 65.5rem) {
+  .notebook .n-toc {
+    position: static;
+    margin-bottom: 2.25rem;
+    padding: 0.85rem 1rem;
+    border: 1px solid var(--hair);
+    border-radius: var(--r-md);
+    background: var(--raised);
+  }
+  .notebook .n-toc summary {
+    margin: 0;
+  }
+  .notebook .n-toc details[open] summary {
+    margin-bottom: 0.75rem;
+  }
+}
+
+@media (width > 65.5rem) {
+  .notebook .n-toc details:not([open]) > ol {
+    display: block;
+  }
+  .notebook .n-toc summary {
+    list-style: none;
+    pointer-events: none;
+  }
+  .notebook .n-toc summary::-webkit-details-marker {
+    display: none;
+  }
+}

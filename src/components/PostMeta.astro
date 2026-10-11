@@ -1,33 +1,30 @@
 ---
-import { DATE_FORMAT_DISPLAY } from '@/utils'
-
+import { DATE_FORMAT_DISPLAY } from '@/lib/posts'
+import PostTags from './PostTags.astro'
 interface Props {
-  publishedOn: Date
-  tags?: string[]
-  readTime?: number
-  variant: 'recent' | 'index' | 'article'
+  data: { publishedOn: Date; updatedOn?: Date; readTime: number; tags: string[] }
+  article?: boolean
 }
-
-const { publishedOn, tags = [], readTime, variant }: Props = Astro.props
-const displayedTags = variant === 'recent' ? tags.slice(0, 3) : tags
-const baseClass = 'text-meta font-bold tracking-[0.14em] uppercase'
-const variantClasses: Record<Props['variant'], string> = {
-  recent:
-    'mb-4 flex flex-wrap gap-x-8 gap-y-3 text-vermilion max-[720px]:mb-[0.7rem] max-[720px]:text-entry-meta-mobile',
-  index:
-    'flex flex-col gap-[0.55rem] text-vermilion max-[720px]:flex-row max-[720px]:flex-wrap max-[720px]:gap-x-4 max-[720px]:gap-y-[0.6rem]',
-  article: 'mb-6 flex flex-wrap gap-x-6 gap-y-3 text-vermilion',
-}
+const { data, article = false } = Astro.props
+const format = (date: Date) => date.toLocaleDateString('en-US', DATE_FORMAT_DISPLAY)
 ---
 
-<div class:list={[baseClass, variantClasses[variant]]}>
-  <time datetime={publishedOn.toISOString()}>
-    {publishedOn.toLocaleDateString('en-US', DATE_FORMAT_DISPLAY)}
-  </time>
-  {variant === 'index' && readTime ? <span class="text-muted">{readTime} min read</span> : null}
-  {
-    variant !== 'index' && displayedTags.length ? (
-      <span class="text-muted">{displayedTags.join(' / ')}</span>
-    ) : null
-  }
+<div class:list={['n-entry-meta', article && 'n-article__records']}>
+  <p
+    class:list={[
+      `n-meta text-muted [&>:not(:last-child)]:after:text-strong-hairline [&_time]:text-soft-ink compact:text-[0.68rem] compact:[&>:not(:last-child)]:after:mx-2 flex flex-wrap items-baseline gap-x-0 gap-y-[0.2rem] font-mono text-[0.74rem] tracking-[0.06em] uppercase [&>:not(:last-child)]:after:mx-[0.7rem] [&>:not(:last-child)]:after:content-['·']`,
+      article ? 'n-article__meta mt-6 mb-3' : 'm-0',
+    ]}
+  >
+    <time datetime={data.publishedOn.toISOString()}>{format(data.publishedOn)}</time>
+    <span>{data.readTime} min read</span>
+    {
+      article && data.updatedOn && (
+        <span>
+          Updated <time datetime={data.updatedOn.toISOString()}>{format(data.updatedOn)}</time>
+        </span>
+      )
+    }
+  </p>
+  {article && data.tags.length > 0 && <PostTags tags={data.tags} />}
 </div>
