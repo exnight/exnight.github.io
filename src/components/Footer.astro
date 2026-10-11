@@ -1,22 +1,23 @@
----
-import PageFrame from '@/components/PageFrame.astro'
-import SocialIconLink from '@/components/SocialIconLink.astro'
----
-
-<footer class="border-line bg-folio text-folio-ink border-t">
-  <PageFrame class="flex min-h-22 items-center justify-between max-[720px]:min-h-20">
-    <span class="text-footer text-folio-muted">© {new Date().getFullYear()}</span>
-    <nav class="flex gap-[0.65rem]" aria-label="Social profiles">
-      <SocialIconLink
+<footer class="n-footer border-t-strong-hairline border-t">
+  <div
+    class="n-wrap n-footer__inner text-muted flex flex-wrap items-center justify-between gap-x-8 gap-y-2 pt-6 pb-9 text-[0.82rem]"
+  >
+    <p class="m-0 font-mono font-normal">© {new Date().getFullYear()} Leo Wong</p>
+    <nav class="n-footer__links flex gap-6 font-[550]" aria-label="Social profiles">
+      <a
+        class="text-ink [&:hover]:text-pen no-underline"
         href="https://github.com/exnight"
-        label="Leo Wong on GitHub"
-        network="github"
-      />
-      <SocialIconLink
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="GitHub (opens in a new tab)">GitHub ↗</a
+      >
+      <a
+        class="text-ink [&:hover]:text-pen no-underline"
         href="https://www.linkedin.com/in/jyleowong/"
-        label="Leo Wong on LinkedIn"
-        network="linkedin"
-      />
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="LinkedIn (opens in a new tab)">LinkedIn ↗</a
+      >
     </nav>
-  </PageFrame>
+  </div>
 </footer>

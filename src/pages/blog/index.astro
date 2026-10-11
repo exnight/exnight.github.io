@@ -1,17 +1,60 @@
 ---
 import Layout from '@/layouts/Layout.astro'
-import PageHeading from '@/components/PageHeading.astro'
-import PostGrid from '@/components/PostGrid.astro'
-import Section from '@/components/Section.astro'
+import PostEntry from '@/components/PostEntry.astro'
+import Sketch from '@/components/Sketch.astro'
+import { getBlogPosts, groupPostsByYear } from '@/lib/posts'
+const posts = await getBlogPosts()
+const years = groupPostsByYear(posts)
 ---
 
-<Layout>
-  <Section class="min-h-[70vh]">
-    <PageHeading
-      title="My Posts"
-      description="Technical notes and personal interests, newest first."
-      note="I publish my thoughts from time to time."
-    />
-    <PostGrid />
-  </Section>
+<Layout title="Writing" description="Notes on software and the things I learn beyond it.">
+  <div class="n-wrap n-archive pt-[clamp(3rem,6vw,5.5rem)] pb-[clamp(4rem,8vw,7rem)]">
+    <header class="n-archive__head mb-[clamp(3rem,6vw,5rem)]">
+      <h1
+        class="relative m-0 inline-block text-[clamp(3rem,5.4vw,4.6rem)] leading-[1.05] font-[650] tracking-[-0.035em] font-stretch-90%"
+      >
+        Writing<Sketch
+          kind="underline"
+          class="n-archive__mark absolute bottom-[-0.15em] left-0 h-[0.18em] w-full"
+        />
+      </h1>
+      <p
+        class="text-soft-ink compact:text-[1.0625rem] m-0 mt-7 mb-4 max-w-2xl font-serif text-[1.2rem] leading-[1.6]"
+      >
+        Notes on software and the things I learn beyond it.
+      </p>
+      <span class="n-archive__count text-muted font-mono text-xs leading-[normal] font-normal"
+        >{posts.length} {posts.length === 1 ? 'post' : 'posts'} · newest first</span
+      >
+    </header>
+    {
+      years.map(([year, entries]) => (
+        <section
+          class="n-archive__year compact:grid-cols-[minmax(0,1fr)] compact:gap-[0.8rem] grid grid-cols-[8rem_minmax(0,1fr)] gap-[clamp(1.5rem,4vw,4rem)] [&+&]:mt-14"
+          aria-labelledby={`year-${year}`}
+        >
+          <h2
+            id={`year-${year}`}
+            class="text-pen compact:mt-0 m-0 mt-6 font-mono text-[1.15rem] leading-[1.4] font-normal"
+          >
+            {year}
+          </h2>
+          <ol class="n-log__list compact:-mx-3 m-0 -mx-4 grid list-none gap-[0.35rem] p-0">
+            {entries.map((post) => (
+              <li>
+                <PostEntry post={post} />
+              </li>
+            ))}
+          </ol>
+        </section>
+      ))
+    }
+    {
+      posts.length === 0 && (
+        <p class="n-archive__empty text-soft-ink">
+          No published notes yet. <a href="/">Back to home</a>.
+        </p>
+      )
+    }
+  </div>
 </Layout>
